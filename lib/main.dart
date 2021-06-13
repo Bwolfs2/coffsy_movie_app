@@ -1,14 +1,11 @@
-import 'package:bloc/bloc.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-// TODO: This is not recommendation
-import 'package:core/core.dart' as di;
-
-import 'launcher/movie_app.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'app/app_module.dart';
+import 'app/app_widget.dart';
 
 void main() async {
   Bloc.observer = MovieBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
-  await di.init(ApiConstant.baseUrlDebug);
-  runApp(MovieApp());
+  runApp(ModularApp(module: AppModule(), child: AppWidget()));
 }

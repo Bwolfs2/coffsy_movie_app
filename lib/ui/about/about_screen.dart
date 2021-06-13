@@ -1,7 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:shared/shared.dart';
+import 'package:coffsy_design_system/coffsy_design_system.dart';
+import 'package:core/core.dart';
 
 class AboutScreen extends StatelessWidget {
   static const routeName = '/about';

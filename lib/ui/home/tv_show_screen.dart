@@ -9,7 +9,8 @@ import 'package:coffsy_movie_app/ui/menu/menu.dart';
 import 'package:coffsy_movie_app/ui/tv_show/airing_today/airing_today_screen.dart';
 import 'package:coffsy_movie_app/ui/tv_show/on_the_air/on_the_air_screen.dart';
 import 'package:coffsy_movie_app/ui/tv_show/popular/tv_popular_screen.dart';
-import 'package:shared/shared.dart';
+import 'package:coffsy_design_system/coffsy_design_system.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class TvShowScreen extends StatefulWidget {
   @override
@@ -21,15 +22,15 @@ class _TvShowScreenState extends State<TvShowScreen> {
   int _current = 0;
 
   _loadTvOnAir(BuildContext context) {
-    context.read<TvOnTheAirBloc>().add(LoadTvOnTheAir());
+    Modular.get<TvOnTheAirBloc>().add(LoadTvOnTheAir());
   }
 
   _loadTvAiring(BuildContext context) {
-    context.read<TvAiringTodayBloc>().add(LoadTvAiringToday());
+    Modular.get<TvAiringTodayBloc>().add(LoadTvAiringToday());
   }
 
   _loadTvPopular(BuildContext context) {
-    context.read<TvPopularBloc>().add(LoadTvPopular());
+    Modular.get<TvPopularBloc>().add(LoadTvPopular());
   }
 
   Future<void> _refresh() {
@@ -108,6 +109,7 @@ class _TvShowScreenState extends State<TvShowScreen> {
 
   Widget _buildBanner(BuildContext context) {
     return BlocBuilder<TvOnTheAirBloc, TvOnTheAirState>(
+      bloc: Modular.get<TvOnTheAirBloc>(),
       builder: (context, state) {
         if (state is TvOnTheAirHasData) {
           _refreshCompleter.complete();
@@ -180,6 +182,7 @@ class _TvShowScreenState extends State<TvShowScreen> {
           width: Sizes.width(context),
           height: Sizes.width(context) / 1.8,
           child: BlocBuilder<TvAiringTodayBloc, TvAiringTodayState>(
+            bloc: Modular.get<TvAiringTodayBloc>(),
             builder: (context, state) {
               if (state is TvAiringTodayHasData) {
                 _refreshCompleter.complete();
@@ -264,6 +267,7 @@ class _TvShowScreenState extends State<TvShowScreen> {
           width: Sizes.width(context),
           height: Sizes.width(context) / 1.8,
           child: BlocBuilder<TvPopularBloc, TvPopularState>(
+            bloc: Modular.get<TvPopularBloc>(),
             builder: (context, state) {
               if (state is TvPopularHasData) {
                 _refreshCompleter.complete();

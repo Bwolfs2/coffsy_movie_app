@@ -4,7 +4,8 @@ import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:coffsy_movie_app/ui/detail/detail_screen.dart';
-import 'package:shared/shared.dart';
+import 'package:coffsy_design_system/coffsy_design_system.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class OnTheAirScreen extends StatefulWidget {
   static const routeName = '/on_the_air';
@@ -17,7 +18,7 @@ class _OnTheAirScreenState extends State<OnTheAirScreen> {
   Completer<void> _refreshCompleter = Completer<void>();
 
   _loadTvOnAir(BuildContext context) {
-    context.read<TvOnTheAirBloc>().add(LoadTvOnTheAir());
+    Modular.get<TvOnTheAirBloc>().add(LoadTvOnTheAir());
   }
 
   Future<void> _refresh() {
@@ -42,6 +43,7 @@ class _OnTheAirScreenState extends State<OnTheAirScreen> {
         onRefresh: _refresh,
         showChildOpacityTransition: false,
         child: BlocBuilder<TvOnTheAirBloc, TvOnTheAirState>(
+          bloc: Modular.get<TvOnTheAirBloc>(),
           builder: (context, state) {
             if (state is TvOnTheAirHasData) {
               _refreshCompleter.complete();

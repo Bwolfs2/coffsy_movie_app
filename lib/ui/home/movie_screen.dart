@@ -9,7 +9,8 @@ import 'package:coffsy_movie_app/ui/menu/menu.dart';
 import 'package:coffsy_movie_app/ui/movie/now_playing/now_playing_screen.dart';
 import 'package:coffsy_movie_app/ui/movie/popular/movie_popular_screen.dart';
 import 'package:coffsy_movie_app/ui/movie/up_coming/up_coming_screen.dart';
-import 'package:shared/shared.dart';
+import 'package:coffsy_design_system/coffsy_design_system.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class MovieScreen extends StatefulWidget {
   @override
@@ -21,15 +22,15 @@ class _MovieScreenState extends State<MovieScreen> {
   int _current = 0;
 
   _loadMovieNowPlaying(BuildContext context) {
-    context.read<MovieNowPlayingBloc>().add(LoadMovieNowPlaying());
+    Modular.get<MovieNowPlayingBloc>().add(LoadMovieNowPlaying());
   }
 
   _loadMoviePopular(BuildContext context) {
-    context.read<MoviePopularBloc>().add(LoadMoviePopular());
+    Modular.get<MoviePopularBloc>().add(LoadMoviePopular());
   }
 
   _loadMovieUpComing(BuildContext context) {
-    context.read<MovieUpComingBloc>().add(LoadMovieUpComing());
+    Modular.get<MovieUpComingBloc>().add(LoadMovieUpComing());
   }
 
   Future<void> _refresh() {
@@ -109,6 +110,7 @@ class _MovieScreenState extends State<MovieScreen> {
 
   Widget _buildBanner(BuildContext context) {
     return BlocBuilder<MovieNowPlayingBloc, MovieNowPlayingState>(
+      bloc: Modular.get<MovieNowPlayingBloc>(),
       builder: (context, state) {
         if (state is MovieNowPlayingHasData) {
           _refreshCompleter.complete();
@@ -181,6 +183,7 @@ class _MovieScreenState extends State<MovieScreen> {
           width: Sizes.width(context),
           height: Sizes.width(context) / 1.8,
           child: BlocBuilder<MovieUpComingBloc, MovieUpComingState>(
+            bloc: Modular.get<MovieUpComingBloc>(),
             builder: (context, state) {
               if (state is MovieUpComingHasData) {
                 _refreshCompleter.complete();
@@ -189,9 +192,7 @@ class _MovieScreenState extends State<MovieScreen> {
                   shrinkWrap: true,
                   physics: ClampingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
-                  itemCount: state.result.results.length > 5
-                      ? 5
-                      : state.result.results.length,
+                  itemCount: state.result.results.length > 5 ? 5 : state.result.results.length,
                   itemBuilder: (BuildContext context, int index) {
                     Movies movies = state.result.results[index];
                     return CardHome(
@@ -267,6 +268,7 @@ class _MovieScreenState extends State<MovieScreen> {
           width: Sizes.width(context),
           height: Sizes.width(context) / 1.8,
           child: BlocBuilder<MoviePopularBloc, MoviePopularState>(
+            bloc: Modular.get<MoviePopularBloc>(),
             builder: (context, state) {
               if (state is MoviePopularHasData) {
                 _refreshCompleter.complete();
@@ -275,9 +277,7 @@ class _MovieScreenState extends State<MovieScreen> {
                   shrinkWrap: true,
                   physics: ClampingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
-                  itemCount: state.result.results.length > 5
-                      ? 5
-                      : state.result.results.length,
+                  itemCount: state.result.results.length > 5 ? 5 : state.result.results.length,
                   itemBuilder: (BuildContext context, int index) {
                     Movies movies = state.result.results[index];
                     return CardHome(

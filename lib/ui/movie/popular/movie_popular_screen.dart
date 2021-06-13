@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:coffsy_movie_app/ui/detail/detail_screen.dart';
-import 'package:shared/shared.dart';
+import 'package:coffsy_design_system/coffsy_design_system.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class MoviePopularScreen extends StatefulWidget {
   static const routeName = '/movie_popular';
@@ -18,7 +19,7 @@ class _MoviePopularScreenState extends State<MoviePopularScreen> {
   Completer<void> _refreshCompleter = Completer<void>();
 
   _loadMoviePopular(BuildContext context) {
-    context.read<MoviePopularBloc>().add(LoadMoviePopular());
+    Modular.get<MoviePopularBloc>().add(LoadMoviePopular());
   }
 
   @override
@@ -43,6 +44,7 @@ class _MoviePopularScreenState extends State<MoviePopularScreen> {
         onRefresh: _refresh,
         showChildOpacityTransition: false,
         child: BlocBuilder<MoviePopularBloc, MoviePopularState>(
+          bloc: Modular.get<MoviePopularBloc>(),
           builder: (context, state) {
             if (state is MoviePopularHasData) {
               _refreshCompleter.complete();

@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:coffsy_movie_app/ui/detail/detail_screen.dart';
-import 'package:shared/shared.dart';
+import 'package:coffsy_design_system/coffsy_design_system.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class UpComingScreen extends StatefulWidget {
   static const routeName = '/up_coming';
@@ -18,7 +19,7 @@ class _UpComingScreenState extends State<UpComingScreen> {
   Completer<void> _refreshCompleter = Completer<void>();
 
   _loadMovieUpComing(BuildContext context) {
-    context.read<MovieUpComingBloc>().add(LoadMovieUpComing());
+    Modular.get<MovieUpComingBloc>().add(LoadMovieUpComing());
   }
 
   Future<void> _refresh() {
@@ -43,6 +44,7 @@ class _UpComingScreenState extends State<UpComingScreen> {
         onRefresh: _refresh,
         showChildOpacityTransition: false,
         child: BlocBuilder<MovieUpComingBloc, MovieUpComingState>(
+          bloc: Modular.get<MovieUpComingBloc>(),
           builder: (context, state) {
             if (state is MovieUpComingHasData) {
               _refreshCompleter.complete();

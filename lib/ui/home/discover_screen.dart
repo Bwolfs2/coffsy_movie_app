@@ -3,7 +3,8 @@ import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:coffsy_movie_app/ui/detail/detail_screen.dart';
-import 'package:shared/shared.dart';
+import 'package:coffsy_design_system/coffsy_design_system.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class DiscoverScreen extends StatefulWidget {
   static const routeName = '/discover_movie';
@@ -14,7 +15,7 @@ class DiscoverScreen extends StatefulWidget {
 
 class _DiscoverScreenState extends State<DiscoverScreen> {
   _loadDiscoverMovie(BuildContext context) {
-    context.read<DiscoverMovieBloc>().add(LoadDiscoverMovie());
+    Modular.get<DiscoverMovieBloc>().add(LoadDiscoverMovie());
   }
 
   @override
@@ -35,6 +36,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
         ),
       ),
       body: BlocBuilder<DiscoverMovieBloc, DiscoverMovieState>(
+        bloc: Modular.get<DiscoverMovieBloc>(),
         builder: (context, state) {
           if (state is DiscoverMovieHasData) {
             return PageView.builder(
@@ -105,10 +107,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                             children: <Widget>[
                               Text(
                                 '$position',
-                                style: TextStyle(
-                                    color: ColorPalettes.white,
-                                    fontSize: Sizes.dp25(context),
-                                    fontWeight: FontWeight.bold),
+                                style: TextStyle(color: ColorPalettes.white, fontSize: Sizes.dp25(context), fontWeight: FontWeight.bold),
                               ),
                               Text(
                                 "/${state.result.results.length}",

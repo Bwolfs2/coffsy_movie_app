@@ -1,7 +1,7 @@
 import 'package:core/core.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shared/shared.dart';
+import 'package:coffsy_design_system/coffsy_design_system.dart';
 
 class CrewBloc extends Bloc<CrewEvent, CrewState> {
   final Repository repository;

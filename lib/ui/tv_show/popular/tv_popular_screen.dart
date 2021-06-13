@@ -4,7 +4,8 @@ import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:coffsy_movie_app/ui/detail/detail_screen.dart';
-import 'package:shared/shared.dart';
+import 'package:coffsy_design_system/coffsy_design_system.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class TvPopularScreen extends StatefulWidget {
   static const routeName = '/tv_popular';
@@ -17,7 +18,7 @@ class _TvPopularScreenState extends State<TvPopularScreen> {
   Completer<void> _refreshCompleter = Completer<void>();
 
   _loadTvPopular(BuildContext context) {
-    context.read<TvPopularBloc>().add(LoadTvPopular());
+    Modular.get<TvPopularBloc>().add(LoadTvPopular());
   }
 
   Future<void> _refresh() {
@@ -42,6 +43,7 @@ class _TvPopularScreenState extends State<TvPopularScreen> {
         onRefresh: _refresh,
         showChildOpacityTransition: false,
         child: BlocBuilder<TvPopularBloc, TvPopularState>(
+          bloc: Modular.get<TvPopularBloc>(),
           builder: (context, state) {
             if (state is TvPopularHasData) {
               _refreshCompleter.complete();

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:coffsy_movie_app/ui/home/discover_screen.dart';
 import 'package:coffsy_movie_app/ui/home/movie_screen.dart';
 import 'package:coffsy_movie_app/ui/home/tv_show_screen.dart';
-import 'package:shared/shared.dart';
+import 'package:coffsy_design_system/coffsy_design_system.dart';
+import 'package:core/core.dart';
 
 class DashBoardScreen extends StatefulWidget {
   static const routeName = '/';
@@ -71,14 +72,12 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               IconButton(
-                color:
-                    _page == 0 ? ColorPalettes.darkAccent : ColorPalettes.grey,
+                color: _page == 0 ? ColorPalettes.darkAccent : ColorPalettes.grey,
                 icon: Icon(Icons.movie_creation),
                 onPressed: () => _navigationTapped(0),
               ),
               IconButton(
-                color:
-                    _page == 1 ? ColorPalettes.darkAccent : ColorPalettes.grey,
+                color: _page == 1 ? ColorPalettes.darkAccent : ColorPalettes.grey,
                 icon: Icon(Icons.live_tv),
                 onPressed: () => _navigationTapped(1),
               ),

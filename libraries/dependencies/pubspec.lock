@@ -85,6 +85,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.1"
+  dartz:
+    dependency: transitive
+    description:
+      name: dartz
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.10.0-nullsafety.2"
   dio:
     dependency: "direct main"
     description:
@@ -160,6 +167,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.0"
+  flutter_modular:
+    dependency: "direct main"
+    description:
+      name: flutter_modular
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.3.0-beta.6"
+  flutter_modular_annotations:
+    dependency: transitive
+    description:
+      name: flutter_modular_annotations
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -184,13 +205,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "8.0.7"
-  get_it:
-    dependency: "direct main"
-    description:
-      name: get_it
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "7.1.3"
   http:
     dependency: transitive
     description:
@@ -379,7 +393,7 @@ packages:
       name: rxdart
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.27.1"
+    version: "0.26.0"
   shared_preferences:
     dependency: "direct main"
     description:
@@ -497,6 +511,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.19"
+  triple:
+    dependency: transitive
+    description:
+      name: triple
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2"
   typed_data:
     dependency: transitive
     description:

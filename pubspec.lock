@@ -113,6 +113,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0"
+  coffsy_design_system:
+    dependency: "direct main"
+    description:
+      path: "libraries/coffsy_design_system"
+      relative: true
+    source: path
+    version: "0.0.1"
   collection:
     dependency: transitive
     description:
@@ -155,6 +162,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
+  dartz:
+    dependency: transitive
+    description:
+      name: dartz
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.10.0-nullsafety.2"
   dependencies:
     dependency: "direct main"
     description:
@@ -237,6 +251,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.0"
+  flutter_modular:
+    dependency: transitive
+    description:
+      name: flutter_modular
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.3.0-beta.6"
+  flutter_modular_annotations:
+    dependency: transitive
+    description:
+      name: flutter_modular_annotations
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2"
   flutter_svg:
     dependency: transitive
     description:
@@ -261,13 +289,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "8.0.7"
-  get_it:
-    dependency: transitive
-    description:
-      name: get_it
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "7.1.3"
   glob:
     dependency: transitive
     description:
@@ -498,14 +519,7 @@ packages:
       name: rxdart
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.27.1"
-  shared:
-    dependency: "direct main"
-    description:
-      path: "libraries/shared"
-      relative: true
-    source: path
-    version: "0.0.1"
+    version: "0.26.0"
   shared_preferences:
     dependency: transitive
     description:
@@ -630,6 +644,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.19"
+  triple:
+    dependency: transitive
+    description:
+      name: triple
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2"
   typed_data:
     dependency: transitive
     description:

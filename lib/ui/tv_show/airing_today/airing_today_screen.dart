@@ -4,7 +4,8 @@ import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:coffsy_movie_app/ui/detail/detail_screen.dart';
-import 'package:shared/shared.dart';
+import 'package:coffsy_design_system/coffsy_design_system.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class AiringTodayScreen extends StatefulWidget {
   static const routeName = '/airing_today';
@@ -17,7 +18,7 @@ class _AiringTodayScreenState extends State<AiringTodayScreen> {
   Completer<void> _refreshCompleter = Completer<void>();
 
   _loadTvAiring(BuildContext context) {
-    context.read<TvAiringTodayBloc>().add(LoadTvAiringToday());
+    Modular.get<TvAiringTodayBloc>().add(LoadTvAiringToday());
   }
 
   Future<void> _refresh() {
@@ -42,6 +43,7 @@ class _AiringTodayScreenState extends State<AiringTodayScreen> {
         onRefresh: _refresh,
         showChildOpacityTransition: false,
         child: BlocBuilder<TvAiringTodayBloc, TvAiringTodayState>(
+          bloc: Modular.get<TvAiringTodayBloc>(),
           builder: (context, state) {
             if (state is TvAiringTodayHasData) {
               _refreshCompleter.complete();

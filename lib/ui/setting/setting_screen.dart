@@ -3,7 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:coffsy_movie_app/ui/about/about_screen.dart';
 import 'package:package_info/package_info.dart';
-import 'package:shared/shared.dart';
+import 'package:coffsy_design_system/coffsy_design_system.dart';
+
+import 'package:flutter_modular/flutter_modular.dart';
 
 class SettingScreen extends StatelessWidget {
   static const routeName = '/theme';
@@ -58,16 +60,13 @@ class SettingScreen extends StatelessWidget {
                       context: context,
                       builder: (context) {
                         return BlocBuilder<ThemeBloc, ThemeState>(
+                          bloc: Modular.get<ThemeBloc>(),
                           builder: (context, state) {
                             return CustomDialog(
-                              groupValue: state is ThemeState
-                                  ? state.isDarkTheme
-                                  : false,
+                              groupValue: state is ThemeState ? state.isDarkTheme : false,
                               isDark: false,
                               onChanged: (value) {
-                                context
-                                    .read<ThemeBloc>()
-                                    .add(ThemeChanged(isDarkTheme: value));
+                                Modular.get<ThemeBloc>().add(ThemeChanged(isDarkTheme: value));
                               },
                             );
                           },

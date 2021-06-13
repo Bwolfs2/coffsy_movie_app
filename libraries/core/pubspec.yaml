@@ -16,8 +16,8 @@ dependencies:
   # This is our modular
   dependencies:
     path: ../dependencies
-  shared:
-    path: ../shared
+  coffsy_design_system:
+    path: ../coffsy_design_system
 
 dev_dependencies:
   flutter_test:

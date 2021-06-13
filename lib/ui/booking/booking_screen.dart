@@ -1,6 +1,7 @@
 import 'package:coffsy_movie_app/ui/dashboard/dashboard_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:shared/shared.dart';
+import 'package:coffsy_design_system/coffsy_design_system.dart';
+import 'package:core/core.dart';
 
 class BookingScreen extends StatelessWidget {
   static const routeName = '/booking';
@@ -9,11 +10,9 @@ class BookingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var themeData = Theme.of(context);
     var _isDarkTheme = themeData.appBarTheme.color == null;
-    final ScreenArguments args =
-        ModalRoute.of(context)?.settings.arguments as ScreenArguments;
+    final ScreenArguments args = ModalRoute.of(context)?.settings.arguments as ScreenArguments;
     return Scaffold(
-      backgroundColor:
-          !_isDarkTheme ? ColorPalettes.darkPrimary : ColorPalettes.white,
+      backgroundColor: !_isDarkTheme ? ColorPalettes.darkPrimary : ColorPalettes.white,
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
@@ -43,8 +42,7 @@ class BookingScreen extends StatelessWidget {
                       content: "Thanks for your movie ticket order",
                       title: "Payment Successful!",
                       submit: () {
-                        Navigation.intentWithClearAllRoutes(
-                            context, DashBoardScreen.routeName);
+                        Navigation.intentWithClearAllRoutes(context, DashBoardScreen.routeName);
                       },
                     );
                   },

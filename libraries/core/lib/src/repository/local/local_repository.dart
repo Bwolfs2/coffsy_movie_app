@@ -1,9 +1,8 @@
 import 'dart:convert';
 
+import 'package:coffsy_design_system/coffsy_design_system.dart';
 import 'package:core/core.dart';
 import 'package:core/src/local/shared_pref_helper.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:shared/shared.dart';
 
 class LocalRepository implements Repository {
   final SharedPrefHelper prefHelper;

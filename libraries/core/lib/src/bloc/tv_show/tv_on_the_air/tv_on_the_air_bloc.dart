@@ -1,6 +1,6 @@
 import 'package:core/core.dart';
 import 'package:dio/dio.dart';
-import 'package:shared/shared.dart';
+import 'package:coffsy_design_system/coffsy_design_system.dart';
 
 export 'package:flutter_bloc/flutter_bloc.dart';
 

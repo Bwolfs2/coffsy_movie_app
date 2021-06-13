@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:coffsy_movie_app/ui/detail/detail_screen.dart';
-import 'package:shared/shared.dart';
+import 'package:coffsy_design_system/coffsy_design_system.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class NowPlayingScreen extends StatefulWidget {
   static const routeName = '/now_playing';
@@ -18,7 +19,7 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
   Completer<void> _refreshCompleter = Completer<void>();
 
   _loadMovieNowPlaying(BuildContext context) {
-    context.read<MovieNowPlayingBloc>().add(LoadMovieNowPlaying());
+    Modular.get<MovieNowPlayingBloc>().add(LoadMovieNowPlaying());
   }
 
   Future<void> _refresh() {
@@ -43,6 +44,7 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
         onRefresh: _refresh,
         showChildOpacityTransition: false,
         child: BlocBuilder<MovieNowPlayingBloc, MovieNowPlayingState>(
+          bloc: Modular.get<MovieNowPlayingBloc>(),
           builder: (context, state) {
             if (state is MovieNowPlayingHasData) {
               _refreshCompleter.complete();

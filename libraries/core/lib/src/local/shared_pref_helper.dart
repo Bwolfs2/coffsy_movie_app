@@ -3,25 +3,27 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPrefHelper {
-  final SharedPreferences preferences;
+  //final SharedPreferences preferences;
 
-  SharedPrefHelper({required this.preferences});
+  // SharedPrefHelper({required this.preferences});
 
   static const _LAST_CHECKED = "last_checked";
   static const _CHECK_INTERVAL = "check_interval";
   static const _DATA = "data";
   static const _THEME = "theme";
 
+  Future<SharedPreferences> preferences = SharedPreferences.getInstance();
+
   // Interval 600000 means handle cache for 600000 milliseconds or 10 minutes
-  Future<bool> storeCache(String key, String json, {int? lastChecked, int interval = 600000}) {
+  Future<bool> storeCache(String key, String json, {int? lastChecked, int interval = 600000}) async {
     if (lastChecked == null) {
       lastChecked = DateTime.now().millisecondsSinceEpoch;
     }
-    return preferences.setString(key, jsonEncode({_LAST_CHECKED: lastChecked, _CHECK_INTERVAL: interval, _DATA: json}));
+    return (await preferences).setString(key, jsonEncode({_LAST_CHECKED: lastChecked, _CHECK_INTERVAL: interval, _DATA: json}));
   }
 
   Future<String?> getCache(String key) async {
-    var result = preferences.getString(key);
+    var result = (await preferences).getString(key);
     if (result == null) {
       return null;
     }
@@ -30,14 +32,14 @@ class SharedPrefHelper {
     var lastChecked = map[_LAST_CHECKED];
     var interval = map[_CHECK_INTERVAL];
     if ((DateTime.now().millisecondsSinceEpoch - lastChecked) > interval) {
-      preferences.remove(key);
+      (await preferences).remove(key);
       return null;
     }
     return map[_DATA];
   }
 
   Future<Map?> getFullCache(String key) async {
-    var result = preferences.getString(key);
+    var result = (await preferences).getString(key);
     if (result == null) {
       return null;
     }
@@ -46,17 +48,17 @@ class SharedPrefHelper {
     var lastChecked = map[_LAST_CHECKED];
     var interval = map[_CHECK_INTERVAL];
     if ((DateTime.now().millisecondsSinceEpoch - lastChecked) > interval) {
-      preferences.remove(key);
+      (await preferences).remove(key);
       return null;
     }
     return map;
   }
 
   Future saveValueDarkTheme(bool value) async {
-    preferences.setBool(_THEME, value);
+    (await preferences).setBool(_THEME, value);
   }
 
   Future<bool> getValueDarkTheme() async {
-    return preferences.getBool(_THEME) ?? false;
+    return (await preferences).getBool(_THEME) ?? false;
   }
 }

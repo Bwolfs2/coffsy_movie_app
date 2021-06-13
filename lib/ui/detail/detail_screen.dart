@@ -4,7 +4,8 @@ import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:coffsy_movie_app/ui/booking/booking_screen.dart';
-import 'package:shared/shared.dart';
+import 'package:coffsy_design_system/coffsy_design_system.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class DetailScreen extends StatefulWidget {
   static const routeName = '/detail_movies';
@@ -19,11 +20,11 @@ class DetailScreen extends StatefulWidget {
 
 class _DetailScreenState extends State<DetailScreen> {
   _loadTrailer(BuildContext context, int movieId, bool isFromMovie) {
-    context.read<TrailerBloc>().add(LoadTrailer(movieId, isFromMovie));
+    Modular.get<TrailerBloc>().add(LoadTrailer(movieId, isFromMovie));
   }
 
   _loadCrew(BuildContext context, int movieId, bool isFromMovie) {
-    context.read<CrewBloc>().add(LoadCrew(movieId, isFromMovie));
+    Modular.get<CrewBloc>().add(LoadCrew(movieId, isFromMovie));
   }
 
   @override
@@ -143,6 +144,7 @@ class _DetailScreenState extends State<DetailScreen> {
           width: Sizes.width(context),
           height: Sizes.width(context) / 1.7,
           child: BlocBuilder<TrailerBloc, TrailerState>(
+            bloc: Modular.get<TrailerBloc>(),
             builder: (context, state) {
               if (state is TrailerHasData) {
                 return ListView.builder(
@@ -200,6 +202,7 @@ class _DetailScreenState extends State<DetailScreen> {
           width: Sizes.width(context),
           height: Sizes.width(context) / 3,
           child: BlocBuilder<CrewBloc, CrewState>(
+            bloc: Modular.get<CrewBloc>(),
             builder: (context, state) {
               if (state is CrewHasData) {
                 return ListView.builder(
