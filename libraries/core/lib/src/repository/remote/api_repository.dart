@@ -1,6 +1,5 @@
 import 'package:core/core.dart';
 import 'package:core/src/network/api/api_service.dart';
-import 'package:flutter/cupertino.dart';
 
 class ApiRepository implements Repository {
   final ApiService apiService;

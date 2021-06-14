@@ -1,6 +1,5 @@
 import 'package:core/core.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
 
 class ApiService {
   final Dio dio;

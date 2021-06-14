@@ -1,10 +1,9 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
-import 'package:coffsy_movie_app/ui/dashboard/dashboard_screen.dart';
-import 'package:package_info/package_info.dart';
 import 'package:coffsy_design_system/coffsy_design_system.dart';
-import 'package:core/core.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:package_info/package_info.dart';
 
 class SplashPage extends StatefulWidget {
   @override
@@ -19,11 +18,10 @@ class _SplashPageState extends State<SplashPage> {
 
   _startSplashScreen() async {
     var _duration = Duration(seconds: 3);
-    return Timer(_duration, _navigationPage);
-  }
-
-  void _navigationPage() {
-    Navigation.intentWithClearAllRoutes(context, DashBoardScreen.routeName);
+    return Timer(
+      _duration,
+      () => Modular.to.navigate("/dashboard/movie_module/"),
+    );
   }
 
   @override

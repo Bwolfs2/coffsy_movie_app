@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:coffsy_design_system/coffsy_design_system.dart';
-import 'package:core/core.dart';
+import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CardPortfolio extends StatelessWidget {
   final String imageAsset;
@@ -14,7 +14,7 @@ class CardPortfolio extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(Sizes.dp5(context)),
       child: InkWell(
-        onTap: () => Navigation.launchURL(url),
+        onTap: () async => await launch(url),
         child: Card(
           child: Padding(
             padding: EdgeInsets.all(Sizes.dp10(context)),

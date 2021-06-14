@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:coffsy_design_system/coffsy_design_system.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class BannerHome extends StatelessWidget {
   final Function(int index, CarouselPageChangedReason reason) onPageChanged;
@@ -45,14 +46,12 @@ class BannerHome extends StatelessWidget {
                   borderRadius: BorderRadius.circular(Sizes.dp10(context)),
                   child: GestureDetector(
                     onTap: () {
-                      Navigation.intentWithData(
-                        context,
+                      Modular.to.pushNamed(
                         routeNameDetail,
-                        ScreenArguments(data.results[i], true, true),
+                        arguments: ScreenArguments(data.results[i], true, true),
                       );
                     },
                     child: GridTile(
-                      // TODO: Create Hero Animation with "id" from "result"
                       child: CachedNetworkImage(
                         imageUrl: data.results[i].backdropPath.imageOriginal,
                         width: Sizes.width(context),
@@ -105,7 +104,7 @@ class BannerHome extends StatelessWidget {
         Spacer(),
         GestureDetector(
           onTap: () {
-            Navigation.intent(context, routeNameAll);
+            Modular.to.pushNamed(routeNameAll);
           },
           child: Text(
             'See all',

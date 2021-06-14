@@ -51,11 +51,16 @@ class _CustomButtonState extends State<CustomButton> with TickerProviderStateMix
       child: Container(
         width: Sizes.width(context) * .9,
         height: Sizes.width(context) / 7,
-        child: FlatButton(
-          color: ColorPalettes.darkAccent,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(
-              Sizes.dp10(context),
+        child: TextButton(
+          style: TextButton.styleFrom(
+            primary: ColorPalettes.darkAccent,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(
+                Sizes.dp10(context),
+              ),
+              side: BorderSide(
+                color: ColorPalettes.darkAccent,
+              ),
             ),
           ),
           onPressed: () {
@@ -64,7 +69,6 @@ class _CustomButtonState extends State<CustomButton> with TickerProviderStateMix
           child: Text(
             widget.text,
             style: TextStyle(
-              color: ColorPalettes.white,
               fontWeight: FontWeight.bold,
               fontSize: Sizes.dp18(context),
             ),

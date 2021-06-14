@@ -1,8 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:coffsy_design_system/coffsy_design_system.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:coffsy_design_system/coffsy_design_system.dart';
-import 'package:core/core.dart';
 
 enum SmoothMode { Lottie, Network, Asset }
 
@@ -123,7 +122,7 @@ class SmoothDialog {
                                   children: <Widget>[
                                     InkWell(
                                       onTap: () {
-                                        Navigation.back(context);
+                                        Navigator.pop(context);
                                       },
                                       child: Container(
                                         padding: EdgeInsets.symmetric(vertical: Sizes.dp12(context), horizontal: Sizes.dp22(context)),
@@ -144,7 +143,7 @@ class SmoothDialog {
                                     SizedBox(width: Sizes.dp4(context)),
                                     InkWell(
                                       onTap: () {
-                                        Navigation.back(context);
+                                        Navigator.pop(context);
                                         submit();
                                       },
                                       child: Container(

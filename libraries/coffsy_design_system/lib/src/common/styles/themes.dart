@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:coffsy_design_system/coffsy_design_system.dart';
+import 'package:flutter/material.dart';
 
 class Themes {
   static ThemeData lightTheme = ThemeData(
@@ -7,7 +7,9 @@ class Themes {
     backgroundColor: ColorPalettes.lightBG,
     primaryColor: ColorPalettes.lightPrimary,
     accentColor: ColorPalettes.lightAccent,
-    cursorColor: ColorPalettes.lightAccent,
+    textSelectionTheme: TextSelectionThemeData(
+      cursorColor: ColorPalettes.lightAccent,
+    ),
     dividerColor: ColorPalettes.darkBG,
     scaffoldBackgroundColor: ColorPalettes.lightBG,
     appBarTheme: AppBarTheme(
@@ -29,7 +31,9 @@ class Themes {
     accentColor: ColorPalettes.darkAccent,
     dividerColor: ColorPalettes.lightPrimary,
     scaffoldBackgroundColor: ColorPalettes.darkBG,
-    cursorColor: ColorPalettes.darkAccent,
+    textSelectionTheme: TextSelectionThemeData(
+      cursorColor: ColorPalettes.darkAccent,
+    ),
     appBarTheme: AppBarTheme(
       color: ColorPalettes.darkPrimary,
       textTheme: TextTheme(
