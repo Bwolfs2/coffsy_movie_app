@@ -18,6 +18,8 @@ class ResultCrew extends Equatable {
   Map<String, dynamic> toJson() => _$ResultCrewToJson(this);
 }
 
+class EmptyResultCrew extends ResultCrew {}
+
 @JsonSerializable()
 class Crew extends Equatable {
   @JsonKey(name: 'name')

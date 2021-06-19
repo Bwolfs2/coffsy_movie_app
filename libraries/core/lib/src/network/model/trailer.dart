@@ -13,11 +13,12 @@ class ResultTrailer extends Equatable {
   @override
   List<Object> get props => [trailer];
 
-  factory ResultTrailer.fromJson(Map<String, dynamic> json) =>
-      _$ResultTrailerFromJson(json);
+  factory ResultTrailer.fromJson(Map<String, dynamic> json) => _$ResultTrailerFromJson(json);
 
   Map<String, dynamic> toJson() => _$ResultTrailerToJson(this);
 }
+
+class EmptyResultTrailer extends ResultTrailer {}
 
 @JsonSerializable()
 class Trailer extends Equatable {
@@ -35,8 +36,7 @@ class Trailer extends Equatable {
   @override
   List<Object> get props => [trailerId, youtubeId, title];
 
-  factory Trailer.fromJson(Map<String, dynamic> json) =>
-      _$TrailerFromJson(json);
+  factory Trailer.fromJson(Map<String, dynamic> json) => _$TrailerFromJson(json);
 
   Map<String, dynamic> toJson() => _$TrailerToJson(this);
 }

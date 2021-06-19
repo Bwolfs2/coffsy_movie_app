@@ -1,15 +1,12 @@
-import 'dart:async';
-
 import 'package:coffsy_design_system/coffsy_design_system.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_triple/flutter_triple.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 
-import 'bloc/movie_up_coming_bloc.dart';
-import 'bloc/movie_up_coming_event.dart';
-import 'bloc/movie_up_coming_state.dart';
+import 'errors/movie_up_coming_failures.dart';
+import 'up_coming_store.dart';
 
 class UpComingScreen extends StatefulWidget {
   @override
@@ -17,22 +14,7 @@ class UpComingScreen extends StatefulWidget {
 }
 
 class _UpComingScreenState extends State<UpComingScreen> {
-  Completer<void> _refreshCompleter = Completer<void>();
-
-  _loadMovieUpComing(BuildContext context) {
-    Modular.get<MovieUpComingBloc>().add(LoadMovieUpComing());
-  }
-
-  Future<void> _refresh() {
-    _loadMovieUpComing(context);
-    return _refreshCompleter.future;
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _loadMovieUpComing(context);
-  }
+  var store = Modular.get<UpComingStore>();
 
   @override
   Widget build(BuildContext context) {
@@ -42,55 +24,39 @@ class _UpComingScreenState extends State<UpComingScreen> {
         centerTitle: true,
       ),
       body: LiquidPullToRefresh(
-        onRefresh: _refresh,
+        onRefresh: store.load,
         showChildOpacityTransition: false,
-        child: BlocBuilder<MovieUpComingBloc, MovieUpComingState>(
-          bloc: Modular.get<MovieUpComingBloc>(),
-          builder: (context, state) {
-            if (state is MovieUpComingHasData) {
-              _refreshCompleter.complete();
-              _refreshCompleter = Completer();
-              return ListView.builder(
-                itemCount: state.result.results.length,
-                itemBuilder: (BuildContext context, int index) {
-                  Movies movies = state.result.results[index];
-                  return CardMovies(
-                    image: movies.posterPath,
-                    title: movies.title,
-                    vote: movies.voteAverage.toString(),
-                    releaseDate: movies.releaseDate,
-                    overview: movies.overview,
-                    genre: movies.genreIds.take(3).map(buildGenreChip).toList(),
-                    onTap: () {
-                      Modular.to.pushNamed(
-                        "/detail_movies",
-                        arguments: ScreenArguments(movies, true, false),
-                      );
-                    },
+        child: ScopedBuilder<UpComingStore, Failure, Result>(
+          store: store,
+          onError: (context, error) => error is MovieUpComingNoInternetConnection
+              ? NoInternetWidget(
+                  message: AppConstant.noInternetConnection,
+                  onPressed: () async => await store.load(),
+                )
+              : CustomErrorWidget(message: error?.errorMessage),
+          onLoading: (context) => Center(
+            child: CircularProgressIndicator.adaptive(),
+          ),
+          onState: (context, state) => ListView.builder(
+            itemCount: state.results.length,
+            itemBuilder: (BuildContext context, int index) {
+              Movies movies = state.results[index];
+              return CardMovies(
+                image: movies.posterPath,
+                title: movies.title,
+                vote: movies.voteAverage.toString(),
+                releaseDate: movies.releaseDate,
+                overview: movies.overview,
+                genre: movies.genreIds.take(3).map(buildGenreChip).toList(),
+                onTap: () {
+                  Modular.to.pushNamed(
+                    "/detail_movies",
+                    arguments: ScreenArguments(movies, true, false),
                   );
                 },
               );
-            } else if (state is MovieUpComingLoading) {
-              return ShimmerList();
-            } else if (state is MovieUpComingError) {
-              _refreshCompleter.complete();
-              _refreshCompleter = Completer();
-              return CustomErrorWidget(message: state.errorMessage);
-            } else if (state is MovieUpComingNoData) {
-              _refreshCompleter.complete();
-              _refreshCompleter = Completer();
-              return CustomErrorWidget(message: state.message);
-            } else if (state is MovieUpComingNoInternetConnection) {
-              _refreshCompleter.complete();
-              _refreshCompleter = Completer();
-              return NoInternetWidget(
-                message: AppConstant.noInternetConnection,
-                onPressed: () => _loadMovieUpComing(context),
-              );
-            } else {
-              return Center(child: Text(""));
-            }
-          },
+            },
+          ),
         ),
       ),
     );

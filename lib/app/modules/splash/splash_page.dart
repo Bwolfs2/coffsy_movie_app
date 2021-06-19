@@ -16,13 +16,7 @@ class _SplashPageState extends State<SplashPage> {
     return info.version;
   }
 
-  _startSplashScreen() async {
-    var _duration = Duration(seconds: 3);
-    return Timer(
-      _duration,
-      () => Modular.to.navigate("/dashboard/movie_module/"),
-    );
-  }
+  _startSplashScreen() async => await Future.delayed(Duration(seconds: 3), () => Modular.to.navigate("/dashboard/movie_module/"));
 
   @override
   void initState() {
@@ -48,9 +42,7 @@ class _SplashPageState extends State<SplashPage> {
                       fit: BoxFit.contain,
                     ),
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
+                  SizedBox(height: 20),
                   Center(
                     child: CircularProgressIndicator.adaptive(),
                   )

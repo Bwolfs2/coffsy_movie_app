@@ -18,6 +18,8 @@ class Result extends Equatable {
   Map<String, dynamic> toJson() => _$ResultToJson(this);
 }
 
+class EmptyResult extends Result {}
+
 @JsonSerializable()
 class Movies extends Equatable {
   @JsonKey(name: 'id')

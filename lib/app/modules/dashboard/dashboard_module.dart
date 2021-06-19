@@ -1,7 +1,9 @@
 import 'package:coffsy_movie_app/app/modules/movie/movie_module.dart';
-import 'package:coffsy_movie_app/app/modules/movie/pages/now_playing/bloc/movie_now_playing_bloc.dart';
-import 'package:coffsy_movie_app/app/modules/movie/pages/popular/bloc/movie_popular_bloc.dart';
-import 'package:coffsy_movie_app/app/modules/movie/pages/up_coming/bloc/movie_up_coming_bloc.dart';
+import 'package:coffsy_movie_app/app/modules/movie/pages/now_playing/now_playing_store.dart';
+
+import 'package:coffsy_movie_app/app/modules/movie/pages/popular/movie_popular_store.dart';
+
+import 'package:coffsy_movie_app/app/modules/movie/widgets/up_coming/up_coming_widget_store.dart';
 import 'package:coffsy_movie_app/app/modules/tv_show/tv_show_module.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -11,9 +13,9 @@ class DashboardModule extends Module {
   @override
   final List<Bind> binds = [
     //Deu BO aqui
-    Bind.lazySingleton((i) => MovieNowPlayingBloc(repository: i())),
-    Bind.lazySingleton((i) => MoviePopularBloc(repository: i())),
-    Bind.lazySingleton((i) => MovieUpComingBloc(repository: i())),
+    Bind.lazySingleton((i) => MoviePlayingStore(i())),
+    Bind.lazySingleton((i) => MoviePopularStore(i())),
+    Bind.lazySingleton((i) => UpComingWidgetStore(i())),
   ];
 
   @override

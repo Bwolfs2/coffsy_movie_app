@@ -1,13 +1,12 @@
 import 'package:coffsy_design_system/coffsy_design_system.dart';
-import 'package:coffsy_movie_app/app/modules/tv_show/pages/on_the_air/bloc/tv_on_the_air_bloc.dart';
+import 'package:coffsy_movie_app/app/modules/setting/pages/setting_store.dart';
+import 'package:core/core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:package_info/package_info.dart';
 
-import 'bloc/theme_bloc.dart';
-import 'bloc/theme_event.dart';
-import 'bloc/theme_state.dart';
+import 'package:flutter_triple/flutter_triple.dart';
 
 class SettingPage extends StatelessWidget {
   Future<String> _getVersion() async {
@@ -28,56 +27,41 @@ class SettingPage extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text('Developer'),
-                IconButton(
-                  icon: Icon(
-                    Icons.arrow_forward_ios,
-                    size: Sizes.dp16(context),
-                  ),
-                  onPressed: () {
-                    Modular.to.pushNamed('/about');
-                  },
-                ),
-              ],
+            ListTile(
+              title: Text('Developer'),
+              leading: Icon(Icons.person),
+              trailing: Icon(
+                Icons.arrow_forward_ios,
+                size: Sizes.dp16(context),
+              ),
+              onTap: () => Modular.to.pushNamed('/about'),
             ),
-            Divider(),
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text('Theme'),
-                IconButton(
-                  icon: Icon(
-                    Icons.arrow_forward_ios,
-                    size: Sizes.dp16(context),
-                  ),
-                  onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (context) {
-                        return BlocBuilder<ThemeBloc, ThemeState>(
-                          bloc: Modular.get<ThemeBloc>(),
-                          builder: (context, state) {
-                            return CustomDialog(
-                              groupValue: state is ThemeState ? state.isDarkTheme : false,
-                              isDark: false,
-                              onChanged: (value) {
-                                Modular.get<ThemeBloc>().add(ThemeChanged(isDarkTheme: value));
-                              },
-                            );
-                          },
-                        );
+            ListTile(
+              title: Text('Theme'),
+              leading: Icon(Icons.theater_comedy),
+              trailing: Icon(
+                Icons.arrow_forward_ios,
+                size: Sizes.dp16(context),
+              ),
+              onTap: () => showDialog(
+                context: context,
+                builder: (context) {
+                  return ScopedBuilder<SettingStore, Failure, bool>(
+                    store: SettingStore(),
+                    onLoading: (context) => Center(
+                      child: CircularProgressIndicator.adaptive(),
+                    ),
+                    onState: (context, state) => CustomDialog(
+                      groupValue: state,
+                      isDark: false,
+                      onChanged: (value) {
+                        SettingStore().changeTheme(value);
                       },
-                    );
-                  },
-                ),
-              ],
+                    ),
+                  );
+                },
+              ),
             ),
-            Divider(),
             Spacer(),
             FutureBuilder<String>(
               future: _getVersion(),

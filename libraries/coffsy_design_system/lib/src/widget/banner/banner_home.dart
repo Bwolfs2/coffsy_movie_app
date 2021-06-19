@@ -79,41 +79,48 @@ class BannerHome extends StatelessWidget {
             ],
           ),
         ),
-        _dotIndicator(result, context),
-      ],
-    );
-  }
-
-  Widget _dotIndicator(int data, BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        for (var i = 0; i < data; i++)
-          Container(
-            width: Sizes.dp8(context),
-            height: Sizes.dp8(context),
-            margin: EdgeInsets.symmetric(
-              vertical: Sizes.dp10(context),
-              horizontal: 2.0,
-            ),
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: currentIndex == i ? ColorPalettes.darkAccent : ColorPalettes.grey,
-            ),
-          ),
-        Spacer(),
-        GestureDetector(
-          onTap: () {
-            Modular.to.pushNamed(routeNameAll);
-          },
-          child: Text(
-            'See all',
-            style: TextStyle(
-              fontSize: Sizes.dp15(context),
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+        SizedBox(
+          height: 10,
         ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+              child: Center(
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: List.generate(
+                    result,
+                    (index) => Container(
+                      width: Sizes.dp8(context),
+                      height: Sizes.dp8(context),
+                      margin: EdgeInsets.symmetric(
+                        vertical: Sizes.dp10(context),
+                        horizontal: 2.0,
+                      ),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: currentIndex == index ? ColorPalettes.darkAccent : ColorPalettes.grey,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Modular.to.pushNamed(routeNameAll, forRoot: true);
+              },
+              child: Text(
+                'See all',
+                style: TextStyle(
+                  fontSize: Sizes.dp15(context),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ],
+        )
       ],
     );
   }

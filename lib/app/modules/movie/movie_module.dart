@@ -1,19 +1,33 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'movie_screen.dart';
-import 'pages/now_playing/bloc/movie_now_playing_bloc.dart';
+
+import 'pages/now_playing/now_playing_store.dart';
 import 'pages/now_playing/now_playing_screen.dart';
-import 'pages/popular/bloc/movie_popular_bloc.dart';
+
 import 'pages/popular/movie_popular_screen.dart';
-import 'pages/up_coming/bloc/movie_up_coming_bloc.dart';
+import 'pages/popular/movie_popular_store.dart';
+
 import 'pages/up_coming/up_coming_screen.dart';
+
+import 'pages/up_coming/up_coming_store.dart';
+import 'widgets/movie_banner/movie_banner_store.dart';
+import 'widgets/popular/popular_store.dart';
+import 'widgets/up_coming/up_coming_widget_store.dart';
 
 class MovieModule extends Module {
   @override
   final List<Bind> binds = [
-    Bind.lazySingleton((i) => MovieNowPlayingBloc(repository: i())),
-    Bind.lazySingleton((i) => MoviePopularBloc(repository: i())),
-    Bind.lazySingleton((i) => MovieUpComingBloc(repository: i())),
+    Bind.lazySingleton((i) => MoviePlayingStore(i())),
+    Bind.lazySingleton((i) => MoviePopularStore(i())),
+    Bind.lazySingleton((i) => UpComingWidgetStore(i())),
+    //
+
+    Bind.lazySingleton((i) => MoviePlayingStore(i())),
+    Bind.lazySingleton((i) => UpComingWidgetStore(i())),
+    Bind.lazySingleton((i) => UpComingStore(i())),
+    Bind.lazySingleton((i) => PopularStore(i())),
+    Bind.lazySingleton((i) => MovieBannerStore(i())),
   ];
 
   @override

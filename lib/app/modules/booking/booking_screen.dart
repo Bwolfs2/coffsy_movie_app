@@ -43,7 +43,7 @@ class BookingScreen extends StatelessWidget {
                       content: "Thanks for your movie ticket order",
                       title: "Payment Successful!",
                       submit: () {
-                        Modular.to.navigate("/dashboard/movie_module");
+                        Modular.to.navigate("/dashboard/movie_module/");
                       },
                     );
                   },

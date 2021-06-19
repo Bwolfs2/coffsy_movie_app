@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:coffsy_design_system/coffsy_design_system.dart';
 
 class CustomErrorWidget extends StatelessWidget {
-  final String message;
+  final String? message;
 
-  const CustomErrorWidget({Key? key, required this.message}) : super(key: key);
+  const CustomErrorWidget({Key? key, this.message}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Text(
-        message,
+        message ?? 'Unknown Error',
         style: TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: Sizes.dp12(context),

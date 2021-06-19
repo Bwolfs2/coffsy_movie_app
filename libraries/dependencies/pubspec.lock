@@ -22,13 +22,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.5.0"
-  bloc:
-    dependency: transitive
-    description:
-      name: bloc
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "7.0.0"
   boolean_selector:
     dependency: transitive
     description:
@@ -132,13 +125,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_bloc:
-    dependency: "direct main"
-    description:
-      name: flutter_bloc
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "7.0.1"
   flutter_blurhash:
     dependency: transitive
     description:
@@ -170,9 +156,11 @@ packages:
   flutter_modular:
     dependency: "direct main"
     description:
-      name: flutter_modular
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: flutter_modular
+      ref: HEAD
+      resolved-ref: e176f6828d97ee110b236fe4f8ca19225bb3586d
+      url: "https://github.com/Flutterando/modular.git"
+    source: git
     version: "3.3.0-beta.6"
   flutter_modular_annotations:
     dependency: transitive
@@ -193,6 +181,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_triple:
+    dependency: "direct main"
+    description:
+      name: flutter_triple
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.6"
   flutter_web_plugins:
     dependency: transitive
     description: flutter
@@ -268,13 +263,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.0"
-  nested:
-    dependency: transitive
-    description:
-      name: nested
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.0"
   octo_image:
     dependency: transitive
     description:
@@ -380,13 +368,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.2.1"
-  provider:
+  rx_notifier:
     dependency: transitive
     description:
-      name: provider
+      name: rx_notifier
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.0.0"
+    version: "1.1.0"
   rxdart:
     dependency: transitive
     description:

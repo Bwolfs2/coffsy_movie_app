@@ -6,3 +6,4 @@ export 'src/repository/local/local_repository.dart';
 export 'src/repository/remote/api_repository.dart';
 export 'src/repository/movie_repository.dart';
 export 'src/repository/repository.dart';
+export 'src/error/failure.dart';
