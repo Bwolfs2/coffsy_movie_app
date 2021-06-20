@@ -1,9 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:coffsy_design_system/coffsy_design_system.dart';
+
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-enum SmoothMode { Lottie, Network, Asset }
+import '../../../coffsy_design_system.dart';
+
+enum SmoothMode { lottie, network, asset }
 
 class ButtonConfig {
   final String dialogDone, dialogCancel;
@@ -28,7 +30,7 @@ class SmoothDialog {
   final BuildContext context;
 
   ButtonConfig? buttonConfig;
-  SmoothMode mode = SmoothMode.Lottie;
+  SmoothMode mode = SmoothMode.lottie;
 
   SmoothDialog({
     Key? key,
@@ -61,7 +63,7 @@ class SmoothDialog {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     SizedBox(height: Sizes.dp16(context)),
-                    if (mode == SmoothMode.Lottie) ...[
+                    if (mode == SmoothMode.lottie) ...[
                       Center(
                         child: Lottie.asset(
                           path,
@@ -69,7 +71,7 @@ class SmoothDialog {
                           height: imageHeight,
                         ),
                       ),
-                    ] else if (mode == SmoothMode.Asset) ...[
+                    ] else if (mode == SmoothMode.asset) ...[
                       Center(
                         child: Image.asset(
                           path,
@@ -130,7 +132,7 @@ class SmoothDialog {
                                             color: buttonConfig?.buttonCancelColor,
                                             borderRadius: BorderRadius.circular(Sizes.dp16(context))),
                                         child: Text(
-                                          "${buttonConfig?.dialogCancel}",
+                                          '${buttonConfig?.dialogCancel}',
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
                                             fontSize: Sizes.dp13(context),
@@ -151,7 +153,7 @@ class SmoothDialog {
                                         decoration: BoxDecoration(
                                             color: buttonConfig?.buttonDoneColor, borderRadius: BorderRadius.circular(Sizes.dp16(context))),
                                         child: Text(
-                                          "${buttonConfig?.dialogDone}",
+                                          '${buttonConfig?.dialogDone}',
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
                                             fontSize: Sizes.dp13(context),

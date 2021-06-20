@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:coffsy_design_system/coffsy_design_system.dart';
+
+import '../../../coffsy_design_system.dart';
 
 class CircleProgress extends StatelessWidget {
   final String vote;
@@ -47,7 +48,7 @@ class CircleProgress extends StatelessWidget {
               height: Sizes.dp30(context),
               child: Center(
                 child: Text(
-                  (double.parse(vote) * 10.0).floor().toString() + '%',
+                  '${(double.parse(vote) * 10.0).floor().toString()}%',
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: Sizes.dp10(context),

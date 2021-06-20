@@ -1,16 +1,16 @@
 import 'package:coffsy_design_system/coffsy_design_system.dart';
-import 'package:coffsy_movie_app/app/modules/setting/pages/setting_store.dart';
 import 'package:core/core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_triple/flutter_triple.dart';
 import 'package:package_info/package_info.dart';
 
-import 'package:flutter_triple/flutter_triple.dart';
+import 'setting_store.dart';
 
 class SettingPage extends StatelessWidget {
   Future<String> _getVersion() async {
-    final PackageInfo info = await PackageInfo.fromPlatform();
+    final info = await PackageInfo.fromPlatform();
     return info.version;
   }
 
@@ -55,7 +55,7 @@ class SettingPage extends StatelessWidget {
                       groupValue: state,
                       isDark: false,
                       onChanged: (value) {
-                        SettingStore().changeTheme(value);
+                        SettingStore().changeTheme(isDark: value);
                       },
                     ),
                   );
@@ -65,10 +65,10 @@ class SettingPage extends StatelessWidget {
             Spacer(),
             FutureBuilder<String>(
               future: _getVersion(),
-              builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-                var verInfo = "";
+              builder: (context, snapshot) {
+                var verInfo = '';
                 if (snapshot.hasData) {
-                  verInfo = "v ${snapshot.data}";
+                  verInfo = 'v ${snapshot.data}';
                 }
                 return Container(
                   margin: EdgeInsets.only(bottom: Sizes.dp30(context)),

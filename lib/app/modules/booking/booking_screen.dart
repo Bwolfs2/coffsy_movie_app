@@ -34,16 +34,16 @@ class BookingScreen extends StatelessWidget {
                   top: Sizes.dp20(context),
                 ),
                 child: CustomButton(
-                  text: "Pay",
+                  text: 'Pay',
                   onPressed: () {
                     SmoothDialog(
                       context: context,
                       path: ImagesAssets.successful,
-                      mode: SmoothMode.Lottie,
-                      content: "Thanks for your movie ticket order",
-                      title: "Payment Successful!",
+                      mode: SmoothMode.lottie,
+                      content: 'Thanks for your movie ticket order',
+                      title: 'Payment Successful!',
                       submit: () {
-                        Modular.to.navigate("/dashboard/movie_module/");
+                        Modular.to.navigate('/dashboard/movie_module/');
                       },
                     );
                   },

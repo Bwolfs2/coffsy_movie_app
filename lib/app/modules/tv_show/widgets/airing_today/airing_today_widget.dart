@@ -1,10 +1,11 @@
 import 'package:coffsy_design_system/coffsy_design_system.dart';
-import 'package:coffsy_movie_app/app/modules/tv_show/errors/airing_today_failures.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'airing_today_widget_store.dart';
 import 'package:flutter_triple/flutter_triple.dart';
+
+import '../../errors/airing_today_failures.dart';
+import 'airing_today_widget_store.dart';
 
 class AiringTodayWidget extends StatefulWidget {
   const AiringTodayWidget({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class AiringTodayWidget extends StatefulWidget {
 }
 
 class _AiringTodayWidgetState extends State<AiringTodayWidget> {
-  var store = Modular.get<AiringTodayWidgetStore>();
+  final store = Modular.get<AiringTodayWidgetStore>();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -63,16 +64,16 @@ class _AiringTodayWidgetState extends State<AiringTodayWidget> {
               physics: ClampingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: state.results.length > 5 ? 5 : state.results.length,
-              itemBuilder: (BuildContext context, int index) {
-                Movies movies = state.results[index];
+              itemBuilder: (context, index) {
+                final movies = state.results[index];
                 return CardHome(
                   image: movies.posterPath,
                   title: movies.tvName ?? 'No TV Name',
                   rating: movies.voteAverage,
                   onTap: () {
                     Modular.to.pushNamed(
-                      "/detail_movies",
-                      arguments: ScreenArguments(movies, false, false),
+                      '/detail_movies',
+                      arguments: ScreenArguments(movies: movies, isFromMovie: false, isFromBanner: false),
                     );
                   },
                 );

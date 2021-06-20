@@ -1,6 +1,7 @@
-import 'package:coffsy_design_system/coffsy_design_system.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../../../coffsy_design_system.dart';
 
 class CardPortfolio extends StatelessWidget {
   final String imageAsset;

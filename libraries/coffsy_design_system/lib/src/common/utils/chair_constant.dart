@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:coffsy_design_system/coffsy_design_system.dart';
+import '../../../coffsy_design_system.dart';
 
 class ChairConstant {
   static Widget grey(BuildContext context) {
@@ -25,7 +25,7 @@ class ChairConstant {
     );
   }
 
-  static Widget white(BuildContext context, bool isWhite) {
+  static Widget white(BuildContext context, {bool isWhite = false}) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(Sizes.dp6(context)),
       child: Container(

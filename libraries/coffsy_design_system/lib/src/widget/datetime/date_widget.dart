@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:coffsy_design_system/coffsy_design_system.dart';
+
+import '../../../coffsy_design_system.dart';
 
 class DateWidget extends StatefulWidget {
   @override
@@ -7,22 +8,21 @@ class DateWidget extends StatefulWidget {
 }
 
 class _DateWidgetState extends State<DateWidget> with TickerProviderStateMixin {
-  var _dateSelectorAcList = <AnimationController>[];
-  var _dateSelectorTweenList = <Animation<double>>[];
+  final _dateSelectorAcList = <AnimationController>[];
+  final _dateSelectorTweenList = <Animation<double>>[];
 
-  late AnimationController _dateBackgroundAc = AnimationController(vsync: this, duration: Duration(milliseconds: 700));
-  late Animation<double> _dateBackgroundTween =
+  late final _dateBackgroundAc = AnimationController(vsync: this, duration: Duration(milliseconds: 700));
+  late final _dateBackgroundTween =
       Tween<double>(begin: 1000, end: 0).chain(CurveTween(curve: Curves.easeOutCubic)).animate(_dateBackgroundAc);
 
-  var _currentDate = DateTime.now();
+  final _currentDate = DateTime.now();
   var _dateIndexSelected = 1;
   bool _isDarkTheme = false;
 
   @override
   void initState() {
     super.initState();
-    // initialize dateSelector List
-    for (int i = 0; i < 7; i++) {
+    for (var i = 0; i < 7; i++) {
       _dateSelectorAcList.add(AnimationController(vsync: this, duration: Duration(milliseconds: 500)));
       _dateSelectorTweenList
           .add(Tween<double>(begin: 1000, end: 0).chain(CurveTween(curve: Curves.easeOutCubic)).animate(_dateSelectorAcList[i]));
@@ -33,9 +33,7 @@ class _DateWidgetState extends State<DateWidget> with TickerProviderStateMixin {
 
     // initialize dateSelector Background
 
-    Future.delayed(Duration(milliseconds: 150), () {
-      _dateBackgroundAc.forward();
-    });
+    Future.delayed(Duration(milliseconds: 150), () => _dateBackgroundAc.forward);
   }
 
   Color _textDateColor(int index) {

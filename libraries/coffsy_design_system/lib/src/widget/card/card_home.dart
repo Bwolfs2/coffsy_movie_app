@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:coffsy_design_system/coffsy_design_system.dart';
+
+import '../../../coffsy_design_system.dart';
 
 class CardHome extends StatelessWidget {
   final String image, title;
@@ -16,7 +17,7 @@ class CardHome extends StatelessWidget {
     return Container(
       width: Sizes.width(context) / 2.5,
       child: GestureDetector(
-        onTap: () => onTap(),
+        onTap: () => onTap,
         child: Card(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(Sizes.dp10(context))),
           child: Stack(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:coffsy_design_system/coffsy_design_system.dart';
+
+import '../../../coffsy_design_system.dart';
 
 class NoInternetWidget extends StatelessWidget {
   final String message;
@@ -28,7 +29,7 @@ class NoInternetWidget extends StatelessWidget {
             ),
           ),
           icon: Icon(Icons.wifi),
-          onPressed: () => onPressed(),
+          onPressed: () => onPressed,
           label: Text('Reload'),
         ),
       ],

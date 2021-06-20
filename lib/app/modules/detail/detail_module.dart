@@ -1,6 +1,6 @@
-import 'package:coffsy_movie_app/app/modules/detail/pages/detail_screen.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import 'pages/detail_screen.dart';
 import 'widgets/crew/crew_store.dart';
 import 'widgets/trailer/trailer_store.dart';
 

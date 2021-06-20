@@ -1,6 +1,7 @@
 import 'package:core/core.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_triple/flutter_triple.dart';
+
 import 'errors/movie_up_coming_failures.dart';
 
 class UpComingStore extends StreamStore<Failure, Result> {

@@ -1,9 +1,8 @@
 import 'package:coffsy_design_system/coffsy_design_system.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-
-import 'package:flutter_triple/flutter_triple.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_triple/flutter_triple.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 
 import 'errors/movie_now_playing_failures.dart';
@@ -15,7 +14,7 @@ class NowPlayingScreen extends StatefulWidget {
 }
 
 class _NowPlayingScreenState extends State<NowPlayingScreen> {
-  var store = Modular.get<MoviePlayingStore>();
+  final store = Modular.get<MoviePlayingStore>();
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +39,8 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
           ),
           onState: (context, state) => ListView.builder(
             itemCount: state.results.length,
-            itemBuilder: (BuildContext context, int index) {
-              Movies movies = state.results[index];
+            itemBuilder: (context, index) {
+              final movies = state.results[index];
               return CardMovies(
                 image: movies.posterPath,
                 title: movies.title,
@@ -51,8 +50,12 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
                 genre: movies.genreIds.take(3).map(buildGenreChip).toList(),
                 onTap: () {
                   Modular.to.pushNamed(
-                    "/detail_movies",
-                    arguments: ScreenArguments(movies, true, false),
+                    '/detail_movies',
+                    arguments: ScreenArguments(
+                      movies: movies,
+                      isFromMovie: true,
+                      isFromBanner: false,
+                    ),
                   );
                 },
               );

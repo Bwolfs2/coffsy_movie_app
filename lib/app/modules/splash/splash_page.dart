@@ -12,11 +12,11 @@ class SplashPage extends StatefulWidget {
 
 class _SplashPageState extends State<SplashPage> {
   Future<String> _getVersion() async {
-    final PackageInfo info = await PackageInfo.fromPlatform();
+    final info = await PackageInfo.fromPlatform();
     return info.version;
   }
 
-  _startSplashScreen() async => await Future.delayed(Duration(seconds: 3), () => Modular.to.navigate("/dashboard/movie_module/"));
+  _startSplashScreen() async => await Future.delayed(Duration(seconds: 3), () => Modular.to.navigate('/dashboard/movie_module/'));
 
   @override
   void initState() {
@@ -53,10 +53,10 @@ class _SplashPageState extends State<SplashPage> {
               alignment: Alignment.bottomCenter,
               child: FutureBuilder<String>(
                 future: _getVersion(),
-                builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-                  var verInfo = "";
+                builder: (context, snapshot) {
+                  var verInfo = '';
                   if (snapshot.hasData) {
-                    verInfo = "v ${snapshot.data}";
+                    verInfo = 'v ${snapshot.data}';
                   }
                   return Container(
                     margin: EdgeInsets.only(bottom: Sizes.dp30(context)),

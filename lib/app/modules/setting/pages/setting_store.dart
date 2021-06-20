@@ -14,9 +14,9 @@ class SettingStore extends StreamStore<Failure, bool> {
 
   factory SettingStore() => getInstance;
 
-  Future<void> changeTheme(bool isDark) async {
+  Future<void> changeTheme({bool isDark = false}) async {
     setLoading(true);
-    await prefHelper.saveValueDarkTheme(isDark);
+    await prefHelper.saveValueDarkTheme(isDark: isDark);
     update(isDark, force: true);
     setLoading(false);
   }

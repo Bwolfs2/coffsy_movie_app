@@ -39,7 +39,7 @@ class AboutScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              "R Rifa Fauzi Komara",
+                              'R Rifa Fauzi Komara',
                               style: TextStyle(fontSize: Sizes.dp28(context), color: ColorPalettes.lightBG, fontWeight: FontWeight.bold),
                             ),
                             SizedBox(height: Sizes.dp5(context)),
@@ -54,7 +54,7 @@ class AboutScreen extends StatelessWidget {
                                   ),
                                   SizedBox(width: Sizes.dp10(context)),
                                   Text(
-                                    "rifafauzi6",
+                                    'rifafauzi6',
                                     style: TextStyle(
                                       color: ColorPalettes.lightBG,
                                       fontSize: Sizes.dp14(context),
@@ -77,7 +77,7 @@ class AboutScreen extends StatelessWidget {
                       Column(
                         children: <Widget>[
                           Text(
-                            "25.3K",
+                            '25.3K',
                             style: TextStyle(
                               fontSize: Sizes.dp26(context),
                               color: ColorPalettes.lightBG,
@@ -85,7 +85,7 @@ class AboutScreen extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "Follower",
+                            'Follower',
                             style: TextStyle(
                               fontSize: Sizes.dp16(context),
                               color: ColorPalettes.lightBG,
@@ -96,7 +96,7 @@ class AboutScreen extends StatelessWidget {
                       Column(
                         children: <Widget>[
                           Text(
-                            "232",
+                            '232',
                             style: TextStyle(
                               fontSize: Sizes.dp26(context),
                               color: ColorPalettes.lightBG,
@@ -104,7 +104,7 @@ class AboutScreen extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "Following",
+                            'Following',
                             style: TextStyle(
                               fontSize: Sizes.dp16(context),
                               color: ColorPalettes.lightBG,
@@ -136,7 +136,7 @@ class AboutScreen extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.only(top: Sizes.dp30(context), bottom: Sizes.dp20(context)),
                       child: Text(
-                        "My Portfolio",
+                        'My Portfolio',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: Sizes.dp22(context),

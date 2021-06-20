@@ -1,5 +1,6 @@
-import 'package:coffsy_movie_app/app/modules/splash/splash_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
+import 'splash_page.dart';
 
 class SplashModule extends Module {
   @override

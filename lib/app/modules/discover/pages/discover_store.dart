@@ -1,7 +1,8 @@
-import 'package:coffsy_movie_app/app/modules/discover/errors/discover_failures.dart';
 import 'package:core/core.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_triple/flutter_triple.dart';
+
+import '../errors/discover_failures.dart';
 
 class DiscoverStore extends StreamStore<Failure, Result> {
   final Repository repository;

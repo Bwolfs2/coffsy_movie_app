@@ -5,5 +5,5 @@ class ScreenArguments {
   final bool isFromMovie;
   final bool isFromBanner;
 
-  ScreenArguments(this.movies, this.isFromMovie, this.isFromBanner);
+  ScreenArguments({required this.movies, this.isFromMovie = false, this.isFromBanner = false});
 }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:coffsy_design_system/coffsy_design_system.dart';
+
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+
+import '../../../coffsy_design_system.dart';
 
 class CardTrailer extends StatefulWidget {
   final String title, youtube;
@@ -15,8 +17,9 @@ class CardTrailer extends StatefulWidget {
   _CardTrailerState createState() => _CardTrailerState();
 }
 
+// ignore: prefer_mixin
 class _CardTrailerState extends State<CardTrailer> with WidgetsBindingObserver {
-  late YoutubePlayerController _controller = YoutubePlayerController(
+  late final _controller = YoutubePlayerController(
     initialVideoId: widget.youtube,
     flags: const YoutubePlayerFlags(
       mute: false,

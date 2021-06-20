@@ -1,12 +1,10 @@
-import 'package:coffsy_movie_app/app/modules/movie/movie_module.dart';
-import 'package:coffsy_movie_app/app/modules/movie/pages/now_playing/now_playing_store.dart';
-
-import 'package:coffsy_movie_app/app/modules/movie/pages/popular/movie_popular_store.dart';
-
-import 'package:coffsy_movie_app/app/modules/movie/widgets/up_coming/up_coming_widget_store.dart';
-import 'package:coffsy_movie_app/app/modules/tv_show/tv_show_module.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../movie/movie_module.dart';
+import '../movie/pages/now_playing/now_playing_store.dart';
+import '../movie/pages/popular/movie_popular_store.dart';
+import '../movie/widgets/up_coming/up_coming_widget_store.dart';
+import '../tv_show/tv_show_module.dart';
 import 'dashboard_screen.dart';
 
 class DashboardModule extends Module {

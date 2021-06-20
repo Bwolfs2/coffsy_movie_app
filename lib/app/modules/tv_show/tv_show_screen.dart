@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:coffsy_design_system/coffsy_design_system.dart';
-import 'package:coffsy_movie_app/app/modules/dashboard/widgets/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 
+import '../dashboard/widgets/menu.dart';
 import 'widgets/airing_today/airing_today_widget.dart';
 import 'widgets/airing_today/airing_today_widget_store.dart';
 import 'widgets/tv_show_banner/tv_show_banner_store.dart';
@@ -36,12 +36,12 @@ class _TvShowScreenState extends State<TvShowScreen> {
           // overflow menu
           PopupMenuButton<Menu>(
             icon: Icon(Icons.more_vert),
-            onSelected: (Menu menu) {
+            onSelected: (menu) {
               // Causes the app to rebuild with the new _selectedChoice.
               Modular.to.pushNamed(menu.route);
             },
-            itemBuilder: (BuildContext context) {
-              return menus.map((Menu menu) {
+            itemBuilder: (context) {
+              return menus.map((menu) {
                 return PopupMenuItem<Menu>(
                   value: menu,
                   child: Text(menu.title),

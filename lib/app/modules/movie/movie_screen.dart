@@ -1,12 +1,11 @@
 import 'dart:async';
 
 import 'package:coffsy_design_system/coffsy_design_system.dart';
-import 'package:coffsy_movie_app/app/modules/dashboard/widgets/menu.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 
+import '../dashboard/widgets/menu.dart';
 import 'widgets/movie_banner/movie_banner_store.dart';
 import 'widgets/movie_banner/movie_banners.dart';
 import 'widgets/popular/popular.dart';
@@ -38,11 +37,11 @@ class _MovieScreenState extends State<MovieScreen> {
         actions: <Widget>[
           PopupMenuButton<Menu>(
             icon: Icon(Icons.more_vert),
-            onSelected: (Menu menu) {
+            onSelected: (menu) {
               Modular.to.pushNamed(menu.route);
             },
-            itemBuilder: (BuildContext context) {
-              return menus.map((Menu menu) {
+            itemBuilder: (context) {
+              return menus.map((menu) {
                 return PopupMenuItem<Menu>(
                   value: menu,
                   child: Text(menu.title),

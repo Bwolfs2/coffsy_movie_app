@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:coffsy_design_system/coffsy_design_system.dart';
+
+import '../../../coffsy_design_system.dart';
 
 class TimeWidget extends StatefulWidget {
   @override
@@ -7,14 +8,14 @@ class TimeWidget extends StatefulWidget {
 }
 
 class _TimeWidgetState extends State<TimeWidget> with TickerProviderStateMixin {
-  var _timeSelectorAcList = <AnimationController>[];
-  var _timeSelectorTweenList = <Animation<double>>[];
+  final _timeSelectorAcList = <AnimationController>[];
+  final _timeSelectorTweenList = <Animation<double>>[];
   bool _isDarkTheme = false;
 
-  var _time = [
-    ["01.30", 45],
-    ["06.30", 45],
-    ["10.30", 45]
+  final _time = [
+    ['01.30', 45],
+    ['06.30', 45],
+    ['10.30', 45]
   ];
   var _timeIndexSelected = 1;
 
@@ -22,7 +23,7 @@ class _TimeWidgetState extends State<TimeWidget> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     // initialize timeSelector List
-    for (int i = 0; i < 3; i++) {
+    for (var i = 0; i < 3; i++) {
       _timeSelectorAcList.add(AnimationController(vsync: this, duration: Duration(milliseconds: 500)));
       _timeSelectorTweenList
           .add(Tween<double>(begin: 1000, end: 0).chain(CurveTween(curve: Curves.easeOutCubic)).animate(_timeSelectorAcList[i]));
@@ -120,7 +121,7 @@ class _TimeWidgetState extends State<TimeWidget> with TickerProviderStateMixin {
             ),
           ),
           Text(
-            "IDR ${price}K",
+            'IDR ${price}K',
             style: TextStyle(
               fontSize: Sizes.dp14(context),
               fontWeight: FontWeight.w600,

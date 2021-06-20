@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:coffsy_design_system/coffsy_design_system.dart';
+
+import '../../../coffsy_design_system.dart';
 
 class CustomButton extends StatefulWidget {
   final Function onPressed;
@@ -12,17 +13,15 @@ class CustomButton extends StatefulWidget {
 }
 
 class _CustomButtonState extends State<CustomButton> with TickerProviderStateMixin {
-  late AnimationController _animationController = AnimationController(vsync: this, duration: Duration(milliseconds: 2000));
-  late Animation<double> _animationTween =
+  late final _animationController = AnimationController(vsync: this, duration: Duration(milliseconds: 2000));
+  late final _animationTween =
       Tween<double>(begin: -1, end: 0).chain(CurveTween(curve: Curves.easeInOutQuart)).animate(_animationController);
 
   @override
   void initState() {
     super.initState();
 
-    Future.delayed(Duration(milliseconds: 800), () {
-      _animationController.forward();
-    });
+    Future.delayed(Duration(milliseconds: 800), () => _animationController.forward);
   }
 
   @override

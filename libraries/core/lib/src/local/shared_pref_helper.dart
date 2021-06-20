@@ -7,10 +7,10 @@ class SharedPrefHelper {
 
   // SharedPrefHelper({required this.preferences});
 
-  static const _LAST_CHECKED = "last_checked";
-  static const _CHECK_INTERVAL = "check_interval";
-  static const _DATA = "data";
-  static const _THEME = "theme";
+  static const _lastChecked = 'last_checked';
+  static const _checkInterval = 'check_interval';
+  static const _data = 'data';
+  static const _theme = 'theme';
 
   Future<SharedPreferences> preferences = SharedPreferences.getInstance();
 
@@ -19,7 +19,7 @@ class SharedPrefHelper {
     if (lastChecked == null) {
       lastChecked = DateTime.now().millisecondsSinceEpoch;
     }
-    return (await preferences).setString(key, jsonEncode({_LAST_CHECKED: lastChecked, _CHECK_INTERVAL: interval, _DATA: json}));
+    return (await preferences).setString(key, jsonEncode({_lastChecked: lastChecked, _checkInterval: interval, _data: json}));
   }
 
   Future<String?> getCache(String key) async {
@@ -29,13 +29,13 @@ class SharedPrefHelper {
     }
     Map map = jsonDecode(result);
     // if outdated, clear and return null
-    var lastChecked = map[_LAST_CHECKED];
-    var interval = map[_CHECK_INTERVAL];
+    var lastChecked = map[_lastChecked];
+    var interval = map[_checkInterval];
     if ((DateTime.now().millisecondsSinceEpoch - lastChecked) > interval) {
       (await preferences).remove(key);
       return null;
     }
-    return map[_DATA];
+    return map[_data];
   }
 
   Future<Map?> getFullCache(String key) async {
@@ -45,8 +45,8 @@ class SharedPrefHelper {
     }
     Map<String, dynamic> map = jsonDecode(result);
     // if outdated, clear and return null
-    var lastChecked = map[_LAST_CHECKED];
-    var interval = map[_CHECK_INTERVAL];
+    var lastChecked = map[_lastChecked];
+    var interval = map[_checkInterval];
     if ((DateTime.now().millisecondsSinceEpoch - lastChecked) > interval) {
       (await preferences).remove(key);
       return null;
@@ -54,11 +54,11 @@ class SharedPrefHelper {
     return map;
   }
 
-  Future saveValueDarkTheme(bool value) async {
-    (await preferences).setBool(_THEME, value);
+  Future saveValueDarkTheme({bool isDark = false}) async {
+    (await preferences).setBool(_theme, isDark);
   }
 
   Future<bool> getValueDarkTheme() async {
-    return (await preferences).getBool(_THEME) ?? false;
+    return (await preferences).getBool(_theme) ?? false;
   }
 }

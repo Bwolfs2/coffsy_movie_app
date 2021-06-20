@@ -14,7 +14,7 @@ class UpComingScreen extends StatefulWidget {
 }
 
 class _UpComingScreenState extends State<UpComingScreen> {
-  var store = Modular.get<UpComingStore>();
+  final store = Modular.get<UpComingStore>();
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +39,8 @@ class _UpComingScreenState extends State<UpComingScreen> {
           ),
           onState: (context, state) => ListView.builder(
             itemCount: state.results.length,
-            itemBuilder: (BuildContext context, int index) {
-              Movies movies = state.results[index];
+            itemBuilder: (context, index) {
+              final movies = state.results[index];
               return CardMovies(
                 image: movies.posterPath,
                 title: movies.title,
@@ -50,8 +50,12 @@ class _UpComingScreenState extends State<UpComingScreen> {
                 genre: movies.genreIds.take(3).map(buildGenreChip).toList(),
                 onTap: () {
                   Modular.to.pushNamed(
-                    "/detail_movies",
-                    arguments: ScreenArguments(movies, true, false),
+                    '/detail_movies',
+                    arguments: ScreenArguments(
+                      movies: movies,
+                      isFromMovie: true,
+                      isFromBanner: false,
+                    ),
                   );
                 },
               );

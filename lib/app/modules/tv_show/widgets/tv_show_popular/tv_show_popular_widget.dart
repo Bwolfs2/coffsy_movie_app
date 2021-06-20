@@ -1,11 +1,11 @@
 import 'package:coffsy_design_system/coffsy_design_system.dart';
-import 'package:coffsy_movie_app/app/modules/tv_show/errors/airing_today_failures.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-
-import 'tv_show_popular_store.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
+
+import '../../errors/airing_today_failures.dart';
+import 'tv_show_popular_store.dart';
 
 class TvShowPopularWidget extends StatefulWidget {
   const TvShowPopularWidget({Key? key}) : super(key: key);
@@ -15,7 +15,7 @@ class TvShowPopularWidget extends StatefulWidget {
 }
 
 class _TvShowPopularWidgetState extends State<TvShowPopularWidget> {
-  var store = Modular.get<TvShowPopularStore>();
+  final store = Modular.get<TvShowPopularStore>();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -64,7 +64,7 @@ class _TvShowPopularWidgetState extends State<TvShowPopularWidget> {
               physics: ClampingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: state.results.length > 5 ? 5 : state.results.length,
-              itemBuilder: (BuildContext context, int index) {
+              itemBuilder: (context, index) {
                 final movies = state.results[index];
                 return CardHome(
                   image: movies.posterPath,
@@ -72,8 +72,12 @@ class _TvShowPopularWidgetState extends State<TvShowPopularWidget> {
                   rating: movies.voteAverage,
                   onTap: () {
                     Modular.to.pushNamed(
-                      "/detail_movies",
-                      arguments: ScreenArguments(movies, false, false),
+                      '/detail_movies',
+                      arguments: ScreenArguments(
+                        movies: movies,
+                        isFromMovie: false,
+                        isFromBanner: false,
+                      ),
                     );
                   },
                 );

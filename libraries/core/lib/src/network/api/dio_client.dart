@@ -8,12 +8,12 @@ class DioClient {
   Dio get dio => _getDio();
 
   Dio _getDio() {
-    BaseOptions options = BaseOptions(
+    var options = BaseOptions(
       baseUrl: apiBaseUrl,
       connectTimeout: 50000,
       receiveTimeout: 30000,
     );
-    Dio dio = Dio(options);
+    var dio = Dio(options);
     // dio.interceptors.addAll(<Interceptor>[_loggingInterceptor()]);
 
     return dio;

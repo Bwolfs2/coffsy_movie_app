@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:coffsy_design_system/coffsy_design_system.dart';
-import 'package:core/core.dart';
-import 'package:core/src/local/shared_pref_helper.dart';
+
+import '../../../core.dart';
 
 class LocalRepository implements Repository {
   final SharedPrefHelper prefHelper;
@@ -11,7 +11,7 @@ class LocalRepository implements Repository {
 
   @override
   Future<Result?> getMovieNowPlaying([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) async {
-    var fromCache = await prefHelper.getCache(AppConstant.MOVIE_NOW_PLAYING);
+    var fromCache = await prefHelper.getCache(AppConstant.movieNowPlaying);
     if (fromCache != null) {
       Map<String, dynamic> json = jsonDecode(fromCache);
       return Result.fromJson(json);
@@ -21,7 +21,7 @@ class LocalRepository implements Repository {
 
   @override
   Future<Result?> getMovieUpComing([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) async {
-    var fromCache = await prefHelper.getCache(AppConstant.MOVIE_UP_COMING);
+    var fromCache = await prefHelper.getCache(AppConstant.movieUpComing);
     if (fromCache != null) {
       Map<String, dynamic> json = jsonDecode(fromCache);
       return Result.fromJson(json);
@@ -31,7 +31,7 @@ class LocalRepository implements Repository {
 
   @override
   Future<Result?> getMoviePopular([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) async {
-    var fromCache = await prefHelper.getCache(AppConstant.MOVIE_POPULAR);
+    var fromCache = await prefHelper.getCache(AppConstant.moviePopular);
     if (fromCache != null) {
       Map<String, dynamic> json = jsonDecode(fromCache);
       return Result.fromJson(json);
@@ -40,20 +40,20 @@ class LocalRepository implements Repository {
   }
 
   Future<bool> saveMovieNowPlaying(Result result) {
-    return prefHelper.storeCache(AppConstant.MOVIE_NOW_PLAYING, jsonEncode(result));
+    return prefHelper.storeCache(AppConstant.movieNowPlaying, jsonEncode(result));
   }
 
   Future<bool> saveMovieUpComing(Result result) {
-    return prefHelper.storeCache(AppConstant.MOVIE_UP_COMING, jsonEncode(result));
+    return prefHelper.storeCache(AppConstant.movieUpComing, jsonEncode(result));
   }
 
   Future<bool> saveMoviePopular(Result result) {
-    return prefHelper.storeCache(AppConstant.MOVIE_POPULAR, jsonEncode(result));
+    return prefHelper.storeCache(AppConstant.moviePopular, jsonEncode(result));
   }
 
   @override
   Future<Result?> getTvAiringToday([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) async {
-    var fromCache = await prefHelper.getCache(AppConstant.TV_AIRING_TODAY);
+    var fromCache = await prefHelper.getCache(AppConstant.tvAiringToday);
     if (fromCache != null) {
       Map<String, dynamic> json = jsonDecode(fromCache);
       return Result.fromJson(json);
@@ -63,7 +63,7 @@ class LocalRepository implements Repository {
 
   @override
   Future<Result?> getTvPopular([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) async {
-    var fromCache = await prefHelper.getCache(AppConstant.TV_POPULAR);
+    var fromCache = await prefHelper.getCache(AppConstant.tvPopular);
     if (fromCache != null) {
       Map<String, dynamic> json = jsonDecode(fromCache);
       return Result.fromJson(json);
@@ -73,7 +73,7 @@ class LocalRepository implements Repository {
 
   @override
   Future<Result?> getTvOnTheAir([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) async {
-    var fromCache = await prefHelper.getCache(AppConstant.TV_ON_THE_AIR);
+    var fromCache = await prefHelper.getCache(AppConstant.tvOnTheAir);
     if (fromCache != null) {
       Map<String, dynamic> json = jsonDecode(fromCache);
       return Result.fromJson(json);
@@ -82,15 +82,15 @@ class LocalRepository implements Repository {
   }
 
   Future<bool> saveTvAiringToday(Result result) {
-    return prefHelper.storeCache(AppConstant.TV_AIRING_TODAY, jsonEncode(result));
+    return prefHelper.storeCache(AppConstant.tvAiringToday, jsonEncode(result));
   }
 
   Future<bool> saveTvPopular(Result result) {
-    return prefHelper.storeCache(AppConstant.TV_POPULAR, jsonEncode(result));
+    return prefHelper.storeCache(AppConstant.tvPopular, jsonEncode(result));
   }
 
   Future<bool> saveTvOnTheAir(Result result) {
-    return prefHelper.storeCache(AppConstant.TV_ON_THE_AIR, jsonEncode(result));
+    return prefHelper.storeCache(AppConstant.tvOnTheAir, jsonEncode(result));
   }
 
   @override
@@ -115,7 +115,7 @@ class LocalRepository implements Repository {
 
   @override
   Future<Result?> getDiscoverMovie([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) async {
-    var fromCache = await prefHelper.getCache(AppConstant.DISCOVER_MOVIE);
+    var fromCache = await prefHelper.getCache(AppConstant.discoverMovie);
     if (fromCache != null) {
       Map<String, dynamic> json = jsonDecode(fromCache);
       return Result.fromJson(json);
@@ -124,6 +124,6 @@ class LocalRepository implements Repository {
   }
 
   Future<bool> saveDiscoverMovie(Result result) {
-    return prefHelper.storeCache(AppConstant.DISCOVER_MOVIE, jsonEncode(result));
+    return prefHelper.storeCache(AppConstant.discoverMovie, jsonEncode(result));
   }
 }

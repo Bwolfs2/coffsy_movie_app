@@ -1,5 +1,6 @@
-import 'package:coffsy_design_system/coffsy_design_system.dart';
 import 'package:flutter/material.dart';
+
+import '../../../coffsy_design_system.dart';
 
 class Themes {
   static ThemeData lightTheme = ThemeData(

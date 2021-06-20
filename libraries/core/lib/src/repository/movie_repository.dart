@@ -1,4 +1,4 @@
-import 'package:core/core.dart';
+import '../../core.dart';
 
 class MovieRepository implements Repository {
   final ApiRepository apiRepository;
@@ -15,7 +15,7 @@ class MovieRepository implements Repository {
       } else {
         throw Exception();
       }
-    } catch (_) {
+    } on Exception catch (_) {
       final data = await apiRepository.getMovieNowPlaying(apiKey, language);
       localRepository.saveMovieNowPlaying(data);
       return data;
@@ -31,7 +31,7 @@ class MovieRepository implements Repository {
       } else {
         throw Exception();
       }
-    } catch (_) {
+    } on Exception catch (_) {
       final data = await apiRepository.getMovieUpComing(apiKey, language);
       localRepository.saveMovieUpComing(data);
       return data;
@@ -47,7 +47,7 @@ class MovieRepository implements Repository {
       } else {
         throw Exception();
       }
-    } catch (_) {
+    } on Exception catch (_) {
       final data = await apiRepository.getMoviePopular(apiKey, language);
       localRepository.saveMoviePopular(data);
       return data;
@@ -63,7 +63,7 @@ class MovieRepository implements Repository {
       } else {
         throw Exception();
       }
-    } catch (_) {
+    } on Exception catch (_) {
       final data = await apiRepository.getTvAiringToday(apiKey, language);
       localRepository.saveTvAiringToday(data);
       return data;
@@ -79,7 +79,7 @@ class MovieRepository implements Repository {
       } else {
         throw Exception();
       }
-    } catch (_) {
+    } on Exception catch (_) {
       final data = await apiRepository.getTvPopular(apiKey, language);
       localRepository.saveTvPopular(data);
       return data;
@@ -95,7 +95,7 @@ class MovieRepository implements Repository {
       } else {
         throw Exception();
       }
-    } catch (_) {
+    } on Exception catch (_) {
       final data = await apiRepository.getTvOnTheAir(apiKey, language);
       localRepository.saveTvOnTheAir(data);
       return data;
@@ -135,7 +135,7 @@ class MovieRepository implements Repository {
       } else {
         throw Exception();
       }
-    } catch (_) {
+    } on Exception catch (_) {
       final data = await apiRepository.getDiscoverMovie(apiKey, language);
       localRepository.saveDiscoverMovie(data);
       return data;

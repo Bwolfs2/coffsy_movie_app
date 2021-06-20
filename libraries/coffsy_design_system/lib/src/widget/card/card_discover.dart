@@ -1,7 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:coffsy_design_system/coffsy_design_system.dart';
+
+import '../../../coffsy_design_system.dart';
 
 class CardDiscover extends StatelessWidget {
   final String image, title;
@@ -21,7 +22,7 @@ class CardDiscover extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(Sizes.dp20(context)),
           child: GestureDetector(
-            onTap: () => onTap(),
+            onTap: () => onTap,
             child: CachedNetworkImage(
               imageUrl: image.imageOriginal,
               width: Sizes.width(context) / 2,

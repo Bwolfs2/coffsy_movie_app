@@ -2,21 +2,21 @@ class DateTimeFormat {
   static String day(int dayWeek) {
     switch (dayWeek) {
       case 1:
-        return "MO";
+        return 'MO';
       case 2:
-        return "TU";
+        return 'TU';
       case 3:
-        return "WE";
+        return 'WE';
       case 4:
-        return "TH";
+        return 'TH';
       case 5:
-        return "FR";
+        return 'FR';
       case 6:
-        return "SA";
+        return 'SA';
       case 7:
-        return "SU";
+        return 'SU';
       default:
-        return "MO";
+        return 'MO';
     }
   }
 }
