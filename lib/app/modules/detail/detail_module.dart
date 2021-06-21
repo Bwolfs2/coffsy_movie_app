@@ -1,6 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
-import 'pages/detail_screen.dart';
+import 'pages/detail_page.dart';
 import 'widgets/crew/crew_store.dart';
 import 'widgets/trailer/trailer_store.dart';
 

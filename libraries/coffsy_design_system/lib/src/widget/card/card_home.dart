@@ -18,14 +18,18 @@ class CardHome extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 5),
       width: Sizes.width(context) / 2.5,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(Sizes.dp10(context)),
+        borderRadius: BorderRadius.circular(
+          Sizes.dp10(context),
+        ),
       ),
       child: Stack(
         children: <Widget>[
           // Image
           Container(
             child: ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(Sizes.dp10(context))),
+              borderRadius: BorderRadius.all(Radius.circular(
+                Sizes.dp10(context),
+              )),
               child: CachedNetworkImage(
                 imageUrl: image.imageOriginal,
                 height: Sizes.width(context) / 1.8,
@@ -42,7 +46,9 @@ class CardHome extends StatelessWidget {
             height: Sizes.width(context) / 1.8,
             width: Sizes.width(context) / 2.5,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(Sizes.dp10(context))),
+              borderRadius: BorderRadius.all(Radius.circular(
+                Sizes.dp10(context),
+              )),
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -61,9 +67,14 @@ class CardHome extends StatelessWidget {
             bottom: 0,
             child: Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(Sizes.dp10(context))),
+                borderRadius: BorderRadius.all(Radius.circular(
+                  Sizes.dp10(context),
+                )),
               ),
-              padding: EdgeInsets.only(left: Sizes.dp6(context), bottom: Sizes.dp5(context)),
+              padding: EdgeInsets.only(
+                left: Sizes.dp6(context),
+                bottom: Sizes.dp5(context),
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -77,24 +88,33 @@ class CardHome extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         color: !isDarkTheme ? ColorPalettes.darkBG : ColorPalettes.white),
                   ),
-                  SizedBox(height: Sizes.dp4(context)),
+                  SizedBox(
+                    height: Sizes.dp4(context),
+                  ),
 
                   // Rating
                   buildRatingBar(theme, context, rating),
-                  SizedBox(height: Sizes.dp10(context)),
+                  SizedBox(
+                    height: Sizes.dp10(context),
+                  ),
                 ],
               ),
             ),
           ),
           Positioned.fill(
-              child: Material(
-            color: Colors.transparent,
-            borderRadius: BorderRadius.circular(Sizes.dp10(context)),
-            child: InkWell(
-              borderRadius: BorderRadius.circular(Sizes.dp10(context)),
-              onTap: onTap,
+            child: Material(
+              color: Colors.transparent,
+              borderRadius: BorderRadius.circular(
+                Sizes.dp10(context),
+              ),
+              child: InkWell(
+                borderRadius: BorderRadius.circular(
+                  Sizes.dp10(context),
+                ),
+                onTap: onTap,
+              ),
             ),
-          ))
+          )
         ],
       ),
     );

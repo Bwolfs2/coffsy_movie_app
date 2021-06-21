@@ -14,12 +14,14 @@ class RatingInformation extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(rating.toString(),
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              color: theme.accentColor,
-              fontSize: Sizes.dp16(context),
-            )),
+        Text(
+          rating.toString(),
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+            color: theme.accentColor,
+            fontSize: Sizes.dp16(context),
+          ),
+        ),
         SizedBox(height: Sizes.dp4(context)),
         Text(
           'Ratings',

@@ -50,29 +50,30 @@ class _CrewWidgetState extends State<CrewWidget> {
           width: Sizes.width(context),
           height: Sizes.width(context) / 3,
           child: ScopedBuilder<CrewStore, Failure, ResultCrew>(
-              store: store,
-              onError: (context, error) => error is CrewNoInternetConnection
-                  ? NoInternetWidget(
-                      message: AppConstant.noInternetConnection,
-                      onPressed: () async => reload(),
-                    )
-                  : CustomErrorWidget(message: error?.errorMessage),
-              onLoading: (context) => Center(
-                    child: CircularProgressIndicator.adaptive(),
-                  ),
-              onState: (context, state) => ListView.builder(
-                    shrinkWrap: true,
-                    physics: ClampingScrollPhysics(),
-                    scrollDirection: Axis.horizontal,
-                    itemCount: state.crew.length,
-                    itemBuilder: (context, index) {
-                      final crew = state.crew[index];
-                      return CardCrew(
-                        image: crew.profile!,
-                        name: crew.characterName,
-                      );
-                    },
-                  )),
+            store: store,
+            onError: (context, error) => error is CrewNoInternetConnection
+                ? NoInternetWidget(
+                    message: AppConstant.noInternetConnection,
+                    onPressed: () async => reload(),
+                  )
+                : CustomErrorWidget(message: error?.errorMessage),
+            onLoading: (context) => Center(
+              child: CircularProgressIndicator.adaptive(),
+            ),
+            onState: (context, state) => ListView.builder(
+              shrinkWrap: true,
+              physics: ClampingScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemCount: state.crew.length,
+              itemBuilder: (context, index) {
+                final crew = state.crew[index];
+                return CardCrew(
+                  image: crew.profile!,
+                  name: crew.characterName,
+                );
+              },
+            ),
+          ),
         ),
       ],
     );

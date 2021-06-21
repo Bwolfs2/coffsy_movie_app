@@ -53,7 +53,11 @@ class SmoothDialog {
         return StatefulBuilder(
           builder: (context, setState) {
             return AlertDialog(
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(Sizes.dp16(context)))),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(
+                  Sizes.dp16(context),
+                )),
+              ),
               contentPadding: EdgeInsets.fromLTRB(16, 24, 16, 8),
               content: Container(
                 width: double.maxFinite,
@@ -62,7 +66,9 @@ class SmoothDialog {
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    SizedBox(height: Sizes.dp16(context)),
+                    SizedBox(
+                      height: Sizes.dp16(context),
+                    ),
                     if (mode == SmoothMode.lottie) ...[
                       Center(
                         child: Lottie.asset(
@@ -115,7 +121,9 @@ class SmoothDialog {
                       child: Align(
                         alignment: FractionalOffset.bottomCenter,
                         child: Padding(
-                          padding: EdgeInsets.only(bottom: Sizes.dp10(context)),
+                          padding: EdgeInsets.only(
+                            bottom: Sizes.dp10(context),
+                          ),
                           child: Row(
                             children: <Widget>[
                               Expanded(
@@ -127,10 +135,15 @@ class SmoothDialog {
                                         Navigator.pop(context);
                                       },
                                       child: Container(
-                                        padding: EdgeInsets.symmetric(vertical: Sizes.dp12(context), horizontal: Sizes.dp22(context)),
+                                        padding: EdgeInsets.symmetric(
+                                          vertical: Sizes.dp12(context),
+                                          horizontal: Sizes.dp22(context),
+                                        ),
                                         decoration: BoxDecoration(
                                             color: buttonConfig?.buttonCancelColor,
-                                            borderRadius: BorderRadius.circular(Sizes.dp16(context))),
+                                            borderRadius: BorderRadius.circular(
+                                              Sizes.dp16(context),
+                                            )),
                                         child: Text(
                                           '${buttonConfig?.dialogCancel}',
                                           textAlign: TextAlign.center,
@@ -142,16 +155,24 @@ class SmoothDialog {
                                         ),
                                       ),
                                     ),
-                                    SizedBox(width: Sizes.dp4(context)),
+                                    SizedBox(
+                                      width: Sizes.dp4(context),
+                                    ),
                                     InkWell(
                                       onTap: () {
                                         Navigator.pop(context);
                                         submit();
                                       },
                                       child: Container(
-                                        padding: EdgeInsets.symmetric(vertical: Sizes.dp12(context), horizontal: Sizes.dp26(context)),
+                                        padding: EdgeInsets.symmetric(
+                                          vertical: Sizes.dp12(context),
+                                          horizontal: Sizes.dp26(context),
+                                        ),
                                         decoration: BoxDecoration(
-                                            color: buttonConfig?.buttonDoneColor, borderRadius: BorderRadius.circular(Sizes.dp16(context))),
+                                            color: buttonConfig?.buttonDoneColor,
+                                            borderRadius: BorderRadius.circular(
+                                              Sizes.dp16(context),
+                                            )),
                                         child: Text(
                                           '${buttonConfig?.dialogDone}',
                                           textAlign: TextAlign.center,
