@@ -212,7 +212,7 @@ packages:
     source: hosted
     version: "4.0.0"
   effective_dart:
-    dependency: "direct dev"
+    dependency: transitive
     description:
       name: effective_dart
       url: "https://pub.dartlang.org"

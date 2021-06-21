@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 
-import '../../../movie/widgets/up_coming/up_coming_widget_store.dart';
+import 'errors/trailer_failures.dart';
 import 'trailer_store.dart';
 
 class TrailerWidget extends StatefulWidget {
@@ -56,7 +56,7 @@ class _TrailerWidgetState extends State<TrailerWidget> {
           height: Sizes.width(context) / 1.7,
           child: ScopedBuilder<TrailerStore, Failure, ResultTrailer>(
             store: store,
-            onError: (context, error) => error is MovieUpComingNoInternetConnection
+            onError: (context, error) => error is TrailerNoInternetConnection
                 ? NoInternetWidget(
                     message: AppConstant.noTrailer,
                     onPressed: () async => reload(),

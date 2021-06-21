@@ -16,12 +16,15 @@ class _SplashPageState extends State<SplashPage> {
     return info.version;
   }
 
-  _startSplashScreen() async => await Future.delayed(Duration(seconds: 3), () => Modular.to.navigate('/dashboard/movie_module/'));
+  _startSplashPage() async => await Future.delayed(
+        Duration(seconds: 3),
+        () => Modular.to.navigate('/dashboard/movie_module/'),
+      );
 
   @override
   void initState() {
     super.initState();
-    _startSplashScreen();
+    _startSplashPage();
   }
 
   @override

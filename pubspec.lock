@@ -177,7 +177,7 @@ packages:
     source: hosted
     version: "4.0.0"
   effective_dart:
-    dependency: "direct dev"
+    dependency: transitive
     description:
       name: effective_dart
       url: "https://pub.dartlang.org"
@@ -375,6 +375,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.0"
+  movie:
+    dependency: "direct main"
+    description:
+      path: "libraries/modules/movie"
+      relative: true
+    source: path
+    version: "0.0.1"
   octo_image:
     dependency: transitive
     description:
@@ -646,6 +653,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
+  tv_show:
+    dependency: "direct main"
+    description:
+      path: "libraries/modules/tv_show"
+      relative: true
+    source: path
+    version: "0.0.1"
   typed_data:
     dependency: transitive
     description:

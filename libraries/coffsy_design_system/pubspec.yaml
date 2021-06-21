@@ -10,13 +10,12 @@ environment:
 dependencies:
   dependencies:
     path: ../dependencies
+  core:
+    path: ../core
   flutter:
     sdk: flutter
 
 dev_dependencies:
-  effective_dart: ^1.3.2
-  core:
-    path: ../core
   flutter_test:
     sdk: flutter
 
