@@ -33,13 +33,8 @@ class _CinemaWidgetState extends State<CinemaWidget> with TickerProviderStateMix
   void initState() {
     super.initState();
 
-    // initialize cinemaScreen
-
-    Future.delayed(Duration(milliseconds: 800), () => _cinemaScreenAc.forward);
-
-    // chair
-
-    Future.delayed(Duration(milliseconds: 1200), () => _cinemaChairAc.forward);
+    Future.delayed(Duration(milliseconds: 800), _cinemaScreenAc.forward);
+    Future.delayed(Duration(milliseconds: 1200), _cinemaChairAc.forward);
   }
 
   @override

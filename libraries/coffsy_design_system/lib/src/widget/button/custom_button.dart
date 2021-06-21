@@ -21,7 +21,7 @@ class _CustomButtonState extends State<CustomButton> with TickerProviderStateMix
   void initState() {
     super.initState();
 
-    Future.delayed(Duration(milliseconds: 800), () => _animationController.forward);
+    Future.delayed(Duration(milliseconds: 800), _animationController.forward);
   }
 
   @override
