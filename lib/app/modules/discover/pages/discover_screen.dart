@@ -1,12 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:coffsy_design_system/coffsy_design_system.dart';
-import 'package:coffsy_movie_app/app/modules/discover/errors/discover_failures.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-
-import 'discover_store.dart';
 import 'package:flutter_triple/flutter_triple.dart';
+
+import '../errors/discover_failures.dart';
+import 'discover_store.dart';
 
 class DiscoverScreen extends StatefulWidget {
   @override
@@ -14,7 +14,7 @@ class DiscoverScreen extends StatefulWidget {
 }
 
 class _DiscoverScreenState extends State<DiscoverScreen> {
-  var store = Modular.get<DiscoverStore>();
+  final store = Modular.get<DiscoverStore>();
 
   @override
   Widget build(BuildContext context) {
@@ -84,8 +84,12 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                       genre: movie.genreIds,
                       onTap: () {
                         Modular.to.pushNamed(
-                          "/detail_movies",
-                          arguments: ScreenArguments(movie, true, false),
+                          '/detail_movies',
+                          arguments: ScreenArguments(
+                            movies: movie,
+                            isFromMovie: true,
+                            isFromBanner: false,
+                          ),
                         );
                       },
                     ),
@@ -108,7 +112,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                             style: TextStyle(color: ColorPalettes.white, fontSize: Sizes.dp25(context), fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            "/${state.results.length}",
+                            '/${state.results.length}',
                             style: TextStyle(
                               color: ColorPalettes.white,
                               fontSize: Sizes.dp16(context),

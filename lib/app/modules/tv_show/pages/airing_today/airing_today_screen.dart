@@ -1,12 +1,12 @@
 import 'package:coffsy_design_system/coffsy_design_system.dart';
-import 'package:coffsy_movie_app/app/modules/tv_show/errors/airing_today_failures.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_triple/flutter_triple.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 
+import '../../errors/airing_today_failures.dart';
 import 'airing_today_store.dart';
-import 'package:flutter_triple/flutter_triple.dart';
 
 class AiringTodayScreen extends StatefulWidget {
   @override
@@ -14,7 +14,7 @@ class AiringTodayScreen extends StatefulWidget {
 }
 
 class _AiringTodayScreenState extends State<AiringTodayScreen> {
-  var store = Modular.get<AiringTodayStore>();
+  final store = Modular.get<AiringTodayStore>();
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +39,8 @@ class _AiringTodayScreenState extends State<AiringTodayScreen> {
           ),
           onState: (context, state) => ListView.builder(
             itemCount: state.results.length,
-            itemBuilder: (BuildContext context, int index) {
-              Movies movies = state.results[index];
+            itemBuilder: (context, index) {
+              final movies = state.results[index];
               return CardMovies(
                 image: movies.posterPath,
                 title: movies.tvName ?? 'No TV Name',
@@ -50,8 +50,12 @@ class _AiringTodayScreenState extends State<AiringTodayScreen> {
                 genre: movies.genreIds.take(3).map(buildGenreChip).toList(),
                 onTap: () {
                   Modular.to.pushNamed(
-                    "/detail_movies",
-                    arguments: ScreenArguments(movies, false, false),
+                    '/detail_movies',
+                    arguments: ScreenArguments(
+                      movies: movies,
+                      isFromMovie: false,
+                      isFromBanner: false,
+                    ),
                   );
                 },
               );

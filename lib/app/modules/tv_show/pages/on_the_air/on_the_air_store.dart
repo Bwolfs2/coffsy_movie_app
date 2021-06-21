@@ -1,7 +1,8 @@
-import 'package:coffsy_movie_app/app/modules/tv_show/errors/airing_today_failures.dart';
 import 'package:core/core.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_triple/flutter_triple.dart';
+
+import '../../errors/airing_today_failures.dart';
 
 class OnTheAirStore extends StreamStore<Failure, Result> {
   final Repository repository;

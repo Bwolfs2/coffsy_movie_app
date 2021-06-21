@@ -1,4 +1,4 @@
-import 'package:core/core.dart';
+import '../../core.dart';
 
 abstract class Repository {
   Future<Result?> getMovieNowPlaying([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]);

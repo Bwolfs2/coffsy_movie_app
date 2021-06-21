@@ -14,7 +14,7 @@ class Pupular extends StatefulWidget {
 }
 
 class _PupularState extends State<Pupular> {
-  var store = Modular.get<PopularStore>();
+  final store = Modular.get<PopularStore>();
   @override
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
@@ -58,16 +58,20 @@ class _PupularState extends State<Pupular> {
                   physics: ClampingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   itemCount: state.results.length > 5 ? 5 : state.results.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    Movies movies = state.results[index];
+                  itemBuilder: (context, index) {
+                    final movies = state.results[index];
                     return CardHome(
                       image: movies.posterPath,
                       title: movies.title,
                       rating: movies.voteAverage,
                       onTap: () {
                         Modular.to.pushNamed(
-                          "/detail_movies",
-                          arguments: ScreenArguments(movies, true, false),
+                          '/detail_movies',
+                          arguments: ScreenArguments(
+                            movies: movies,
+                            isFromMovie: true,
+                            isFromBanner: false,
+                          ),
                         );
                       },
                     );

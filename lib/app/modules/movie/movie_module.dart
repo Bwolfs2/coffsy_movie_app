@@ -1,15 +1,11 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'movie_screen.dart';
-
-import 'pages/now_playing/now_playing_store.dart';
 import 'pages/now_playing/now_playing_screen.dart';
-
+import 'pages/now_playing/now_playing_store.dart';
 import 'pages/popular/movie_popular_screen.dart';
 import 'pages/popular/movie_popular_store.dart';
-
 import 'pages/up_coming/up_coming_screen.dart';
-
 import 'pages/up_coming/up_coming_store.dart';
 import 'widgets/movie_banner/movie_banner_store.dart';
 import 'widgets/popular/popular_store.dart';

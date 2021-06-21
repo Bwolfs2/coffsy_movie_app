@@ -1,7 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:coffsy_design_system/src/common/utils/chair_constant.dart';
 import 'package:flutter/material.dart';
-import 'package:coffsy_design_system/coffsy_design_system.dart';
+
+import '../../../coffsy_design_system.dart';
+import '../../common/utils/chair_constant.dart';
 
 class CinemaWidget extends StatefulWidget {
   final String movieBackground;
@@ -13,14 +14,13 @@ class CinemaWidget extends StatefulWidget {
 }
 
 class _CinemaWidgetState extends State<CinemaWidget> with TickerProviderStateMixin {
-  late AnimationController _cinemaChairAc = AnimationController(vsync: this, duration: Duration(milliseconds: 1600));
-  late Animation<double> _cinemaChairTween = Tween<double>(begin: -1, end: 0).chain(CurveTween(curve: Curves.ease)).animate(_cinemaChairAc);
-  late AnimationController _cinemaScreenAc = AnimationController(vsync: this, duration: Duration(milliseconds: 2000));
-  late Animation<double> _cinemaScreenTween =
-      Tween<double>(begin: 0, end: 1).chain(CurveTween(curve: Curves.easeInOutQuart)).animate(_cinemaScreenAc);
+  late final _cinemaChairAc = AnimationController(vsync: this, duration: Duration(milliseconds: 1600));
+  late final _cinemaChairTween = Tween<double>(begin: -1, end: 0).chain(CurveTween(curve: Curves.ease)).animate(_cinemaChairAc);
+  late final _cinemaScreenAc = AnimationController(vsync: this, duration: Duration(milliseconds: 2000));
+  late final _cinemaScreenTween = Tween<double>(begin: 0, end: 1).chain(CurveTween(curve: Curves.easeInOutQuart)).animate(_cinemaScreenAc);
   bool _isDarkTheme = false;
 
-  var _chairStatus = [
+  final _chairStatus = [
     [0, 3, 2, 1, 2, 2, 0],
     [2, 2, 2, 2, 1, 2, 2],
     [1, 1, 2, 2, 2, 2, 2],
@@ -35,15 +35,11 @@ class _CinemaWidgetState extends State<CinemaWidget> with TickerProviderStateMix
 
     // initialize cinemaScreen
 
-    Future.delayed(Duration(milliseconds: 800), () {
-      _cinemaScreenAc.forward();
-    });
+    Future.delayed(Duration(milliseconds: 800), () => _cinemaScreenAc.forward);
 
     // chair
 
-    Future.delayed(Duration(milliseconds: 1200), () {
-      _cinemaChairAc.forward();
-    });
+    Future.delayed(Duration(milliseconds: 1200), () => _cinemaChairAc.forward);
   }
 
   @override
@@ -62,7 +58,7 @@ class _CinemaWidgetState extends State<CinemaWidget> with TickerProviderStateMix
         AnimatedBuilder(
           animation: _cinemaScreenAc,
           builder: (ctx, child) {
-            double perspective = 0.004 * _cinemaScreenTween.value;
+            final perspective = 0.004 * _cinemaScreenTween.value;
             return Transform(
               alignment: Alignment.topCenter,
               transform: Matrix4.identity()
@@ -141,7 +137,7 @@ class _CinemaWidgetState extends State<CinemaWidget> with TickerProviderStateMix
                               height: Sizes.width(context) / 11 - 10,
                               margin: EdgeInsets.all(Sizes.dp5(context)),
                               child: _chairStatus[i][x - 1] == 1
-                                  ? ChairConstant.white(context, _isDarkTheme)
+                                  ? ChairConstant.white(context, isWhite: _isDarkTheme)
                                   : _chairStatus[i][x - 1] == 2
                                       ? ChairConstant.grey(context)
                                       : _chairStatus[i][x - 1] == 3
@@ -158,10 +154,10 @@ class _CinemaWidgetState extends State<CinemaWidget> with TickerProviderStateMix
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              _chairCategory(ColorPalettes.white, "FREE", true),
-              _chairCategory(ColorPalettes.darkAccent, "YOURS", false),
-              _chairCategory(Colors.grey[700] ?? Colors.grey, "RESERVED", false),
-              _chairCategory(Colors.red[800] ?? Colors.red, "NOT AVAILABLE", false),
+              _chairCategory(ColorPalettes.white, 'FREE', true),
+              _chairCategory(ColorPalettes.darkAccent, 'YOURS', false),
+              _chairCategory(Colors.grey[700] ?? Colors.grey, 'RESERVED', false),
+              _chairCategory(Colors.red[800] ?? Colors.red, 'NOT AVAILABLE', false),
             ],
           ),
         ),

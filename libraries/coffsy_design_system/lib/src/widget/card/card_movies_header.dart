@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:coffsy_design_system/coffsy_design_system.dart';
+
+import '../../../coffsy_design_system.dart';
 
 class CardMoviesHeader extends StatelessWidget {
   final bool isFromBanner;

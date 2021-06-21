@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:coffsy_design_system/coffsy_design_system.dart';
+
+import '../../../coffsy_design_system.dart';
 
 class CustomDialog extends StatelessWidget {
   final bool isDark, groupValue;
@@ -10,7 +11,7 @@ class CustomDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SimpleDialog(
-      title: Text("Switch Theme"),
+      title: Text('Switch Theme'),
       children: <Widget>[
         Padding(
           padding: EdgeInsets.only(left: Sizes.dp10(context)),

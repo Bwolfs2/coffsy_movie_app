@@ -1,9 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:coffsy_design_system/coffsy_design_system.dart';
+
+import '../../../coffsy_design_system.dart';
 
 class Poster extends StatelessWidget {
-  static const POSTER_RATIO = 0.7;
+  static const posterRatio = 0.7;
 
   Poster(this.posterUrl, this.height);
 
@@ -12,7 +13,7 @@ class Poster extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var width = POSTER_RATIO * height;
+    var width = posterRatio * height;
     return Material(
       borderRadius: BorderRadius.circular(Sizes.dp4(context)),
       elevation: 2.0,

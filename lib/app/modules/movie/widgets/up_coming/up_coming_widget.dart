@@ -14,7 +14,7 @@ class UpComingWidget extends StatefulWidget {
 }
 
 class _UpComingWidgetState extends State<UpComingWidget> {
-  var store = Modular.get<UpComingWidgetStore>();
+  final store = Modular.get<UpComingWidgetStore>();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -61,16 +61,20 @@ class _UpComingWidgetState extends State<UpComingWidget> {
                     physics: ClampingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
                     itemCount: state.results.length > 5 ? 5 : state.results.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      Movies movies = state.results[index];
+                    itemBuilder: (context, index) {
+                      final movies = state.results[index];
                       return CardHome(
                         image: movies.posterPath,
                         title: movies.title,
                         rating: movies.voteAverage,
                         onTap: () {
                           Modular.to.pushNamed(
-                            "/detail_movies",
-                            arguments: ScreenArguments(movies, true, false),
+                            '/detail_movies',
+                            arguments: ScreenArguments(
+                              movies: movies,
+                              isFromMovie: true,
+                              isFromBanner: false,
+                            ),
                             forRoot: true,
                           );
                         },

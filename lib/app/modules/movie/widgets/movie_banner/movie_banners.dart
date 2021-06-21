@@ -36,7 +36,7 @@ class _MovieBannersState extends State<MovieBanners> {
                 },
                 data: state,
                 currentIndex: _current,
-                routeNameDetail: "/detail_movies",
+                routeNameDetail: '/detail_movies',
                 routeNameAll: '/dashboard/movie_module/now_playing',
               ),
             ),

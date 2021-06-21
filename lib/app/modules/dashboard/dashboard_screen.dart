@@ -7,7 +7,7 @@ class DashBoardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int _page = 0;
+    var _page = 0;
     return Scaffold(
       body: RouterOutlet(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -37,7 +37,7 @@ class DashBoardScreen extends StatelessWidget {
                   color: _page == 0 ? ColorPalettes.darkAccent : ColorPalettes.grey,
                   icon: Icon(Icons.movie_creation),
                   onPressed: () {
-                    Modular.to.navigate("/dashboard/movie_module/");
+                    Modular.to.navigate('/dashboard/movie_module/');
                     setState(() {
                       _page = 0;
                     });
@@ -47,7 +47,7 @@ class DashBoardScreen extends StatelessWidget {
                   color: _page == 1 ? ColorPalettes.darkAccent : ColorPalettes.grey,
                   icon: Icon(Icons.live_tv),
                   onPressed: () {
-                    Modular.to.navigate("/dashboard/tv_show/");
+                    Modular.to.navigate('/dashboard/tv_show/');
                     setState(() {
                       _page = 1;
                     });

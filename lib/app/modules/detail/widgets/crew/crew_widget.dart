@@ -17,7 +17,7 @@ class CrewWidget extends StatefulWidget {
 }
 
 class _CrewWidgetState extends State<CrewWidget> {
-  var store = Modular.get<CrewStore>();
+  final store = Modular.get<CrewStore>();
 
   Future<void> reload() async {
     if (widget.isFromMovie) {
@@ -65,8 +65,8 @@ class _CrewWidgetState extends State<CrewWidget> {
                     physics: ClampingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
                     itemCount: state.crew.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      Crew crew = state.crew[index];
+                    itemBuilder: (context, index) {
+                      final crew = state.crew[index];
                       return CardCrew(
                         image: crew.profile!,
                         name: crew.characterName,

@@ -5,8 +5,8 @@ class Menu {
   final String title;
 }
 
-const List<Menu> menus = const <Menu>[
-  const Menu(
+const List<Menu> menus = <Menu>[
+  Menu(
     route: '/theme',
     title: 'Setting',
   ),

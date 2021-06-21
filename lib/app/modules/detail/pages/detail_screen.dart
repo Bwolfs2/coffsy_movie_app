@@ -1,10 +1,11 @@
 import 'dart:io';
 
 import 'package:coffsy_design_system/coffsy_design_system.dart';
-import 'package:coffsy_movie_app/app/modules/detail/widgets/crew/crew_widget.dart';
-import 'package:coffsy_movie_app/app/modules/detail/widgets/trailer/trailer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
+import '../widgets/crew/crew_widget.dart';
+import '../widgets/trailer/trailer_widget.dart';
 
 class DetailPage extends StatefulWidget {
   final ScreenArguments arguments;
@@ -84,11 +85,15 @@ class _DetailPageState extends State<DetailPage> {
                     bottom: Sizes.dp20(context),
                   ),
                   child: CustomButton(
-                    text: "Booking Ticket",
+                    text: 'Booking Ticket',
                     onPressed: () {
                       Modular.to.pushNamed(
                         '/booking',
-                        arguments: ScreenArguments(widget.arguments.movies, true, false),
+                        arguments: ScreenArguments(
+                          movies: widget.arguments.movies,
+                          isFromMovie: true,
+                          isFromBanner: false,
+                        ),
                       );
                     },
                   ),
@@ -103,7 +108,7 @@ class _DetailPageState extends State<DetailPage> {
                 color: theme.accentColor,
                 icon: Icon(Icons.favorite_border),
                 onPressed: () {
-                  PopUp.showSuccess("Add to Favorite");
+                  PopUp.showSuccess('Add to Favorite');
                 },
               ),
             ),

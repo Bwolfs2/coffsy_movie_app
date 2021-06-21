@@ -1,20 +1,22 @@
 name: coffsy_design_system
 description: A new Flutter package project.
 version: 0.0.1
+publish_to: none
 
 environment:
   sdk: ">=2.12.0-0 <3.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
+  dependencies:
+    path: ../dependencies
   flutter:
     sdk: flutter
 
 dev_dependencies:
+  effective_dart: ^1.3.2
   core:
     path: ../core
-  dependencies:
-    path: ../dependencies
   flutter_test:
     sdk: flutter
 

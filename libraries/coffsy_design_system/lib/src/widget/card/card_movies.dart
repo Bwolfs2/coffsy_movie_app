@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:coffsy_design_system/coffsy_design_system.dart';
+
+import '../../../coffsy_design_system.dart';
 
 class CardMovies extends StatelessWidget {
   final String image;
@@ -9,7 +10,7 @@ class CardMovies extends StatelessWidget {
   final String releaseDate;
   final List<Widget> genre;
   final String overview;
-  final Function onTap;
+  final VoidCallback onTap;
 
   const CardMovies({
     Key? key,
@@ -27,7 +28,7 @@ class CardMovies extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(Sizes.dp5(context)),
       child: InkWell(
-        onTap: () => onTap(),
+        onTap: onTap,
         child: Card(
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,

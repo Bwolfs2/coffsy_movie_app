@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:coffsy_design_system/coffsy_design_system.dart';
+
 import 'package:shimmer/shimmer.dart';
+
+import '../../../coffsy_design_system.dart';
 
 class ShimmerCard extends StatelessWidget {
   @override

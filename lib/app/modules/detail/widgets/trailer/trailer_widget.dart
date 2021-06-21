@@ -5,8 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 
-import 'package:coffsy_movie_app/app/modules/movie/widgets/up_coming/up_coming_widget_store.dart';
-
+import '../../../movie/widgets/up_coming/up_coming_widget_store.dart';
 import 'trailer_store.dart';
 
 class TrailerWidget extends StatefulWidget {
@@ -23,7 +22,7 @@ class TrailerWidget extends StatefulWidget {
 }
 
 class _TrailerWidgetState extends State<TrailerWidget> {
-  var store = Modular.get<TrailerStore>();
+  final store = Modular.get<TrailerStore>();
 
   void reload() {
     if (widget.isFromMovie) {
@@ -71,7 +70,7 @@ class _TrailerWidgetState extends State<TrailerWidget> {
               physics: ClampingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: state.trailer.length,
-              itemBuilder: (BuildContext context, int index) {
+              itemBuilder: (context, index) {
                 final trailer = state.trailer[index];
                 return CardTrailer(
                   title: trailer.title,

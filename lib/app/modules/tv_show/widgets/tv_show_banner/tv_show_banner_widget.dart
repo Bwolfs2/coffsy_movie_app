@@ -1,10 +1,10 @@
 import 'package:coffsy_design_system/coffsy_design_system.dart';
-import 'package:coffsy_movie_app/app/modules/tv_show/errors/airing_today_failures.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 
+import '../../errors/airing_today_failures.dart';
 import 'tv_show_banner_store.dart';
 
 class TvShowBanner extends StatefulWidget {
@@ -15,7 +15,7 @@ class TvShowBanner extends StatefulWidget {
 }
 
 class _TvShowBannerState extends State<TvShowBanner> {
-  var store = Modular.get<TvShowBannerStore>();
+  final store = Modular.get<TvShowBannerStore>();
   int _current = 0;
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class _TvShowBannerState extends State<TvShowBanner> {
           },
           data: state,
           currentIndex: _current,
-          routeNameDetail: "/detail_movies",
+          routeNameDetail: '/detail_movies',
           routeNameAll: '/dashboard/tv_show/on_the_air',
         ),
       ),
