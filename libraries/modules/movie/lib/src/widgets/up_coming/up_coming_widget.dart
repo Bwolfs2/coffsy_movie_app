@@ -23,6 +23,7 @@ class _UpComingWidgetState extends State<UpComingWidget> {
         Container(
           alignment: Alignment.centerLeft,
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text(
                 'Up Coming',
@@ -31,7 +32,6 @@ class _UpComingWidgetState extends State<UpComingWidget> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Spacer(),
               IconButton(
                 icon: Icon(
                   Icons.arrow_forward_ios,
@@ -50,15 +50,13 @@ class _UpComingWidgetState extends State<UpComingWidget> {
           child: ScopedBuilder<UpComingWidgetStore, Failure, Result>(
             store: store,
             onError: (context, error) => CustomErrorWidget(message: error?.errorMessage),
-            onLoading: (context) => Center(
-              child: CircularProgressIndicator.adaptive(),
-            ),
+            onLoading: (context) => ShimmerList(),
             onState: (context, state) => state is EmptyResult
-                ? SizedBox.shrink()
+                ? const SizedBox.shrink()
                 : ListView.builder(
                     key: UniqueKey(),
                     shrinkWrap: true,
-                    physics: ClampingScrollPhysics(),
+                    physics: const ClampingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
                     itemCount: state.results.length > 5 ? 5 : state.results.length,
                     itemBuilder: (context, index) {

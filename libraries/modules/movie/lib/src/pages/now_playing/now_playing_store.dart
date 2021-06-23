@@ -6,10 +6,7 @@ import 'errors/movie_now_playing_failures.dart';
 
 class MoviePlayingStore extends StreamStore<Failure, Result> {
   final Repository repository;
-  MoviePlayingStore(this.repository)
-      : super(
-          Result(),
-        ) {
+  MoviePlayingStore(this.repository) : super(const Result()) {
     load();
   }
 
@@ -24,17 +21,11 @@ class MoviePlayingStore extends StreamStore<Failure, Result> {
       }
     } on DioError catch (e) {
       if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
-        setError(
-          MovieNowPlayingNoInternetConnection(),
-        );
+        setError(const MovieNowPlayingNoInternetConnection());
       } else if (e.type == DioErrorType.other) {
-        setError(
-          MovieNowPlayingNoInternetConnection(),
-        );
+        setError(const MovieNowPlayingNoInternetConnection());
       } else {
-        setError(MovieNowPlayingError(
-          e.toString(),
-        ));
+        setError(MovieNowPlayingError(e.toString()));
       }
     }
 

@@ -242,10 +242,10 @@ packages:
     description:
       path: flutter_modular
       ref: HEAD
-      resolved-ref: e176f6828d97ee110b236fe4f8ca19225bb3586d
+      resolved-ref: "8ce950fa217827870b8833e939d8edd5ae1532b9"
       url: "https://github.com/Flutterando/modular.git"
     source: git
-    version: "3.3.0-beta.6"
+    version: "3.3.0-beta.7"
   flutter_modular_annotations:
     dependency: transitive
     description:

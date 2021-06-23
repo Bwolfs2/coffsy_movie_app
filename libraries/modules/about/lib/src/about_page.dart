@@ -33,9 +33,7 @@ class AboutPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(
-                        width: Sizes.dp20(context),
-                      ),
+                      SizedBox(width: Sizes.dp20(context)),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,9 +42,7 @@ class AboutPage extends StatelessWidget {
                               'R Rifa Fauzi Komara',
                               style: TextStyle(fontSize: Sizes.dp28(context), color: ColorPalettes.lightBG, fontWeight: FontWeight.bold),
                             ),
-                            SizedBox(
-                              height: Sizes.dp5(context),
-                            ),
+                            SizedBox(height: Sizes.dp5(context)),
                             GestureDetector(
                               onTap: () async => await launch(UrlConstant.urlInstagram),
                               child: Row(
@@ -56,9 +52,7 @@ class AboutPage extends StatelessWidget {
                                     height: Sizes.dp13(context),
                                     width: Sizes.dp13(context),
                                   ),
-                                  SizedBox(
-                                    width: Sizes.dp10(context),
-                                  ),
+                                  SizedBox(width: Sizes.dp10(context)),
                                   Text(
                                     'rifafauzi6',
                                     style: TextStyle(
@@ -74,9 +68,7 @@ class AboutPage extends StatelessWidget {
                       )
                     ],
                   ),
-                  SizedBox(
-                    height: Sizes.dp30(context),
-                  ),
+                  SizedBox(height: Sizes.dp30(context)),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
@@ -132,12 +124,8 @@ class AboutPage extends StatelessWidget {
               decoration: BoxDecoration(
                 color: !_isDarkTheme ? ColorPalettes.darkBG : ColorPalettes.lightBG,
                 borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(
-                    Sizes.dp30(context),
-                  ),
-                  topLeft: Radius.circular(
-                    Sizes.dp30(context),
-                  ),
+                  topRight: Radius.circular(Sizes.dp30(context)),
+                  topLeft: Radius.circular(Sizes.dp30(context)),
                 ),
               ),
               child: SingleChildScrollView(

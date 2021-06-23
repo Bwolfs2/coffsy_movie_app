@@ -6,10 +6,7 @@ import 'errors/movie_popular_failures.dart';
 
 class MoviePopularStore extends StreamStore<Failure, Result> {
   final Repository repository;
-  MoviePopularStore(this.repository)
-      : super(
-          Result(),
-        ) {
+  MoviePopularStore(this.repository) : super(const Result()) {
     load();
   }
 
@@ -25,11 +22,11 @@ class MoviePopularStore extends StreamStore<Failure, Result> {
     } on DioError catch (e) {
       if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
         setError(
-          MoviePopularNoInternetConnection(),
+          const MoviePopularNoInternetConnection(),
         );
       } else if (e.type == DioErrorType.other) {
         setError(
-          MoviePopularNoInternetConnection(),
+          const MoviePopularNoInternetConnection(),
         );
       } else {
         setError(MoviePopularError(

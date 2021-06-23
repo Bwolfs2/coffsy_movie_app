@@ -30,6 +30,8 @@ dependencies:
     path: libraries/modules/tv_show
   movie:
     path: libraries/modules/movie    
+  about:
+    path: libraries/modules/about     
   #Core Modules
   core:
     path: libraries/core

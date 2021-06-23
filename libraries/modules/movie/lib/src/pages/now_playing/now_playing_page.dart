@@ -20,23 +20,21 @@ class _NowPlayingPageState extends State<NowPlayingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Now Playing Movies'),
+        title: const Text('Now Playing Movies'),
         centerTitle: true,
       ),
       body: LiquidPullToRefresh(
         onRefresh: store.load,
         showChildOpacityTransition: false,
         child: ScopedBuilder<MoviePlayingStore, Failure, Result>(
-          store: Modular.get<MoviePlayingStore>(),
+          store: store,
           onError: (context, error) => error is MovieNowPlayingNoInternetConnection
               ? NoInternetWidget(
                   message: AppConstant.noInternetConnection,
                   onPressed: () async => await store.load(),
                 )
               : CustomErrorWidget(message: error?.errorMessage),
-          onLoading: (context) => Center(
-            child: CircularProgressIndicator.adaptive(),
-          ),
+          onLoading: (context) => ShimmerList(),
           onState: (context, state) => ListView.builder(
             itemCount: state.results.length,
             itemBuilder: (context, index) {

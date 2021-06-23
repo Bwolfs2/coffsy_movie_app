@@ -20,7 +20,7 @@ class _UpComingPageState extends State<UpComingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Up Coming Movie'),
+        title: const Text('Up Coming Movie'),
         centerTitle: true,
       ),
       body: LiquidPullToRefresh(
@@ -34,9 +34,7 @@ class _UpComingPageState extends State<UpComingPage> {
                   onPressed: () async => await store.load(),
                 )
               : CustomErrorWidget(message: error?.errorMessage),
-          onLoading: (context) => Center(
-            child: CircularProgressIndicator.adaptive(),
-          ),
+          onLoading: (context) => ShimmerList(),
           onState: (context, state) => ListView.builder(
             itemCount: state.results.length,
             itemBuilder: (context, index) {

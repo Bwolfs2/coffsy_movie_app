@@ -20,7 +20,7 @@ class _MoviePopularPageState extends State<MoviePopularPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Popular Movies'),
+        title: const Text('Popular Movies'),
         centerTitle: true,
       ),
       body: LiquidPullToRefresh(
@@ -34,7 +34,7 @@ class _MoviePopularPageState extends State<MoviePopularPage> {
                   onPressed: () async => await store.load(),
                 )
               : CustomErrorWidget(message: error?.errorMessage),
-          onLoading: (context) => Center(
+          onLoading: (context) => const Center(
             child: CircularProgressIndicator.adaptive(),
           ),
           onState: (context, state) => ListView.builder(

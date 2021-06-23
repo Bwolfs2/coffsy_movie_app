@@ -21,6 +21,7 @@ class _PupularWidgetState extends State<PupularWidget> {
       Container(
         alignment: Alignment.centerLeft,
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Text(
               'Popular',
@@ -29,7 +30,6 @@ class _PupularWidgetState extends State<PupularWidget> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Spacer(),
             IconButton(
               icon: Icon(
                 Icons.arrow_forward_ios,
@@ -48,14 +48,12 @@ class _PupularWidgetState extends State<PupularWidget> {
         child: ScopedBuilder<PopularStore, Failure, Result>(
           store: store,
           onError: (context, error) => CustomErrorWidget(message: error?.errorMessage),
-          onLoading: (context) => Center(
-            child: CircularProgressIndicator.adaptive(),
-          ),
+          onLoading: (context) => ShimmerList(),
           onState: (context, state) => state is EmptyResult
-              ? SizedBox.shrink()
+              ? const SizedBox.shrink()
               : ListView.builder(
                   shrinkWrap: true,
-                  physics: ClampingScrollPhysics(),
+                  physics: const ClampingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   itemCount: state.results.length > 5 ? 5 : state.results.length,
                   itemBuilder: (context, index) {

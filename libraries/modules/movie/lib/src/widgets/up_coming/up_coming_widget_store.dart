@@ -4,10 +4,7 @@ import 'package:flutter_triple/flutter_triple.dart';
 
 class UpComingWidgetStore extends StreamStore<Failure, Result> {
   final Repository repository;
-  UpComingWidgetStore(this.repository)
-      : super(
-          Result(),
-        ) {
+  UpComingWidgetStore(this.repository) : super(const Result()) {
     load();
   }
 
@@ -22,13 +19,9 @@ class UpComingWidgetStore extends StreamStore<Failure, Result> {
       }
     } on DioError catch (e) {
       if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
-        setError(
-          MovieUpComingNoInternetConnection(),
-        );
+        setError(const MovieUpComingNoInternetConnection());
       } else if (e.type == DioErrorType.other) {
-        setError(
-          MovieUpComingNoInternetConnection(),
-        );
+        setError(const MovieUpComingNoInternetConnection());
       } else {
         setError(MovieUpComingError(
           e.toString(),

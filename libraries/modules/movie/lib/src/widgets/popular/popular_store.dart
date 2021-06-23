@@ -4,10 +4,7 @@ import 'package:flutter_triple/flutter_triple.dart';
 
 class PopularStore extends StreamStore<Failure, Result> {
   final Repository repository;
-  PopularStore(this.repository)
-      : super(
-          Result(),
-        ) {
+  PopularStore(this.repository) : super(const Result()) {
     load();
   }
 
@@ -22,13 +19,9 @@ class PopularStore extends StreamStore<Failure, Result> {
       }
     } on DioError catch (e) {
       if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
-        setError(
-          MoviePopularNoInternetConnection(),
-        );
+        setError(const MoviePopularNoInternetConnection());
       } else if (e.type == DioErrorType.other) {
-        setError(
-          MoviePopularNoInternetConnection(),
-        );
+        setError(const MoviePopularNoInternetConnection());
       } else {
         setError(MoviePopularError(
           e.toString(),

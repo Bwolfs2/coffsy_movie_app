@@ -8,6 +8,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "22.0.0"
+  about:
+    dependency: "direct main"
+    description:
+      path: "libraries/modules/about"
+      relative: true
+    source: path
+    version: "0.0.1"
   analyzer:
     dependency: transitive
     description:

@@ -2,12 +2,40 @@ import 'package:coffsy_design_system/coffsy_design_system.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-class DashBoardPage extends StatelessWidget {
+class DashBoardPage extends StatefulWidget {
   const DashBoardPage({Key? key}) : super(key: key);
 
   @override
+  _DashBoardPageState createState() => _DashBoardPageState();
+}
+
+class _DashBoardPageState extends State<DashBoardPage> {
+  ValueNotifier<int> selectedPageValueNotifier = ValueNotifier<int>(0);
+
+  @override
+  void initState() {
+    super.initState();
+    Modular.to.addListener(onChangeRoute);
+  }
+
+  void onChangeRoute() {
+    if (Modular.to.localPath.contains('movie_module')) {
+      selectedPageValueNotifier.value = 0;
+    }
+
+    if (Modular.to.localPath.contains('tv_show')) {
+      selectedPageValueNotifier.value = 1;
+    }
+  }
+
+  @override
+  void dispose() {
+    Modular.to.removeListener(onChangeRoute);
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    var _page = 0;
     return Scaffold(
       body: RouterOutlet(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -30,30 +58,27 @@ class DashBoardPage extends StatelessWidget {
           builder: (context, setState) => BottomAppBar(
             shape: CircularNotchedRectangle(),
             notchMargin: Sizes.dp8(context),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                IconButton(
-                  color: _page == 0 ? ColorPalettes.darkAccent : ColorPalettes.grey,
-                  icon: Icon(Icons.movie_creation),
-                  onPressed: () {
-                    Modular.to.navigate('/dashboard/movie_module/');
-                    setState(() {
-                      _page = 0;
-                    });
-                  },
-                ),
-                IconButton(
-                  color: _page == 1 ? ColorPalettes.darkAccent : ColorPalettes.grey,
-                  icon: Icon(Icons.live_tv),
-                  onPressed: () {
-                    Modular.to.navigate('/dashboard/tv_show/');
-                    setState(() {
-                      _page = 1;
-                    });
-                  },
-                ),
-              ],
+            child: ValueListenableBuilder(
+              valueListenable: selectedPageValueNotifier,
+              builder: (context, selectedPage, child) => Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  IconButton(
+                    color: selectedPage == 0 ? ColorPalettes.darkAccent : ColorPalettes.grey,
+                    icon: Icon(Icons.movie_creation),
+                    onPressed: () {
+                      Modular.to.navigate('/dashboard/movie_module/');
+                    },
+                  ),
+                  IconButton(
+                    color: selectedPage == 1 ? ColorPalettes.darkAccent : ColorPalettes.grey,
+                    icon: Icon(Icons.live_tv),
+                    onPressed: () {
+                      Modular.to.navigate('/dashboard/tv_show/');
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
         ),

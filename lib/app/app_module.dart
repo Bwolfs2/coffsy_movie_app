@@ -2,7 +2,7 @@ import 'package:core/core.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'modules/about/about_module.dart';
+import 'package:about/about.dart';
 import 'modules/booking/booking_module.dart';
 import 'modules/dashboard/dashboard_module.dart';
 import 'modules/detail/detail_module.dart';

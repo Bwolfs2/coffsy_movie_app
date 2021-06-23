@@ -24,7 +24,7 @@ class _MoviePageState extends State<MoviePage> {
       Modular.get<UpComingWidgetStore>().load(),
       Modular.get<PopularStore>().load(),
     ]).then(
-      (value) => print('Reloaded'),
+      (value) => debugPrint('Reloaded'),
     );
   }
 
@@ -33,11 +33,11 @@ class _MoviePageState extends State<MoviePage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text('Movies'),
+        title: const Text('Movies'),
         centerTitle: true,
         actions: <Widget>[
           PopupMenuButton<Menu>(
-            icon: Icon(Icons.more_vert),
+            icon: const Icon(Icons.more_vert),
             onSelected: (menu) {
               Modular.to.pushNamed(menu.route);
             },
@@ -57,22 +57,22 @@ class _MoviePageState extends State<MoviePage> {
         showChildOpacityTransition: false,
         springAnimationDurationInMilliseconds: 500,
         child: SingleChildScrollView(
-          physics: ClampingScrollPhysics(),
+          physics: const ClampingScrollPhysics(),
           child: Container(
             margin: EdgeInsets.all(
               Sizes.dp10(context),
             ),
             child: Column(
               children: <Widget>[
-                MovieBanners(),
+                const MovieBanners(),
                 SizedBox(
                   height: Sizes.dp12(context),
                 ),
-                UpComingWidget(),
+                const UpComingWidget(),
                 SizedBox(
                   height: Sizes.dp12(context),
                 ),
-                PupularWidget(),
+                const PupularWidget(),
                 SizedBox(
                   height: Sizes.dp12(context),
                 ),

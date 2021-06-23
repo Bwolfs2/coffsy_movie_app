@@ -4,10 +4,7 @@ import 'package:flutter_triple/flutter_triple.dart';
 
 class MovieBannerStore extends StreamStore<Failure, Result> {
   final Repository repository;
-  MovieBannerStore(this.repository)
-      : super(
-          Result(),
-        ) {
+  MovieBannerStore(this.repository) : super(const Result()) {
     load();
   }
 
@@ -22,13 +19,9 @@ class MovieBannerStore extends StreamStore<Failure, Result> {
       }
     } on DioError catch (e) {
       if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
-        setError(
-          MovieNowPlayingNoInternetConnection(),
-        );
+        setError(const MovieNowPlayingNoInternetConnection());
       } else if (e.type == DioErrorType.other) {
-        setError(
-          MovieNowPlayingNoInternetConnection(),
-        );
+        setError(const MovieNowPlayingNoInternetConnection());
       } else {
         setError(MovieNowPlayingError(
           e.toString(),

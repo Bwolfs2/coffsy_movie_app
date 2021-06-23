@@ -21,11 +21,11 @@ class _MovieBannersState extends State<MovieBanners> {
     return ScopedBuilder<MovieBannerStore, Failure, Result>(
       store: store,
       onError: (context, error) => CustomErrorWidget(message: error?.errorMessage),
-      onLoading: (context) => Center(
+      onLoading: (context) => const Center(
         child: CircularProgressIndicator.adaptive(),
       ),
       onState: (context, state) => state is EmptyResult
-          ? SizedBox.shrink()
+          ? const SizedBox.shrink()
           : StatefulBuilder(
               builder: (context, setState) => BannerHome(
                 isFromMovie: true,
