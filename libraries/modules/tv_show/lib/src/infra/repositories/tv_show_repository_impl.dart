@@ -1,4 +1,7 @@
-import 'package:core/core.dart';
+import 'package:core/core.dart' hide Crew, Trailer;
+import 'package:tv_show/src/domain/entities/trailer.dart';
+import 'package:tv_show/src/domain/errors/tv_show_failures.dart';
+import '../../domain/entities/crew.dart';
 
 import '../../domain/entities/movie.dart';
 import '../../domain/entities/on_the_air.dart';
@@ -11,9 +14,15 @@ class TvShowRepositoryImpl implements ITvShowRepository {
 
   TvShowRepositoryImpl(this.datasource);
   @override
-  Future<List<Movie>> getTvAiringToday() {
+  Future<List<Movie>> getTvAiringToday() async {
     try {
-      return datasource.getTvAiringToday();
+      var result = await datasource.getTvAiringToday();
+
+      if (result.isEmpty) {
+        throw NoDataFound();
+      }
+
+      return result;
     } on Failure {
       rethrow;
     } on Exception catch (exception, stacktrace) {
@@ -25,9 +34,15 @@ class TvShowRepositoryImpl implements ITvShowRepository {
   }
 
   @override
-  Future<List<TvPopularShow>> getTvPopularShow() {
+  Future<List<TvPopularShow>> getTvPopularShow() async {
     try {
-      return datasource.getTvPopularShow();
+      var result = await datasource.getTvPopularShow();
+
+      if (result.isEmpty) {
+        throw NoDataFound();
+      }
+
+      return result;
     } on Failure {
       rethrow;
     } on Exception catch (exception, stacktrace) {
@@ -39,9 +54,51 @@ class TvShowRepositoryImpl implements ITvShowRepository {
   }
 
   @override
-  Future<List<OnTheAir>> getOnTheAir() {
+  Future<List<OnTheAir>> getOnTheAir() async {
     try {
-      return datasource.getTvOnTheAir();
+      var result = await datasource.getTvOnTheAir();
+
+      if (result.isEmpty) {
+        throw NoDataFound();
+      }
+
+      return result;
+    } on Failure {
+      rethrow;
+    } on Exception catch (exception, stacktrace) {
+      throw UnknownError(error: exception, stackTrace: stacktrace);
+      // ignore: avoid_catches_without_on_clauses
+    } catch (e, st) {
+      throw UnknownError(error: e, stackTrace: st);
+    }
+  }
+
+  @override
+  Future<List<Crew>> getTvShowCrewById(int tvShowId) async {
+    try {
+      var result = await datasource.getTvShowCrewById(tvShowId);
+      if (result.isEmpty) {
+        throw NoDataFound();
+      }
+      return result;
+    } on Failure {
+      rethrow;
+    } on Exception catch (exception, stacktrace) {
+      throw UnknownError(error: exception, stackTrace: stacktrace);
+      // ignore: avoid_catches_without_on_clauses
+    } catch (e, st) {
+      throw UnknownError(error: e, stackTrace: st);
+    }
+  }
+
+  @override
+  Future<List<Trailer>> getTvShowTrailerById(int tvShowId) async {
+    try {
+      var result = await datasource.getTvShowTrailerById(tvShowId);
+      if (result.isEmpty) {
+        throw NoDataFound();
+      }
+      return result;
     } on Failure {
       rethrow;
     } on Exception catch (exception, stacktrace) {

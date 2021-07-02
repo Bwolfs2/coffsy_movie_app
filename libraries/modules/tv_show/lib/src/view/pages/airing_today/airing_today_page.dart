@@ -6,7 +6,7 @@ import 'package:flutter_triple/flutter_triple.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 
 import '../../../domain/entities/movie.dart';
-import '../../../domain/errors/airing_today_failures.dart';
+import '../../../domain/errors/tv_show_failures.dart';
 import 'airing_today_store.dart';
 
 class AiringTodayPage extends StatefulWidget {
@@ -29,12 +29,18 @@ class _AiringTodayPageState extends State<AiringTodayPage> {
         showChildOpacityTransition: false,
         child: ScopedBuilder<AiringTodayStore, Failure, List<Movie>>(
           store: store,
-          onError: (context, error) => error is TvAiringTodayNoInternetConnection
-              ? NoInternetWidget(
-                  message: AppConstant.noInternetConnection,
-                  onPressed: () async => await store.load(),
-                )
-              : CustomErrorWidget(message: error?.errorMessage),
+          onError: (context, error) {
+            if (error is NoDataFound) {
+              return Center(child: Text('No Airing Today Found'));
+            }
+            if (error is TvAiringTodayNoInternetConnection) {
+              return NoInternetWidget(
+                message: AppConstant.noInternetConnection,
+                onPressed: () async => await store.load(),
+              );
+            }
+            return CustomErrorWidget(message: error?.errorMessage);
+          },
           onLoading: (context) => Center(
             child: CircularProgressIndicator.adaptive(),
           ),

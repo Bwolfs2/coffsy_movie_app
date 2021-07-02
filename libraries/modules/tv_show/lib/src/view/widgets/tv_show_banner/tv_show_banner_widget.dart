@@ -5,7 +5,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 
 import '../../../domain/entities/movie.dart';
-import '../../../domain/errors/airing_today_failures.dart';
+import '../../../domain/errors/tv_show_failures.dart';
 import 'tv_show_banner_store.dart';
 
 class TvShowBanner extends StatefulWidget {

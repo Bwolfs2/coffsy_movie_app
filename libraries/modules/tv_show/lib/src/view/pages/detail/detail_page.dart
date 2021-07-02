@@ -67,9 +67,8 @@ class _DetailPageState extends State<DetailPage> {
                     right: Sizes.dp20(context),
                   ),
                   child: TrailerWidget(
-                    key: ValueKey('${widget.arguments.isFromMovie}${widget.arguments.movies.id}'),
+                    key: ValueKey('${widget.arguments.movies.id}'),
                     movieId: widget.arguments.movies.id,
-                    isFromMovie: widget.arguments.isFromMovie,
                   ),
                 ),
                 Padding(
@@ -78,9 +77,8 @@ class _DetailPageState extends State<DetailPage> {
                     right: Sizes.dp20(context),
                   ),
                   child: CrewWidget(
-                    key: ValueKey('${widget.arguments.isFromMovie}${widget.arguments.movies.id}'),
-                    isFromMovie: widget.arguments.isFromMovie,
-                    movieId: widget.arguments.movies.id,
+                    key: ValueKey('${widget.arguments.movies.id}'),
+                    tvShowId: widget.arguments.movies.id,
                   ),
                 ),
                 Padding(
@@ -109,7 +107,7 @@ class _DetailPageState extends State<DetailPage> {
               right: Sizes.dp5(context),
               child: IconButton(
                 iconSize: Sizes.dp30(context),
-                color: theme.accentColor,
+                color: theme.colorScheme.secondary,
                 icon: Icon(Icons.favorite_border),
                 onPressed: () {
                   PopUp.showSuccess('Add to Favorite');

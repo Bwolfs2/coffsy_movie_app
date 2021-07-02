@@ -1,16 +1,17 @@
 import 'package:coffsy_design_system/coffsy_design_system.dart';
-import 'package:core/core.dart';
+import 'package:core/core.dart' hide Crew;
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 
+import '../../../domain/entities/crew.dart';
+import '../../../domain/errors/tv_show_failures.dart';
 import 'crew_store.dart';
-import 'errors/crew_failures.dart';
 
 class CrewWidget extends StatefulWidget {
-  final int movieId;
-  final bool isFromMovie;
-  const CrewWidget({Key? key, required this.movieId, required this.isFromMovie}) : super(key: key);
+  final int tvShowId;
+
+  const CrewWidget({Key? key, required this.tvShowId}) : super(key: key);
 
   @override
   _CrewWidgetState createState() => _CrewWidgetState();
@@ -20,11 +21,7 @@ class _CrewWidgetState extends State<CrewWidget> {
   final store = Modular.get<CrewStore>();
 
   Future<void> reload() async {
-    if (widget.isFromMovie) {
-      await store.loadMovieTrailer(widget.movieId);
-    } else {
-      await store.loadTvShowTrailer(widget.movieId);
-    }
+    await store.loadTvShowTrailer(widget.tvShowId);
   }
 
   @override
@@ -49,14 +46,22 @@ class _CrewWidgetState extends State<CrewWidget> {
         Container(
           width: Sizes.width(context),
           height: Sizes.width(context) / 3,
-          child: ScopedBuilder<CrewStore, Failure, ResultCrew>(
+          child: ScopedBuilder<CrewStore, Failure, List<Crew>>(
             store: store,
-            onError: (context, error) => error is CrewNoInternetConnection
-                ? NoInternetWidget(
-                    message: AppConstant.noInternetConnection,
-                    onPressed: () async => reload(),
-                  )
-                : CustomErrorWidget(message: error?.errorMessage),
+            onError: (context, error) {
+              if (error is NoDataFound) {
+                return Center(child: Text('No Crews Found'));
+              }
+
+              if (error is CrewNoInternetConnection) {
+                return NoInternetWidget(
+                  message: AppConstant.noInternetConnection,
+                  onPressed: () async => reload(),
+                );
+              }
+
+              return CustomErrorWidget(message: error?.errorMessage);
+            },
             onLoading: (context) => Center(
               child: CircularProgressIndicator.adaptive(),
             ),
@@ -64,9 +69,9 @@ class _CrewWidgetState extends State<CrewWidget> {
               shrinkWrap: true,
               physics: ClampingScrollPhysics(),
               scrollDirection: Axis.horizontal,
-              itemCount: state.crew.length,
+              itemCount: state.length,
               itemBuilder: (context, index) {
-                final crew = state.crew[index];
+                final crew = state[index];
                 return CardCrew(
                   image: crew.profile!,
                   name: crew.characterName,

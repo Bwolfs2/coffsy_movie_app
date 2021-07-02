@@ -4,6 +4,8 @@ import 'data/datasources/tv_show_datasource_impl.dart';
 import 'domain/usecases/get_tv_airing_today.dart';
 import 'domain/usecases/get_tv_on_the_air.dart';
 import 'domain/usecases/get_tv_popular_show.dart';
+import 'domain/usecases/get_tv_show_crew_by_id.dart';
+import 'domain/usecases/get_tv_show_trailer_by_id.dart';
 import 'infra/repositories/tv_show_repository_impl.dart';
 import 'view/pages/airing_today/airing_today_page.dart';
 import 'view/pages/airing_today/airing_today_store.dart';
@@ -40,6 +42,8 @@ class TvShowModule extends Module {
     Bind.lazySingleton((i) => GetTvAiringToday(i())),
     Bind.lazySingleton((i) => GetTvPopularShow(i())),
     Bind.lazySingleton((i) => GetOnTheAir(i())),
+    Bind.lazySingleton((i) => GetTvShowCrewById(i())),
+    Bind.lazySingleton((i) => GetTvShowTrailerById(i())),
   ];
 
   @override

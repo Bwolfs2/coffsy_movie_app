@@ -1,20 +1,20 @@
 import 'package:coffsy_design_system/coffsy_design_system.dart';
-import 'package:core/core.dart';
+import 'package:core/core.dart' hide Trailer;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
+import 'package:tv_show/src/domain/entities/trailer.dart';
+import 'package:tv_show/src/domain/errors/tv_show_failures.dart';
 
-import 'errors/trailer_failures.dart';
 import 'trailer_store.dart';
 
 class TrailerWidget extends StatefulWidget {
   final int movieId;
-  final bool isFromMovie;
+
   const TrailerWidget({
     Key? key,
     required this.movieId,
-    required this.isFromMovie,
   }) : super(key: key);
 
   @override
@@ -25,11 +25,7 @@ class _TrailerWidgetState extends State<TrailerWidget> {
   final store = Modular.get<TrailerStore>();
 
   void reload() {
-    if (widget.isFromMovie) {
-      store.loadMovieTrailer(widget.movieId);
-    } else {
-      store.loadTvShowTrailer(widget.movieId);
-    }
+    store.loadTvShowTrailer(widget.movieId);
   }
 
   @override
@@ -54,14 +50,20 @@ class _TrailerWidgetState extends State<TrailerWidget> {
         Container(
           width: Sizes.width(context),
           height: Sizes.width(context) / 1.7,
-          child: ScopedBuilder<TrailerStore, Failure, ResultTrailer>(
+          child: ScopedBuilder<TrailerStore, Failure, List<Trailer>>(
             store: store,
-            onError: (context, error) => error is TrailerNoInternetConnection
-                ? NoInternetWidget(
-                    message: AppConstant.noTrailer,
-                    onPressed: () async => reload(),
-                  )
-                : CustomErrorWidget(message: error?.errorMessage),
+            onError: (context, error) {
+              if (error is NoDataFound) {
+                return Center(child: Text('No Trailers Found'));
+              }
+              if (error is TrailerNoInternetConnection) {
+                return NoInternetWidget(
+                  message: AppConstant.noTrailer,
+                  onPressed: () async => reload(),
+                );
+              }
+              return CustomErrorWidget(message: error?.errorMessage);
+            },
             onLoading: (context) => Center(
               child: CircularProgressIndicator.adaptive(),
             ),
@@ -69,13 +71,13 @@ class _TrailerWidgetState extends State<TrailerWidget> {
               shrinkWrap: true,
               physics: ClampingScrollPhysics(),
               scrollDirection: Axis.horizontal,
-              itemCount: state.trailer.length,
+              itemCount: state.length,
               itemBuilder: (context, index) {
-                final trailer = state.trailer[index];
+                final trailer = state[index];
                 return CardTrailer(
                   title: trailer.title,
                   youtube: trailer.youtubeId,
-                  length: state.trailer.length,
+                  length: state.length,
                   onExitFullScreen: () {
                     // The player forces portraitUp after exiting fullscreen. This overrides the behaviour.
                     SystemChrome.setPreferredOrientations(DeviceOrientation.values);

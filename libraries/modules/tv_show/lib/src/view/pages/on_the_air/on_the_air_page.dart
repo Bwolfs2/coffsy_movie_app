@@ -6,7 +6,7 @@ import 'package:flutter_triple/flutter_triple.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 
 import '../../../domain/entities/on_the_air.dart';
-import '../../../domain/errors/airing_today_failures.dart';
+import '../../../domain/errors/tv_show_failures.dart';
 import 'on_the_air_store.dart';
 
 class OnTheAirPage extends StatefulWidget {
@@ -29,12 +29,19 @@ class _OnTheAirPageState extends State<OnTheAirPage> {
         showChildOpacityTransition: false,
         child: ScopedBuilder<OnTheAirStore, Failure, List<OnTheAir>>(
           store: store,
-          onError: (context, error) => error is TvOnTheAirNoInternetConnection
-              ? NoInternetWidget(
-                  message: AppConstant.noInternetConnection,
-                  onPressed: () async => await store.load(),
-                )
-              : CustomErrorWidget(message: error?.errorMessage),
+          onError: (context, error) {
+            if (error is NoDataFound) {
+              return Center(child: Text('No On The Air Found'));
+            }
+
+            if (error is TvOnTheAirNoInternetConnection) {
+              return NoInternetWidget(
+                message: AppConstant.noInternetConnection,
+                onPressed: () async => await store.load(),
+              );
+            }
+            return CustomErrorWidget(message: error?.errorMessage);
+          },
           onLoading: (context) => Center(
             child: CircularProgressIndicator.adaptive(),
           ),

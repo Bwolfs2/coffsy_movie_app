@@ -5,7 +5,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 
 import '../../../domain/entities/tv_popular_show.dart';
-import '../../../domain/errors/airing_today_failures.dart';
+import '../../../domain/errors/tv_show_failures.dart';
 import 'tv_show_popular_store.dart';
 
 class TvShowPopularWidget extends StatefulWidget {
@@ -51,12 +51,19 @@ class _TvShowPopularWidgetState extends State<TvShowPopularWidget> {
           height: Sizes.width(context) / 1.8,
           child: ScopedBuilder<TvShowPopularStore, Failure, List<TvPopularShow>>(
             store: store,
-            onError: (context, error) => error is TvShowPopularNoInternetConnection
-                ? NoInternetWidget(
-                    message: AppConstant.noInternetConnection,
-                    onPressed: () async => await store.load(),
-                  )
-                : CustomErrorWidget(message: error?.errorMessage),
+            onError: (context, error) {
+              if (error is NoDataFound) {
+                return Center(child: Text('No Trailers Found'));
+              }
+              if (error is TvShowPopularNoInternetConnection) {
+                return NoInternetWidget(
+                  message: AppConstant.noInternetConnection,
+                  onPressed: () async => await store.load(),
+                );
+              }
+
+              return CustomErrorWidget(message: error?.errorMessage);
+            },
             onLoading: (context) => Center(
               child: CircularProgressIndicator.adaptive(),
             ),
