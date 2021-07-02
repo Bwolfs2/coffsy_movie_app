@@ -1,11 +1,11 @@
 import 'package:core/core.dart' hide Crew, Trailer;
-import 'package:tv_show/src/domain/entities/trailer.dart';
-import 'package:tv_show/src/domain/errors/tv_show_failures.dart';
-import '../../domain/entities/crew.dart';
 
+import '../../domain/entities/crew.dart';
 import '../../domain/entities/movie.dart';
 import '../../domain/entities/on_the_air.dart';
+import '../../domain/entities/trailer.dart';
 import '../../domain/entities/tv_popular_show.dart';
+import '../../domain/errors/tv_show_failures.dart';
 import '../../domain/repositories/tv_show_repository.dart';
 import '../datasources/tv_show_datasource.dart';
 

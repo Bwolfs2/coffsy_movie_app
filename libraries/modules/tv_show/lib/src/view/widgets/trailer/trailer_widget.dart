@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
-import 'package:tv_show/src/domain/entities/trailer.dart';
-import 'package:tv_show/src/domain/errors/tv_show_failures.dart';
 
+import '../../../domain/entities/trailer.dart';
+import '../../../domain/errors/tv_show_failures.dart';
 import 'trailer_store.dart';
 
 class TrailerWidget extends StatefulWidget {
