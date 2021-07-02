@@ -3,7 +3,5 @@ class Crew {
   final String characterName;
   final String? profile;
 
-  final bool isEmpty;
-
-  Crew(this.realName, this.characterName, this.profile, {this.isEmpty = false});
+  Crew(this.realName, this.characterName, this.profile);
 }

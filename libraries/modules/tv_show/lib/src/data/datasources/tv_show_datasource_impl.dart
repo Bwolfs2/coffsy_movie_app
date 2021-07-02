@@ -8,11 +8,11 @@ import '../../domain/entities/trailer.dart';
 import '../../domain/entities/tv_popular_show.dart';
 import '../../domain/errors/tv_show_failures.dart';
 import '../../infra/datasources/tv_show_datasource.dart';
-import '../models/crew_mapper.dart';
-import '../models/movie_mapper.dart';
-import '../models/trailer_mapper.dart';
-import '../models/tv_on_the_air_mapper.dart';
-import '../models/tv_popular_show_mapper.dart';
+import '../mapper/crew_mapper.dart';
+import '../mapper/movie_mapper.dart';
+import '../mapper/trailer_mapper.dart';
+import '../mapper/tv_on_the_air_mapper.dart';
+import '../mapper/tv_popular_show_mapper.dart';
 
 class TvShowDatasourceImpl implements ITvShowDatasource {
   final Dio dio;
