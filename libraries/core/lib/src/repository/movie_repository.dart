@@ -55,54 +55,6 @@ class MovieRepository implements Repository {
   }
 
   @override
-  Future<Result> getTvAiringToday([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) async {
-    try {
-      var fromLocal = await localRepository.getTvAiringToday(apiKey, language);
-      if (fromLocal != null) {
-        return fromLocal;
-      } else {
-        throw Exception();
-      }
-    } on Exception catch (_) {
-      final data = await apiRepository.getTvAiringToday(apiKey, language);
-      localRepository.saveTvAiringToday(data);
-      return data;
-    }
-  }
-
-  @override
-  Future<Result> getTvPopular([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) async {
-    try {
-      var fromLocal = await localRepository.getTvPopular(apiKey, language);
-      if (fromLocal != null) {
-        return fromLocal;
-      } else {
-        throw Exception();
-      }
-    } on Exception catch (_) {
-      final data = await apiRepository.getTvPopular(apiKey, language);
-      localRepository.saveTvPopular(data);
-      return data;
-    }
-  }
-
-  @override
-  Future<Result> getTvOnTheAir([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) async {
-    try {
-      var fromLocal = await localRepository.getTvOnTheAir(apiKey, language);
-      if (fromLocal != null) {
-        return fromLocal;
-      } else {
-        throw Exception();
-      }
-    } on Exception catch (_) {
-      final data = await apiRepository.getTvOnTheAir(apiKey, language);
-      localRepository.saveTvOnTheAir(data);
-      return data;
-    }
-  }
-
-  @override
   Future<ResultCrew> getMovieCrew([int? movieId, String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) async {
     final data = await apiRepository.getMovieCrew(movieId, apiKey, language);
     return data;

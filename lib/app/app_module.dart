@@ -21,6 +21,9 @@ class AppModule extends Module {
     Bind.lazySingleton((i) => SharedPrefHelper()),
     Bind.lazySingleton((i) => ApiService(dio: i<DioClient>().dio)),
     Bind.lazySingleton((i) => DioClient(apiBaseUrl: ApiConstant.baseUrlDebug)),
+    Bind.lazySingleton((i) => i<DioClient>().dio),
+    //
+    Bind.lazySingleton((i) => ApiConfigurations()),
   ];
 
   @override

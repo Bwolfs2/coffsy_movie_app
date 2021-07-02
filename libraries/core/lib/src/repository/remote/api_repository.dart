@@ -21,21 +21,6 @@ class ApiRepository implements Repository {
   }
 
   @override
-  Future<Result> getTvAiringToday([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) {
-    return apiService.getTvAiringToday(apiKey, language);
-  }
-
-  @override
-  Future<Result> getTvPopular([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) {
-    return apiService.getTvPopular(apiKey, language);
-  }
-
-  @override
-  Future<Result> getTvOnTheAir([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) {
-    return apiService.getTvOnTheAir(apiKey, language);
-  }
-
-  @override
   Future<ResultCrew> getMovieCrew([int? movieId, String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) async {
     return apiService.getMovieCrews(movieId, apiKey, language);
   }

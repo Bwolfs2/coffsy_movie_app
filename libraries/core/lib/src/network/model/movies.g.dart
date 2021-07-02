@@ -25,8 +25,12 @@ Movies _$MoviesFromJson(Map<String, dynamic> json) {
     (json['genre_ids'] as List<dynamic>).map((e) => e as int).toList(),
     (json['vote_average'] as num).toDouble(),
     (json['popularity'] as num).toDouble(),
-    json['poster_path'] as String,
-    json['backdrop_path'] ?? json['poster_path'] as String,
+    json['poster_path'] == null ? '' : json['poster_path'] as String,
+    json['backdrop_path'] != null
+        ? json['backdrop_path'] as String
+        : json['poster_path'] == null
+            ? ''
+            : json['poster_path'] as String,
     json['original_name'] as String? ?? 'No TV Name',
     json['first_air_date'] as String? ?? 'No TV Name',
   );
