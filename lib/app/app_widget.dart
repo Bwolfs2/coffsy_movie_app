@@ -10,7 +10,7 @@ class AppWidget extends StatelessWidget {
   final store = SettingStore();
   @override
   Widget build(BuildContext context) {
-    return ScopedBuilder<SettingStore, Failure, bool>(
+    return ScopedBuilder<SettingStore, Failure, bool>.transition(
       store: store,
       onLoading: (context) => Center(
         child: CircularProgressIndicator.adaptive(),

@@ -27,7 +27,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
           color: ColorPalettes.white,
         ),
       ),
-      body: ScopedBuilder<DiscoverStore, Failure, Result>(
+      body: ScopedBuilder<DiscoverStore, Failure, Result>.transition(
         store: store,
         onError: (context, error) => error is DiscoverMovieNoInternetConnection
             ? NoInternetWidget(

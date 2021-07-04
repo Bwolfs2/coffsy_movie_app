@@ -18,7 +18,7 @@ class _MovieBannersState extends State<MovieBanners> {
   int _current = 0;
   @override
   Widget build(BuildContext context) {
-    return ScopedBuilder<MovieBannerStore, Failure, Result>(
+    return ScopedBuilder<MovieBannerStore, Failure, Result>.transition(
       store: store,
       onError: (context, error) => CustomErrorWidget(message: error?.errorMessage),
       onLoading: (context) => const Center(

@@ -49,7 +49,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
           canvasColor: Theme.of(context).primaryColor,
-          primaryColor: Theme.of(context).accentColor,
+          primaryColor: Theme.of(context).colorScheme.secondary,
           textTheme: Theme.of(context).textTheme.copyWith(
                 caption: TextStyle(color: ColorPalettes.setActive),
               ),

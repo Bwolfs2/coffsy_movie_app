@@ -51,36 +51,6 @@ class LocalRepository implements Repository {
     return prefHelper.storeCache(AppConstant.moviePopular, jsonEncode(result));
   }
 
-  @override
-  Future<Result?> getTvAiringToday([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) async {
-    var fromCache = await prefHelper.getCache(AppConstant.tvAiringToday);
-    if (fromCache != null) {
-      Map<String, dynamic> json = jsonDecode(fromCache);
-      return Result.fromJson(json);
-    }
-    return null;
-  }
-
-  @override
-  Future<Result?> getTvPopular([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) async {
-    var fromCache = await prefHelper.getCache(AppConstant.tvPopular);
-    if (fromCache != null) {
-      Map<String, dynamic> json = jsonDecode(fromCache);
-      return Result.fromJson(json);
-    }
-    return null;
-  }
-
-  @override
-  Future<Result?> getTvOnTheAir([String apiKey = ApiConstant.apiKey, String language = ApiConstant.language]) async {
-    var fromCache = await prefHelper.getCache(AppConstant.tvOnTheAir);
-    if (fromCache != null) {
-      Map<String, dynamic> json = jsonDecode(fromCache);
-      return Result.fromJson(json);
-    }
-    return null;
-  }
-
   Future<bool> saveTvAiringToday(Result result) {
     return prefHelper.storeCache(AppConstant.tvAiringToday, jsonEncode(result));
   }

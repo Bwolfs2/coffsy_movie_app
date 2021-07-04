@@ -1,8 +1,8 @@
+import 'package:about/about.dart';
 import 'package:core/core.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:about/about.dart';
 import 'modules/booking/booking_module.dart';
 import 'modules/dashboard/dashboard_module.dart';
 import 'modules/detail/detail_module.dart';
@@ -21,6 +21,9 @@ class AppModule extends Module {
     Bind.lazySingleton((i) => SharedPrefHelper()),
     Bind.lazySingleton((i) => ApiService(dio: i<DioClient>().dio)),
     Bind.lazySingleton((i) => DioClient(apiBaseUrl: ApiConstant.baseUrlDebug)),
+    Bind.lazySingleton((i) => i<DioClient>().dio),
+    //
+    Bind.lazySingleton((i) => ApiConfigurations()),
   ];
 
   @override

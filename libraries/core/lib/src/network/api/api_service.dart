@@ -52,14 +52,14 @@ class ApiService {
     }
   }
 
-  Future<Result> getTvPopular(String apiKey, String language) async {
-    try {
-      final response = await dio.get('tv/popular', queryParameters: {'api_key': apiKey, 'language': language});
-      return Result.fromJson(response.data);
-    } on DioError catch (e) {
-      return e.error;
-    }
-  }
+  // Future<Result> getTvPopular(String apiKey, String language) async {
+  //   try {
+  //     final response = await dio.get('tv/popular', queryParameters: {'api_key': apiKey, 'language': language});
+  //     return Result.fromJson(response.data);
+  //   } on DioError catch (e) {
+  //     return e.error;
+  //   }
+  // }
 
   Future<Result> getTvOnTheAir(String apiKey, String language) async {
     try {

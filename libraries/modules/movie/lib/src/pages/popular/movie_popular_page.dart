@@ -26,7 +26,7 @@ class _MoviePopularPageState extends State<MoviePopularPage> {
       body: LiquidPullToRefresh(
         onRefresh: store.load,
         showChildOpacityTransition: false,
-        child: ScopedBuilder<MoviePopularStore, Failure, Result>(
+        child: ScopedBuilder<MoviePopularStore, Failure, Result>.transition(
           store: store,
           onError: (context, error) => error is MoviePopularNoInternetConnection
               ? NoInternetWidget(

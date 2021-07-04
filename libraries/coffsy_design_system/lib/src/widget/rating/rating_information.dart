@@ -18,7 +18,7 @@ class RatingInformation extends StatelessWidget {
           rating.toString(),
           style: TextStyle(
             fontWeight: FontWeight.w600,
-            color: theme.accentColor,
+            color: theme.colorScheme.secondary,
             fontSize: Sizes.dp16(context),
           ),
         ),
@@ -57,7 +57,7 @@ class RatingInformation extends StatelessWidget {
 Widget buildRatingBar(ThemeData theme, BuildContext context, double rating) {
   var stars = <Widget>[];
   for (var i = 1; i <= 5; i++) {
-    var color = i <= rating / 2 ? theme.accentColor : ColorPalettes.grey;
+    var color = i <= rating / 2 ? theme.colorScheme.secondary : ColorPalettes.grey;
     var star = Icon(
       Icons.star,
       color: color,

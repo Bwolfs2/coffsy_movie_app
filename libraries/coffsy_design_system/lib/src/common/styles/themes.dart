@@ -7,7 +7,6 @@ class Themes {
     fontFamily: 'IBMPlexSans',
     backgroundColor: ColorPalettes.lightBG,
     primaryColor: ColorPalettes.lightPrimary,
-    accentColor: ColorPalettes.lightAccent,
     textSelectionTheme: TextSelectionThemeData(
       cursorColor: ColorPalettes.lightAccent,
     ),
@@ -29,7 +28,6 @@ class Themes {
     brightness: Brightness.dark,
     backgroundColor: ColorPalettes.darkBG,
     primaryColor: ColorPalettes.darkPrimary,
-    accentColor: ColorPalettes.darkAccent,
     dividerColor: ColorPalettes.lightPrimary,
     scaffoldBackgroundColor: ColorPalettes.darkBG,
     textSelectionTheme: TextSelectionThemeData(

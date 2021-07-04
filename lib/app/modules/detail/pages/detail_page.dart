@@ -109,7 +109,7 @@ class _DetailPageState extends State<DetailPage> {
               right: Sizes.dp5(context),
               child: IconButton(
                 iconSize: Sizes.dp30(context),
-                color: theme.accentColor,
+                color: theme.colorScheme.secondary,
                 icon: Icon(Icons.favorite_border),
                 onPressed: () {
                   PopUp.showSuccess('Add to Favorite');
@@ -121,7 +121,7 @@ class _DetailPageState extends State<DetailPage> {
               left: Sizes.dp5(context),
               child: IconButton(
                 icon: Platform.isAndroid ? Icon(Icons.arrow_back) : Icon(Icons.arrow_back_ios),
-                onPressed: () => Navigator.pop(context),
+                onPressed: () => Modular.to.pop(),
               ),
             ),
           ],
