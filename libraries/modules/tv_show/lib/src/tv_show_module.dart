@@ -15,8 +15,6 @@ import 'view/pages/popular/tv_popular_page.dart';
 import 'view/pages/popular/tv_popular_store.dart';
 import 'view/pages/tv_show/tv_show_page.dart';
 import 'view/widgets/airing_today/airing_today_widget_store.dart';
-import 'view/widgets/crew/crew_store.dart';
-import 'view/widgets/trailer/trailer_store.dart';
 import 'view/widgets/tv_show_banner/tv_show_banner_store.dart';
 import 'view/widgets/tv_show_popular/tv_show_popular_store.dart';
 
@@ -30,8 +28,6 @@ class TvShowModule extends Module {
     Bind.lazySingleton((i) => TvShowBannerStore(i())),
     Bind.lazySingleton((i) => OnTheAirStore(i())),
     Bind.lazySingleton((i) => AiringTodayWidgetStore(i())),
-    Bind.lazySingleton((i) => CrewStore(i())),
-    Bind.lazySingleton((i) => TrailerStore(i())),
 
     //Datasource
     Bind.lazySingleton((i) => TvShowDatasourceImpl(i(), i())),
