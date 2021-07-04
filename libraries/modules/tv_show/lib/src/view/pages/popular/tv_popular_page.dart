@@ -8,7 +8,6 @@ import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import '../../../domain/entities/tv_popular_show.dart';
 import '../../../domain/errors/tv_show_failures.dart';
 import 'tv_popular_store.dart';
-import 'package:animated_card/animated_card.dart';
 
 class TvPopularPage extends StatefulWidget {
   @override
@@ -28,12 +27,8 @@ class _TvPopularPageState extends State<TvPopularPage> {
       body: LiquidPullToRefresh(
         onRefresh: store.load,
         showChildOpacityTransition: false,
-        child: ScopedBuilder<TvPopularStore, Failure, List<TvPopularShow>>(
+        child: ScopedBuilder<TvPopularStore, Failure, List<TvPopularShow>>.transition(
           store: store,
-          create: (context, child) => AnimatedSwitcher(
-            duration: Duration(milliseconds: 400),
-            child: child,
-          ),
           onError: (context, error) {
             if (error is NoDataFound) {
               return Center(child: Text('No Trailers Found'));
@@ -64,7 +59,7 @@ class _TvPopularPageState extends State<TvPopularPage> {
                 genre: tvPopularShow.genreIds.take(3).map(buildGenreChip).toList(),
                 onTap: () {
                   Modular.to.pushNamed(
-                    './detail',
+                    '/detail_movies',
                     arguments: ScreenArguments(
                       movies: Movies(
                         tvPopularShow.id,
@@ -79,7 +74,6 @@ class _TvPopularPageState extends State<TvPopularPage> {
                         tvPopularShow.tvName,
                         tvPopularShow.tvRelease,
                       ),
-                      isFromMovie: false,
                       isFromBanner: false,
                     ),
                   );

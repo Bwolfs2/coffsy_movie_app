@@ -54,7 +54,7 @@ class _TrailerWidgetState extends State<TrailerWidget> {
         Container(
           width: Sizes.width(context),
           height: Sizes.width(context) / 1.7,
-          child: ScopedBuilder<TrailerStore, Failure, ResultTrailer>(
+          child: ScopedBuilder<TrailerStore, Failure, ResultTrailer>.transition(
             store: store,
             onError: (context, error) => error is TrailerNoInternetConnection
                 ? NoInternetWidget(

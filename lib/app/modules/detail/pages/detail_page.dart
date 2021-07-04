@@ -121,7 +121,7 @@ class _DetailPageState extends State<DetailPage> {
               left: Sizes.dp5(context),
               child: IconButton(
                 icon: Platform.isAndroid ? Icon(Icons.arrow_back) : Icon(Icons.arrow_back_ios),
-                onPressed: () => Navigator.pop(context),
+                onPressed: () => Modular.to.pop(),
               ),
             ),
           ],

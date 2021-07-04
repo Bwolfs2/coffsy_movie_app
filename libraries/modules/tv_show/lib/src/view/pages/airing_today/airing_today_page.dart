@@ -27,7 +27,7 @@ class _AiringTodayPageState extends State<AiringTodayPage> {
       body: LiquidPullToRefresh(
         onRefresh: store.load,
         showChildOpacityTransition: false,
-        child: ScopedBuilder<AiringTodayStore, Failure, List<Movie>>(
+        child: ScopedBuilder<AiringTodayStore, Failure, List<Movie>>.transition(
           store: store,
           onError: (context, error) {
             if (error is NoDataFound) {
@@ -57,7 +57,7 @@ class _AiringTodayPageState extends State<AiringTodayPage> {
                 genre: movie.genreIds.take(3).map(buildGenreChip).toList(),
                 onTap: () {
                   Modular.to.pushNamed(
-                    './detail',
+                    '/detail_movies',
                     arguments: ScreenArguments(
                       movies: Movies(
                         movie.id,
@@ -72,7 +72,6 @@ class _AiringTodayPageState extends State<AiringTodayPage> {
                         movie.tvName,
                         movie.tvRelease,
                       ),
-                      isFromMovie: false,
                       isFromBanner: false,
                     ),
                   );

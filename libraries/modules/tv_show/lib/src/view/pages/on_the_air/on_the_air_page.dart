@@ -27,7 +27,7 @@ class _OnTheAirPageState extends State<OnTheAirPage> {
       body: LiquidPullToRefresh(
         onRefresh: store.load,
         showChildOpacityTransition: false,
-        child: ScopedBuilder<OnTheAirStore, Failure, List<OnTheAir>>(
+        child: ScopedBuilder<OnTheAirStore, Failure, List<OnTheAir>>.transition(
           store: store,
           onError: (context, error) {
             if (error is NoDataFound) {
@@ -58,7 +58,7 @@ class _OnTheAirPageState extends State<OnTheAirPage> {
                 genre: onTheAir.genreIds.take(3).map(buildGenreChip).toList(),
                 onTap: () {
                   Modular.to.pushNamed(
-                    './detail',
+                    '/detail_movies',
                     arguments: ScreenArguments(
                       movies: Movies(
                         onTheAir.id,
@@ -73,7 +73,6 @@ class _OnTheAirPageState extends State<OnTheAirPage> {
                         onTheAir.tvName,
                         onTheAir.tvRelease,
                       ),
-                      isFromMovie: false,
                       isFromBanner: false,
                     ),
                   );

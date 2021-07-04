@@ -46,7 +46,7 @@ class SettingPage extends StatelessWidget {
               onTap: () => showDialog(
                 context: context,
                 builder: (context) {
-                  return ScopedBuilder<SettingStore, Failure, bool>(
+                  return ScopedBuilder<SettingStore, Failure, bool>.transition(
                     store: SettingStore(),
                     onLoading: (context) => Center(
                       child: CircularProgressIndicator.adaptive(),

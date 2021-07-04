@@ -49,7 +49,7 @@ class _TvShowPopularWidgetState extends State<TvShowPopularWidget> {
         Container(
           width: Sizes.width(context),
           height: Sizes.width(context) / 1.8,
-          child: ScopedBuilder<TvShowPopularStore, Failure, List<TvPopularShow>>(
+          child: ScopedBuilder<TvShowPopularStore, Failure, List<TvPopularShow>>.transition(
             store: store,
             onError: (context, error) {
               if (error is NoDataFound) {
@@ -80,7 +80,7 @@ class _TvShowPopularWidgetState extends State<TvShowPopularWidget> {
                   rating: tvPopularShow.voteAverage,
                   onTap: () {
                     Modular.to.pushNamed(
-                      './detail',
+                      '/detail_movies',
                       arguments: ScreenArguments(
                         movies: Movies(
                           tvPopularShow.id,

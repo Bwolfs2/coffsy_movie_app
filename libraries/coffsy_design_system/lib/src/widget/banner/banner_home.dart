@@ -50,7 +50,12 @@ class BannerHome extends StatelessWidget {
                     onTap: () {
                       Modular.to.pushNamed(
                         routeNameDetail,
-                        arguments: ScreenArguments(movies: data.results[i], isFromMovie: true, isFromBanner: true),
+                        arguments: ScreenArguments(
+                          movies: data.results[i],
+                          isFromMovie: true,
+                          isFromBanner: true,
+                        ),
+                        forRoot: true,
                       );
                     },
                     child: GridTile(
@@ -111,7 +116,10 @@ class BannerHome extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                Modular.to.pushNamed(routeNameAll, forRoot: true);
+                Modular.to.pushNamed(
+                  routeNameAll,
+                  forRoot: true,
+                );
               },
               child: Text(
                 'See all',

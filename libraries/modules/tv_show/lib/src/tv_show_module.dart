@@ -9,7 +9,6 @@ import 'domain/usecases/get_tv_show_trailer_by_id.dart';
 import 'infra/repositories/tv_show_repository_impl.dart';
 import 'view/pages/airing_today/airing_today_page.dart';
 import 'view/pages/airing_today/airing_today_store.dart';
-import 'view/pages/detail/detail_page.dart';
 import 'view/pages/on_the_air/on_the_air_page.dart';
 import 'view/pages/on_the_air/on_the_air_store.dart';
 import 'view/pages/popular/tv_popular_page.dart';
@@ -52,6 +51,5 @@ class TvShowModule extends Module {
     ChildRoute('/airing_today', child: (context, args) => AiringTodayPage()),
     ChildRoute('/on_the_air', child: (context, args) => OnTheAirPage()),
     ChildRoute('/tv_popular', child: (context, args) => TvPopularPage()),
-    ChildRoute('/detail', child: (context, args) => DetailPage(arguments: args.data)),
   ];
 }

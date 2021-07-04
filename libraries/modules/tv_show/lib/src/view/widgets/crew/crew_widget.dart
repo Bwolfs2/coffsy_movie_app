@@ -46,7 +46,7 @@ class _CrewWidgetState extends State<CrewWidget> {
         Container(
           width: Sizes.width(context),
           height: Sizes.width(context) / 3,
-          child: ScopedBuilder<CrewStore, Failure, List<Crew>>(
+          child: ScopedBuilder<CrewStore, Failure, List<Crew>>.transition(
             store: store,
             onError: (context, error) {
               if (error is NoDataFound) {

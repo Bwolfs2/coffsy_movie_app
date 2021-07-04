@@ -45,7 +45,7 @@ class _PupularWidgetState extends State<PupularWidget> {
       Container(
         width: Sizes.width(context),
         height: Sizes.width(context) / 1.8,
-        child: ScopedBuilder<PopularStore, Failure, Result>(
+        child: ScopedBuilder<PopularStore, Failure, Result>.transition(
           store: store,
           onError: (context, error) => CustomErrorWidget(message: error?.errorMessage),
           onLoading: (context) => ShimmerList(),

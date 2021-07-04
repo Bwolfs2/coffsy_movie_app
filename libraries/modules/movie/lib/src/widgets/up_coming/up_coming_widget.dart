@@ -47,7 +47,7 @@ class _UpComingWidgetState extends State<UpComingWidget> {
         Container(
           width: Sizes.width(context),
           height: Sizes.width(context) / 1.8,
-          child: ScopedBuilder<UpComingWidgetStore, Failure, Result>(
+          child: ScopedBuilder<UpComingWidgetStore, Failure, Result>.transition(
             store: store,
             onError: (context, error) => CustomErrorWidget(message: error?.errorMessage),
             onLoading: (context) => ShimmerList(),

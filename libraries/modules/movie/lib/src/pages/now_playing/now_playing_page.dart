@@ -26,7 +26,7 @@ class _NowPlayingPageState extends State<NowPlayingPage> {
       body: LiquidPullToRefresh(
         onRefresh: store.load,
         showChildOpacityTransition: false,
-        child: ScopedBuilder<MoviePlayingStore, Failure, Result>(
+        child: ScopedBuilder<MoviePlayingStore, Failure, Result>.transition(
           store: store,
           onError: (context, error) => error is MovieNowPlayingNoInternetConnection
               ? NoInternetWidget(

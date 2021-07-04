@@ -26,7 +26,7 @@ class _UpComingPageState extends State<UpComingPage> {
       body: LiquidPullToRefresh(
         onRefresh: store.load,
         showChildOpacityTransition: false,
-        child: ScopedBuilder<UpComingStore, Failure, Result>(
+        child: ScopedBuilder<UpComingStore, Failure, Result>.transition(
           store: store,
           onError: (context, error) => error is MovieUpComingNoInternetConnection
               ? NoInternetWidget(

@@ -111,7 +111,6 @@ class TvShowDatasourceImpl implements ITvShowDatasource {
   Future<List<Trailer>> getTvShowTrailerById(int tvShowId) async {
     try {
       final response = await dio.get('tv/$tvShowId/videos?api_key=${configurations.apiKey}&language=${configurations.language}');
-
       return TrailerMapper.fromMapList(response.data);
     } on DioError catch (e) {
       if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {

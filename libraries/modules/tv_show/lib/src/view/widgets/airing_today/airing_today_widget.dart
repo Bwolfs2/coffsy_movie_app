@@ -80,7 +80,7 @@ class _AiringTodayWidgetState extends State<AiringTodayWidget> {
                   rating: movie.voteAverage,
                   onTap: () {
                     Modular.to.pushNamed(
-                      './detail',
+                      '/detail_movies',
                       arguments: ScreenArguments(
                           movies: Movies(
                             movie.id,

@@ -1,27 +1,29 @@
-class TvPopularShow {
-  final int id;
-  final String title;
-  final String overview;
-  final String releaseDate;
-  final List<int> genreIds;
-  final double voteAverage;
-  final double popularity;
-  final String posterPath;
-  final String backdropPath;
-  final String? tvName;
-  final String? tvRelease;
+import 'movie.dart';
 
+class TvPopularShow extends Movie {
   TvPopularShow(
-    this.id,
-    this.title,
-    this.overview,
-    this.releaseDate,
-    this.genreIds,
-    this.voteAverage,
-    this.popularity,
-    this.posterPath,
-    this.backdropPath,
-    this.tvName,
-    this.tvRelease,
-  );
+    int id,
+    String title,
+    String overview,
+    String releaseDate,
+    List<int> genreIds,
+    double voteAverage,
+    double popularity,
+    String posterPath,
+    String backdropPath,
+    String? tvName,
+    String? tvRelease,
+  ) : super(
+          id,
+          title,
+          overview,
+          releaseDate,
+          genreIds,
+          voteAverage,
+          popularity,
+          posterPath,
+          backdropPath,
+          tvName,
+          tvRelease,
+        );
 }

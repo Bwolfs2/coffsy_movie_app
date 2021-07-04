@@ -20,7 +20,7 @@ class _TvShowBannerState extends State<TvShowBanner> {
   int _current = 0;
   @override
   Widget build(BuildContext context) {
-    return ScopedBuilder<TvShowBannerStore, Failure, List<Movie>>(
+    return ScopedBuilder<TvShowBannerStore, Failure, List<Movie>>.transition(
       store: store,
       onError: (context, error) => error is TvShowBannerNoInternetConnection
           ? NoInternetWidget(
@@ -59,8 +59,8 @@ class _TvShowBannerState extends State<TvShowBanner> {
             ),
           ),
           currentIndex: _current,
-          routeNameDetail: './detail',
-          routeNameAll: '/dashboard/tv_show/on_the_air',
+          routeNameDetail: '/detail_movies',
+          routeNameAll: './on_the_air',
         ),
       ),
     );
