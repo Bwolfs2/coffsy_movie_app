@@ -31,7 +31,7 @@ class ShimmerBanner extends StatelessWidget {
                   ),
                   color: ColorPalettes.greyBg,
                 ),
-                Spacer(),
+                const Spacer(),
                 Container(
                   height: Sizes.dp8(context),
                   width: Sizes.width(context) / 8,

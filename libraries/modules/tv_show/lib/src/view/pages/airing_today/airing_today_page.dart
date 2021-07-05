@@ -5,7 +5,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 
-import '../../../domain/entities/movie.dart';
+import '../../../domain/entities/tv_show.dart';
 import '../../../domain/errors/tv_show_failures.dart';
 import 'airing_today_store.dart';
 
@@ -21,17 +21,17 @@ class _AiringTodayPageState extends State<AiringTodayPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Airing Today'),
+        title: const Text('Airing Today'),
         centerTitle: true,
       ),
       body: LiquidPullToRefresh(
         onRefresh: store.load,
         showChildOpacityTransition: false,
-        child: ScopedBuilder<AiringTodayStore, Failure, List<Movie>>.transition(
+        child: ScopedBuilder<AiringTodayStore, Failure, List<TvShow>>.transition(
           store: store,
           onError: (context, error) {
             if (error is NoDataFound) {
-              return Center(child: Text('No Airing Today Found'));
+              return const Center(child: Text('No Airing Today Found'));
             }
             if (error is TvAiringTodayNoInternetConnection) {
               return NoInternetWidget(
@@ -41,7 +41,7 @@ class _AiringTodayPageState extends State<AiringTodayPage> {
             }
             return CustomErrorWidget(message: error?.errorMessage);
           },
-          onLoading: (context) => Center(
+          onLoading: (context) => const Center(
             child: CircularProgressIndicator.adaptive(),
           ),
           onState: (context, state) => ListView.builder(

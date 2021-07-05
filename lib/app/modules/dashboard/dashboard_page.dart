@@ -56,7 +56,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
         ),
         child: StatefulBuilder(
           builder: (context, setState) => BottomAppBar(
-            shape: CircularNotchedRectangle(),
+            shape: const CircularNotchedRectangle(),
             notchMargin: Sizes.dp8(context),
             child: ValueListenableBuilder(
               valueListenable: selectedPageValueNotifier,
@@ -65,14 +65,14 @@ class _DashBoardPageState extends State<DashBoardPage> {
                 children: [
                   IconButton(
                     color: selectedPage == 0 ? ColorPalettes.darkAccent : ColorPalettes.grey,
-                    icon: Icon(Icons.movie_creation),
+                    icon: const Icon(Icons.movie_creation),
                     onPressed: () {
                       Modular.to.navigate('/dashboard/movie_module/');
                     },
                   ),
                   IconButton(
                     color: selectedPage == 1 ? ColorPalettes.darkAccent : ColorPalettes.grey,
-                    icon: Icon(Icons.live_tv),
+                    icon: const Icon(Icons.live_tv),
                     onPressed: () {
                       Modular.to.navigate('/dashboard/tv_show/');
                     },

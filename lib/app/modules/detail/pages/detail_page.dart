@@ -22,7 +22,7 @@ class _DetailPageState extends State<DetailPage> {
     var theme = Theme.of(context);
     return Scaffold(
       body: SingleChildScrollView(
-        physics: ClampingScrollPhysics(),
+        physics: const ClampingScrollPhysics(),
         child: Stack(
           alignment: Alignment.center,
           children: <Widget>[
@@ -110,7 +110,7 @@ class _DetailPageState extends State<DetailPage> {
               child: IconButton(
                 iconSize: Sizes.dp30(context),
                 color: theme.colorScheme.secondary,
-                icon: Icon(Icons.favorite_border),
+                icon: const Icon(Icons.favorite_border),
                 onPressed: () {
                   PopUp.showSuccess('Add to Favorite');
                 },
@@ -120,7 +120,7 @@ class _DetailPageState extends State<DetailPage> {
               top: Sizes.width(context) / 9,
               left: Sizes.dp5(context),
               child: IconButton(
-                icon: Platform.isAndroid ? Icon(Icons.arrow_back) : Icon(Icons.arrow_back_ios),
+                icon: Platform.isAndroid ? const Icon(Icons.arrow_back) : const Icon(Icons.arrow_back_ios),
                 onPressed: () => Modular.to.pop(),
               ),
             ),

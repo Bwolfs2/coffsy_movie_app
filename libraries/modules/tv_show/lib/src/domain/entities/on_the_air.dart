@@ -1,6 +1,6 @@
-import 'movie.dart';
+import 'tv_show.dart';
 
-class OnTheAir extends Movie {
+class OnTheAir extends TvShow {
   OnTheAir(
     int id,
     String title,

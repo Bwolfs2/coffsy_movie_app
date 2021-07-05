@@ -1,11 +1,10 @@
-import '../../domain/entities/tv_popular_show.dart';
+import '../../domain/entities/tv_show.dart';
 
-class TvPopularShowMapper {
-  static List<TvPopularShow> fromMapList(Map<String, dynamic> map) =>
-      List<TvPopularShow>.from((map['results'] as List).map(TvPopularShowMapper.fromMap));
+class MovieMapper {
+  static List<TvShow> fromMapList(Map<String, dynamic> map) => List<TvShow>.from((map['results'] as List).map(MovieMapper.fromMap));
 
-  static TvPopularShow fromMap(dynamic map) {
-    return TvPopularShow(
+  static TvShow fromMap(dynamic map) {
+    return TvShow(
       map['id'],
       map['title'] ?? map['name'],
       map['overview'],

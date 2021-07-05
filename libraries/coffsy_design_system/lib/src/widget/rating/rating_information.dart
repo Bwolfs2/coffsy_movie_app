@@ -23,7 +23,7 @@ class RatingInformation extends StatelessWidget {
           ),
         ),
         SizedBox(height: Sizes.dp4(context)),
-        Text(
+        const Text(
           'Ratings',
         ),
       ],
@@ -36,7 +36,7 @@ class RatingInformation extends StatelessWidget {
         buildRatingBar(theme, context, rating),
         Padding(
           padding: EdgeInsets.only(top: Sizes.dp4(context), left: Sizes.dp4(context)),
-          child: Text(
+          child: const Text(
             'Grade now',
           ),
         ),

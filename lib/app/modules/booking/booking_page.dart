@@ -21,7 +21,7 @@ class BookingPage extends StatelessWidget {
         title: Text(arguments.movies.title),
       ),
       body: SingleChildScrollView(
-        physics: ClampingScrollPhysics(),
+        physics: const ClampingScrollPhysics(),
         child: Padding(
           padding: EdgeInsets.all(
             Sizes.dp20(context),

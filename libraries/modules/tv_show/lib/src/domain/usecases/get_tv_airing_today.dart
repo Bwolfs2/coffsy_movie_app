@@ -1,4 +1,4 @@
-import '../entities/movie.dart';
+import '../entities/tv_show.dart';
 import '../repositories/tv_show_repository.dart';
 
 class GetTvAiringToday {
@@ -6,7 +6,7 @@ class GetTvAiringToday {
 
   GetTvAiringToday(this.repository);
 
-  Future<List<Movie>> call() async {
+  Future<List<TvShow>> call() async {
     return await repository.getTvAiringToday();
   }
 }

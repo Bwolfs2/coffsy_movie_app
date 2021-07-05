@@ -4,7 +4,7 @@ abstract class Failure {
   const Failure({this.errorMessage = ''});
 }
 
-class UnknownError {
+class UnknownError extends Failure {
   final String errorMessage;
   final dynamic error;
   final StackTrace stackTrace;

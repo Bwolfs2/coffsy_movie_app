@@ -29,12 +29,12 @@ class _TvShowPageState extends State<TvShowPage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text('Tv Show'),
+        title: const Text('Tv Show'),
         centerTitle: true,
         actions: <Widget>[
           // overflow menu
           PopupMenuButton<Menu>(
-            icon: Icon(Icons.more_vert),
+            icon: const Icon(Icons.more_vert),
             onSelected: (menu) {
               // Causes the app to rebuild with the new _selectedChoice.
               Modular.to.pushNamed(menu.route);
@@ -54,16 +54,16 @@ class _TvShowPageState extends State<TvShowPage> {
         onRefresh: _refresh,
         showChildOpacityTransition: false,
         child: SingleChildScrollView(
-          physics: ClampingScrollPhysics(), //kill bounce iOS
+          physics: const ClampingScrollPhysics(), //kill bounce iOS
           child: Container(
             margin: EdgeInsets.all(Sizes.dp10(context)),
             child: Column(
               children: <Widget>[
-                TvShowBanner(),
+                const TvShowBanner(),
                 SizedBox(height: Sizes.dp12(context)),
-                AiringTodayWidget(),
+                const AiringTodayWidget(),
                 SizedBox(height: Sizes.dp12(context)),
-                TvShowPopularWidget(),
+                const TvShowPopularWidget(),
                 SizedBox(height: Sizes.dp12(context)),
               ],
             ),

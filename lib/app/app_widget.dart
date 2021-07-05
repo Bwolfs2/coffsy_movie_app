@@ -12,7 +12,7 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScopedBuilder<SettingStore, Failure, bool>.transition(
       store: store,
-      onLoading: (context) => Center(
+      onLoading: (context) => const Center(
         child: CircularProgressIndicator.adaptive(),
       ),
       onState: (context, state) => MaterialApp(

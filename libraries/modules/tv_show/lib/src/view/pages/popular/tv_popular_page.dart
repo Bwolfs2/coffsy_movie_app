@@ -21,7 +21,7 @@ class _TvPopularPageState extends State<TvPopularPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Popular'),
+        title: const Text('Popular'),
         centerTitle: true,
       ),
       body: LiquidPullToRefresh(
@@ -31,7 +31,7 @@ class _TvPopularPageState extends State<TvPopularPage> {
           store: store,
           onError: (context, error) {
             if (error is NoDataFound) {
-              return Center(child: Text('No Trailers Found'));
+              return const Center(child: Text('No Trailers Found'));
             }
 
             if (error is TvShowPopularNoInternetConnection) {
@@ -43,7 +43,7 @@ class _TvPopularPageState extends State<TvPopularPage> {
 
             return CustomErrorWidget(message: error?.errorMessage);
           },
-          onLoading: (context) => Center(
+          onLoading: (context) => const Center(
             child: CircularProgressIndicator.adaptive(),
           ),
           onState: (context, state) => ListView.builder(

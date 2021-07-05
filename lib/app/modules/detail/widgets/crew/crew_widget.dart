@@ -57,12 +57,12 @@ class _CrewWidgetState extends State<CrewWidget> {
                     onPressed: () async => reload(),
                   )
                 : CustomErrorWidget(message: error?.errorMessage),
-            onLoading: (context) => Center(
+            onLoading: (context) => const Center(
               child: CircularProgressIndicator.adaptive(),
             ),
             onState: (context, state) => ListView.builder(
               shrinkWrap: true,
-              physics: ClampingScrollPhysics(),
+              physics: const ClampingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: state.crew.length,
               itemBuilder: (context, index) {

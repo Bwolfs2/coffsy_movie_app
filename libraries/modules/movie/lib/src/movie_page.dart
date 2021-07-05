@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 
-import 'widgets/movie_banner/movie_banner_store.dart';
-import 'widgets/movie_banner/movie_banners.dart';
-import 'widgets/popular/popular_store.dart';
-import 'widgets/popular/popular_widget.dart';
-import 'widgets/up_coming/up_coming_widget.dart';
-import 'widgets/up_coming/up_coming_widget_store.dart';
+import 'presenter/widgets/movie_banner/movie_banner.dart';
+import 'presenter/widgets/movie_banner/movie_banner_store.dart';
+import 'presenter/widgets/popular/popular_store.dart';
+import 'presenter/widgets/popular/popular_widget.dart';
+import 'presenter/widgets/up_coming/up_coming_widget.dart';
+import 'presenter/widgets/up_coming/up_coming_widget_store.dart';
 
 class MoviePage extends StatefulWidget {
   @override
@@ -64,7 +64,7 @@ class _MoviePageState extends State<MoviePage> {
             ),
             child: Column(
               children: <Widget>[
-                const MovieBanners(),
+                const MovieBanner(),
                 SizedBox(
                   height: Sizes.dp12(context),
                 ),

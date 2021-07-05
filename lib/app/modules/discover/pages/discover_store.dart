@@ -6,7 +6,7 @@ import '../errors/discover_failures.dart';
 
 class DiscoverStore extends StreamStore<Failure, Result> {
   final Repository repository;
-  DiscoverStore(this.repository) : super(Result()) {
+  DiscoverStore(this.repository) : super(const Result()) {
     load();
   }
 
@@ -21,9 +21,9 @@ class DiscoverStore extends StreamStore<Failure, Result> {
       }
     } on DioError catch (e) {
       if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
-        setError(DiscoverMovieNoInternetConnection());
+        setError(const DiscoverMovieNoInternetConnection());
       } else if (e.type == DioErrorType.other) {
-        setError(DiscoverMovieNoInternetConnection());
+        setError(const DiscoverMovieNoInternetConnection());
       } else {
         setError(DiscoverMovieError(e.toString()));
       }

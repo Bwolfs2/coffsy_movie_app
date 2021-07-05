@@ -68,8 +68,8 @@ class CardDiscover extends StatelessWidget {
 
   Widget _buildGenreChip(int id) {
     return Container(
-      margin: EdgeInsets.only(right: 10),
-      padding: EdgeInsets.all(8),
+      margin: const EdgeInsets.only(right: 10),
+      padding: const EdgeInsets.all(8),
       child: Text(
         Genres.genres[id] ?? 'No Gender',
         style: TextStyle(fontSize: 12, color: ColorPalettes.white),

@@ -1,7 +1,7 @@
 import 'package:core/core.dart' hide Crew, Trailer;
 
 import '../../domain/entities/crew.dart';
-import '../../domain/entities/movie.dart';
+import '../../domain/entities/tv_show.dart';
 import '../../domain/entities/on_the_air.dart';
 import '../../domain/entities/trailer.dart';
 import '../../domain/entities/tv_popular_show.dart';
@@ -14,7 +14,7 @@ class TvShowRepositoryImpl implements ITvShowRepository {
 
   TvShowRepositoryImpl(this.datasource);
   @override
-  Future<List<Movie>> getTvAiringToday() async {
+  Future<List<TvShow>> getTvAiringToday() async {
     try {
       var result = await datasource.getTvAiringToday();
 

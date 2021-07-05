@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 
-import '../../../domain/entities/movie.dart';
+import '../../../domain/entities/tv_show.dart';
 import '../../../domain/errors/tv_show_failures.dart';
 import 'airing_today_widget_store.dart';
 
@@ -33,7 +33,7 @@ class _AiringTodayWidgetState extends State<AiringTodayWidget> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               IconButton(
                 icon: Icon(
                   Icons.arrow_forward_ios,
@@ -49,11 +49,11 @@ class _AiringTodayWidgetState extends State<AiringTodayWidget> {
         Container(
           width: Sizes.width(context),
           height: Sizes.width(context) / 1.8,
-          child: ScopedBuilder<AiringTodayWidgetStore, Failure, List<Movie>>(
+          child: ScopedBuilder<AiringTodayWidgetStore, Failure, List<TvShow>>(
             store: store,
             onError: (context, error) {
               if (error is NoDataFound) {
-                return Center(child: Text('No Trailers Found'));
+                return const Center(child: Text('No Trailers Found'));
               }
 
               if (error is TvAiringTodayNoInternetConnection) {
@@ -64,12 +64,12 @@ class _AiringTodayWidgetState extends State<AiringTodayWidget> {
               }
               return CustomErrorWidget(message: error?.errorMessage);
             },
-            onLoading: (context) => Center(
+            onLoading: (context) => const Center(
               child: CircularProgressIndicator.adaptive(),
             ),
             onState: (context, state) => ListView.builder(
               shrinkWrap: true,
-              physics: ClampingScrollPhysics(),
+              physics: const ClampingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: state.length > 5 ? 5 : state.length,
               itemBuilder: (context, index) {

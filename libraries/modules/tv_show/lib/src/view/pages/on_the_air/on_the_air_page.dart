@@ -21,7 +21,7 @@ class _OnTheAirPageState extends State<OnTheAirPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('On The Air'),
+        title: const Text('On The Air'),
         centerTitle: true,
       ),
       body: LiquidPullToRefresh(
@@ -31,7 +31,7 @@ class _OnTheAirPageState extends State<OnTheAirPage> {
           store: store,
           onError: (context, error) {
             if (error is NoDataFound) {
-              return Center(child: Text('No On The Air Found'));
+              return const Center(child: Text('No On The Air Found'));
             }
 
             if (error is TvOnTheAirNoInternetConnection) {
@@ -42,7 +42,7 @@ class _OnTheAirPageState extends State<OnTheAirPage> {
             }
             return CustomErrorWidget(message: error?.errorMessage);
           },
-          onLoading: (context) => Center(
+          onLoading: (context) => const Center(
             child: CircularProgressIndicator.adaptive(),
           ),
           onState: (context, state) => ListView.builder(

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 
-import '../../../domain/entities/movie.dart';
+import '../../../domain/entities/tv_show.dart';
 import '../../../domain/errors/tv_show_failures.dart';
 import 'tv_show_banner_store.dart';
 
@@ -20,7 +20,7 @@ class _TvShowBannerState extends State<TvShowBanner> {
   int _current = 0;
   @override
   Widget build(BuildContext context) {
-    return ScopedBuilder<TvShowBannerStore, Failure, List<Movie>>.transition(
+    return ScopedBuilder<TvShowBannerStore, Failure, List<TvShow>>.transition(
       store: store,
       onError: (context, error) => error is TvShowBannerNoInternetConnection
           ? NoInternetWidget(
@@ -28,7 +28,7 @@ class _TvShowBannerState extends State<TvShowBanner> {
               onPressed: () async => await store.load(),
             )
           : CustomErrorWidget(message: error?.errorMessage),
-      onLoading: (context) => Center(
+      onLoading: (context) => const Center(
         child: CircularProgressIndicator.adaptive(),
       ),
       onState: (context, state) => StatefulBuilder(
@@ -39,22 +39,20 @@ class _TvShowBannerState extends State<TvShowBanner> {
               _current = index;
             });
           },
-          data: Result(
-            List.from(
-              state.map(
-                (movie) => Movies(
-                  movie.id,
-                  movie.title,
-                  movie.overview,
-                  movie.releaseDate,
-                  movie.genreIds,
-                  movie.voteAverage,
-                  movie.popularity,
-                  movie.posterPath,
-                  movie.backdropPath,
-                  movie.tvName,
-                  movie.tvRelease,
-                ),
+          data: List.from(
+            state.map(
+              (movie) => Movies(
+                movie.id,
+                movie.title,
+                movie.overview,
+                movie.releaseDate,
+                movie.genreIds,
+                movie.voteAverage,
+                movie.popularity,
+                movie.posterPath,
+                movie.backdropPath,
+                movie.tvName,
+                movie.tvRelease,
               ),
             ),
           ),

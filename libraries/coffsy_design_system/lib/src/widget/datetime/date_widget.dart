@@ -11,7 +11,7 @@ class _DateWidgetState extends State<DateWidget> with TickerProviderStateMixin {
   final _dateSelectorAcList = <AnimationController>[];
   final _dateSelectorTweenList = <Animation<double>>[];
 
-  late final _dateBackgroundAc = AnimationController(vsync: this, duration: Duration(milliseconds: 700));
+  late final _dateBackgroundAc = AnimationController(vsync: this, duration: const Duration(milliseconds: 700));
   late final _dateBackgroundTween =
       Tween<double>(begin: 1000, end: 0).chain(CurveTween(curve: Curves.easeOutCubic)).animate(_dateBackgroundAc);
 
@@ -23,7 +23,7 @@ class _DateWidgetState extends State<DateWidget> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     for (var i = 0; i < 7; i++) {
-      _dateSelectorAcList.add(AnimationController(vsync: this, duration: Duration(milliseconds: 500)));
+      _dateSelectorAcList.add(AnimationController(vsync: this, duration: const Duration(milliseconds: 500)));
       _dateSelectorTweenList
           .add(Tween<double>(begin: 1000, end: 0).chain(CurveTween(curve: Curves.easeOutCubic)).animate(_dateSelectorAcList[i]));
       Future.delayed(Duration(milliseconds: i * 50 + 170), () {
@@ -33,7 +33,7 @@ class _DateWidgetState extends State<DateWidget> with TickerProviderStateMixin {
 
     // initialize dateSelector Background
 
-    Future.delayed(Duration(milliseconds: 150), () => _dateBackgroundAc.forward);
+    Future.delayed(const Duration(milliseconds: 150), () => _dateBackgroundAc.forward);
   }
 
   Color _textDateColor(int index) {
@@ -91,7 +91,7 @@ class _DateWidgetState extends State<DateWidget> with TickerProviderStateMixin {
             ),
           ),
           ListView.builder(
-            physics: ClampingScrollPhysics(),
+            physics: const ClampingScrollPhysics(),
             itemCount: 7,
             scrollDirection: Axis.horizontal,
             itemBuilder: (ctx, index) {

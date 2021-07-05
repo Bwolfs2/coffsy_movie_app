@@ -4,4 +4,7 @@ linter:
     prefer_single_quotes: true
     public_member_api_docs: false
     lines_longer_than_80_chars: false
+    avoid_print: true
+    one_member_abstracts: true
+    prefer_const_constructors: true
     avoid_classes_with_only_static_members: false

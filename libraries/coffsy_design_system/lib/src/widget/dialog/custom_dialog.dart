@@ -11,7 +11,7 @@ class CustomDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SimpleDialog(
-      title: Text('Switch Theme'),
+      title: const Text('Switch Theme'),
       children: <Widget>[
         Padding(
           padding: EdgeInsets.only(left: Sizes.dp10(context)),
@@ -23,7 +23,7 @@ class CustomDialog extends StatelessWidget {
                 groupValue: groupValue,
                 onChanged: (value) => onChanged(value ?? false),
               ),
-              Text('Dark'),
+              const Text('Dark'),
             ],
           ),
         ),
@@ -40,7 +40,7 @@ class CustomDialog extends StatelessWidget {
                 groupValue: groupValue,
                 onChanged: (value) => onChanged(value ?? false),
               ),
-              Text('Light'),
+              const Text('Light'),
             ],
           ),
         ),

@@ -33,7 +33,7 @@ class _TvShowPopularWidgetState extends State<TvShowPopularWidget> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               IconButton(
                 icon: Icon(
                   Icons.arrow_forward_ios,
@@ -53,7 +53,7 @@ class _TvShowPopularWidgetState extends State<TvShowPopularWidget> {
             store: store,
             onError: (context, error) {
               if (error is NoDataFound) {
-                return Center(child: Text('No Trailers Found'));
+                return const Center(child: Text('No Trailers Found'));
               }
               if (error is TvShowPopularNoInternetConnection) {
                 return NoInternetWidget(
@@ -64,12 +64,12 @@ class _TvShowPopularWidgetState extends State<TvShowPopularWidget> {
 
               return CustomErrorWidget(message: error?.errorMessage);
             },
-            onLoading: (context) => Center(
+            onLoading: (context) => const Center(
               child: CircularProgressIndicator.adaptive(),
             ),
             onState: (context, state) => ListView.builder(
               shrinkWrap: true,
-              physics: ClampingScrollPhysics(),
+              physics: const ClampingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: state.length > 5 ? 5 : state.length,
               itemBuilder: (context, index) {
