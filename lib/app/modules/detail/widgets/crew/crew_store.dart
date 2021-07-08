@@ -6,7 +6,7 @@ import 'errors/crew_failures.dart';
 
 class CrewStore extends StreamStore<Failure, ResultCrew> {
   final Repository repository;
-  CrewStore(this.repository) : super(ResultCrew());
+  CrewStore(this.repository) : super(const ResultCrew());
 
   Future<void> loadMovieTrailer(int movieId) async {
     try {
@@ -19,9 +19,9 @@ class CrewStore extends StreamStore<Failure, ResultCrew> {
       }
     } on DioError catch (e) {
       if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
-        setError(CrewNoInternetConnection());
+        setError(const CrewNoInternetConnection());
       } else if (e.type == DioErrorType.other) {
-        setError(CrewNoInternetConnection());
+        setError(const CrewNoInternetConnection());
       } else {
         setError(CrewError(e.toString()));
       }
@@ -41,9 +41,9 @@ class CrewStore extends StreamStore<Failure, ResultCrew> {
       }
     } on DioError catch (e) {
       if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
-        setError(CrewNoInternetConnection());
+        setError(const CrewNoInternetConnection());
       } else if (e.type == DioErrorType.other) {
-        setError(CrewNoInternetConnection());
+        setError(const CrewNoInternetConnection());
       } else {
         setError(CrewError(e.toString()));
       }

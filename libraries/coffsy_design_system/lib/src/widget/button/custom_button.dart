@@ -13,7 +13,7 @@ class CustomButton extends StatefulWidget {
 }
 
 class _CustomButtonState extends State<CustomButton> with TickerProviderStateMixin {
-  late final _animationController = AnimationController(vsync: this, duration: Duration(milliseconds: 2000));
+  late final _animationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 2000));
   late final _animationTween =
       Tween<double>(begin: -1, end: 0).chain(CurveTween(curve: Curves.easeInOutQuart)).animate(_animationController);
 
@@ -21,7 +21,7 @@ class _CustomButtonState extends State<CustomButton> with TickerProviderStateMix
   void initState() {
     super.initState();
 
-    Future.delayed(Duration(milliseconds: 800), _animationController.forward);
+    Future.delayed(const Duration(milliseconds: 800), _animationController.forward);
   }
 
   @override

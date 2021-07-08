@@ -9,7 +9,7 @@ import '../../../coffsy_design_system.dart';
 
 class BannerHome extends StatelessWidget {
   final Function(int index, CarouselPageChangedReason reason) onPageChanged;
-  final Result data;
+  final List<Movies> data;
   final int currentIndex;
   final String routeNameDetail, routeNameAll;
   final bool isFromMovie;
@@ -26,7 +26,7 @@ class BannerHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var result = data.results.length > 10 ? 10 : data.results.length;
+    var result = data.length > 10 ? 10 : data.length;
     return Column(
       children: <Widget>[
         // Banner
@@ -37,7 +37,7 @@ class BannerHome extends StatelessWidget {
               enlargeCenterPage: true,
               autoPlay: true,
               autoPlayCurve: Curves.fastOutSlowIn,
-              autoPlayAnimationDuration: Duration(milliseconds: 1000),
+              autoPlayAnimationDuration: const Duration(milliseconds: 1000),
               viewportFraction: 1.0,
               aspectRatio: 2.0,
               onPageChanged: onPageChanged,
@@ -50,12 +50,17 @@ class BannerHome extends StatelessWidget {
                     onTap: () {
                       Modular.to.pushNamed(
                         routeNameDetail,
-                        arguments: ScreenArguments(movies: data.results[i], isFromMovie: true, isFromBanner: true),
+                        arguments: ScreenArguments(
+                          movies: data[i],
+                          isFromMovie: true,
+                          isFromBanner: true,
+                        ),
+                        forRoot: true,
                       );
                     },
                     child: GridTile(
                       child: CachedNetworkImage(
-                        imageUrl: data.results[i].backdropPath.imageOriginal,
+                        imageUrl: data[i].backdropPath.imageOriginal,
                         width: Sizes.width(context),
                         fit: BoxFit.fill,
                         placeholder: (context, url) => LoadingIndicator(),
@@ -65,7 +70,7 @@ class BannerHome extends StatelessWidget {
                         color: ColorPalettes.whiteSemiTransparent,
                         padding: EdgeInsets.all(Sizes.dp5(context)),
                         child: Text(
-                          isFromMovie ? data.results[i].title : data.results[i].tvName ?? 'No Tv Name',
+                          isFromMovie ? data[i].title : data[i].tvName ?? 'No Tv Name',
                           textAlign: TextAlign.center,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
@@ -81,7 +86,7 @@ class BannerHome extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Row(
@@ -111,7 +116,10 @@ class BannerHome extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                Modular.to.pushNamed(routeNameAll, forRoot: true);
+                Modular.to.pushNamed(
+                  routeNameAll,
+                  forRoot: true,
+                );
               },
               child: Text(
                 'See all',

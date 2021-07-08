@@ -49,7 +49,7 @@ class _CrewWidgetState extends State<CrewWidget> {
         Container(
           width: Sizes.width(context),
           height: Sizes.width(context) / 3,
-          child: ScopedBuilder<CrewStore, Failure, ResultCrew>(
+          child: ScopedBuilder<CrewStore, Failure, ResultCrew>.transition(
             store: store,
             onError: (context, error) => error is CrewNoInternetConnection
                 ? NoInternetWidget(
@@ -57,12 +57,12 @@ class _CrewWidgetState extends State<CrewWidget> {
                     onPressed: () async => reload(),
                   )
                 : CustomErrorWidget(message: error?.errorMessage),
-            onLoading: (context) => Center(
+            onLoading: (context) => const Center(
               child: CircularProgressIndicator.adaptive(),
             ),
             onState: (context, state) => ListView.builder(
               shrinkWrap: true,
-              physics: ClampingScrollPhysics(),
+              physics: const ClampingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: state.crew.length,
               itemBuilder: (context, index) {

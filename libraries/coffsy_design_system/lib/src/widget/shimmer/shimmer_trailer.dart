@@ -10,7 +10,7 @@ class ShimmerTrailer extends StatelessWidget {
       baseColor: ColorPalettes.greyBg,
       highlightColor: ColorPalettes.white,
       child: SingleChildScrollView(
-        physics: ClampingScrollPhysics(),
+        physics: const ClampingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,

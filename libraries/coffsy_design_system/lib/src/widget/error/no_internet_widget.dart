@@ -28,9 +28,9 @@ class NoInternetWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(Sizes.dp10(context)),
             ),
           ),
-          icon: Icon(Icons.wifi),
+          icon: const Icon(Icons.wifi),
           onPressed: () => onPressed,
-          label: Text('Reload'),
+          label: const Text('Reload'),
         ),
       ],
     );

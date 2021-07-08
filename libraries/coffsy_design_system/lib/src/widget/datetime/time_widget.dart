@@ -24,7 +24,7 @@ class _TimeWidgetState extends State<TimeWidget> with TickerProviderStateMixin {
     super.initState();
     // initialize timeSelector List
     for (var i = 0; i < 3; i++) {
-      _timeSelectorAcList.add(AnimationController(vsync: this, duration: Duration(milliseconds: 500)));
+      _timeSelectorAcList.add(AnimationController(vsync: this, duration: const Duration(milliseconds: 500)));
       _timeSelectorTweenList
           .add(Tween<double>(begin: 1000, end: 0).chain(CurveTween(curve: Curves.easeOutCubic)).animate(_timeSelectorAcList[i]));
       Future.delayed(Duration(milliseconds: i * 25 + 100), () {
@@ -42,7 +42,7 @@ class _TimeWidgetState extends State<TimeWidget> with TickerProviderStateMixin {
       height: Sizes.width(context) / 5,
       margin: EdgeInsets.symmetric(vertical: Sizes.dp20(context)),
       child: ListView.builder(
-        physics: ClampingScrollPhysics(),
+        physics: const ClampingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: 3,
         itemBuilder: (ctx, index) {

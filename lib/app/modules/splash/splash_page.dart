@@ -17,7 +17,7 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   _startSplashPage() async => await Future.delayed(
-        Duration(seconds: 3),
+        const Duration(seconds: 3),
         () => Modular.to.navigate('/dashboard/movie_module/'),
       );
 
@@ -45,8 +45,8 @@ class _SplashPageState extends State<SplashPage> {
                       fit: BoxFit.contain,
                     ),
                   ),
-                  SizedBox(height: 20),
-                  Center(
+                  const SizedBox(height: 20),
+                  const Center(
                     child: CircularProgressIndicator.adaptive(),
                   )
                 ],
@@ -65,7 +65,7 @@ class _SplashPageState extends State<SplashPage> {
                     margin: EdgeInsets.only(bottom: Sizes.dp30(context)),
                     child: Text(
                       verInfo,
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                   );
                 },

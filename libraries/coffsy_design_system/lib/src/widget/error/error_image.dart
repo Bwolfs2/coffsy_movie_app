@@ -3,6 +3,6 @@ import 'package:flutter/material.dart';
 class ErrorImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(child: Icon(Icons.error));
+    return const Center(child: Icon(Icons.error));
   }
 }

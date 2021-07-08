@@ -22,13 +22,14 @@ dependencies:
   liquid_pull_to_refresh: ^3.0.0
   carousel_slider: ^4.0.0-nullsafety.0
   lottie: ^1.0.1 
-  fluttertoast: ^8.0.7
+  fluttertoast: ^8.0.7  
   flutter_modular: #^3.3.0-beta.6
     git: 
       url: https://github.com/Flutterando/modular.git
       path: flutter_modular
 
-  flutter_triple: ^1.0.6 
+  flutter_triple: 1.2.0 
+  animated_card: 2.0.0
 
   # Core
   shared_preferences: ^2.0.6

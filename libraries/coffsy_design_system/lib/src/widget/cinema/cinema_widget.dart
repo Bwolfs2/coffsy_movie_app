@@ -14,27 +14,17 @@ class CinemaWidget extends StatefulWidget {
 }
 
 class _CinemaWidgetState extends State<CinemaWidget> with TickerProviderStateMixin {
-  late final _cinemaChairAc = AnimationController(vsync: this, duration: Duration(milliseconds: 1600));
+  late final _cinemaChairAc = AnimationController(vsync: this, duration: const Duration(milliseconds: 1600));
   late final _cinemaChairTween = Tween<double>(begin: -1, end: 0).chain(CurveTween(curve: Curves.ease)).animate(_cinemaChairAc);
-  late final _cinemaScreenAc = AnimationController(vsync: this, duration: Duration(milliseconds: 2000));
+  late final _cinemaScreenAc = AnimationController(vsync: this, duration: const Duration(milliseconds: 2000));
   late final _cinemaScreenTween = Tween<double>(begin: 0, end: 1).chain(CurveTween(curve: Curves.easeInOutQuart)).animate(_cinemaScreenAc);
-  bool _isDarkTheme = false;
-
-  final _chairStatus = [
-    [0, 3, 2, 1, 2, 2, 0],
-    [2, 2, 2, 2, 1, 2, 2],
-    [1, 1, 2, 2, 2, 2, 2],
-    [0, 2, 1, 1, 1, 2, 0],
-    [2, 2, 2, 2, 2, 2, 2],
-    [0, 3, 3, 2, 1, 1, 0]
-  ];
 
   @override
   void initState() {
     super.initState();
 
-    Future.delayed(Duration(milliseconds: 800), _cinemaScreenAc.forward);
-    Future.delayed(Duration(milliseconds: 1200), _cinemaChairAc.forward);
+    Future.delayed(const Duration(milliseconds: 800), _cinemaScreenAc.forward);
+    Future.delayed(const Duration(milliseconds: 1200), _cinemaChairAc.forward);
   }
 
   @override
@@ -46,8 +36,6 @@ class _CinemaWidgetState extends State<CinemaWidget> with TickerProviderStateMix
 
   @override
   Widget build(BuildContext context) {
-    var themeData = Theme.of(context);
-    _isDarkTheme = themeData.appBarTheme.color == null;
     return Column(
       children: <Widget>[
         AnimatedBuilder(
@@ -84,19 +72,45 @@ class _CinemaWidgetState extends State<CinemaWidget> with TickerProviderStateMix
           },
           child: Container(
             width: Sizes.width(context),
-            child: _chairList(),
+            child: ChairList(),
           ),
         ),
       ],
     );
   }
+}
 
-  Widget _chairList() {
-    // 0 is null
-    // 1 is free
-    // 2 is reserved
-    // 3 is not available
-    // 4 is yours
+class ChairList extends StatefulWidget {
+  // 0 is null
+  // 1 is free
+  // 2 is reserved
+  // 3 is not available
+  // 4 is yours
+
+  @override
+  State<ChairList> createState() => _ChairListState();
+}
+
+class _ChairListState extends State<ChairList> {
+  bool _isDarkTheme = false;
+
+  final _chairStatus = [
+    [0, 3, 2, 1, 2, 2, 0],
+    [2, 2, 2, 2, 1, 2, 2],
+    [1, 1, 2, 2, 2, 2, 2],
+    [0, 2, 1, 1, 1, 2, 0],
+    [2, 2, 2, 2, 2, 2, 2],
+    [0, 3, 3, 2, 1, 1, 0]
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    _isDarkTheme = Theme.of(context).appBarTheme.color == null;
     return Column(
       children: <Widget>[
         for (int i = 0; i < 6; i++)
@@ -149,19 +163,34 @@ class _CinemaWidgetState extends State<CinemaWidget> with TickerProviderStateMix
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              _chairCategory(ColorPalettes.white, 'FREE', true),
-              _chairCategory(ColorPalettes.darkAccent, 'YOURS', false),
-              _chairCategory(Colors.grey[700] ?? Colors.grey, 'RESERVED', false),
-              _chairCategory(Colors.red[800] ?? Colors.red, 'NOT AVAILABLE', false),
+              ChairCategory(ColorPalettes.white, 'FREE', isWhite: true, isDarkTheme: _isDarkTheme),
+              ChairCategory(ColorPalettes.darkAccent, 'YOURS', isWhite: false, isDarkTheme: _isDarkTheme),
+              ChairCategory(Colors.grey[700] ?? Colors.grey, 'RESERVED', isWhite: false, isDarkTheme: _isDarkTheme),
+              ChairCategory(Colors.red[800] ?? Colors.red, 'NOT AVAILABLE', isWhite: false, isDarkTheme: _isDarkTheme),
             ],
           ),
         ),
       ],
     );
   }
+}
+
+class ChairCategory extends StatelessWidget {
+  final Color color;
+  final String category;
+  final bool isWhite;
+  final bool isDarkTheme;
+
+  const ChairCategory(
+    this.color,
+    this.category, {
+    Key? key,
+    this.isDarkTheme = false,
+    this.isWhite = false,
+  }) : super(key: key);
 
   Color _borderColor(bool isWhite) {
-    if (!_isDarkTheme) {
+    if (!isDarkTheme) {
       return ColorPalettes.transparent;
     } else {
       if (isWhite) {
@@ -172,13 +201,14 @@ class _CinemaWidgetState extends State<CinemaWidget> with TickerProviderStateMix
     }
   }
 
-  Widget _chairCategory(Color color, String category, bool isWhite) {
+  @override
+  Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
         Container(
           height: 10,
           width: 10,
-          margin: EdgeInsets.only(right: 8),
+          margin: const EdgeInsets.only(right: 8),
           decoration: BoxDecoration(
             border: Border.all(color: _borderColor(isWhite)),
             borderRadius: BorderRadius.circular(2),

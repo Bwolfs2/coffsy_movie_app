@@ -15,6 +15,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.7.1"
+  animated_card:
+    dependency: transitive
+    description:
+      name: animated_card
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   archive:
     dependency: transitive
     description:
@@ -98,7 +105,7 @@ packages:
       name: cli_util
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.0"
+    version: "0.3.1"
   clock:
     dependency: transitive
     description:
@@ -126,7 +133,7 @@ packages:
       name: convert
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.0"
+    version: "3.0.1"
   core:
     dependency: "direct main"
     description:
@@ -242,10 +249,10 @@ packages:
     description:
       path: flutter_modular
       ref: HEAD
-      resolved-ref: e176f6828d97ee110b236fe4f8ca19225bb3586d
+      resolved-ref: "12f7eb194e32754322c0570c06163ae4c6b1a459"
       url: "https://github.com/Flutterando/modular.git"
     source: git
-    version: "3.3.0-beta.6"
+    version: "3.3.0"
   flutter_modular_annotations:
     dependency: transitive
     description:
@@ -271,7 +278,7 @@ packages:
       name: flutter_triple
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.6"
+    version: "1.1.0"
   flutter_web_plugins:
     dependency: transitive
     description: flutter
@@ -507,7 +514,7 @@ packages:
       name: rxdart
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.26.0"
+    version: "0.27.1"
   shared_preferences:
     dependency: transitive
     description:
@@ -652,7 +659,7 @@ packages:
       name: url_launcher
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.0.6"
+    version: "6.0.8"
   url_launcher_linux:
     dependency: transitive
     description:

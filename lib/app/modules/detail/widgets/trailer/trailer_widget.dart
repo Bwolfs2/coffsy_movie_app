@@ -54,7 +54,7 @@ class _TrailerWidgetState extends State<TrailerWidget> {
         Container(
           width: Sizes.width(context),
           height: Sizes.width(context) / 1.7,
-          child: ScopedBuilder<TrailerStore, Failure, ResultTrailer>(
+          child: ScopedBuilder<TrailerStore, Failure, ResultTrailer>.transition(
             store: store,
             onError: (context, error) => error is TrailerNoInternetConnection
                 ? NoInternetWidget(
@@ -62,12 +62,12 @@ class _TrailerWidgetState extends State<TrailerWidget> {
                     onPressed: () async => reload(),
                   )
                 : CustomErrorWidget(message: error?.errorMessage),
-            onLoading: (context) => Center(
+            onLoading: (context) => const Center(
               child: CircularProgressIndicator.adaptive(),
             ),
             onState: (context, state) => ListView.builder(
               shrinkWrap: true,
-              physics: ClampingScrollPhysics(),
+              physics: const ClampingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: state.trailer.length,
               itemBuilder: (context, index) {

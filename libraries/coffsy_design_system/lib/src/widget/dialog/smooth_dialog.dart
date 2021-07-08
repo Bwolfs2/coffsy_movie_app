@@ -58,7 +58,7 @@ class SmoothDialog {
                   Sizes.dp16(context),
                 )),
               ),
-              contentPadding: EdgeInsets.fromLTRB(16, 24, 16, 8),
+              contentPadding: const EdgeInsets.fromLTRB(16, 24, 16, 8),
               content: Container(
                 width: double.maxFinite,
                 height: dialogHeight,
@@ -93,7 +93,7 @@ class SmoothDialog {
                           height: imageHeight,
                           progressIndicatorBuilder: (context, url, downloadProgress) =>
                               CircularProgressIndicator(value: downloadProgress.progress),
-                          errorWidget: (context, url, error) => Icon(Icons.error),
+                          errorWidget: (context, url, error) => const Icon(Icons.error),
                         ),
                       )
                     ],

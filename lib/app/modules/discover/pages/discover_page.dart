@@ -27,7 +27,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
           color: ColorPalettes.white,
         ),
       ),
-      body: ScopedBuilder<DiscoverStore, Failure, Result>(
+      body: ScopedBuilder<DiscoverStore, Failure, Result>.transition(
         store: store,
         onError: (context, error) => error is DiscoverMovieNoInternetConnection
             ? NoInternetWidget(
@@ -35,11 +35,11 @@ class _DiscoverPageState extends State<DiscoverPage> {
                 onPressed: () async => await store.load(),
               )
             : CustomErrorWidget(message: error?.errorMessage),
-        onLoading: (context) => Center(
+        onLoading: (context) => const Center(
           child: CircularProgressIndicator.adaptive(),
         ),
         onState: (context, state) => PageView.builder(
-          physics: ClampingScrollPhysics(),
+          physics: const ClampingScrollPhysics(),
           itemCount: state.results.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {

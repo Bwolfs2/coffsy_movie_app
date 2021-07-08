@@ -18,7 +18,7 @@ class SettingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Settings'),
+        title: const Text('Settings'),
         centerTitle: true,
       ),
       body: Padding(
@@ -28,8 +28,8 @@ class SettingPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             ListTile(
-              title: Text('Developer'),
-              leading: Icon(Icons.person),
+              title: const Text('Developer'),
+              leading: const Icon(Icons.person),
               trailing: Icon(
                 Icons.arrow_forward_ios,
                 size: Sizes.dp16(context),
@@ -37,8 +37,8 @@ class SettingPage extends StatelessWidget {
               onTap: () => Modular.to.pushNamed('/about'),
             ),
             ListTile(
-              title: Text('Theme'),
-              leading: Icon(Icons.theater_comedy),
+              title: const Text('Theme'),
+              leading: const Icon(Icons.theater_comedy),
               trailing: Icon(
                 Icons.arrow_forward_ios,
                 size: Sizes.dp16(context),
@@ -46,9 +46,9 @@ class SettingPage extends StatelessWidget {
               onTap: () => showDialog(
                 context: context,
                 builder: (context) {
-                  return ScopedBuilder<SettingStore, Failure, bool>(
+                  return ScopedBuilder<SettingStore, Failure, bool>.transition(
                     store: SettingStore(),
-                    onLoading: (context) => Center(
+                    onLoading: (context) => const Center(
                       child: CircularProgressIndicator.adaptive(),
                     ),
                     onState: (context, state) => CustomDialog(
@@ -62,7 +62,7 @@ class SettingPage extends StatelessWidget {
                 },
               ),
             ),
-            Spacer(),
+            const Spacer(),
             FutureBuilder<String>(
               future: _getVersion(),
               builder: (context, snapshot) {
@@ -74,7 +74,7 @@ class SettingPage extends StatelessWidget {
                   margin: EdgeInsets.only(bottom: Sizes.dp30(context)),
                   child: Text(
                     verInfo,
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                 );
               },

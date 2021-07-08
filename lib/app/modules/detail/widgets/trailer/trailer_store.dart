@@ -6,7 +6,7 @@ import 'errors/trailer_failures.dart';
 
 class TrailerStore extends StreamStore<Failure, ResultTrailer> {
   final Repository repository;
-  TrailerStore(this.repository) : super(ResultTrailer());
+  TrailerStore(this.repository) : super(const ResultTrailer());
 
   Future<void> loadMovieTrailer(int movieId) async {
     try {
@@ -19,9 +19,9 @@ class TrailerStore extends StreamStore<Failure, ResultTrailer> {
       }
     } on DioError catch (e) {
       if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
-        setError(TrailerNoInternetConnection());
+        setError(const TrailerNoInternetConnection());
       } else if (e.type == DioErrorType.other) {
-        setError(TrailerNoInternetConnection());
+        setError(const TrailerNoInternetConnection());
       } else {
         setError(TrailerError(e.toString()));
       }
@@ -41,9 +41,9 @@ class TrailerStore extends StreamStore<Failure, ResultTrailer> {
       }
     } on DioError catch (e) {
       if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
-        setError(TrailerNoInternetConnection());
+        setError(const TrailerNoInternetConnection());
       } else if (e.type == DioErrorType.other) {
-        setError(TrailerNoInternetConnection());
+        setError(const TrailerNoInternetConnection());
       } else {
         setError(TrailerError(e.toString()));
       }
