@@ -3,11 +3,36 @@ import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
-
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
 import 'modules/setting/pages/setting_store.dart';
 
-class AppWidget extends StatelessWidget {
+FirebaseAnalytics analytics = FirebaseAnalytics();
+
+class AppWidget extends StatefulWidget {
+  @override
+  _AppWidgetState createState() => _AppWidgetState();
+}
+
+class _AppWidgetState extends State<AppWidget> {
   final store = SettingStore();
+
+  @override
+  void initState() {
+    super.initState();
+    Modular.to.addListener(() async {
+      try {
+        var page = Modular.to.path.split('/').lastWhere((element) => element != '');
+        await analytics.setCurrentScreen(screenName: page);
+        print(Modular.to.path);
+        print(page);
+        if (page == 'booking') {
+          await analytics.logEvent(name: 'booking');
+        }
+      } catch (e) {}
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return ScopedBuilder<SettingStore, Failure, bool>.transition(
@@ -18,6 +43,9 @@ class AppWidget extends StatelessWidget {
       onState: (context, state) => MaterialApp(
         title: 'Coffsy Movie App',
         theme: state ? Themes.darkTheme : Themes.lightTheme,
+        navigatorObservers: [
+          FirebaseAnalyticsObserver(analytics: analytics),
+        ],
       ).modular(),
     );
   }
