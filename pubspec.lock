@@ -49,7 +49,7 @@ packages:
       name: async
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.7.0"
+    version: "2.5.0"
   boolean_selector:
     dependency: transitive
     description:
@@ -578,13 +578,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.1.0"
-  pip_view:
-    dependency: transitive
-    description:
-      name: pip_view
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.9.6-nullsafety"
   platform:
     dependency: transitive
     description:
@@ -750,7 +743,7 @@ packages:
       name: source_span
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.8.1"
+    version: "1.8.0"
   sqflite:
     dependency: transitive
     description:
