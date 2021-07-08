@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "585464944769",
+    "project_id": "movie-app-eeb10",
+    "storage_bucket": "movie-app-eeb10.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:585464944769:android:85ae91d9da66d234981580",
+        "android_client_info": {
+          "package_name": "bwolf.movie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "585464944769-tolbvkocfac6fibign44erqhpso9f2pb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDb-DA_X0k9kh2Hvf9F-pLgsK_TefemjJQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "585464944769-tolbvkocfac6fibign44erqhpso9f2pb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:585464944769:android:f444172100b84c10981580",
+        "android_client_info": {
+          "package_name": "com.coffsy_movie_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "585464944769-tolbvkocfac6fibign44erqhpso9f2pb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDb-DA_X0k9kh2Hvf9F-pLgsK_TefemjJQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "585464944769-tolbvkocfac6fibign44erqhpso9f2pb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
