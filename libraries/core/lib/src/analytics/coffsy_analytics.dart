@@ -2,9 +2,9 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/foundation.dart';
 
 class CoffsyAnalytics {
-  final FirebaseAnalytics _analytics;
+  final FirebaseAnalytics _analytics = FirebaseAnalytics();
 
-  CoffsyAnalytics(this._analytics);
+  CoffsyAnalytics();
 
   Future<void> logEvent(String name, Map<String, dynamic> parameters) async {
     await _analytics.logEvent(name: name, parameters: parameters);
@@ -14,7 +14,7 @@ class CoffsyAnalytics {
     await _analytics.setUserId(userId);
   }
 
-  Future<void> setCurrentScreen(String screenName, String screenClassOverride) async {
+  Future<void> setCurrentScreen({required String screenName, String screenClassOverride = 'Flutter'}) async {
     await _analytics.setCurrentScreen(screenName: screenName, screenClassOverride: screenClassOverride);
   }
 

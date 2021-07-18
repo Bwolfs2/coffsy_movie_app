@@ -9,7 +9,7 @@ import 'package:flutter_triple/flutter_triple.dart';
 import 'modules/setting/pages/setting_store.dart';
 
 // Firebase Analytics
-FirebaseAnalytics analytics = FirebaseAnalytics();
+CoffsyAnalytics analytics = CoffsyAnalytics();
 
 class AppWidget extends StatefulWidget {
   @override
@@ -26,9 +26,6 @@ class _AppWidgetState extends State<AppWidget> {
       try {
         var page = Modular.to.path.split('/').lastWhere((element) => element != '');
         await analytics.setCurrentScreen(screenName: page);
-        if (page == 'booking') {
-          await analytics.logEvent(name: 'booking');
-        }
         // ignore: avoid_catches_without_on_clauses
       } catch (e) {}
     });
@@ -45,7 +42,7 @@ class _AppWidgetState extends State<AppWidget> {
         title: 'Coffsy Movie App',
         theme: state ? Themes.darkTheme : Themes.lightTheme,
         navigatorObservers: [
-          FirebaseAnalyticsObserver(analytics: analytics),
+          FirebaseAnalyticsObserver(analytics: FirebaseAnalytics()),
         ],
       ).modular(),
     );

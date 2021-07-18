@@ -2,7 +2,6 @@ import 'package:about/about.dart';
 import 'package:core/core.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import 'app_widget.dart';
 import 'modules/booking/booking_module.dart';
 import 'modules/dashboard/dashboard_module.dart';
 import 'modules/detail/detail_module.dart';
@@ -23,7 +22,7 @@ class AppModule extends Module {
     //
     Bind.lazySingleton((i) => ApiConfigurations()),
     //
-    Bind.lazySingleton((i) => CoffsyAnalytics(analytics)),
+    Bind.lazySingleton((i) => CoffsyAnalytics()),
   ];
 
   @override
