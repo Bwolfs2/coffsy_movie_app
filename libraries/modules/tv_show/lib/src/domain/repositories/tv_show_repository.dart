@@ -1,8 +1,8 @@
 import '../entities/crew.dart';
-import '../entities/tv_show.dart';
 import '../entities/on_the_air.dart';
 import '../entities/trailer.dart';
 import '../entities/tv_popular_show.dart';
+import '../entities/tv_show.dart';
 
 abstract class ITvShowRepository {
   Future<List<TvShow>> getTvAiringToday();

@@ -21,13 +21,13 @@ class MovieDataSourceImpl implements MovieDataSource {
       );
 
       return MovieMapper.fromMapList(response.data);
-    } on DioError catch (e) {
+    } on DioError catch (e, stackTrace) {
       if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
         throw MovieNowPlayingNoInternetConnection();
       } else if (e.type == DioErrorType.other) {
         throw MovieNowPlayingNoInternetConnection();
       } else {
-        throw MovieNowPlayingError(e.toString());
+        throw MovieNowPlayingError(stackTrace, 'MovieDataSourceImpl-getMovieNowPlaying', e, e.toString());
       }
     }
   }
@@ -40,13 +40,13 @@ class MovieDataSourceImpl implements MovieDataSource {
         queryParameters: {'api_key': configurations.apiKey, 'language': configurations.language},
       );
       return MovieMapper.fromMapList(response.data);
-    } on DioError catch (e) {
+    } on DioError catch (e, stackTrace) {
       if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
         throw MoviePopularNoInternetConnection();
       } else if (e.type == DioErrorType.other) {
         throw MoviePopularNoInternetConnection();
       } else {
-        throw MoviePopularError(e.toString());
+        throw MoviePopularError(stackTrace, 'MovieDataSourceImpl-getMoviePopular', e, e.toString());
       }
     }
   }
@@ -59,13 +59,13 @@ class MovieDataSourceImpl implements MovieDataSource {
         queryParameters: {'api_key': configurations.apiKey, 'language': configurations.language},
       );
       return MovieMapper.fromMapList(response.data);
-    } on DioError catch (e) {
+    } on DioError catch (e, stackTrace) {
       if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
         throw MovieUpComingNoInternetConnection();
       } else if (e.type == DioErrorType.other) {
         throw MovieUpComingNoInternetConnection();
       } else {
-        throw MovieUpComingError(e.toString());
+        throw MovieUpComingError(stackTrace, 'MovieDataSourceImpl-getMovieUpComming', e, e.toString());
       }
     }
   }

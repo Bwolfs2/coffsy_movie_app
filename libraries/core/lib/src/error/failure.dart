@@ -1,13 +1,35 @@
+import 'package:flutter/cupertino.dart';
+
+import '../crashalytics/crashalytics_services.dart';
+
 abstract class Failure {
   final String errorMessage;
 
-  const Failure({this.errorMessage = ''});
+  Failure({
+    StackTrace? stackTrace,
+    String? label,
+    dynamic exception,
+    this.errorMessage = '',
+  }) {
+    debugPrintStack(label: label, stackTrace: stackTrace);
+    ErrorReport.externalFailureError(exception, stackTrace, label);
+  }
 }
 
 class UnknownError extends Failure {
   final String errorMessage;
-  final dynamic error;
-  final StackTrace stackTrace;
+  final dynamic exception;
+  final StackTrace? stackTrace;
+  final String? label;
 
-  const UnknownError({this.errorMessage = 'Unknown Error', required this.error, required this.stackTrace});
+  UnknownError({
+    this.errorMessage = 'Unknown Error',
+    this.label,
+    this.exception,
+    this.stackTrace,
+  }) : super(
+          stackTrace: stackTrace,
+          label: label,
+          exception: exception,
+        );
 }

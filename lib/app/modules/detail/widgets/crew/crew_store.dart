@@ -19,9 +19,9 @@ class CrewStore extends StreamStore<Failure, ResultCrew> {
       }
     } on DioError catch (e) {
       if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
-        setError(const CrewNoInternetConnection());
+        setError(CrewNoInternetConnection());
       } else if (e.type == DioErrorType.other) {
-        setError(const CrewNoInternetConnection());
+        setError(CrewNoInternetConnection());
       } else {
         setError(CrewError(e.toString()));
       }
@@ -41,9 +41,9 @@ class CrewStore extends StreamStore<Failure, ResultCrew> {
       }
     } on DioError catch (e) {
       if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
-        setError(const CrewNoInternetConnection());
+        setError(CrewNoInternetConnection());
       } else if (e.type == DioErrorType.other) {
-        setError(const CrewNoInternetConnection());
+        setError(CrewNoInternetConnection());
       } else {
         setError(CrewError(e.toString()));
       }

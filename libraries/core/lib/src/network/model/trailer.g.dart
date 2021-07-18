@@ -8,14 +8,11 @@ part of 'trailer.dart';
 
 ResultTrailer _$ResultTrailerFromJson(Map<String, dynamic> json) {
   return ResultTrailer(
-    (json['results'] as List<dynamic>)
-        .map((e) => Trailer.fromJson(e as Map<String, dynamic>))
-        .toList(),
+    (json['results'] as List<dynamic>).map((e) => Trailer.fromJson(e as Map<String, dynamic>)).toList(),
   );
 }
 
-Map<String, dynamic> _$ResultTrailerToJson(ResultTrailer instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$ResultTrailerToJson(ResultTrailer instance) => <String, dynamic>{
       'results': instance.trailer,
     };
 

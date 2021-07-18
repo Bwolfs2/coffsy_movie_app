@@ -8,14 +8,11 @@ part of 'crew.dart';
 
 ResultCrew _$ResultCrewFromJson(Map<String, dynamic> json) {
   return ResultCrew(
-    (json['cast'] as List<dynamic>)
-        .map((e) => Crew.fromJson(e as Map<String, dynamic>))
-        .toList(),
+    (json['cast'] as List<dynamic>).map((e) => Crew.fromJson(e as Map<String, dynamic>)).toList(),
   );
 }
 
-Map<String, dynamic> _$ResultCrewToJson(ResultCrew instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$ResultCrewToJson(ResultCrew instance) => <String, dynamic>{
       'cast': instance.crew,
     };
 

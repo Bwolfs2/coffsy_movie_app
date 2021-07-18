@@ -3,23 +3,53 @@ import 'package:core/core.dart';
 class NoDataFound extends Failure {}
 
 abstract class NoInternetConnection extends Failure {
-  const NoInternetConnection() : super(errorMessage: 'No Internet Connection');
+  NoInternetConnection() : super(errorMessage: 'No Internet Connection');
 }
 
 class MovieNowPlayingNoInternetConnection extends NoInternetConnection {}
 
 class MovieNowPlayingError extends Failure {
-  const MovieNowPlayingError(String errorMessage) : super(errorMessage: errorMessage);
+  MovieNowPlayingError(
+    StackTrace stackTrace,
+    String label,
+    dynamic exception,
+    String errorMessage,
+  ) : super(
+          stackTrace: stackTrace,
+          label: label,
+          exception: exception,
+          errorMessage: errorMessage,
+        );
 }
 
 class MoviePopularNoInternetConnection extends NoInternetConnection {}
 
 class MoviePopularError extends Failure {
-  const MoviePopularError(String errorMessage) : super(errorMessage: errorMessage);
+  MoviePopularError(
+    StackTrace stackTrace,
+    String label,
+    dynamic exception,
+    String errorMessage,
+  ) : super(
+          stackTrace: stackTrace,
+          label: label,
+          exception: exception,
+          errorMessage: errorMessage,
+        );
 }
 
 class MovieUpComingNoInternetConnection extends NoInternetConnection {}
 
 class MovieUpComingError extends Failure {
-  const MovieUpComingError(String errorMessage) : super(errorMessage: errorMessage);
+  MovieUpComingError(
+    StackTrace stackTrace,
+    String label,
+    dynamic exception,
+    String errorMessage,
+  ) : super(
+          stackTrace: stackTrace,
+          label: label,
+          exception: exception,
+          errorMessage: errorMessage,
+        );
 }

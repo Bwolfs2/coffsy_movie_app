@@ -21,9 +21,9 @@ class DiscoverStore extends StreamStore<Failure, Result> {
       }
     } on DioError catch (e) {
       if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
-        setError(const DiscoverMovieNoInternetConnection());
+        setError(DiscoverMovieNoInternetConnection());
       } else if (e.type == DioErrorType.other) {
-        setError(const DiscoverMovieNoInternetConnection());
+        setError(DiscoverMovieNoInternetConnection());
       } else {
         setError(DiscoverMovieError(e.toString()));
       }

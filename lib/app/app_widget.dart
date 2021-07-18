@@ -2,12 +2,10 @@ import 'package:coffsy_design_system/coffsy_design_system.dart';
 import 'package:core/core.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
-import 'package:triple/triple.dart';
-import 'package:flutter_triple/flutter_triple.dart';
+
 import 'modules/setting/pages/setting_store.dart';
 
 // Firebase Analytics
@@ -31,12 +29,9 @@ class _AppWidgetState extends State<AppWidget> {
         if (page == 'booking') {
           await analytics.logEvent(name: 'booking');
         }
+        // ignore: avoid_catches_without_on_clauses
       } catch (e) {}
     });
-
-    // TripleObserver.addListener((triple) {
-    //   print('Triple: ${triple.state}');
-    // });
   }
 
   @override

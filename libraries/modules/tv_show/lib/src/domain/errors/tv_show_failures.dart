@@ -1,29 +1,79 @@
 import 'package:core/core.dart';
 
 abstract class NoInternetConnection extends Failure {
-  const NoInternetConnection() : super(errorMessage: 'No Internet Connection');
+  NoInternetConnection() : super(errorMessage: 'No Internet Connection');
 }
 
 class TvAiringTodayNoInternetConnection extends NoInternetConnection {}
 
 class TvAiringTodayError extends Failure {
-  const TvAiringTodayError(String errorMessage) : super(errorMessage: errorMessage);
+  TvAiringTodayError(
+    StackTrace stackTrace,
+    String label,
+    dynamic exception,
+    String errorMessage,
+  ) : super(
+          stackTrace: stackTrace,
+          label: label,
+          exception: exception,
+          errorMessage: errorMessage,
+        );
 }
 
 class TvOnTheAirError extends Failure {
-  const TvOnTheAirError(String errorMessage) : super(errorMessage: errorMessage);
+  TvOnTheAirError(
+    StackTrace stackTrace,
+    String label,
+    dynamic exception,
+    String errorMessage,
+  ) : super(
+          stackTrace: stackTrace,
+          label: label,
+          exception: exception,
+          errorMessage: errorMessage,
+        );
 }
 
 class TvShowPopularError extends Failure {
-  const TvShowPopularError(String errorMessage) : super(errorMessage: errorMessage);
+  TvShowPopularError(
+    StackTrace stackTrace,
+    String label,
+    dynamic exception,
+    String errorMessage,
+  ) : super(
+          stackTrace: stackTrace,
+          label: label,
+          exception: exception,
+          errorMessage: errorMessage,
+        );
 }
 
 class CrewError extends Failure {
-  const CrewError(String errorMessage) : super(errorMessage: errorMessage);
+  CrewError(
+    StackTrace stackTrace,
+    String label,
+    dynamic exception,
+    String errorMessage,
+  ) : super(
+          stackTrace: stackTrace,
+          label: label,
+          exception: exception,
+          errorMessage: errorMessage,
+        );
 }
 
 class TrailerError extends Failure {
-  const TrailerError(String errorMessage) : super(errorMessage: errorMessage);
+  TrailerError(
+    StackTrace stackTrace,
+    String label,
+    dynamic exception,
+    String errorMessage,
+  ) : super(
+          stackTrace: stackTrace,
+          label: label,
+          exception: exception,
+          errorMessage: errorMessage,
+        );
 }
 
 class TvShowPopularNoInternetConnection extends NoInternetConnection {}

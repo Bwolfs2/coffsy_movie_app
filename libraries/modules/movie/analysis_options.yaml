@@ -7,4 +7,3 @@ linter:
     avoid_print: true
     one_member_abstracts: false
     prefer_const_constructors: true
-    

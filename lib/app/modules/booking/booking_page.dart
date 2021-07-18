@@ -1,5 +1,4 @@
 import 'package:coffsy_design_system/coffsy_design_system.dart';
-import 'package:coffsy_movie_app/app/app_widget.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
