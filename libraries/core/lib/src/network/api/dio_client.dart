@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 
+import '../../firebase_performance/http_firebase_performance.dart';
+
 class DioClient {
   final String apiBaseUrl;
 
@@ -14,7 +16,9 @@ class DioClient {
       receiveTimeout: 30000,
     );
     var dio = Dio(options);
-    // dio.interceptors.addAll(<Interceptor>[_loggingInterceptor()]);
+    dio.interceptors.addAll([
+      DioFirebasePerformanceInterceptor(),
+    ]);
 
     return dio;
   }

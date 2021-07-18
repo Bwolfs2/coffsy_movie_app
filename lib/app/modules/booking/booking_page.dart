@@ -1,4 +1,6 @@
 import 'package:coffsy_design_system/coffsy_design_system.dart';
+import 'package:coffsy_movie_app/app/app_widget.dart';
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -36,20 +38,20 @@ class BookingPage extends StatelessWidget {
                   top: Sizes.dp20(context),
                 ),
                 child: CustomButton(
-                  text: 'Pay',
-                  onPressed: () {
-                    SmoothDialog(
-                      context: context,
-                      path: ImagesAssets.successful,
-                      mode: SmoothMode.lottie,
-                      content: 'Thanks for your movie ticket order',
-                      title: 'Payment Successful!',
-                      submit: () {
-                        Modular.to.navigate('/dashboard/movie_module/');
-                      },
-                    );
-                  },
-                ),
+                    text: 'Pay',
+                    onPressed: () {
+                      SmoothDialog(
+                        context: context,
+                        path: ImagesAssets.successful,
+                        mode: SmoothMode.lottie,
+                        content: 'Thanks for your movie ticket order',
+                        title: 'Payment Successful!',
+                        submit: logEventOnClick(
+                          'payment_success',
+                          () => Modular.to.navigate('/dashboard/movie_module/'),
+                        ),
+                      );
+                    }),
               ),
             ],
           ),

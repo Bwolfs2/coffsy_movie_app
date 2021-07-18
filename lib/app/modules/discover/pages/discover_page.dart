@@ -14,7 +14,7 @@ class DiscoverPage extends StatefulWidget {
 }
 
 class _DiscoverPageState extends State<DiscoverPage> {
-  final store = Modular.get<DiscoverStore>();
+  final store = DiscoverStore(Modular.get());
 
   @override
   Widget build(BuildContext context) {

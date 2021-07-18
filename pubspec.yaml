@@ -21,7 +21,9 @@ environment:
   sdk: ">=2.12.0-0 <3.0.0"
 
 dependencies:
-
+  hasura_firebase_performance: 0.0.2-alpha
+  firebase_performance: ^0.7.0
+  hasura_connect: 3.0.4
   flutter:
     sdk: flutter
 
@@ -43,7 +45,10 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
 
+
 dev_dependencies:
+  mocktail: ^0.1.4 
+  triple_test: ^0.0.6
   flutter_launcher_icons: ^0.9.0
   flutter_test:
     sdk: flutter

@@ -1,16 +1,14 @@
 import 'package:about/about.dart';
 import 'package:core/core.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
+import 'app_widget.dart';
 import 'modules/booking/booking_module.dart';
 import 'modules/dashboard/dashboard_module.dart';
 import 'modules/detail/detail_module.dart';
 import 'modules/discover/discover_module.dart';
 import 'modules/setting/setting_module.dart';
 import 'modules/splash/splash_module.dart';
-
-late SharedPreferences sharedPreferences;
 
 class AppModule extends Module {
   @override
@@ -24,6 +22,8 @@ class AppModule extends Module {
     Bind.lazySingleton((i) => i<DioClient>().dio),
     //
     Bind.lazySingleton((i) => ApiConfigurations()),
+    //
+    Bind.lazySingleton((i) => CoffsyAnalytics(analytics)),
   ];
 
   @override

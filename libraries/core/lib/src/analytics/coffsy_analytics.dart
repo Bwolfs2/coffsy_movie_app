@@ -1,4 +1,5 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:flutter/foundation.dart';
 
 class CoffsyAnalytics {
   final FirebaseAnalytics _analytics;
@@ -43,3 +44,15 @@ class CoffsyAnalytics {
     );
   }
 }
+
+final _analytics = FirebaseAnalytics();
+
+VoidCallback logEventOnClick(
+  String action,
+  VoidCallback onTap, {
+  Map<String, dynamic>? parameters,
+}) =>
+    () {
+      _analytics.logEvent(name: 'click_$action', parameters: parameters);
+      return onTap();
+    };

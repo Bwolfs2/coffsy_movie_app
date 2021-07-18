@@ -1,4 +1,5 @@
 import 'package:coffsy_design_system/coffsy_design_system.dart';
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -11,6 +12,7 @@ class DashBoardPage extends StatefulWidget {
 
 class _DashBoardPageState extends State<DashBoardPage> {
   ValueNotifier<int> selectedPageValueNotifier = ValueNotifier<int>(0);
+  final analytics = Modular.get<CoffsyAnalytics>();
 
   @override
   void initState() {
@@ -40,7 +42,12 @@ class _DashBoardPageState extends State<DashBoardPage> {
       body: RouterOutlet(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Modular.to.pushNamed('/discover_movie'),
+        onPressed: () async {
+          // await analytics.setUserId('4m234ko32k423');
+          // await analytics.logEvent('discover_movie', {'date': DateTime.now().toString()});
+          // await analytics.setCurrentScreen('DashBoardPage', 'dashboard_page');
+          await Modular.to.pushNamed('/discover_movie');
+        },
         child: Icon(
           Icons.location_searching,
           color: ColorPalettes.white,
@@ -50,9 +57,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
         data: Theme.of(context).copyWith(
           canvasColor: Theme.of(context).primaryColor,
           primaryColor: Theme.of(context).colorScheme.secondary,
-          textTheme: Theme.of(context).textTheme.copyWith(
-                caption: TextStyle(color: ColorPalettes.setActive),
-              ),
+          textTheme: Theme.of(context).textTheme.copyWith(caption: TextStyle(color: ColorPalettes.setActive)),
         ),
         child: StatefulBuilder(
           builder: (context, setState) => BottomAppBar(

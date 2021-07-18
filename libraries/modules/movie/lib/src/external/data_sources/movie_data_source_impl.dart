@@ -19,6 +19,7 @@ class MovieDataSourceImpl implements MovieDataSource {
         'movie/now_playing',
         queryParameters: {'api_key': configurations.apiKey, 'language': configurations.language},
       );
+
       return MovieMapper.fromMapList(response.data);
     } on DioError catch (e) {
       if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
