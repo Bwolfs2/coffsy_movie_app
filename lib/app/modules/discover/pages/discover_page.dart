@@ -84,7 +84,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                       genre: movie.genreIds,
                       onTap: () {
                         Modular.to.pushNamed(
-                          '/detail_movies',
+                          './detail_movies',
                           arguments: ScreenArguments(
                             movies: movie,
                             isFromMovie: true,

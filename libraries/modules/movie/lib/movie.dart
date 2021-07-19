@@ -1,4 +1,4 @@
 library movie;
 
-export 'src/movie_module.dart';
-export 'src/movie_page.dart';
+export 'src/modules/movie/movie_module.dart';
+export 'src/modules/movie/movie_page.dart';

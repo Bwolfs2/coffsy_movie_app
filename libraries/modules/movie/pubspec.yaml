@@ -7,13 +7,15 @@ environment:
   sdk: ">=2.12.0-0 <3.0.0"
   
 dependencies:
-  dartz: ^0.10.0-nullsafety.2
   flutter:
     sdk: flutter
+  dartz: ^0.10.0-nullsafety.2
   dependencies:
     path: ../../dependencies
   core:
     path: ../../core
+  booking:
+    path: ../booking
 
 dev_dependencies:
   flutter_test:

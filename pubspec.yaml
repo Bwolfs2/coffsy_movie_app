@@ -46,7 +46,7 @@ dependencies:
   cupertino_icons: ^1.0.2
 
 
-dev_dependencies:
+dev_dependencies:  
   mocktail: ^0.1.4 
   triple_test: ^0.0.6
   flutter_launcher_icons: ^0.9.0
