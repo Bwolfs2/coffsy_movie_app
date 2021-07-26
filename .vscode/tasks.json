@@ -1,0 +1,16 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "dart",
+			"command": "dartdoc",
+			"args": [],
+			"problemMatcher": [],
+			"label": "dart: dartdoc",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}

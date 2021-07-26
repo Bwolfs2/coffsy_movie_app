@@ -20,12 +20,10 @@ version: 9.0.0
 environment:
   sdk: ">=2.12.0-0 <3.0.0"
 
-dependencies:
-  hasura_firebase_performance: 0.0.2-alpha
-  firebase_performance: ^0.7.0
-  hasura_connect: 3.0.4
+dependencies:  
   flutter:
     sdk: flutter
+  firebase_performance: ^0.7.0
 
   #Modules
   tv_show:
