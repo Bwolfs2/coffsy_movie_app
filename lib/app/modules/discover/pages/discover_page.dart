@@ -17,6 +17,12 @@ class _DiscoverPageState extends State<DiscoverPage> {
   final store = DiscoverStore(Modular.get());
 
   @override
+  void initState() {
+    super.initState();
+    store.load();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorPalettes.black,

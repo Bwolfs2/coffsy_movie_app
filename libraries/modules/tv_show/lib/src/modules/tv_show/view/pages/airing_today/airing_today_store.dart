@@ -6,9 +6,6 @@ import '../../../domain/usecases/get_tv_airing_today.dart';
 
 class AiringTodayStore extends StreamStore<Failure, List<TvShow>> {
   final GetTvAiringToday _getTvAiringToday;
-  AiringTodayStore(this._getTvAiringToday) : super([]) {
-    load();
-  }
-
+  AiringTodayStore(this._getTvAiringToday) : super([]);
   Future<void> load() => execute(_getTvAiringToday);
 }

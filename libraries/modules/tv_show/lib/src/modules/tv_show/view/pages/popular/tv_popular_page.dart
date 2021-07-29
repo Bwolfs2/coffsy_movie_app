@@ -18,6 +18,12 @@ class _TvPopularPageState extends State<TvPopularPage> {
   final store = Modular.get<TvPopularStore>();
 
   @override
+  void initState() {
+    super.initState();
+    store.load();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

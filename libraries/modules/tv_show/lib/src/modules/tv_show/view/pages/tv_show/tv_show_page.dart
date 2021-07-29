@@ -18,10 +18,14 @@ class TvShowPage extends StatefulWidget {
 }
 
 class _TvShowPageState extends State<TvShowPage> {
+  final tvShowBannerStore = Modular.get<TvShowBannerStore>();
+  final airingTodayWidgetStore = Modular.get<AiringTodayWidgetStore>();
+  final tvShowPopularStore = Modular.get<TvShowPopularStore>();
+
   Future<void> _refresh() async {
-    Modular.get<TvShowBannerStore>().load();
-    Modular.get<AiringTodayWidgetStore>().load();
-    Modular.get<TvShowPopularStore>().load();
+    tvShowBannerStore.load();
+    airingTodayWidgetStore.load();
+    tvShowPopularStore.load();
   }
 
   @override

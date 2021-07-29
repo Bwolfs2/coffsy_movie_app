@@ -18,6 +18,12 @@ class AiringTodayWidget extends StatefulWidget {
 class _AiringTodayWidgetState extends State<AiringTodayWidget> {
   final store = Modular.get<AiringTodayWidgetStore>();
   @override
+  void initState() {
+    super.initState();
+    store.load();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,9 +70,7 @@ class _AiringTodayWidgetState extends State<AiringTodayWidget> {
               }
               return CustomErrorWidget(message: error?.errorMessage);
             },
-            onLoading: (context) => const Center(
-              child: CircularProgressIndicator.adaptive(),
-            ),
+            onLoading: (context) => const ShimmerCard(),
             onState: (context, state) => ListView.builder(
               shrinkWrap: true,
               physics: const ClampingScrollPhysics(),

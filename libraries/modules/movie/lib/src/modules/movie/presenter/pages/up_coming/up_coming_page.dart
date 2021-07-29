@@ -16,6 +16,11 @@ class UpComingPage extends StatefulWidget {
 
 class _UpComingPageState extends State<UpComingPage> {
   final store = Modular.get<UpComingStore>();
+  @override
+  void initState() {
+    super.initState();
+    store.load();
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -16,6 +16,11 @@ class NowPlayingPage extends StatefulWidget {
 
 class _NowPlayingPageState extends State<NowPlayingPage> {
   final store = Modular.get<MoviePlayingStore>();
+  @override
+  void initState() {
+    super.initState();
+    store.load();
+  }
 
   @override
   Widget build(BuildContext context) {

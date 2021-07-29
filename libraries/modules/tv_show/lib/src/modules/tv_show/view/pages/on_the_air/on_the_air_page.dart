@@ -16,6 +16,11 @@ class OnTheAirPage extends StatefulWidget {
 
 class _OnTheAirPageState extends State<OnTheAirPage> {
   final store = Modular.get<OnTheAirStore>();
+  @override
+  void initState() {
+    super.initState();
+    store.load();
+  }
 
   @override
   Widget build(BuildContext context) {

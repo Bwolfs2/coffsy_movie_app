@@ -6,9 +6,7 @@ import '../../../domain/usecases/get_tv_popular_show.dart';
 
 class TvShowPopularStore extends StreamStore<Failure, List<TvPopularShow>> {
   final GetTvPopularShow _getTvPopularShow;
-  TvShowPopularStore(this._getTvPopularShow) : super([]) {
-    load();
-  }
+  TvShowPopularStore(this._getTvPopularShow) : super([]);
 
   Future<void> load() => execute(_getTvPopularShow);
 }

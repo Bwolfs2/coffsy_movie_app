@@ -4,6 +4,7 @@ import 'package:shimmer/shimmer.dart';
 import '../../../coffsy_design_system.dart';
 
 class ShimmerBanner extends StatelessWidget {
+  const ShimmerBanner();
   @override
   Widget build(BuildContext context) {
     return Container(

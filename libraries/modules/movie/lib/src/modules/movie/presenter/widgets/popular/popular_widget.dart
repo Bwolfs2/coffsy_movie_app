@@ -17,6 +17,12 @@ class PupularWidget extends StatefulWidget {
 class _PupularWidgetState extends State<PupularWidget> {
   final store = Modular.get<PopularStore>();
   @override
+  void initState() {
+    super.initState();
+    store.load();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
       Container(
@@ -49,7 +55,7 @@ class _PupularWidgetState extends State<PupularWidget> {
         child: ScopedBuilder<PopularStore, Failure, List<Movie>>.transition(
           store: store,
           onError: (context, error) => CustomErrorWidget(message: error?.errorMessage),
-          onLoading: (context) => ShimmerList(),
+          onLoading: (context) => const ShimmerCard(),
           onState: (context, state) => state is EmptyResult
               ? const SizedBox.shrink()
               : ListView.builder(

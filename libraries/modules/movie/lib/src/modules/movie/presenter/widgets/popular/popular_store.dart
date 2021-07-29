@@ -6,9 +6,7 @@ import '../../../domain/use_cases/get_movie_popular.dart';
 
 class PopularStore extends StreamStore<Failure, List<Movie>> {
   final IGetMoviePopular _getMoviePopular;
-  PopularStore(this._getMoviePopular) : super([]) {
-    load();
-  }
+  PopularStore(this._getMoviePopular) : super([]);
 
   Future<void> load() async => executeEither(_getMoviePopular);
 }

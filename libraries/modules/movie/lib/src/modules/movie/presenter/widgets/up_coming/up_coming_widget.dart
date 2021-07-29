@@ -17,6 +17,12 @@ class UpComingWidget extends StatefulWidget {
 class _UpComingWidgetState extends State<UpComingWidget> {
   final store = Modular.get<UpComingWidgetStore>();
   @override
+  void initState() {
+    super.initState();
+    store.load();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,7 +57,7 @@ class _UpComingWidgetState extends State<UpComingWidget> {
           child: ScopedBuilder<UpComingWidgetStore, Failure, List<Movie>>.transition(
             store: store,
             onError: (context, error) => CustomErrorWidget(message: error?.errorMessage),
-            onLoading: (context) => ShimmerList(),
+            onLoading: (context) => const ShimmerCard(),
             onState: (context, state) => state is EmptyResult
                 ? const SizedBox.shrink()
                 : ListView.builder(

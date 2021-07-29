@@ -19,6 +19,12 @@ class _TvShowBannerState extends State<TvShowBanner> {
   final store = Modular.get<TvShowBannerStore>();
   int _current = 0;
   @override
+  void initState() {
+    super.initState();
+    store.load();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return ScopedBuilder<TvShowBannerStore, Failure, List<TvShow>>.transition(
       store: store,
@@ -28,9 +34,7 @@ class _TvShowBannerState extends State<TvShowBanner> {
               onPressed: () async => await store.load(),
             )
           : CustomErrorWidget(message: error?.errorMessage),
-      onLoading: (context) => const Center(
-        child: CircularProgressIndicator.adaptive(),
-      ),
+      onLoading: (context) => const ShimmerBanner(),
       onState: (context, state) => StatefulBuilder(
         builder: (context, setState) => BannerHome(
           isFromMovie: false,

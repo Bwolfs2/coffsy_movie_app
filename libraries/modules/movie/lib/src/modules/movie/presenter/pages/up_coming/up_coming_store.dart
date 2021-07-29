@@ -6,9 +6,7 @@ import '../../../domain/use_cases/get_movie_up_coming.dart';
 
 class UpComingStore extends StreamStore<Failure, List<Movie>> {
   final IGetMovieUpComming _getMovieUpComming;
-  UpComingStore(this._getMovieUpComming) : super([]) {
-    load();
-  }
+  UpComingStore(this._getMovieUpComming) : super([]);
 
   Future<void> load() async => executeEither(_getMovieUpComming);
 }

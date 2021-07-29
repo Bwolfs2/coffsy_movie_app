@@ -16,6 +16,11 @@ class AiringTodayPage extends StatefulWidget {
 
 class _AiringTodayPageState extends State<AiringTodayPage> {
   final store = Modular.get<AiringTodayStore>();
+  @override
+  void initState() {
+    super.initState();
+    store.load();
+  }
 
   @override
   Widget build(BuildContext context) {

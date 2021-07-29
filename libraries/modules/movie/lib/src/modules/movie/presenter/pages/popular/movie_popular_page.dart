@@ -18,6 +18,12 @@ class _MoviePopularPageState extends State<MoviePopularPage> {
   final store = Modular.get<MoviePopularStore>();
 
   @override
+  void initState() {
+    super.initState();
+    store.load();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

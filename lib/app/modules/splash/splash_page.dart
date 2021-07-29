@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:package_info/package_info.dart';
 
+/// SplashPage
+/// <img src="https://raw.githubusercontent.com/rrifafauzikomara/MovieApp/master/screenshot/ios1.png" width="300">
 class SplashPage extends StatefulWidget {
   @override
   _SplashPageState createState() => _SplashPageState();

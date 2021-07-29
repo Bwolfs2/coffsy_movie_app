@@ -6,9 +6,7 @@ import '../errors/discover_failures.dart';
 
 class DiscoverStore extends StreamStore<Failure, Result> {
   final Repository repository;
-  DiscoverStore(this.repository) : super(const Result()) {
-    load();
-  }
+  DiscoverStore(this.repository) : super(const Result());
 
   Future<void> load() async {
     try {

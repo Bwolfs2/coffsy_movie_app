@@ -17,14 +17,19 @@ class MovieBanner extends StatefulWidget {
 class _MovieBannerState extends State<MovieBanner> {
   final store = Modular.get<MovieBannerStore>();
   int _current = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    store.load();
+  }
+
   @override
   Widget build(BuildContext context) {
     return ScopedBuilder<MovieBannerStore, Failure, List<Movie>>.transition(
       store: store,
       onError: (context, error) => CustomErrorWidget(message: error?.errorMessage),
-      onLoading: (context) => const Center(
-        child: CircularProgressIndicator.adaptive(),
-      ),
+      onLoading: (context) => const ShimmerBanner(),
       onState: (context, state) => state is EmptyResult
           ? const SizedBox.shrink()
           : StatefulBuilder(
