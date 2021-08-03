@@ -9,5 +9,5 @@ class UpComingWidgetStore extends StreamStore<Failure, List<Movie>> {
 
   UpComingWidgetStore(this._getMovieNowPlaying) : super([]);
 
-  Future<void> load() async => executeEither(_getMovieNowPlaying);
+  Future<void> load() async => executeEither(() => DartzEitherAdapter.adapter(_getMovieNowPlaying()));
 }

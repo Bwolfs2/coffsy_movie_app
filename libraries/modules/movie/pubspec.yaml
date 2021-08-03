@@ -9,7 +9,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  dartz: ^0.10.0-nullsafety.2
   dependencies:
     path: ../../dependencies
   core:

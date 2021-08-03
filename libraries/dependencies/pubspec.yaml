@@ -24,14 +24,15 @@ dependencies:
   lottie: ^1.0.1 
   fluttertoast: ^8.0.7  
   firebase_crashlytics: ^2.0.7
+  dartz: ^0.10.0-nullsafety.2  
   flutter_modular: #^3.3.0-beta.6
     git: 
       url: https://github.com/Flutterando/modular.git
       path: flutter_modular
 
-  flutter_triple: 1.2.0 
-  animated_card: 2.0.0
-
+  flutter_triple: ^1.2.3+2
+  animated_card: ^2.0.0
+  firebase_performance: ^0.7.0
   # Core
   shared_preferences: ^2.0.6
   equatable: ^2.0.2  

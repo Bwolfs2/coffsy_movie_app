@@ -23,8 +23,6 @@ environment:
 dependencies:  
   flutter:
     sdk: flutter
-  firebase_performance: ^0.7.0
-
   #Modules
   tv_show:
     path: libraries/modules/tv_show
