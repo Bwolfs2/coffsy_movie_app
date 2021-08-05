@@ -53,3 +53,11 @@ class MovieUpComingError extends Failure {
           errorMessage: errorMessage,
         );
 }
+
+class CrewNoInternetConnection extends Failure {
+  CrewNoInternetConnection() : super(errorMessage: 'No Internet Connection');
+}
+
+class CrewError extends Failure {
+  CrewError(String errorMessage) : super(errorMessage: errorMessage);
+}

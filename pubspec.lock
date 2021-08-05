@@ -345,12 +345,10 @@ packages:
   flutter_modular:
     dependency: transitive
     description:
-      path: flutter_modular
-      ref: HEAD
-      resolved-ref: e176f6828d97ee110b236fe4f8ca19225bb3586d
-      url: "https://github.com/Flutterando/modular.git"
-    source: git
-    version: "3.3.0-beta.6"
+      name: flutter_modular
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.4.0-dev.4"
   flutter_modular_annotations:
     dependency: transitive
     description:
@@ -376,7 +374,7 @@ packages:
       name: flutter_triple
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.3+2"
+    version: "1.2.4+3"
   flutter_web_plugins:
     dependency: transitive
     description: flutter
@@ -848,7 +846,7 @@ packages:
       name: triple
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.0+1"
+    version: "1.3.0+2"
   triple_test:
     dependency: "direct dev"
     description:

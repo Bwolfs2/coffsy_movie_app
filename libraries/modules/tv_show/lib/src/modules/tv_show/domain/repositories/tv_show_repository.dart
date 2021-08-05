@@ -10,4 +10,6 @@ abstract class ITvShowRepository {
   Future<List<OnTheAir>> getOnTheAir();
   Future<List<Crew>> getTvShowCrewById(int movieId);
   Future<List<Trailer>> getTvShowTrailerById(int movieId);
+  Future<List<Crew>> getMovieCrew(int id);
+  Future<List<Trailer>> getMovieTrailerById(int id);
 }

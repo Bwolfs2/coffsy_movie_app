@@ -56,7 +56,6 @@ class _TvShowPopularWidgetState extends State<TvShowPopularWidget> {
           width: Sizes.width(context),
           height: Sizes.width(context) / 1.8,
           child: ScopedBuilder<TvShowPopularStore, Failure, List<TvPopularShow>>.transition(
-            store: store,
             onError: (context, error) {
               if (error is NoDataFound) {
                 return const Center(child: Text('No Trailers Found'));

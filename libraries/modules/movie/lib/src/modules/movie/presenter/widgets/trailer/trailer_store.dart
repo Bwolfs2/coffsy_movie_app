@@ -2,7 +2,7 @@ import 'package:core/core.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 
-import 'errors/trailer_failures.dart';
+import '../../../../detail/widgets/trailer/errors/trailer_failures.dart';
 
 class TrailerStore extends StreamStore<Failure, ResultTrailer> {
   final Repository repository;

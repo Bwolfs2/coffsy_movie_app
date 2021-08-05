@@ -2,28 +2,28 @@ import 'package:core/core.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 
-import 'errors/trailer_failures.dart';
+import '../../../domain/errors/movie_failures.dart';
 
-class TrailerStore extends StreamStore<Failure, ResultTrailer> {
+class CrewStore extends StreamStore<Failure, ResultCrew> {
   final Repository repository;
-  TrailerStore(this.repository) : super(const ResultTrailer());
+  CrewStore(this.repository) : super(const ResultCrew());
 
   Future<void> loadMovieTrailer(int movieId) async {
     try {
       setLoading(true);
-      var movies = await repository.getMovieTrailer(movieId, ApiConstant.apiKey, ApiConstant.language);
-      if (movies.trailer.isEmpty) {
-        update(EmptyResultTrailer(), force: true);
+      var movies = await repository.getMovieCrew(movieId, ApiConstant.apiKey, ApiConstant.language);
+      if (movies.crew.isEmpty) {
+        update(EmptyResultCrew(), force: true);
       } else {
         update(movies, force: true);
       }
     } on DioError catch (e) {
       if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
-        setError(TrailerNoInternetConnection());
+        setError(CrewNoInternetConnection());
       } else if (e.type == DioErrorType.other) {
-        setError(TrailerNoInternetConnection());
+        setError(CrewNoInternetConnection());
       } else {
-        setError(TrailerError(e.toString()));
+        setError(CrewError(e.toString()));
       }
     }
 
@@ -33,19 +33,19 @@ class TrailerStore extends StreamStore<Failure, ResultTrailer> {
   Future<void> loadTvShowTrailer(int movieId) async {
     try {
       setLoading(true);
-      var movies = await repository.getTvShowTrailer(movieId, ApiConstant.apiKey, ApiConstant.language);
-      if (movies.trailer.isEmpty) {
-        update(EmptyResultTrailer(), force: true);
+      var movies = await repository.getTvShowCrew(movieId, ApiConstant.apiKey, ApiConstant.language);
+      if (movies.crew.isEmpty) {
+        update(EmptyResultCrew(), force: true);
       } else {
         update(movies, force: true);
       }
     } on DioError catch (e) {
       if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
-        setError(TrailerNoInternetConnection());
+        setError(CrewNoInternetConnection());
       } else if (e.type == DioErrorType.other) {
-        setError(TrailerNoInternetConnection());
+        setError(CrewNoInternetConnection());
       } else {
-        setError(TrailerError(e.toString()));
+        setError(CrewError(e.toString()));
       }
     }
 

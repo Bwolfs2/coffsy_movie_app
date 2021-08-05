@@ -93,4 +93,34 @@ class TvShowRepositoryImpl implements ITvShowRepository {
       throw UnknownError(exception: exception, stackTrace: stacktrace, label: 'TvShowRepositoryImpl-getTvShowTrailerById');
     }
   }
+
+  @override
+  Future<List<Crew>> getMovieCrew(int tvShowId) async {
+    try {
+      var result = await datasource.getMovieCrew(tvShowId);
+      if (result.isEmpty) {
+        throw NoDataFound();
+      }
+      return result;
+    } on Failure {
+      rethrow;
+    } on Exception catch (exception, stacktrace) {
+      throw UnknownError(exception: exception, stackTrace: stacktrace, label: 'TvShowRepositoryImpl-getTvShowCrewById');
+    }
+  }
+
+  @override
+  Future<List<Trailer>> getMovieTrailerById(int movieId) async {
+    try {
+      var result = await datasource.getMovieTrailerById(movieId);
+      if (result.isEmpty) {
+        throw NoDataFound();
+      }
+      return result;
+    } on Failure {
+      rethrow;
+    } on Exception catch (exception, stacktrace) {
+      throw UnknownError(exception: exception, stackTrace: stacktrace, label: 'TvShowRepositoryImpl-getTvShowTrailerById');
+    }
+  }
 }

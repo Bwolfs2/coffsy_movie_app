@@ -33,7 +33,6 @@ class _AiringTodayPageState extends State<AiringTodayPage> {
         onRefresh: store.load,
         showChildOpacityTransition: false,
         child: ScopedBuilder<AiringTodayStore, Failure, List<TvShow>>.transition(
-          store: store,
           onError: (context, error) {
             if (error is NoDataFound) {
               return const Center(child: Text('No Airing Today Found'));

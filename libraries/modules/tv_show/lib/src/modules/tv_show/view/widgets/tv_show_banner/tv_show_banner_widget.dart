@@ -27,7 +27,6 @@ class _TvShowBannerState extends State<TvShowBanner> {
   @override
   Widget build(BuildContext context) {
     return ScopedBuilder<TvShowBannerStore, Failure, List<TvShow>>.transition(
-      store: store,
       onError: (context, error) => error is TvShowBannerNoInternetConnection
           ? NoInternetWidget(
               message: AppConstant.noInternetConnection,

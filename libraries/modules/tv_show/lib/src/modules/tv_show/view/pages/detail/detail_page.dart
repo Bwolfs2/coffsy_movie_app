@@ -4,8 +4,8 @@ import 'package:coffsy_design_system/coffsy_design_system.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../widgets/crew/crew_widget.dart';
-import '../widgets/trailer/trailer_widget.dart';
+import '../../widgets/crew/crew_widget.dart';
+import '../../widgets/trailer/trailer_widget.dart';
 
 class DetailPage extends StatefulWidget {
   final ScreenArguments arguments;

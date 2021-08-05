@@ -33,7 +33,6 @@ class _OnTheAirPageState extends State<OnTheAirPage> {
         onRefresh: store.load,
         showChildOpacityTransition: false,
         child: ScopedBuilder<OnTheAirStore, Failure, List<OnTheAir>>.transition(
-          store: store,
           onError: (context, error) {
             if (error is NoDataFound) {
               return const Center(child: Text('No On The Air Found'));

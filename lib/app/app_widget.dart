@@ -17,8 +17,6 @@ class AppWidget extends StatefulWidget {
 }
 
 class _AppWidgetState extends State<AppWidget> {
-  final store = SettingStore();
-
   @override
   void initState() {
     super.initState();
@@ -34,7 +32,7 @@ class _AppWidgetState extends State<AppWidget> {
   @override
   Widget build(BuildContext context) {
     return ScopedBuilder<SettingStore, Failure, bool>.transition(
-      store: store,
+      store: SettingStore(),
       onLoading: (context) => const Center(
         child: CircularProgressIndicator.adaptive(),
       ),

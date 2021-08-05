@@ -34,7 +34,6 @@ class _TvPopularPageState extends State<TvPopularPage> {
         onRefresh: store.load,
         showChildOpacityTransition: false,
         child: ScopedBuilder<TvPopularStore, Failure, List<TvPopularShow>>.transition(
-          store: store,
           onError: (context, error) {
             if (error is NoDataFound) {
               return const Center(child: Text('No Trailers Found'));

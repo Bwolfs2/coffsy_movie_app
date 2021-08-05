@@ -34,7 +34,6 @@ class _MoviePopularPageState extends State<MoviePopularPage> {
         onRefresh: store.load,
         showChildOpacityTransition: false,
         child: ScopedBuilder<MoviePopularStore, Failure, List<Movie>>.transition(
-          store: store,
           onError: (context, error) {
             if (error is NoDataFound) {
               return const Center(child: Text('No Popular Movies Found'));

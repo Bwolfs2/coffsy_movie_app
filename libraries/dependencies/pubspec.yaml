@@ -25,12 +25,8 @@ dependencies:
   fluttertoast: ^8.0.7  
   firebase_crashlytics: ^2.0.7
   dartz: ^0.10.0-nullsafety.2  
-  flutter_modular: #^3.3.0-beta.6
-    git: 
-      url: https://github.com/Flutterando/modular.git
-      path: flutter_modular
-
-  flutter_triple: ^1.2.3+2
+  flutter_modular: ^3.4.0-dev.4
+  flutter_triple: ^1.2.4+3
   animated_card: ^2.0.0
   firebase_performance: ^0.7.0
   # Core

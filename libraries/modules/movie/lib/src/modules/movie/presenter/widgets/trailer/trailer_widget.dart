@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 
-import 'errors/trailer_failures.dart';
+import '../../../../detail/widgets/trailer/errors/trailer_failures.dart';
 import 'trailer_store.dart';
 
 class TrailerWidget extends StatefulWidget {
@@ -55,7 +55,6 @@ class _TrailerWidgetState extends State<TrailerWidget> {
           width: Sizes.width(context),
           height: Sizes.width(context) / 1.7,
           child: ScopedBuilder<TrailerStore, Failure, ResultTrailer>.transition(
-            store: store,
             onError: (context, error) => error is TrailerNoInternetConnection
                 ? NoInternetWidget(
                     message: AppConstant.noTrailer,

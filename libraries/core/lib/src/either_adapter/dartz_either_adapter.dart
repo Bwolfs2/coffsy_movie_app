@@ -7,7 +7,7 @@ class DartzEitherAdapter<L, R> implements EitherAdapter<L, R> {
   DartzEitherAdapter(this.usecase);
 
   @override
-  dynamic fold(Function(L l) leftF, Function(R r) rightF) {
+  T fold<T>(T Function(L l) leftF, T Function(R r) rightF) {
     return usecase.fold(leftF, rightF);
   }
 

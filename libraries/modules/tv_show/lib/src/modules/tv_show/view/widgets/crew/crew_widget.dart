@@ -1,11 +1,12 @@
 import 'package:coffsy_design_system/coffsy_design_system.dart';
-import 'package:core/core.dart';
+import 'package:core/core.dart' hide Crew;
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 
+import '../../../domain/entities/crew.dart';
+import '../../../domain/errors/tv_show_failures.dart';
 import 'crew_store.dart';
-import 'errors/crew_failures.dart';
 
 class CrewWidget extends StatefulWidget {
   final int movieId;
@@ -49,8 +50,7 @@ class _CrewWidgetState extends State<CrewWidget> {
         Container(
           width: Sizes.width(context),
           height: Sizes.width(context) / 3,
-          child: ScopedBuilder<CrewStore, Failure, ResultCrew>.transition(
-            store: store,
+          child: ScopedBuilder<CrewStore, Failure, List<Crew>>.transition(
             onError: (context, error) => error is CrewNoInternetConnection
                 ? NoInternetWidget(
                     message: AppConstant.noInternetConnection,
@@ -64,9 +64,9 @@ class _CrewWidgetState extends State<CrewWidget> {
               shrinkWrap: true,
               physics: const ClampingScrollPhysics(),
               scrollDirection: Axis.horizontal,
-              itemCount: state.crew.length,
+              itemCount: state.length,
               itemBuilder: (context, index) {
-                final crew = state.crew[index];
+                final crew = state[index];
                 return CardCrew(
                   image: crew.profile!,
                   name: crew.characterName,

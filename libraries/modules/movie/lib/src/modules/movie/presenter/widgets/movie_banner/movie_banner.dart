@@ -27,7 +27,6 @@ class _MovieBannerState extends State<MovieBanner> {
   @override
   Widget build(BuildContext context) {
     return ScopedBuilder<MovieBannerStore, Failure, List<Movie>>.transition(
-      store: store,
       onError: (context, error) => CustomErrorWidget(message: error?.errorMessage),
       onLoading: (context) => const ShimmerBanner(),
       onState: (context, state) => state is EmptyResult

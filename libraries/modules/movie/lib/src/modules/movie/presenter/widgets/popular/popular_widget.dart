@@ -53,7 +53,6 @@ class _PupularWidgetState extends State<PupularWidget> {
         width: Sizes.width(context),
         height: Sizes.width(context) / 1.8,
         child: ScopedBuilder<PopularStore, Failure, List<Movie>>.transition(
-          store: store,
           onError: (context, error) => CustomErrorWidget(message: error?.errorMessage),
           onLoading: (context) => const ShimmerCard(),
           onState: (context, state) => state is EmptyResult

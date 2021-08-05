@@ -34,7 +34,6 @@ class _DiscoverPageState extends State<DiscoverPage> {
         ),
       ),
       body: ScopedBuilder<DiscoverStore, Failure, Result>.transition(
-        store: store,
         onError: (context, error) => error is DiscoverMovieNoInternetConnection
             ? NoInternetWidget(
                 message: AppConstant.noInternetConnection,

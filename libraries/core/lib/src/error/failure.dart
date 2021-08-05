@@ -11,7 +11,9 @@ abstract class Failure {
     dynamic exception,
     this.errorMessage = '',
   }) {
-    debugPrintStack(label: label, stackTrace: stackTrace);
+    if (stackTrace != null) {
+      debugPrintStack(label: label, stackTrace: stackTrace);
+    }
     ErrorReport.externalFailureError(exception, stackTrace, label);
   }
 }

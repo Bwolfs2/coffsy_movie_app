@@ -56,7 +56,6 @@ class _AiringTodayWidgetState extends State<AiringTodayWidget> {
           width: Sizes.width(context),
           height: Sizes.width(context) / 1.8,
           child: ScopedBuilder<AiringTodayWidgetStore, Failure, List<TvShow>>(
-            store: store,
             onError: (context, error) {
               if (error is NoDataFound) {
                 return const Center(child: Text('No Trailers Found'));

@@ -120,4 +120,37 @@ class TvShowDatasourceImpl implements ITvShowDatasource {
       }
     }
   }
+
+  @override
+  Future<List<Crew>> getMovieCrew(int tvShowId) async {
+    try {
+      final response = await dio.get('tv/$tvShowId/credits?api_key=${configurations.apiKey}&language=${configurations.language}');
+
+      return CrewMapper.fromMapList(response.data);
+    } on DioError catch (e, stackTrace) {
+      if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
+        throw CrewNoInternetConnection();
+      } else if (e.type == DioErrorType.other) {
+        throw CrewNoInternetConnection();
+      } else {
+        throw CrewError(stackTrace, 'TvShowDatasourceImpl-getTvShowCrewById', e, e.toString());
+      }
+    }
+  }
+
+  @override
+  Future<List<Trailer>> getMovieTrailerById(int movieId) async {
+    try {
+      final response = await dio.get('movie/$movieId/videos?api_key=${configurations.apiKey}&language=${configurations.language}');
+      return TrailerMapper.fromMapList(response.data);
+    } on DioError catch (e, stackTrace) {
+      if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
+        throw CrewNoInternetConnection();
+      } else if (e.type == DioErrorType.other) {
+        throw CrewNoInternetConnection();
+      } else {
+        throw CrewError(stackTrace, 'TvShowDatasourceImpl-getTvShowTrailerById', e, e.toString());
+      }
+    }
+  }
 }

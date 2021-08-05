@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 
+import '../../../domain/errors/movie_failures.dart';
 import 'crew_store.dart';
-import 'errors/crew_failures.dart';
 
 class CrewWidget extends StatefulWidget {
   final int movieId;
@@ -50,7 +50,6 @@ class _CrewWidgetState extends State<CrewWidget> {
           width: Sizes.width(context),
           height: Sizes.width(context) / 3,
           child: ScopedBuilder<CrewStore, Failure, ResultCrew>.transition(
-            store: store,
             onError: (context, error) => error is CrewNoInternetConnection
                 ? NoInternetWidget(
                     message: AppConstant.noInternetConnection,
