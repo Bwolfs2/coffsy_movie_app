@@ -16,22 +16,28 @@ dependencies:
   cached_network_image: ^3.0.0
   url_launcher: ^6.0.6
   flutter_launcher_icons: ^0.9.0
-  package_info: ^2.0.2
   youtube_player_flutter: ^8.0.0
   flutter_svg: ^0.22.0
   liquid_pull_to_refresh: ^3.0.0
   carousel_slider: ^4.0.0-nullsafety.0
   lottie: ^1.0.1 
   fluttertoast: ^8.0.7  
-  dartz: ^0.10.0-nullsafety.2  
-  flutter_modular: ^3.4.0-dev.4
-  flutter_triple: ^1.2.4+3
   animated_card: ^2.0.0
-  #firebase
+
+  # Structure
+  flutter_triple: ^1.2.4+3
+  flutter_modular: ^3.4.0-dev.4
+  dartz: ^0.10.0-nullsafety.2  
+
+  # Others
+  package_info: ^2.0.2
+
+  # Firebase
   firebase_performance: ^0.7.0
   firebase_remote_config: 0.10.0+3
   firebase_crashlytics: ^2.0.7
   firebase_analytics: ^8.1.2
+
   # Core
   shared_preferences: ^2.0.6
   equatable: ^2.0.2  
