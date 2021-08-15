@@ -27,6 +27,6 @@ class DiscoverStore extends StreamStore<Failure, Result> {
       }
     }
 
-    setLoading(false);
+    //  setLoading(false);
   }
 }
