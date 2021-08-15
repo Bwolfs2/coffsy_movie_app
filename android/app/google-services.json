@@ -29,6 +29,13 @@
             {
               "client_id": "585464944769-tolbvkocfac6fibign44erqhpso9f2pb.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "585464944769-893r8pkvggbjupkd90rv4ruhmlkoqpqm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "bwolf.movie"
+              }
             }
           ]
         }
@@ -42,6 +49,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "585464944769-3hj50u7mj5abh8js3nulnigbvrha3o0d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.coffsy_movie_app",
+            "certificate_hash": "d03e03e7d7866ca486a7d95dfd2aadff3cfa5df8"
+          }
+        },
         {
           "client_id": "585464944769-tolbvkocfac6fibign44erqhpso9f2pb.apps.googleusercontent.com",
           "client_type": 3
@@ -58,6 +73,13 @@
             {
               "client_id": "585464944769-tolbvkocfac6fibign44erqhpso9f2pb.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "585464944769-893r8pkvggbjupkd90rv4ruhmlkoqpqm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "bwolf.movie"
+              }
             }
           ]
         }
