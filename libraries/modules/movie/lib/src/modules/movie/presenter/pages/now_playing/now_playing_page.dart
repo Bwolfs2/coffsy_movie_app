@@ -39,9 +39,11 @@ class _NowPlayingPageState extends State<NowPlayingPage> {
               return const Center(child: Text('No Movies Found'));
             }
             if (error is MovieNowPlayingNoInternetConnection) {
-              return NoInternetWidget(
-                message: AppConstant.noInternetConnection,
-                onPressed: () async => await store.load(),
+              return Center(
+                child: NoInternetWidget(
+                  message: AppConstant.noInternetConnection,
+                  onPressed: () async => await store.load(),
+                ),
               );
             }
             return CustomErrorWidget(message: error?.errorMessage);

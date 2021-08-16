@@ -3,18 +3,19 @@ import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
+import 'package:movie/src/modules/movie/domain/errors/movie_failures.dart';
 
 import '../../../domain/entities/movie.dart';
 import 'popular_store.dart';
 
-class PupularWidget extends StatefulWidget {
-  const PupularWidget({Key? key}) : super(key: key);
+class PopularWidget extends StatefulWidget {
+  const PopularWidget({Key? key}) : super(key: key);
 
   @override
-  _PupularWidgetState createState() => _PupularWidgetState();
+  _PopularWidgetState createState() => _PopularWidgetState();
 }
 
-class _PupularWidgetState extends State<PupularWidget> {
+class _PopularWidgetState extends State<PopularWidget> {
   final store = Modular.get<PopularStore>();
   @override
   void initState() {
@@ -53,7 +54,15 @@ class _PupularWidgetState extends State<PupularWidget> {
         width: Sizes.width(context),
         height: Sizes.width(context) / 1.8,
         child: ScopedBuilder<PopularStore, Failure, List<Movie>>.transition(
-          onError: (context, error) => CustomErrorWidget(message: error?.errorMessage),
+          onError: (context, error) {
+            if (error is MoviePopularNoInternetConnection) {
+              return NoInternetWidget(
+                message: AppConstant.noInternetConnection,
+                onPressed: () async => await store.load(),
+              );
+            }
+            return CustomErrorWidget(message: error?.errorMessage);
+          },
           onLoading: (context) => const ShimmerCard(),
           onState: (context, state) => state is EmptyResult
               ? const SizedBox.shrink()

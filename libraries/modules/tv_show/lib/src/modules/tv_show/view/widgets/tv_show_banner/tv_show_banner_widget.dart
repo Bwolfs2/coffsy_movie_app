@@ -27,12 +27,14 @@ class _TvShowBannerState extends State<TvShowBanner> {
   @override
   Widget build(BuildContext context) {
     return ScopedBuilder<TvShowBannerStore, Failure, List<TvShow>>.transition(
-      onError: (context, error) => error is TvShowBannerNoInternetConnection
-          ? NoInternetWidget(
-              message: AppConstant.noInternetConnection,
-              onPressed: () async => await store.load(),
-            )
-          : CustomErrorWidget(message: error?.errorMessage),
+      onError: (context, error) {
+        return error is TvAiringTodayNoInternetConnection
+            ? NoInternetWidget(
+                message: AppConstant.noInternetConnection,
+                onPressed: () async => await store.load(),
+              )
+            : CustomErrorWidget(message: error?.errorMessage);
+      },
       onLoading: (context) => const ShimmerBanner(),
       onState: (context, state) => StatefulBuilder(
         builder: (context, setState) => BannerHome(

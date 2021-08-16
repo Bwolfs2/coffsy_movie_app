@@ -39,9 +39,11 @@ class _MoviePopularPageState extends State<MoviePopularPage> {
               return const Center(child: Text('No Popular Movies Found'));
             }
             if (error is MoviePopularNoInternetConnection) {
-              return NoInternetWidget(
-                message: AppConstant.noInternetConnection,
-                onPressed: () async => await store.load(),
+              return Center(
+                child: NoInternetWidget(
+                  message: AppConstant.noInternetConnection,
+                  onPressed: () async => await store.load(),
+                ),
               );
             }
             return CustomErrorWidget(message: error?.errorMessage);

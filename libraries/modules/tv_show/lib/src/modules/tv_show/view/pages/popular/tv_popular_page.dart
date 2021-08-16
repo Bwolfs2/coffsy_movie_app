@@ -40,17 +40,17 @@ class _TvPopularPageState extends State<TvPopularPage> {
             }
 
             if (error is TvShowPopularNoInternetConnection) {
-              return NoInternetWidget(
-                message: AppConstant.noInternetConnection,
-                onPressed: () async => await store.load(),
+              return Center(
+                child: NoInternetWidget(
+                  message: AppConstant.noInternetConnection,
+                  onPressed: () async => await store.load(),
+                ),
               );
             }
 
             return CustomErrorWidget(message: error?.errorMessage);
           },
-          onLoading: (context) => const Center(
-            child: CircularProgressIndicator.adaptive(),
-          ),
+          onLoading: (context) => const ShimmerList(),
           onState: (context, state) => ListView.builder(
             itemCount: state.length,
             itemBuilder: (context, index) {

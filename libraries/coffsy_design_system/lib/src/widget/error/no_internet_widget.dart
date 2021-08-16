@@ -4,7 +4,7 @@ import '../../../coffsy_design_system.dart';
 
 class NoInternetWidget extends StatelessWidget {
   final String message;
-  final Function onPressed;
+  final VoidCallback onPressed;
 
   const NoInternetWidget({Key? key, required this.message, required this.onPressed}) : super(key: key);
 
@@ -29,7 +29,7 @@ class NoInternetWidget extends StatelessWidget {
             ),
           ),
           icon: const Icon(Icons.wifi),
-          onPressed: () => onPressed,
+          onPressed: onPressed,
           label: const Text('Reload'),
         ),
       ],

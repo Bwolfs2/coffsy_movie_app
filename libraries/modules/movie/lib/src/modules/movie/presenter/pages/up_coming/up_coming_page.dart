@@ -38,9 +38,11 @@ class _UpComingPageState extends State<UpComingPage> {
               return const Center(child: Text('No Up Comming Movies Found'));
             }
             if (error is MovieUpComingNoInternetConnection) {
-              return NoInternetWidget(
-                message: AppConstant.noInternetConnection,
-                onPressed: () async => await store.load(),
+              return Center(
+                child: NoInternetWidget(
+                  message: AppConstant.noInternetConnection,
+                  onPressed: () async => await store.load(),
+                ),
               );
             }
             return CustomErrorWidget(message: error?.errorMessage);

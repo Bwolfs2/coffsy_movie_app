@@ -3,6 +3,7 @@ import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
+import 'package:movie/src/modules/movie/domain/errors/movie_failures.dart';
 
 import '../../../domain/entities/movie.dart';
 import 'movie_banner_store.dart';
@@ -27,7 +28,16 @@ class _MovieBannerState extends State<MovieBanner> {
   @override
   Widget build(BuildContext context) {
     return ScopedBuilder<MovieBannerStore, Failure, List<Movie>>.transition(
-      onError: (context, error) => CustomErrorWidget(message: error?.errorMessage),
+      onError: (context, error) {
+        if (error is MovieNowPlayingNoInternetConnection) {
+          return NoInternetWidget(
+            message: AppConstant.noInternetConnection,
+            onPressed: () async => await store.load(),
+          );
+        }
+
+        return CustomErrorWidget(message: error?.errorMessage);
+      },
       onLoading: (context) => const ShimmerBanner(),
       onState: (context, state) => state is EmptyResult
           ? const SizedBox.shrink()

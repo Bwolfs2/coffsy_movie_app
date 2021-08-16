@@ -63,7 +63,9 @@ class _TvShowPopularWidgetState extends State<TvShowPopularWidget> {
               if (error is TvShowPopularNoInternetConnection) {
                 return NoInternetWidget(
                   message: AppConstant.noInternetConnection,
-                  onPressed: () async => await store.load(),
+                  onPressed: () async {
+                    await store.load();
+                  },
                 );
               }
 

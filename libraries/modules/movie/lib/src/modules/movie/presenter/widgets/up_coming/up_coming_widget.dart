@@ -5,6 +5,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 
 import '../../../domain/entities/movie.dart';
+import '../../../domain/errors/movie_failures.dart';
 import 'up_coming_widget_store.dart';
 
 class UpComingWidget extends StatefulWidget {
@@ -45,7 +46,7 @@ class _UpComingWidgetState extends State<UpComingWidget> {
                   size: Sizes.dp16(context),
                 ),
                 onPressed: () {
-                  Modular.to.pushNamed('/dashboard/movie_module/up_coming', forRoot: true);
+                  Modular.to.pushNamed('./up_coming', forRoot: true);
                 },
               ),
             ],
@@ -55,7 +56,15 @@ class _UpComingWidgetState extends State<UpComingWidget> {
           width: Sizes.width(context),
           height: Sizes.width(context) / 1.8,
           child: ScopedBuilder<UpComingWidgetStore, Failure, List<Movie>>.transition(
-            onError: (context, error) => CustomErrorWidget(message: error?.errorMessage),
+            onError: (context, error) {
+              if (error is MovieNowPlayingNoInternetConnection) {
+                return NoInternetWidget(
+                  message: AppConstant.noInternetConnection,
+                  onPressed: () async => await store.load(),
+                );
+              }
+              return CustomErrorWidget(message: error?.errorMessage);
+            },
             onLoading: (context) => const ShimmerCard(),
             onState: (context, state) => state is EmptyResult
                 ? const SizedBox.shrink()

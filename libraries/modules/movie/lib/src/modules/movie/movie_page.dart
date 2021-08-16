@@ -72,7 +72,7 @@ class _MoviePageState extends State<MoviePage> {
                 SizedBox(
                   height: Sizes.dp12(context),
                 ),
-                const PupularWidget(),
+                const PopularWidget(),
                 SizedBox(
                   height: Sizes.dp12(context),
                 ),

@@ -6,12 +6,29 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 import 'package:package_info/package_info.dart';
 
+import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'setting_store.dart';
 
-class SettingPage extends StatelessWidget {
+class SettingPage extends StatefulWidget {
+  @override
+  _SettingPageState createState() => _SettingPageState();
+}
+
+class _SettingPageState extends State<SettingPage> {
+  final _remoteConfig = RemoteConfig.instance;
+
   Future<String> _getVersion() async {
     final info = await PackageInfo.fromPlatform();
     return info.version;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    _remoteConfig.addListener(() {
+      setState(() {});
+    });
   }
 
   @override
@@ -36,32 +53,33 @@ class SettingPage extends StatelessWidget {
               ),
               onTap: () => Modular.to.pushNamed('/about'),
             ),
-            ListTile(
-              title: const Text('Theme'),
-              leading: const Icon(Icons.theater_comedy),
-              trailing: Icon(
-                Icons.arrow_forward_ios,
-                size: Sizes.dp16(context),
+            if (_remoteConfig.getBool('can_change_theme'))
+              ListTile(
+                title: const Text('Theme'),
+                leading: const Icon(Icons.theater_comedy),
+                trailing: Icon(
+                  Icons.arrow_forward_ios,
+                  size: Sizes.dp16(context),
+                ),
+                onTap: () => showDialog(
+                  context: context,
+                  builder: (context) {
+                    return ScopedBuilder<SettingStore, Failure, bool>.transition(
+                      store: SettingStore(),
+                      onLoading: (context) => const Center(
+                        child: CircularProgressIndicator.adaptive(),
+                      ),
+                      onState: (context, state) => CustomDialog(
+                        groupValue: state,
+                        isDark: false,
+                        onChanged: (value) {
+                          SettingStore().changeTheme(isDark: value);
+                        },
+                      ),
+                    );
+                  },
+                ),
               ),
-              onTap: () => showDialog(
-                context: context,
-                builder: (context) {
-                  return ScopedBuilder<SettingStore, Failure, bool>.transition(
-                    store: SettingStore(),
-                    onLoading: (context) => const Center(
-                      child: CircularProgressIndicator.adaptive(),
-                    ),
-                    onState: (context, state) => CustomDialog(
-                      groupValue: state,
-                      isDark: false,
-                      onChanged: (value) {
-                        SettingStore().changeTheme(isDark: value);
-                      },
-                    ),
-                  );
-                },
-              ),
-            ),
             const Spacer(),
             FutureBuilder<String>(
               future: _getVersion(),
