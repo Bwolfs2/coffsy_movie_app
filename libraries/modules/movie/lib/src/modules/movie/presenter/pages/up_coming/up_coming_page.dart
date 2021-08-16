@@ -47,7 +47,7 @@ class _UpComingPageState extends State<UpComingPage> {
             }
             return CustomErrorWidget(message: error?.errorMessage);
           },
-          onLoading: (context) => ShimmerList(),
+          onLoading: (context) => const ShimmerList(),
           onState: (context, state) => ListView.builder(
             itemCount: state.length,
             itemBuilder: (context, index) {

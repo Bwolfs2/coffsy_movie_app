@@ -46,7 +46,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
           // await analytics.setUserId('4m234ko32k423');
           // await analytics.logEvent('discover_movie', {'date': DateTime.now().toString()});
           // await analytics.setCurrentScreen('DashBoardPage', 'dashboard_page');
-          await Modular.to.pushNamed('/discover_movie');
+          await Modular.to.pushNamed('/discover_movie', forRoot: true);
         },
         child: Icon(
           Icons.location_searching,

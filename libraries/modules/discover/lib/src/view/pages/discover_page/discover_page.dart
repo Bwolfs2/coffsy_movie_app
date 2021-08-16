@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 
-import '../errors/discover_failures.dart';
+import '../../../domain/entities/movie.dart';
+import '../../../domain/errors/discover_failures.dart';
 import 'discover_store.dart';
 
 class DiscoverPage extends StatefulWidget {
@@ -33,7 +34,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
           color: ColorPalettes.white,
         ),
       ),
-      body: ScopedBuilder<DiscoverStore, Failure, Result>.transition(
+      body: ScopedBuilder<DiscoverStore, Failure, List<Movie>>.transition(
         onError: (context, error) {
           return error is DiscoverMovieNoInternetConnection
               ? NoInternetWidget(
@@ -48,10 +49,10 @@ class _DiscoverPageState extends State<DiscoverPage> {
         onState: (context, state) {
           return PageView.builder(
             physics: const ClampingScrollPhysics(),
-            itemCount: state.results.length,
+            itemCount: state.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
-              var movie = state.results[index];
+              var movie = state[index];
               var position = index + 1;
               return Container(
                 width: Sizes.width(context),
@@ -91,10 +92,23 @@ class _DiscoverPageState extends State<DiscoverPage> {
                         rating: movie.voteAverage,
                         genre: movie.genreIds,
                         onTap: () {
+                          //TODO: Why ./ is not Working here?
                           Modular.to.pushNamed(
-                            './detail_movies',
+                            '/discover_movie/detail_movies',
                             arguments: ScreenArguments(
-                              movies: movie,
+                              movies: Movies(
+                                movie.id,
+                                movie.title,
+                                movie.overview,
+                                movie.releaseDate,
+                                movie.genreIds,
+                                movie.voteAverage,
+                                movie.popularity,
+                                movie.posterPath,
+                                movie.backdropPath,
+                                movie.tvName,
+                                movie.tvRelease,
+                              ),
                               isFromMovie: true,
                               isFromBanner: false,
                             ),
@@ -124,7 +138,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                               ),
                             ),
                             Text(
-                              '/${state.results.length}',
+                              '/${state.length}',
                               style: TextStyle(
                                 color: ColorPalettes.white,
                                 fontSize: Sizes.dp16(context),

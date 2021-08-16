@@ -133,7 +133,7 @@ class TvShowDatasourceImpl implements ITvShowDatasource {
       } else if (e.type == DioErrorType.other) {
         throw CrewNoInternetConnection();
       } else {
-        throw CrewError(stackTrace, 'TvShowDatasourceImpl-getTvShowCrewById', e, e.toString());
+        throw CrewError(stackTrace, 'TvShowDatasourceImpl-getMovieCrew', e, e.toString());
       }
     }
   }
@@ -149,7 +149,7 @@ class TvShowDatasourceImpl implements ITvShowDatasource {
       } else if (e.type == DioErrorType.other) {
         throw CrewNoInternetConnection();
       } else {
-        throw CrewError(stackTrace, 'TvShowDatasourceImpl-getTvShowTrailerById', e, e.toString());
+        throw CrewError(stackTrace, 'TvShowDatasourceImpl-getMovieTrailerById', e, e.toString());
       }
     }
   }

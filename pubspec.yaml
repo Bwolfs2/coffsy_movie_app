@@ -27,9 +27,11 @@ dependencies:
   tv_show:
     path: libraries/modules/tv_show
   movie:
-    path: libraries/modules/movie    
+    path: libraries/modules/movie   
   about:
-    path: libraries/modules/about     
+    path: libraries/modules/about       
+  discover:
+    path: libraries/modules/discover     
   #Core Modules
   core:
     path: libraries/core

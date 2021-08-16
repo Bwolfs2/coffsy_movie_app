@@ -1,9 +1,9 @@
 import 'package:about/about.dart';
 import 'package:core/core.dart';
+import 'package:discover/discover.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'modules/dashboard/dashboard_module.dart';
-import 'modules/discover/discover_module.dart';
 import 'modules/setting/setting_module.dart';
 import 'modules/splash/splash_module.dart';
 

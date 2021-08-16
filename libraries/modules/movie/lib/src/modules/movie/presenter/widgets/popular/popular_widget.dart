@@ -3,9 +3,9 @@ import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
-import 'package:movie/src/modules/movie/domain/errors/movie_failures.dart';
 
 import '../../../domain/entities/movie.dart';
+import '../../../domain/errors/movie_failures.dart';
 import 'popular_store.dart';
 
 class PopularWidget extends StatefulWidget {
