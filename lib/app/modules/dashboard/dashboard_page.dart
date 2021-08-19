@@ -43,9 +43,6 @@ class _DashBoardPageState extends State<DashBoardPage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          // await analytics.setUserId('4m234ko32k423');
-          // await analytics.logEvent('discover_movie', {'date': DateTime.now().toString()});
-          // await analytics.setCurrentScreen('DashBoardPage', 'dashboard_page');
           await Modular.to.pushNamed('/discover_movie', forRoot: true);
         },
         child: Icon(
