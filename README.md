@@ -52,6 +52,8 @@ Commom libraries beetween MainApp, External and Internal Modules
   - firebase_remote_config: 0.10.0+3
   - firebase_crashlytics: ^2.0.7
   - firebase_analytics: ^8.1.2
+  - firebase_remote_config: 0.10.0+3
+  - firebase_storage
   
   ### Core
   - shared_preferences: ^2.0.6
@@ -70,6 +72,8 @@ Project Based on https://github.com/rrifafauzikomara/MovieApp   <- Project With 
 Screens Based on https://github.com/triannoviandi/movie-ticketing-app     <- Screens
 
 Mockup based on https://www.youtube.com/watch?v=oGsX4M3wADI
+
+PlayStore on https://play.google.com/store/apps/details?id=com.coffsy_movie_app
 
 
 
