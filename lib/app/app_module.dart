@@ -2,6 +2,7 @@ import 'package:about/about.dart';
 import 'package:core/core.dart';
 import 'package:discover/discover.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'modules/dashboard/dashboard_module.dart';
 import 'modules/setting/setting_module.dart';
@@ -9,18 +10,19 @@ import 'modules/splash/splash_module.dart';
 
 class AppModule extends Module {
   @override
+  List<Module> get imports => [DiscoverModule()];
+
+  @override
   final List<Bind> binds = [
-    Bind.lazySingleton((i) => MovieRepository(apiRepository: i(), localRepository: i())),
-    Bind.lazySingleton((i) => LocalRepository(prefHelper: i())),
-    Bind.lazySingleton((i) => ApiRepository(apiService: i())),
-    Bind.lazySingleton((i) => SharedPrefHelper()),
-    Bind.lazySingleton((i) => ApiService(dio: i<DioClient>().dio)),
     Bind.lazySingleton((i) => DioClient(apiBaseUrl: ApiConstant.baseUrlDebug)),
     Bind.lazySingleton((i) => i<DioClient>().dio),
     //
     Bind.lazySingleton((i) => ApiConfigurations()),
     //
     Bind.lazySingleton((i) => CoffsyAnalytics()),
+    //
+    Bind.lazySingleton((i) => SharedPrefHelper(preferences: i())),
+    AsyncBind<SharedPreferences>((i) => SharedPreferences.getInstance())
   ];
 
   @override

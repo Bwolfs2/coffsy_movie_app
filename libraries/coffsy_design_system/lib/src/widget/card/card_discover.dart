@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 
 import '../../../coffsy_design_system.dart';
@@ -45,7 +44,7 @@ class CardDiscover extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: genre.take(3).map(_buildGenreChip).toList(),
+            children: genre.take(3).map((id) => GenreChip(id: id)).toList(),
           ),
         ),
         SizedBox(
@@ -63,21 +62,6 @@ class CardDiscover extends StatelessWidget {
         ),
         buildRatingBar(theme, context, rating),
       ],
-    );
-  }
-
-  Widget _buildGenreChip(int id) {
-    return Container(
-      margin: const EdgeInsets.only(right: 10),
-      padding: const EdgeInsets.all(8),
-      child: Text(
-        Genres.genres[id] ?? 'No Gender',
-        style: TextStyle(fontSize: 12, color: ColorPalettes.white),
-      ),
-      decoration: BoxDecoration(
-        border: Border.all(color: ColorPalettes.grey),
-        borderRadius: BorderRadius.circular(20),
-      ),
     );
   }
 }

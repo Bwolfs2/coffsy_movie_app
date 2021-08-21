@@ -8,5 +8,5 @@ class DiscoverStore extends StreamStore<Failure, List<Movie>> {
   final GetDiscoverMovie _getDiscoverMovie;
   DiscoverStore(this._getDiscoverMovie) : super([]);
 
-  Future<void> load() => execute(_getDiscoverMovie);
+  void load() => executeStream(_getDiscoverMovie());
 }

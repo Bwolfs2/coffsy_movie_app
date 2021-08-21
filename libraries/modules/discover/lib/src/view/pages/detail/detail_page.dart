@@ -19,7 +19,6 @@ class DetailPage extends StatefulWidget {
 class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
-    var theme = Theme.of(context);
     return Scaffold(
       body: SingleChildScrollView(
         physics: const ClampingScrollPhysics(),
@@ -30,13 +29,13 @@ class _DetailPageState extends State<DetailPage> {
               children: [
                 CardMoviesHeader(
                   isFromBanner: widget.arguments.isFromBanner,
-                  idMovie: widget.arguments.movies.id,
+                  idMovie: widget.arguments.screenData.id,
                   //  title: widget.arguments.movies.title ?? widget.arguments.movies.tvName,
-                  title: widget.arguments.movies.title,
-                  imageBanner: widget.arguments.movies.backdropPath.imageOriginal,
-                  imagePoster: widget.arguments.movies.posterPath.imageOriginal,
-                  rating: widget.arguments.movies.voteAverage,
-                  genre: widget.arguments.movies.genreIds.take(3).map(buildGenreChip).toList(),
+                  title: widget.arguments.screenData.title,
+                  imageBanner: widget.arguments.screenData.backdropPath.imageOriginal,
+                  imagePoster: widget.arguments.screenData.posterPath.imageOriginal,
+                  rating: widget.arguments.screenData.voteAverage,
+                  genre: widget.arguments.screenData.genreIds.take(3).map((id) => GenreChip(id: id)).toList(),
                 ),
                 Padding(
                   padding: EdgeInsets.all(
@@ -56,7 +55,7 @@ class _DetailPageState extends State<DetailPage> {
                         height: Sizes.dp8(context),
                       ),
                       Text(
-                        widget.arguments.movies.overview,
+                        widget.arguments.screenData.overview,
                       ),
                     ],
                   ),
@@ -67,8 +66,8 @@ class _DetailPageState extends State<DetailPage> {
                     right: Sizes.dp20(context),
                   ),
                   child: TrailerWidget(
-                    key: ValueKey('${widget.arguments.isFromMovie}${widget.arguments.movies.id}'),
-                    movieId: widget.arguments.movies.id,
+                    key: ValueKey('${widget.arguments.isFromMovie}${widget.arguments.screenData.id}'),
+                    movieId: widget.arguments.screenData.id,
                     isFromMovie: widget.arguments.isFromMovie,
                   ),
                 ),
@@ -78,9 +77,9 @@ class _DetailPageState extends State<DetailPage> {
                     right: Sizes.dp20(context),
                   ),
                   child: CrewWidget(
-                    key: ValueKey('${widget.arguments.isFromMovie}${widget.arguments.movies.id}'),
+                    key: ValueKey('${widget.arguments.isFromMovie}${widget.arguments.screenData.id}'),
                     isFromMovie: widget.arguments.isFromMovie,
-                    movieId: widget.arguments.movies.id,
+                    movieId: widget.arguments.screenData.id,
                   ),
                 ),
                 Padding(
@@ -94,7 +93,7 @@ class _DetailPageState extends State<DetailPage> {
                       Modular.to.pushNamed(
                         './booking',
                         arguments: ScreenArguments(
-                          movies: widget.arguments.movies,
+                          screenData: widget.arguments.screenData,
                           isFromMovie: true,
                           isFromBanner: false,
                         ),
@@ -110,7 +109,7 @@ class _DetailPageState extends State<DetailPage> {
               right: Sizes.dp5(context),
               child: IconButton(
                 iconSize: Sizes.dp30(context),
-                color: theme.colorScheme.secondary,
+                color: Theme.of(context).colorScheme.secondary,
                 icon: const Icon(Icons.favorite_border),
                 onPressed: () {
                   PopUp.showSuccess('Add to Favorite');
@@ -120,9 +119,14 @@ class _DetailPageState extends State<DetailPage> {
             Positioned(
               top: Sizes.width(context) / 9,
               left: Sizes.dp5(context),
-              child: IconButton(
-                icon: Platform.isAndroid ? const Icon(Icons.arrow_back) : const Icon(Icons.arrow_back_ios),
-                onPressed: () => Modular.to.pop(),
+              child: PhysicalModel(
+                color: Colors.white.withOpacity(.3),
+                borderRadius: BorderRadius.circular(100),
+                child: IconButton(
+                  color: Theme.of(context).accentColor,
+                  icon: Platform.isAndroid ? const Icon(Icons.arrow_back) : const Icon(Icons.arrow_back_ios),
+                  onPressed: () => Modular.to.pop(),
+                ),
               ),
             ),
           ],

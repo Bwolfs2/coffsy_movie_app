@@ -38,10 +38,26 @@ class MoviePopularError extends Failure {
         );
 }
 
+class TrailerNoInternetConnection extends NoInternetConnection {}
+
 class MovieUpComingNoInternetConnection extends NoInternetConnection {}
 
 class MovieUpComingError extends Failure {
   MovieUpComingError(
+    StackTrace stackTrace,
+    String label,
+    dynamic exception,
+    String errorMessage,
+  ) : super(
+          stackTrace: stackTrace,
+          label: label,
+          exception: exception,
+          errorMessage: errorMessage,
+        );
+}
+
+class TrailerError extends Failure {
+  TrailerError(
     StackTrace stackTrace,
     String label,
     dynamic exception,
@@ -59,5 +75,15 @@ class CrewNoInternetConnection extends Failure {
 }
 
 class CrewError extends Failure {
-  CrewError(String errorMessage) : super(errorMessage: errorMessage);
+  CrewError(
+    StackTrace stackTrace,
+    String label,
+    dynamic exception,
+    String errorMessage,
+  ) : super(
+          stackTrace: stackTrace,
+          label: label,
+          exception: exception,
+          errorMessage: errorMessage,
+        );
 }

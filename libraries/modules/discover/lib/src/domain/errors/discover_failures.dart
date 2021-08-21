@@ -1,5 +1,9 @@
 import 'package:core/core.dart';
 
+class NoDataFound extends Failure {
+  NoDataFound() : super(errorMessage: 'No data found or no internet');
+}
+
 class DiscoverMovieNoInternetConnection extends Failure {
   DiscoverMovieNoInternetConnection() : super(errorMessage: 'No Internet Connection');
 }

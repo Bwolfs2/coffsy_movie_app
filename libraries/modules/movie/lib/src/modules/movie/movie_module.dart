@@ -1,9 +1,13 @@
 import 'package:booking/booking.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import 'domain/use_cases/get_movie_crew_by_id.dart';
 import 'domain/use_cases/get_movie_now_playing.dart';
 import 'domain/use_cases/get_movie_popular.dart';
+import 'domain/use_cases/get_movie_trailer_by_id.dart';
 import 'domain/use_cases/get_movie_up_coming.dart';
+import 'domain/use_cases/get_tv_show_crew_by_id.dart';
+import 'domain/use_cases/get_tv_show_trailer_by_id.dart';
 import 'external/data_sources/movie_data_source_impl.dart';
 import 'infra/repositories/movies_repository_impl.dart';
 import 'movie_page.dart';
@@ -31,8 +35,8 @@ class MovieModule extends Module {
     Bind.lazySingleton((i) => UpComingStore(i())),
     Bind.lazySingleton((i) => PopularStore(i())),
     Bind.lazySingleton((i) => MovieBannerStore(i())),
-    Bind.lazySingleton((i) => CrewStore(i())),
-    Bind.lazySingleton((i) => TrailerStore(i())),
+    Bind.lazySingleton((i) => CrewStore(i(), i())),
+    Bind.lazySingleton((i) => TrailerStore(i(), i())),
 
     //Datasources
     Bind.lazySingleton((i) => MovieDataSourceImpl(i(), i())),
@@ -42,6 +46,10 @@ class MovieModule extends Module {
     Bind.lazySingleton((i) => GetMovieNowPlaying(i())),
     Bind.lazySingleton((i) => GetMoviePopular(i())),
     Bind.lazySingleton((i) => GetMovieUpComming(i())),
+    Bind.lazySingleton((i) => GetMovieTrailerById(i())),
+    Bind.lazySingleton((i) => GetTvShowTrailer(i())),
+    Bind.lazySingleton((i) => GetTvShowCrewById(i())),
+    Bind.lazySingleton((i) => GetMovieCrewById(i())),
   ];
 
   @override

@@ -12,4 +12,12 @@ class CrewMapper {
       map['profile_path'],
     );
   }
+
+  static Map<dynamic, dynamic> toMap(Crew crew) {
+    return {
+      'name': crew.realName,
+      'character': crew.characterName,
+      'profile_path': crew.profile,
+    };
+  }
 }

@@ -1,54 +1,16 @@
 import 'package:core/core.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 
-import '../../../domain/errors/movie_failures.dart';
+import '../../../domain/entities/crew.dart';
+import '../../../domain/use_cases/get_movie_crew_by_id.dart';
+import '../../../domain/use_cases/get_tv_show_crew_by_id.dart';
 
-class CrewStore extends StreamStore<Failure, ResultCrew> {
-  final Repository repository;
-  CrewStore(this.repository) : super(const ResultCrew());
+class CrewStore extends StreamStore<Failure, List<Crew>> {
+  final IGetMovieCrewById _getMovieCrewById;
+  final IGetTvShowCrewById _getTvShowCrewById;
 
-  Future<void> loadMovieTrailer(int movieId) async {
-    try {
-      setLoading(true);
-      var movies = await repository.getMovieCrew(movieId, ApiConstant.apiKey, ApiConstant.language);
-      if (movies.crew.isEmpty) {
-        update(EmptyResultCrew(), force: true);
-      } else {
-        update(movies, force: true);
-      }
-    } on DioError catch (e) {
-      if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
-        setError(CrewNoInternetConnection());
-      } else if (e.type == DioErrorType.other) {
-        setError(CrewNoInternetConnection());
-      } else {
-        setError(CrewError(e.toString()));
-      }
-    }
+  CrewStore(this._getMovieCrewById, this._getTvShowCrewById) : super([]);
 
-    setLoading(false);
-  }
-
-  Future<void> loadTvShowTrailer(int movieId) async {
-    try {
-      setLoading(true);
-      var movies = await repository.getTvShowCrew(movieId, ApiConstant.apiKey, ApiConstant.language);
-      if (movies.crew.isEmpty) {
-        update(EmptyResultCrew(), force: true);
-      } else {
-        update(movies, force: true);
-      }
-    } on DioError catch (e) {
-      if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
-        setError(CrewNoInternetConnection());
-      } else if (e.type == DioErrorType.other) {
-        setError(CrewNoInternetConnection());
-      } else {
-        setError(CrewError(e.toString()));
-      }
-    }
-
-    setLoading(false);
-  }
+  Future<void> loadMovieTrailer(int movieId) async => DartzEitherAdapter.adapter(_getMovieCrewById(movieId));
+  Future<void> loadTvShowTrailer(int movieId) async => DartzEitherAdapter.adapter(_getTvShowCrewById(movieId));
 }

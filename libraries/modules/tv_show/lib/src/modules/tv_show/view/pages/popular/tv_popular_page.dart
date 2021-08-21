@@ -61,12 +61,12 @@ class _TvPopularPageState extends State<TvPopularPage> {
                 vote: tvPopularShow.voteAverage.toString(),
                 releaseDate: tvPopularShow.tvRelease ?? 'No TV Release',
                 overview: tvPopularShow.overview,
-                genre: tvPopularShow.genreIds.take(3).map(buildGenreChip).toList(),
+                genre: tvPopularShow.genreIds.take(3).map((id) => GenreChip(id: id)).toList(),
                 onTap: () {
                   Modular.to.pushNamed(
                     './detail_movies',
                     arguments: ScreenArguments(
-                      movies: Movies(
+                      screenData: ScreenData(
                         tvPopularShow.id,
                         tvPopularShow.title,
                         tvPopularShow.overview,

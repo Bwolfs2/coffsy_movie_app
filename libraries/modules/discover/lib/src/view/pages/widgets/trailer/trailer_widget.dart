@@ -1,5 +1,5 @@
 import 'package:coffsy_design_system/coffsy_design_system.dart';
-import 'package:core/core.dart' hide Trailer;
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';

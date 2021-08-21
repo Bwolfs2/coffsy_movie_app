@@ -1,4 +1,4 @@
-import 'package:core/core.dart' hide Crew, Trailer;
+import 'package:core/core.dart';
 
 import '../../domain/entities/crew.dart';
 import '../../domain/entities/on_the_air.dart';

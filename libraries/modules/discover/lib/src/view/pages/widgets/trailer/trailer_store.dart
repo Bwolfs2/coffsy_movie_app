@@ -1,4 +1,4 @@
-import 'package:core/core.dart' hide Trailer;
+import 'package:core/core.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 
 import '../../../../domain/entities/trailer.dart';
@@ -10,6 +10,6 @@ class TrailerStore extends StreamStore<Failure, List<Trailer>> {
   final GetMovieTrailerById _getMovieTrailerById;
   TrailerStore(this._getTvShowTrailerById, this._getMovieTrailerById) : super([]);
 
-  Future<void> loadMovieTrailer(int movieId) async => execute(() => _getMovieTrailerById(movieId));
-  Future<void> loadTvShowTrailer(int movieId) async => execute(() => _getTvShowTrailerById(movieId));
+  void loadMovieTrailer(int movieId) => executeStream(_getMovieTrailerById(movieId));
+  void loadTvShowTrailer(int movieId) => executeStream(_getTvShowTrailerById(movieId));
 }

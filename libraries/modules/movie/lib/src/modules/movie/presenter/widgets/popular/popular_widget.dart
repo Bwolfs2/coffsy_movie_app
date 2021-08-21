@@ -64,7 +64,7 @@ class _PopularWidgetState extends State<PopularWidget> {
             return CustomErrorWidget(message: error?.errorMessage);
           },
           onLoading: (context) => const ShimmerCard(),
-          onState: (context, state) => state is EmptyResult
+          onState: (context, state) => state.isEmpty
               ? const SizedBox.shrink()
               : ListView.builder(
                   shrinkWrap: true,
@@ -81,7 +81,7 @@ class _PopularWidgetState extends State<PopularWidget> {
                         Modular.to.pushNamed(
                           './detail_movies',
                           arguments: ScreenArguments(
-                            movies: Movies(
+                            screenData: ScreenData(
                               movies.id,
                               movies.title,
                               movies.overview,

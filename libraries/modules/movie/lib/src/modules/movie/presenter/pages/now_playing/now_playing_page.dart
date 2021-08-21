@@ -59,12 +59,12 @@ class _NowPlayingPageState extends State<NowPlayingPage> {
                 vote: movies.voteAverage.toString(),
                 releaseDate: movies.releaseDate,
                 overview: movies.overview,
-                genre: movies.genreIds.take(3).map(buildGenreChip).toList(),
+                genre: movies.genreIds.take(3).map((id) => GenreChip(id: id)).toList(),
                 onTap: () {
                   Modular.to.pushNamed(
                     './detail_movies',
                     arguments: ScreenArguments(
-                      movies: Movies(
+                      screenData: ScreenData(
                         movies.id,
                         movies.title,
                         movies.overview,

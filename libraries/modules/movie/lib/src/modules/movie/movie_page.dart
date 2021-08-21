@@ -6,6 +6,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
+import 'package:uuid/uuid.dart';
 
 import 'presenter/widgets/movie_banner/movie_banner.dart';
 import 'presenter/widgets/movie_banner/movie_banner_store.dart';
@@ -13,7 +14,6 @@ import 'presenter/widgets/popular/popular_store.dart';
 import 'presenter/widgets/popular/popular_widget.dart';
 import 'presenter/widgets/up_coming/up_coming_widget.dart';
 import 'presenter/widgets/up_coming/up_coming_widget_store.dart';
-import 'package:uuid/uuid.dart';
 
 class MoviePage extends StatefulWidget {
   @override

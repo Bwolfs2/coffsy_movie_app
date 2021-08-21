@@ -1,15 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../coffsy_design_system.dart';
 
 class BannerHome extends StatelessWidget {
   final Function(int index, CarouselPageChangedReason reason) onPageChanged;
-  final List<Movies> data;
+  final List<ScreenData> data;
   final int currentIndex;
   final String routeNameDetail, routeNameAll;
   final bool isFromMovie;
@@ -51,7 +49,7 @@ class BannerHome extends StatelessWidget {
                       Modular.to.pushNamed(
                         routeNameDetail,
                         arguments: ScreenArguments(
-                          movies: data[i],
+                          screenData: data[i],
                           isFromMovie: true,
                           isFromBanner: true,
                         ),

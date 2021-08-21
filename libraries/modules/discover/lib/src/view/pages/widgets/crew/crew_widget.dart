@@ -1,5 +1,5 @@
 import 'package:coffsy_design_system/coffsy_design_system.dart';
-import 'package:core/core.dart' hide Crew;
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
@@ -20,11 +20,11 @@ class CrewWidget extends StatefulWidget {
 class _CrewWidgetState extends State<CrewWidget> {
   final store = Modular.get<CrewStore>();
 
-  Future<void> reload() async {
+  void reload() {
     if (widget.isFromMovie) {
-      await store.loadMovieTrailer(widget.movieId);
+      store.loadMovieTrailer(widget.movieId);
     } else {
-      await store.loadTvShowTrailer(widget.movieId);
+      store.loadTvShowTrailer(widget.movieId);
     }
   }
 

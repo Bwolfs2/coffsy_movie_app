@@ -1,7 +1,7 @@
 import '../../domain/entities/movie.dart';
 
 class MovieMapper {
-  static List<Movie> fromMapList(Map<String, dynamic> map) => List<Movie>.from((map['results'] as List).map(MovieMapper.fromMap));
+  static List<Movie> fromMapList(Map<String, dynamic> map) => List<Movie>.from((map['results'] ?? []).map(MovieMapper.fromMap));
 
   static Movie fromMap(dynamic map) {
     return Movie(

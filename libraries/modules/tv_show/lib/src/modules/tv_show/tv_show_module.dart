@@ -34,7 +34,7 @@ class TvShowModule extends Module {
     Bind.lazySingleton((i) => TvShowBannerStore(i())),
     Bind.lazySingleton((i) => OnTheAirStore(i())),
     Bind.lazySingleton((i) => AiringTodayWidgetStore(i())),
-    Bind.lazySingleton((i) => CrewStore(i(), i(), i())),
+    Bind.lazySingleton((i) => CrewStore(i(), i())),
     Bind.lazySingleton((i) => TrailerStore(i(), i())),
 
     //Datasource

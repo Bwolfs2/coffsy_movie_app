@@ -22,4 +22,20 @@ class MovieMapper {
       map['tv_release'],
     );
   }
+
+  static Map<dynamic, dynamic> toMap(Movie crew) {
+    return {
+      'id': crew.id,
+      'title': crew.title,
+      'overview': crew.overview,
+      'release_date': crew.releaseDate,
+      'genre_ids': crew.genreIds.map((e) => e).toList(),
+      'vote_average': crew.voteAverage,
+      'popularity': crew.popularity,
+      'poster_path': crew.posterPath,
+      'backdrop_path': crew.backdropPath,
+      'tv_name': crew.tvName,
+      'tv_release': crew.tvRelease,
+    };
+  }
 }

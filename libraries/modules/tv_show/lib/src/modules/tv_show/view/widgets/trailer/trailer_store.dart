@@ -1,4 +1,4 @@
-import 'package:core/core.dart' hide Trailer;
+import 'package:core/core.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 
 import '../../../domain/entities/trailer.dart';

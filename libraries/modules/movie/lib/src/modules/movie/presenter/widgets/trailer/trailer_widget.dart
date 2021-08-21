@@ -5,7 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 
-import '../../../../detail/widgets/trailer/errors/trailer_failures.dart';
+import '../../../domain/entities/trailer.dart';
+import '../../../domain/errors/movie_failures.dart';
 import 'trailer_store.dart';
 
 class TrailerWidget extends StatefulWidget {
@@ -54,7 +55,7 @@ class _TrailerWidgetState extends State<TrailerWidget> {
         Container(
           width: Sizes.width(context),
           height: Sizes.width(context) / 1.7,
-          child: ScopedBuilder<TrailerStore, Failure, ResultTrailer>.transition(
+          child: ScopedBuilder<TrailerStore, Failure, List<Trailer>>.transition(
             onError: (context, error) => error is TrailerNoInternetConnection
                 ? NoInternetWidget(
                     message: AppConstant.noTrailer,
@@ -68,13 +69,13 @@ class _TrailerWidgetState extends State<TrailerWidget> {
               shrinkWrap: true,
               physics: const ClampingScrollPhysics(),
               scrollDirection: Axis.horizontal,
-              itemCount: state.trailer.length,
+              itemCount: state.length,
               itemBuilder: (context, index) {
-                final trailer = state.trailer[index];
+                final trailer = state[index];
                 return CardTrailer(
                   title: trailer.title,
                   youtube: trailer.youtubeId,
-                  length: state.trailer.length,
+                  length: state.length,
                   onExitFullScreen: () {
                     // The player forces portraitUp after exiting fullscreen. This overrides the behaviour.
                     SystemChrome.setPreferredOrientations(DeviceOrientation.values);

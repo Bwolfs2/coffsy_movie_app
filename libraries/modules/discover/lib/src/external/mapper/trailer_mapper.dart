@@ -12,4 +12,12 @@ class TrailerMapper {
       map['name'] ?? 'No Name',
     );
   }
+
+  static Map<dynamic, dynamic> toMap(Trailer trailer) {
+    return {
+      'id': trailer.trailerId,
+      'key': trailer.youtubeId,
+      'name': trailer.title,
+    };
+  }
 }

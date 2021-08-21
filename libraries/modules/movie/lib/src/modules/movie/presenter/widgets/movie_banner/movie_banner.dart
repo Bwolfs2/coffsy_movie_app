@@ -39,7 +39,7 @@ class _MovieBannerState extends State<MovieBanner> {
         return CustomErrorWidget(message: error?.errorMessage);
       },
       onLoading: (context) => const ShimmerBanner(),
-      onState: (context, state) => state is EmptyResult
+      onState: (context, state) => state.isEmpty
           ? const SizedBox.shrink()
           : StatefulBuilder(
               builder: (context, setState) => BannerHome(
@@ -51,7 +51,7 @@ class _MovieBannerState extends State<MovieBanner> {
                 },
                 data: List.from(
                   state.map(
-                    (e) => Movies(
+                    (e) => ScreenData(
                       e.id,
                       e.title,
                       e.overview,

@@ -87,7 +87,7 @@ class _TvShowPopularWidgetState extends State<TvShowPopularWidget> {
                     Modular.to.pushNamed(
                       './detail_movies',
                       arguments: ScreenArguments(
-                        movies: Movies(
+                        screenData: ScreenData(
                           tvPopularShow.id,
                           tvPopularShow.title,
                           tvPopularShow.overview,

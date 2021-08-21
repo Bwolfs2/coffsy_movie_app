@@ -46,7 +46,7 @@ class _TvShowBannerState extends State<TvShowBanner> {
           },
           data: List.from(
             state.map(
-              (movie) => Movies(
+              (movie) => ScreenData(
                 movie.id,
                 movie.title,
                 movie.overview,

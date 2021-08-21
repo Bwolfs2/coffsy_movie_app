@@ -1,4 +1,4 @@
-import 'package:core/core.dart' hide Trailer, Crew;
+import 'package:core/core.dart';
 import 'package:dio/dio.dart';
 
 import '../../domain/entities/crew.dart';
@@ -26,10 +26,8 @@ class DiscoveryMovieDatasourceImpl extends DiscoveryMovieDatasource {
 
       return MovieMapper.fromMapList(response.data);
     } on DioError catch (e, stackTrace) {
-      if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
-        throw DiscoverMovieNoInternetConnection();
-      } else if (e.type == DioErrorType.other) {
-        throw DiscoverMovieNoInternetConnection();
+      if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout || e.type == DioErrorType.other) {
+        return [];
       } else {
         throw DiscoverMovieError(stackTrace, 'DiscoveryMovieDatasourceImpl-getMovieNowPlaying', e, e.toString());
       }
@@ -42,10 +40,8 @@ class DiscoveryMovieDatasourceImpl extends DiscoveryMovieDatasource {
       final response = await dio.get('movie/$movieId/videos?api_key=${configurations.apiKey}&language=${configurations.language}');
       return TrailerMapper.fromMapList(response.data);
     } on DioError catch (e, stackTrace) {
-      if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
-        throw CrewNoInternetConnection();
-      } else if (e.type == DioErrorType.other) {
-        throw CrewNoInternetConnection();
+      if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout || e.type == DioErrorType.other) {
+        return [];
       } else {
         throw CrewError(stackTrace, 'DiscoveryMovieDatasourceImpl-getTvShowTrailerById', e, e.toString());
       }
@@ -58,10 +54,8 @@ class DiscoveryMovieDatasourceImpl extends DiscoveryMovieDatasource {
       final response = await dio.get('tv/$tvShowId/videos?api_key=${configurations.apiKey}&language=${configurations.language}');
       return TrailerMapper.fromMapList(response.data);
     } on DioError catch (e, stackTrace) {
-      if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
-        throw CrewNoInternetConnection();
-      } else if (e.type == DioErrorType.other) {
-        throw CrewNoInternetConnection();
+      if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout || e.type == DioErrorType.other) {
+        return [];
       } else {
         throw CrewError(stackTrace, 'DiscoveryMovieDatasourceImpl-getTvShowTrailerById', e, e.toString());
       }
@@ -75,10 +69,8 @@ class DiscoveryMovieDatasourceImpl extends DiscoveryMovieDatasource {
 
       return CrewMapper.fromMapList(response.data);
     } on DioError catch (e, stackTrace) {
-      if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
-        throw CrewNoInternetConnection();
-      } else if (e.type == DioErrorType.other) {
-        throw CrewNoInternetConnection();
+      if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout || e.type == DioErrorType.other) {
+        return [];
       } else {
         throw CrewError(stackTrace, 'DiscoveryMovieDatasourceImpl-getMovieCrew', e, e.toString());
       }
@@ -92,10 +84,8 @@ class DiscoveryMovieDatasourceImpl extends DiscoveryMovieDatasource {
 
       return CrewMapper.fromMapList(response.data);
     } on DioError catch (e, stackTrace) {
-      if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
-        throw CrewNoInternetConnection();
-      } else if (e.type == DioErrorType.other) {
-        throw CrewNoInternetConnection();
+      if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout || e.type == DioErrorType.other) {
+        return [];
       } else {
         throw CrewError(stackTrace, 'DiscoveryMovieDatasourceImpl-getTvShowCrewById', e, e.toString());
       }

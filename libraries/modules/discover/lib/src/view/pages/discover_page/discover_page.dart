@@ -39,7 +39,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
           return error is DiscoverMovieNoInternetConnection
               ? NoInternetWidget(
                   message: AppConstant.noInternetConnection,
-                  onPressed: () async => await store.load(),
+                  onPressed: store.load,
                 )
               : CustomErrorWidget(message: error?.errorMessage);
         },
@@ -96,7 +96,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                           Modular.to.pushNamed(
                             '/discover_movie/detail_movies',
                             arguments: ScreenArguments(
-                              movies: Movies(
+                              screenData: ScreenData(
                                 movie.id,
                                 movie.title,
                                 movie.overview,

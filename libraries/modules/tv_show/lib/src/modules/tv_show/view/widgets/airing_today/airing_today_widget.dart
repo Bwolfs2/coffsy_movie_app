@@ -85,7 +85,7 @@ class _AiringTodayWidgetState extends State<AiringTodayWidget> {
                     Modular.to.pushNamed(
                       './detail_movies',
                       arguments: ScreenArguments(
-                          movies: Movies(
+                          screenData: ScreenData(
                             movie.id,
                             movie.title,
                             movie.overview,
