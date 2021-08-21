@@ -56,10 +56,10 @@ class RatingInformation extends StatelessWidget {
 
 class RatingBar extends StatefulWidget {
   final ThemeData theme;
-  final BuildContext context;
+  final BuildContext _context;
   final double rating;
 
-  const RatingBar(this.theme, this.context, this.rating, {Key? key}) : super(key: key);
+  const RatingBar(this.theme, this._context, this.rating, {Key? key}) : super(key: key);
 
   @override
   _RatingBarState createState() => _RatingBarState();
@@ -74,7 +74,7 @@ class _RatingBarState extends State<RatingBar> {
       var star = Icon(
         Icons.star,
         color: color,
-        size: Sizes.dp18(context),
+        size: Sizes.dp18(widget._context),
       );
       stars.add(star);
     }
@@ -84,7 +84,6 @@ class _RatingBarState extends State<RatingBar> {
   @override
   void initState() {
     super.initState();
-
     calculateStars();
   }
 
