@@ -60,7 +60,7 @@ class CardDiscover extends StatelessWidget {
         SizedBox(
           height: Sizes.height(context) * .005,
         ),
-        buildRatingBar(theme, context, rating),
+        RatingBar(theme, context, rating),
       ],
     );
   }

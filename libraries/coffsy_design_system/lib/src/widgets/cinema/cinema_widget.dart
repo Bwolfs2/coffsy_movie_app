@@ -146,12 +146,12 @@ class _ChairListState extends State<ChairList> {
                               height: Sizes.width(context) / 11 - 10,
                               margin: EdgeInsets.all(Sizes.dp5(context)),
                               child: _chairStatus[i][x - 1] == 1
-                                  ? ChairConstant.white(context, isWhite: _isDarkTheme)
+                                  ? ChairConstant.white(isDarkTheme: _isDarkTheme)
                                   : _chairStatus[i][x - 1] == 2
-                                      ? ChairConstant.grey(context)
+                                      ? ChairConstant.grey
                                       : _chairStatus[i][x - 1] == 3
-                                          ? ChairConstant.red(context)
-                                          : ChairConstant.orange(context),
+                                          ? ChairConstant.red
+                                          : ChairConstant.orange,
                             ),
                           ),
                   ),

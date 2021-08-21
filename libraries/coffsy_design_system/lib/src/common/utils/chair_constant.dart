@@ -3,7 +3,59 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../coffsy_design_system.dart';
 
 class ChairConstant {
-  static Widget grey(BuildContext context) {
+  static Widget grey = const GreyChair();
+  static Widget red = const RedChair();
+  static Widget orange = const OrangeChair();
+  static final _whiteDark = const WhiteChairDark();
+  static final _whiteLight = const WhiteChairLight();
+  static Widget white({bool isDarkTheme = false}) => isDarkTheme ? _whiteLight : _whiteDark;
+}
+
+class WhiteChairDark extends StatelessWidget {
+  const WhiteChairDark({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(Sizes.dp6(context)),
+      child: Container(
+        decoration: BoxDecoration(
+          color: ColorPalettes.white,
+          border: Border.all(
+            color: ColorPalettes.transparent,
+          ),
+        ),
+        child: SvgPicture.asset(ImagesAssets.chairDark),
+      ),
+    );
+  }
+}
+
+class WhiteChairLight extends StatelessWidget {
+  const WhiteChairLight({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(Sizes.dp6(context)),
+      child: Container(
+        decoration: BoxDecoration(
+          color: ColorPalettes.white,
+          border: Border.all(
+            color: ColorPalettes.grey,
+          ),
+        ),
+        child: SvgPicture.asset(ImagesAssets.chairDark),
+      ),
+    );
+  }
+}
+
+class GreyChair extends StatelessWidget {
+  const GreyChair({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(Sizes.dp6(context)),
       child: Container(
@@ -12,8 +64,13 @@ class ChairConstant {
       ),
     );
   }
+}
 
-  static Widget red(BuildContext context) {
+class RedChair extends StatelessWidget {
+  const RedChair({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(Sizes.dp6(context)),
       child: Container(
@@ -24,23 +81,13 @@ class ChairConstant {
       ),
     );
   }
+}
 
-  static Widget white(BuildContext context, {bool isWhite = false}) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(Sizes.dp6(context)),
-      child: Container(
-        decoration: BoxDecoration(
-          color: ColorPalettes.white,
-          border: Border.all(
-            color: isWhite ? ColorPalettes.grey : ColorPalettes.transparent,
-          ),
-        ),
-        child: SvgPicture.asset(ImagesAssets.chairDark),
-      ),
-    );
-  }
+class OrangeChair extends StatelessWidget {
+  const OrangeChair({Key? key}) : super(key: key);
 
-  static Widget orange(BuildContext context) {
+  @override
+  Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(Sizes.dp6(context)),
       child: Container(

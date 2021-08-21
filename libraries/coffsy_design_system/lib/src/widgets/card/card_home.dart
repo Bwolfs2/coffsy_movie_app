@@ -93,7 +93,7 @@ class CardHome extends StatelessWidget {
                   ),
 
                   // Rating
-                  buildRatingBar(theme, context, rating),
+                  RatingBar(theme, context, rating),
                   SizedBox(
                     height: Sizes.dp10(context),
                   ),

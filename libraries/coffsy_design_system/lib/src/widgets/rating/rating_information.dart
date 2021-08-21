@@ -33,7 +33,7 @@ class RatingInformation extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        buildRatingBar(theme, context, rating),
+        RatingBar(theme, context, rating),
         Padding(
           padding: EdgeInsets.only(top: Sizes.dp4(context), left: Sizes.dp4(context)),
           child: const Text(
@@ -54,16 +54,42 @@ class RatingInformation extends StatelessWidget {
   }
 }
 
-Widget buildRatingBar(ThemeData theme, BuildContext context, double rating) {
-  var stars = <Widget>[];
-  for (var i = 1; i <= 5; i++) {
-    var color = i <= rating / 2 ? theme.colorScheme.secondary : ColorPalettes.grey;
-    var star = Icon(
-      Icons.star,
-      color: color,
-      size: Sizes.dp18(context),
-    );
-    stars.add(star);
+class RatingBar extends StatefulWidget {
+  final ThemeData theme;
+  final BuildContext context;
+  final double rating;
+
+  const RatingBar(this.theme, this.context, this.rating, {Key? key}) : super(key: key);
+
+  @override
+  _RatingBarState createState() => _RatingBarState();
+}
+
+class _RatingBarState extends State<RatingBar> {
+  final stars = <Widget>[];
+
+  void calculateStars() {
+    for (var i = 1; i <= 5; i++) {
+      var color = i <= widget.rating / 2 ? widget.theme.colorScheme.secondary : ColorPalettes.grey;
+      var star = Icon(
+        Icons.star,
+        color: color,
+        size: Sizes.dp18(context),
+      );
+      stars.add(star);
+    }
+    setState(() {});
   }
-  return Row(mainAxisSize: MainAxisSize.min, children: stars);
+
+  @override
+  void initState() {
+    super.initState();
+
+    calculateStars();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(mainAxisSize: MainAxisSize.min, children: stars);
+  }
 }

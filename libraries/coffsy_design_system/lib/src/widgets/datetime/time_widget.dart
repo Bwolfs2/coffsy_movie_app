@@ -10,12 +10,11 @@ class TimeWidget extends StatefulWidget {
 class _TimeWidgetState extends State<TimeWidget> with TickerProviderStateMixin {
   final _timeSelectorAcList = <AnimationController>[];
   final _timeSelectorTweenList = <Animation<double>>[];
-  bool _isDarkTheme = false;
 
   final _time = [
-    ['01.30', 45],
-    ['06.30', 45],
-    ['10.30', 45]
+    ['01:30', 45],
+    ['06:30', 45],
+    ['10:30', 45]
   ];
   var _timeIndexSelected = 1;
 
@@ -35,8 +34,6 @@ class _TimeWidgetState extends State<TimeWidget> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    var themeData = Theme.of(context);
-    _isDarkTheme = themeData.appBarTheme.color == null;
     return Container(
       width: Sizes.width(context),
       height: Sizes.width(context) / 5,
@@ -60,10 +57,10 @@ class _TimeWidgetState extends State<TimeWidget> with TickerProviderStateMixin {
                   _timeIndexSelected = index;
                 });
               },
-              child: _timeItem(
+              child: TimeItemWidget(
                 _time[index][0] as String,
                 _time[index][1] as int,
-                index == _timeIndexSelected ? true : false,
+                active: index == _timeIndexSelected ? true : false,
               ),
             ),
           );
@@ -71,6 +68,26 @@ class _TimeWidgetState extends State<TimeWidget> with TickerProviderStateMixin {
       ),
     );
   }
+}
+
+class TimeItemWidget extends StatefulWidget {
+  final String time;
+  final int price;
+  final bool active;
+
+  const TimeItemWidget(
+    this.time,
+    this.price, {
+    Key? key,
+    this.active = false,
+  }) : super(key: key);
+
+  @override
+  _TimeItemWidgetState createState() => _TimeItemWidgetState();
+}
+
+class _TimeItemWidgetState extends State<TimeItemWidget> {
+  bool _isDarkTheme = false;
 
   Color _textTimeColor(bool active) {
     if (!_isDarkTheme) {
@@ -88,12 +105,14 @@ class _TimeWidgetState extends State<TimeWidget> with TickerProviderStateMixin {
     }
   }
 
-  Widget _timeItem(String time, int price, bool active) {
+  @override
+  Widget build(BuildContext context) {
+    _isDarkTheme = Theme.of(context).appBarTheme.color == null;
     return Container(
       margin: EdgeInsets.symmetric(horizontal: Sizes.dp12(context)),
       padding: EdgeInsets.symmetric(horizontal: Sizes.dp16(context)),
       decoration: BoxDecoration(
-        border: Border.all(color: _textTimeColor(active), width: 1),
+        border: Border.all(color: _textTimeColor(widget.active), width: 1),
         borderRadius: BorderRadius.circular(Sizes.dp12(context)),
       ),
       child: Column(
@@ -102,11 +121,11 @@ class _TimeWidgetState extends State<TimeWidget> with TickerProviderStateMixin {
         children: <Widget>[
           RichText(
             text: TextSpan(
-              text: time,
+              text: widget.time,
               style: TextStyle(
                 fontSize: Sizes.dp20(context),
                 fontWeight: FontWeight.w600,
-                color: _textTimeColor(active),
+                color: _textTimeColor(widget.active),
               ),
               children: <TextSpan>[
                 TextSpan(
@@ -114,14 +133,14 @@ class _TimeWidgetState extends State<TimeWidget> with TickerProviderStateMixin {
                   style: TextStyle(
                     fontSize: Sizes.dp14(context),
                     fontWeight: FontWeight.w600,
-                    color: _textTimeColor(active),
+                    color: _textTimeColor(widget.active),
                   ),
                 )
               ],
             ),
           ),
           Text(
-            'IDR ${price}K',
+            'IDR ${widget.price}K',
             style: TextStyle(
               fontSize: Sizes.dp14(context),
               fontWeight: FontWeight.w600,
