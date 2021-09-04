@@ -10,6 +10,8 @@ import '../../../domain/errors/discover_failures.dart';
 import 'discover_store.dart';
 
 class DiscoverPage extends StatefulWidget {
+  const DiscoverPage({Key? key}) : super(key: key);
+
   @override
   _DiscoverPageState createState() => _DiscoverPageState();
 }
@@ -92,9 +94,8 @@ class _DiscoverPageState extends State<DiscoverPage> {
                         rating: movie.voteAverage,
                         genre: movie.genreIds,
                         onTap: () {
-                          //TODO: Why ./ is not Working here?
                           Modular.to.pushNamed(
-                            '/discover_movie/detail_movies',
+                            './detail_movies',
                             arguments: ScreenArguments(
                               screenData: ScreenData(
                                 movie.id,

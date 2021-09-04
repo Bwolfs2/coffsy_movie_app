@@ -6,7 +6,7 @@ class GetMovieCrewById {
 
   GetMovieCrewById(this.repository);
 
-  Stream<List<Crew>> call(int id)  {
-    return  repository.getMovieCrew(id);
+  Stream<List<Crew>> call(int id) {
+    return repository.getMovieCrew(id);
   }
 }
