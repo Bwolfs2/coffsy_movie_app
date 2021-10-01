@@ -11,6 +11,6 @@ class CrewStore extends StreamStore<Failure, List<Crew>> {
 
   CrewStore(this._getMovieCrewById, this._getTvShowCrewById) : super([]);
 
-  Future<void> loadMovieTrailer(int movieId) async => DartzEitherAdapter.adapter(_getMovieCrewById(movieId));
-  Future<void> loadTvShowTrailer(int movieId) async => DartzEitherAdapter.adapter(_getTvShowCrewById(movieId));
+  Future<void> loadMovieTrailer(int movieId) async => executeEither(() =>  DartzEitherAdapter.adapter(_getMovieCrewById(movieId)));
+  Future<void> loadTvShowTrailer(int movieId) async => executeEither(() => DartzEitherAdapter.adapter(_getTvShowCrewById(movieId)));
 }
