@@ -20,7 +20,7 @@ class _UpComingWidgetState extends State<UpComingWidget> {
   @override
   void initState() {
     super.initState();
-    store.load();
+    // store.load();
   }
 
   @override

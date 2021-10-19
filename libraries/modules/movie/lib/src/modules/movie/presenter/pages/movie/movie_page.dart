@@ -8,12 +8,12 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:uuid/uuid.dart';
 
-import 'presenter/widgets/movie_banner/movie_banner.dart';
-import 'presenter/widgets/movie_banner/movie_banner_store.dart';
-import 'presenter/widgets/popular/popular_store.dart';
-import 'presenter/widgets/popular/popular_widget.dart';
-import 'presenter/widgets/up_coming/up_coming_widget.dart';
-import 'presenter/widgets/up_coming/up_coming_widget_store.dart';
+import '../../widgets/movie_banner/movie_banner.dart';
+import '../../widgets/movie_banner/movie_banner_store.dart';
+import '../../widgets/popular/popular_store.dart';
+import '../../widgets/popular/popular_widget.dart';
+import '../../widgets/up_coming/up_coming_widget.dart';
+import '../../widgets/up_coming/up_coming_widget_store.dart';
 
 class MoviePage extends StatefulWidget {
   @override
@@ -68,29 +68,25 @@ class _MoviePageState extends State<MoviePage> {
         onRefresh: _refresh,
         showChildOpacityTransition: false,
         springAnimationDurationInMilliseconds: 500,
-        child: SingleChildScrollView(
+        child: ListView(
           physics: const ClampingScrollPhysics(),
-          child: Container(
-            margin: EdgeInsets.all(
-              Sizes.dp10(context),
-            ),
-            child: Column(
-              children: <Widget>[
-                const MovieBanner(),
-                SizedBox(
-                  height: Sizes.dp12(context),
-                ),
-                const UpComingWidget(),
-                SizedBox(
-                  height: Sizes.dp12(context),
-                ),
-                const PopularWidget(),
-                SizedBox(
-                  height: Sizes.dp12(context),
-                ),
-              ],
-            ),
+          padding: EdgeInsets.all(
+            Sizes.dp10(context),
           ),
+          children: <Widget>[
+            MovieBanner(),
+            SizedBox(
+              height: Sizes.dp12(context),
+            ),
+            const UpComingWidget(),
+            SizedBox(
+              height: Sizes.dp12(context),
+            ),
+            const PopularWidget(),
+            SizedBox(
+              height: Sizes.dp12(context),
+            ),
+          ],
         ),
       ),
     );

@@ -19,14 +19,14 @@ class TvShowRepositoryImpl implements ITvShowRepository {
       var result = await datasource.getTvAiringToday();
 
       if (result.isEmpty) {
-        throw NoDataFound();
+        return Future.error(NoDataFound());
       }
 
       return result;
-    } on Failure {
-      rethrow;
+    } on Failure catch (e) {
+      return Future.error(e);
     } on Exception catch (exception, stacktrace) {
-      throw UnknownError(exception: exception, stackTrace: stacktrace, label: 'TvShowRepositoryImpl-getTvAiringToday');
+      return Future.error(UnknownError(exception: exception, stackTrace: stacktrace, label: 'TvShowRepositoryImpl-getTvAiringToday'));
     }
   }
 
@@ -36,14 +36,14 @@ class TvShowRepositoryImpl implements ITvShowRepository {
       var result = await datasource.getTvPopularShow();
 
       if (result.isEmpty) {
-        throw NoDataFound();
+        return Future.error(NoDataFound());
       }
 
       return result;
-    } on Failure {
-      rethrow;
+    } on Failure catch (e) {
+      return Future.error(e);
     } on Exception catch (exception, stacktrace) {
-      throw UnknownError(exception: exception, stackTrace: stacktrace, label: 'TvShowRepositoryImpl-getTvPopularShow');
+      return Future.error(UnknownError(exception: exception, stackTrace: stacktrace, label: 'TvShowRepositoryImpl-getTvPopularShow'));
     }
   }
 
@@ -53,14 +53,14 @@ class TvShowRepositoryImpl implements ITvShowRepository {
       var result = await datasource.getTvOnTheAir();
 
       if (result.isEmpty) {
-        throw NoDataFound();
+        return Future.error(NoDataFound());
       }
 
       return result;
-    } on Failure {
-      rethrow;
+    } on Failure catch (e) {
+      return Future.error(e);
     } on Exception catch (exception, stacktrace) {
-      throw UnknownError(exception: exception, stackTrace: stacktrace, label: 'TvShowRepositoryImpl-getOnTheAir');
+      return Future.error(UnknownError(exception: exception, stackTrace: stacktrace, label: 'TvShowRepositoryImpl-getOnTheAir'));
     }
   }
 
@@ -69,13 +69,13 @@ class TvShowRepositoryImpl implements ITvShowRepository {
     try {
       var result = await datasource.getTvShowCrewById(tvShowId);
       if (result.isEmpty) {
-        throw NoDataFound();
+        return Future.error(NoDataFound());
       }
       return result;
-    } on Failure {
-      rethrow;
+    } on Failure catch (e) {
+      return Future.error(e);
     } on Exception catch (exception, stacktrace) {
-      throw UnknownError(exception: exception, stackTrace: stacktrace, label: 'TvShowRepositoryImpl-getTvShowCrewById');
+      return Future.error(UnknownError(exception: exception, stackTrace: stacktrace, label: 'TvShowRepositoryImpl-getTvShowCrewById'));
     }
   }
 
@@ -84,13 +84,13 @@ class TvShowRepositoryImpl implements ITvShowRepository {
     try {
       var result = await datasource.getTvShowTrailerById(tvShowId);
       if (result.isEmpty) {
-        throw NoDataFound();
+        return Future.error(NoDataFound());
       }
       return result;
-    } on Failure {
-      rethrow;
+    } on Failure catch (e) {
+      return Future.error(e);
     } on Exception catch (exception, stacktrace) {
-      throw UnknownError(exception: exception, stackTrace: stacktrace, label: 'TvShowRepositoryImpl-getTvShowTrailerById');
+      return Future.error(UnknownError(exception: exception, stackTrace: stacktrace, label: 'TvShowRepositoryImpl-getTvShowTrailerById'));
     }
   }
 
@@ -99,13 +99,13 @@ class TvShowRepositoryImpl implements ITvShowRepository {
     try {
       var result = await datasource.getMovieCrew(tvShowId);
       if (result.isEmpty) {
-        throw NoDataFound();
+        return Future.error(NoDataFound());
       }
       return result;
-    } on Failure {
-      rethrow;
+    } on Failure catch (e) {
+      return Future.error(e);
     } on Exception catch (exception, stacktrace) {
-      throw UnknownError(exception: exception, stackTrace: stacktrace, label: 'TvShowRepositoryImpl-getTvShowCrewById');
+      return Future.error(UnknownError(exception: exception, stackTrace: stacktrace, label: 'TvShowRepositoryImpl-getTvShowCrewById'));
     }
   }
 
@@ -114,13 +114,13 @@ class TvShowRepositoryImpl implements ITvShowRepository {
     try {
       var result = await datasource.getMovieTrailerById(movieId);
       if (result.isEmpty) {
-        throw NoDataFound();
+        return Future.error(NoDataFound());
       }
       return result;
-    } on Failure {
-      rethrow;
+    } on Failure catch (e) {
+      return Future.error(e);
     } on Exception catch (exception, stacktrace) {
-      throw UnknownError(exception: exception, stackTrace: stacktrace, label: 'TvShowRepositoryImpl-getTvShowTrailerById');
+      return Future.error(UnknownError(exception: exception, stackTrace: stacktrace, label: 'TvShowRepositoryImpl-getTvShowTrailerById'));
     }
   }
 }

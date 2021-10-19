@@ -20,7 +20,7 @@ class _MoviePopularPageState extends State<MoviePopularPage> {
   @override
   void initState() {
     super.initState();
-    store.load();
+    //   store.load();
   }
 
   @override

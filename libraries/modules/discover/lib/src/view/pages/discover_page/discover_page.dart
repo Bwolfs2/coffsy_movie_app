@@ -30,6 +30,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
     return Scaffold(
       backgroundColor: ColorPalettes.black,
       floatingActionButton: FloatingActionButton(
+        tooltip: 'backAbout',
         onPressed: () => Navigator.pop(context),
         child: Icon(
           Icons.arrow_back,

@@ -9,7 +9,6 @@ class ShimmerBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.all(Sizes.dp10(context)),
       child: Shimmer.fromColors(
         baseColor: ColorPalettes.greyBg,
         highlightColor: ColorPalettes.white,
@@ -18,7 +17,10 @@ class ShimmerBanner extends StatelessWidget {
             Container(
               height: Sizes.width(context) / 2,
               width: Sizes.width(context),
-              color: ColorPalettes.greyBg,
+              decoration: BoxDecoration(
+                color: ColorPalettes.greyBg,
+                borderRadius: BorderRadius.circular(8),
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,

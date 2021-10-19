@@ -21,11 +21,11 @@ class _DashBoardPageState extends State<DashBoardPage> {
   }
 
   void onChangeRoute() {
-    if (Modular.to.localPath.contains('movie_module')) {
+    if (Modular.to.path.contains('movie_module')) {
       selectedPageValueNotifier.value = 0;
     }
 
-    if (Modular.to.localPath.contains('tv_show')) {
+    if (Modular.to.path.contains('tv_show')) {
       selectedPageValueNotifier.value = 1;
     }
   }
@@ -42,6 +42,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
       body: RouterOutlet(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
+        tooltip: 'floatActionButton',
         onPressed: () async {
           await Modular.to.pushNamed('/discover_movie', forRoot: true);
         },
@@ -66,6 +67,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   IconButton(
+                    tooltip: 'movie',
                     color: selectedPage == 0 ? ColorPalettes.darkAccent : ColorPalettes.grey,
                     icon: const Icon(Icons.movie_creation),
                     onPressed: () {
@@ -73,6 +75,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                     },
                   ),
                   IconButton(
+                    tooltip: 'tv_show',
                     color: selectedPage == 1 ? ColorPalettes.darkAccent : ColorPalettes.grey,
                     icon: const Icon(Icons.live_tv),
                     onPressed: () {

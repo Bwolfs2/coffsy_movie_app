@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -17,21 +17,21 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 version: 13.0.2+4
 
-environment:  
+environment:
   sdk: ">=2.12.0-0 <3.0.0"
 
-dependencies:  
+dependencies:
   flutter:
     sdk: flutter
   #Modules
   tv_show:
     path: libraries/modules/tv_show
   movie:
-    path: libraries/modules/movie   
+    path: libraries/modules/movie
   about:
-    path: libraries/modules/about       
+    path: libraries/modules/about
   discover:
-    path: libraries/modules/discover     
+    path: libraries/modules/discover
   #Core Modules
   core:
     path: libraries/core
@@ -42,11 +42,14 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  dartz: ^0.10.0
 
-
-dev_dependencies:  
-  mocktail: ^0.1.4 
-  triple_test: ^0.0.6
+dev_dependencies:
+  mocktail: ^0.1.1
+  modular_test: ^1.0.1+1
+  integration_test:
+    sdk: flutter
+  triple_test: ^0.0.8
   flutter_launcher_icons: ^0.9.0
   flutter_test:
     sdk: flutter

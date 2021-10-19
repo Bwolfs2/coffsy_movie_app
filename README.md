@@ -43,7 +43,7 @@ Commom libraries beetween MainApp, External and Internal Modules
   - lottie: ^1.0.1 
   - fluttertoast: ^8.0.7  
   - dartz: ^0.10.0-nullsafety.2  
-  - flutter_modular: ^3.4.0-dev.4
+  - flutter_modular: ^4.1.2
   - flutter_triple: ^1.2.4+3
   - animated_card: ^2.0.0
   

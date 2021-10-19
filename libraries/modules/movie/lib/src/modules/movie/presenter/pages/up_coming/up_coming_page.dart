@@ -19,7 +19,7 @@ class _UpComingPageState extends State<UpComingPage> {
   @override
   void initState() {
     super.initState();
-    store.load();
+    // store.load();
   }
 
   @override
