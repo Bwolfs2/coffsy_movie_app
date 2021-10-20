@@ -20,7 +20,7 @@ class _PopularWidgetState extends State<PopularWidget> {
   @override
   void initState() {
     super.initState();
-    // store.load();
+    store.load();
   }
 
   @override

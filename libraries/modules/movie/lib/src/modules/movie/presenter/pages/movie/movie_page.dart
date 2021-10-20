@@ -74,7 +74,7 @@ class _MoviePageState extends State<MoviePage> {
             Sizes.dp10(context),
           ),
           children: <Widget>[
-            MovieBanner(),
+            const MovieBanner(),
             SizedBox(
               height: Sizes.dp12(context),
             ),

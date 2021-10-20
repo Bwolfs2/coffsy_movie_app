@@ -20,7 +20,7 @@ class _UpComingWidgetState extends State<UpComingWidget> {
   @override
   void initState() {
     super.initState();
-    // store.load();
+    store.load();
   }
 
   @override
@@ -73,7 +73,11 @@ class _UpComingWidgetState extends State<UpComingWidget> {
                     shrinkWrap: true,
                     physics: const ClampingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
-                    itemCount: state.length > 5 ? 5 : state.length,
+                    itemCount: state == null
+                        ? 0
+                        : state.length > 5
+                            ? 5
+                            : state.length,
                     itemBuilder: (context, index) {
                       final movies = state[index];
                       return CardHome(
