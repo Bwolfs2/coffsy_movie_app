@@ -12,7 +12,7 @@ import 'package:movie/movie.dart';
 
 class AppModule extends Module {
   @override
-  List<Module> get imports => [DiscoverModule()];
+  List<Module> get imports => [DiscoverModule(), MovieModule()];
 
   @override
   final List<Bind> binds = [
@@ -25,15 +25,6 @@ class AppModule extends Module {
     //
     Bind.lazySingleton<SharedPrefHelper>((i) => SharedPrefHelper(preferences: i())),
     AsyncBind<SharedPreferences>((i) => SharedPreferences.getInstance()),
-
-    ///
-    Bind.singleton<MovieBannerStore>((i) => MovieBannerStore(i()), export: true),
-    Bind.singleton<IGetMovieNowPlaying>((i) => GetMovieNowPlaying(i()), export: true),
-
-    //Datasources
-    Bind.singleton<MovieDataSource>((i) => MovieDataSourceImpl(i(), i()), export: true),
-    //repositories
-    Bind.singleton<MoviesRepository>((i) => MoviesRepositoryImpl(i()), export: true),
   ];
 
   @override

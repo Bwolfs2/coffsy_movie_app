@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-void main() {  
+void main() {
   setUpAll(() {
     print('Registers a function to be run once before all tests.');
   });
@@ -21,7 +21,15 @@ void main() {
     test('Test One', () {
       print('Make a teste');
     });
+    test('Test Two', () {
+      print('Make a teste');
+    });
+  });
 
+  group('Module Movie Two', () {
+    test('Test One', () {
+      print('Make a teste');
+    });
     test('Test Two', () {
       print('Make a teste');
     });

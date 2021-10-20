@@ -54,6 +54,7 @@ class _PopularWidgetState extends State<PopularWidget> {
         width: Sizes.width(context),
         height: Sizes.width(context) / 1.8,
         child: ScopedBuilder<PopularStore, Failure, List<Movie>>.transition(
+          store: store,
           onError: (context, error) {
             if (error is MoviePopularNoInternetConnection) {
               return NoInternetWidget(

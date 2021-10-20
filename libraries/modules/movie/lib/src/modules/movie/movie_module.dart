@@ -1,5 +1,6 @@
 import 'package:booking/booking.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:movie/movie.dart';
 
 import 'domain/use_cases/get_movie_crew_by_id.dart';
 import 'domain/use_cases/get_movie_now_playing.dart';
@@ -25,25 +26,33 @@ import 'presenter/widgets/up_coming/up_coming_widget_store.dart';
 class MovieModule extends Module {
   @override
   final List<Bind> binds = [
-    Bind.singleton((i) => MoviePlayingStore(i()), export: true),
-    Bind.singleton((i) => MoviePopularStore(i()), export: true),
-    Bind.singleton((i) => UpComingWidgetStore(i()), export: true),
-    Bind.singleton((i) => MoviePlayingStore(i()), export: true),
-    Bind.singleton((i) => UpComingWidgetStore(i()), export: true),
-    Bind.singleton((i) => UpComingStore(i()), export: true),
-    Bind.singleton((i) => PopularStore(i()), export: true),
+    Bind.lazySingleton((i) => MoviePlayingStore(i()), export: true),
+    Bind.lazySingleton((i) => MoviePopularStore(i()), export: true),
+    Bind.lazySingleton((i) => UpComingWidgetStore(i()), export: true),
+    Bind.lazySingleton((i) => MoviePlayingStore(i()), export: true),
+    Bind.lazySingleton((i) => UpComingStore(i()), export: true),
+    Bind.lazySingleton((i) => PopularStore(i()), export: true),
 
-    Bind.singleton((i) => CrewStore(i(), i()), export: true),
-    Bind.singleton((i) => TrailerStore(i(), i()), export: true),
+    Bind.lazySingleton((i) => CrewStore(i(), i()), export: true),
+    Bind.lazySingleton((i) => TrailerStore(i(), i()), export: true),
 
     //useCases
 
-    Bind.singleton((i) => GetMoviePopular(i()), export: true),
-    Bind.singleton((i) => GetMovieUpComming(i()), export: true),
-    Bind.singleton((i) => GetMovieTrailerById(i()), export: true),
-    Bind.singleton((i) => GetTvShowTrailer(i()), export: true),
-    Bind.singleton((i) => GetTvShowCrewById(i()), export: true),
-    Bind.singleton((i) => GetMovieCrewById(i()), export: true),
+    Bind.lazySingleton((i) => GetMoviePopular(i()), export: true),
+    Bind.lazySingleton((i) => GetMovieUpComming(i()), export: true),
+    Bind.lazySingleton((i) => GetMovieTrailerById(i()), export: true),
+    Bind.lazySingleton((i) => GetTvShowTrailer(i()), export: true),
+    Bind.lazySingleton((i) => GetTvShowCrewById(i()), export: true),
+    Bind.lazySingleton((i) => GetMovieCrewById(i()), export: true),
+
+    ///
+    Bind.lazySingleton<MovieBannerStore>((i) => MovieBannerStore(i()), export: true),
+    Bind.lazySingleton<IGetMovieNowPlaying>((i) => GetMovieNowPlaying(i()), export: true),
+
+    //Datasources
+    Bind.lazySingleton<MovieDataSource>((i) => MovieDataSourceImpl(i(), i()), export: true),
+    //repositories
+    Bind.lazySingleton<MoviesRepository>((i) => MoviesRepositoryImpl(i()), export: true),
   ];
 
   @override

@@ -28,6 +28,7 @@ class _MovieBannerState extends State<MovieBanner> {
   @override
   Widget build(BuildContext context) {
     return ScopedBuilder<MovieBannerStore, Failure, List<Movie>>.transition(
+      store: store,
       onError: (context, error) {
         if (error is MovieNowPlayingNoInternetConnection) {
           return NoInternetWidget(
@@ -39,38 +40,44 @@ class _MovieBannerState extends State<MovieBanner> {
         return CustomErrorWidget(message: error?.errorMessage);
       },
       onLoading: (context) => const ShimmerBanner(),
-      onState: (context, state) => state.isEmpty
-          ? const SizedBox.shrink()
-          : StatefulBuilder(
-              builder: (context, setState) => BannerHome(
-                isFromMovie: true,
-                onPageChanged: (index, reason) {
-                  setState(() {
-                    _current = index;
-                  });
-                },
-                data: List.from(
-                  state.map(
-                    (e) => ScreenData(
-                      e.id,
-                      e.title,
-                      e.overview,
-                      e.releaseDate,
-                      e.genreIds,
-                      e.voteAverage,
-                      e.popularity,
-                      e.posterPath,
-                      e.backdropPath,
-                      e.tvName,
-                      e.tvRelease,
-                    ),
-                  ),
+      onState: (context, state) {
+        if (state.isEmpty) {
+          return const SizedBox.shrink(
+            key: ValueKey('NothingFound'),
+          );
+        }
+        return StatefulBuilder(
+          key: const ValueKey('NothingFound2'),
+          builder: (context, setState) => BannerHome(
+            isFromMovie: true,
+            onPageChanged: (index, reason) {
+              setState(() {
+                _current = index;
+              });
+            },
+            data: List.from(
+              state.map(
+                (e) => ScreenData(
+                  e.id,
+                  e.title,
+                  e.overview,
+                  e.releaseDate,
+                  e.genreIds,
+                  e.voteAverage,
+                  e.popularity,
+                  e.posterPath,
+                  e.backdropPath,
+                  e.tvName,
+                  e.tvRelease,
                 ),
-                currentIndex: _current,
-                routeNameDetail: './detail_movies',
-                routeNameAll: '/dashboard/movie_module/now_playing',
               ),
             ),
+            currentIndex: _current,
+            routeNameDetail: './detail_movies',
+            routeNameAll: '/dashboard/movie_module/now_playing',
+          ),
+        );
+      },
     );
   }
 }

@@ -51,6 +51,7 @@ class _CrewWidgetState extends State<CrewWidget> {
           width: Sizes.width(context),
           height: Sizes.width(context) / 3,
           child: ScopedBuilder<CrewStore, Failure, List<Crew>>.transition(
+            store: store,
             onError: (context, error) => error is CrewNoInternetConnection
                 ? NoInternetWidget(
                     message: AppConstant.noInternetConnection,

@@ -56,6 +56,7 @@ class _UpComingWidgetState extends State<UpComingWidget> {
           width: Sizes.width(context),
           height: Sizes.width(context) / 1.8,
           child: ScopedBuilder<UpComingWidgetStore, Failure, List<Movie>>.transition(
+            store: store,
             onError: (context, error) {
               if (error is MovieNowPlayingNoInternetConnection) {
                 return NoInternetWidget(
@@ -73,13 +74,10 @@ class _UpComingWidgetState extends State<UpComingWidget> {
                     shrinkWrap: true,
                     physics: const ClampingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
-                    itemCount: state == null
-                        ? 0
-                        : state.length > 5
-                            ? 5
-                            : state.length,
+                    itemCount: state.length > 5 ? 5 : state.length,
                     itemBuilder: (context, index) {
                       final movies = state[index];
+
                       return CardHome(
                         image: movies.posterPath,
                         title: movies.title,

@@ -3,41 +3,65 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 
 void main() {
-  IntegrationTestWidgetsFlutterBinding.ensureInitialized(); // NEW
-
+  IntegrationTestWidgetsFlutterBinding.ensureInitialized();
   group('Widget Test', () {
-    testWidgets('should navigate between tabs', (tester) async {
+    testWidgets('tap on the floating action button, and tab BackButton', (tester) async {
       app.main();
+
       await tester.pumpAndSettle();
 
-      // Verify the counter starts at 0.
       final title = find.text('Movies');
+
       expect(title, findsOneWidget);
 
-      // Finds the floating action button to tap on.
-      final tabAction = find.byTooltip('tv_show');
-      expect(tabAction, findsOneWidget);
+      final fab = find.byTooltip('floatActionButton');
 
-      await tester.tap(tabAction);
+      expect(fab, findsOneWidget);
 
-      // Trigger a frame.
+      await tester.tap(fab);
+
       await tester.pumpAndSettle();
 
-      // Verify the counter starts at 0.
-      final titleTvShow = find.text('Tv Show');
-      expect(titleTvShow, findsOneWidget);
+      final backAbout = find.byTooltip('backAbout');
 
-      // Finds the floating action button to tap on.
-      final tabActionMovie = find.byTooltip('movie');
-      expect(tabActionMovie, findsOneWidget);
+      expect(backAbout, findsOneWidget);
 
-      await tester.tap(tabActionMovie);
+      await tester.tap(backAbout);
 
-      // Trigger a frame.
       await tester.pumpAndSettle();
 
-      // Verify the counter starts at 0.
       final titleNew = find.text('Movies');
+
+      expect(titleNew, findsOneWidget);
+    });
+
+    testWidgets('tap on the floating action button, and tab BackButton2', (tester) async {
+      app.main();
+
+      await tester.pumpAndSettle();
+
+      final title = find.text('Movies');
+
+      expect(title, findsOneWidget);
+
+      final fab = find.byTooltip('floatActionButton');
+
+      expect(fab, findsOneWidget);
+
+      await tester.tap(fab);
+
+      await tester.pumpAndSettle();
+
+      final backAbout = find.byTooltip('backAbout');
+
+      expect(backAbout, findsOneWidget);
+
+      await tester.tap(backAbout);
+
+      await tester.pumpAndSettle();
+
+      final titleNew = find.text('Movies');
+
       expect(titleNew, findsOneWidget);
     });
   });

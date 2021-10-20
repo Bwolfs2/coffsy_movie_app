@@ -33,6 +33,7 @@ class _UpComingPageState extends State<UpComingPage> {
         onRefresh: store.load,
         showChildOpacityTransition: false,
         child: ScopedBuilder<UpComingStore, Failure, List<Movie>>.transition(
+          store: store,
           onError: (context, error) {
             if (error is NoDataFound) {
               return const Center(child: Text('No Up Comming Movies Found'));
