@@ -1,37 +1,54 @@
+import 'package:core/core.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
+import 'package:movie/movie.dart';
+import 'package:movie/src/modules/movie/domain/entities/movie.dart';
+
+class MockDio extends Mock implements Dio {}
 
 void main() {
+  late Dio dioInstance;
+  late MovieDataSource movieDataSource;
+
   setUpAll(() {
-    print('Registers a function to be run once before all tests.');
+    dioInstance = MockDio();
+    movieDataSource = MovieDataSourceImpl(dioInstance, ApiConfigurations());
+    registerFallbackValue(RequestOptions(path: ''));
   });
 
-  setUp(() {
-    print('Registers a function to be run before tests.');
-  });
+  group('Movie DataSource - getMovieNowPlaying', () {
+    test('Should return a list of Movies', () async {
+      when(
+        () => dioInstance.get(
+          any(),
+          queryParameters: any(named: 'queryParameters'),
+        ),
+      ).thenAnswer(
+        (invocation) async => Response(
+          data: {
+            'results': [
+              {
+                'id': 1,
+                'name': 'filme x',
+                'overview': 'overvvvuhuh',
+                'genre_ids': [1],
+                'vote_average': 0,
+                'popularity': 1,
+                'backdrop_path': 'backdrop_path',
+                'tv_name': 'tv_name',
+                'tv_release': 'tv_release',
+              }
+            ]
+          },
+          requestOptions: RequestOptions(path: ''),
+        ),
+      );
 
-  tearDown(() {
-    print('Registers a function to be run after tests.');
-  });
+      var result = await movieDataSource.getMovieNowPlaying();
 
-  tearDownAll(() {
-    print('Registers a function to be run once after all tests.');
-  });
-
-  group('Module Movie', () {
-    test('Test One', () {
-      print('Make a teste');
-    });
-    test('Test Two', () {
-      print('Make a teste');
-    });
-  });
-
-  group('Module Movie Two', () {
-    test('Test One', () {
-      print('Make a teste');
-    });
-    test('Test Two', () {
-      print('Make a teste');
+      expect(result, isA<List<Movie>>());
+      expect(result.length, 1);
     });
   });
 }

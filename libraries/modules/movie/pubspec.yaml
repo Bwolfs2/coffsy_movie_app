@@ -15,6 +15,7 @@ dependencies:
     path: ../../core
   booking:
     path: ../booking
+  mocktail: ^0.2.0
 
 dev_dependencies:
   mocktail: ^0.1.1

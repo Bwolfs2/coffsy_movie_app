@@ -555,12 +555,12 @@ packages:
     source: hosted
     version: "1.0.1"
   mocktail:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: mocktail
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.4"
+    version: "0.2.0"
   modular_core:
     dependency: transitive
     description:
@@ -575,13 +575,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
-  modular_test:
-    dependency: "direct dev"
-    description:
-      name: modular_test
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.1+1"
   node_preamble:
     dependency: transitive
     description:
