@@ -4,6 +4,7 @@ import 'package:integration_test/integration_test.dart';
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
+
   group('Widget Test', () {
     testWidgets('tap on the floating action button, and tab BackButton', (tester) async {
       app.main();

@@ -49,11 +49,11 @@ void main() {
         ]);
       });
 
-      // await tester.pumpWidget(
-      //     const MaterialApp(
-      //       home: MovieBanner(),
-      //     ),
-      //     const Duration(milliseconds: 400));
+      //await tester.pumpWidget(
+      //    const MaterialApp(
+      //      home: MovieBanner(),
+      //    ),
+      //    const Duration(milliseconds: 400));
 
       await tester.pumpFrames(
           const MaterialApp(
@@ -63,7 +63,8 @@ void main() {
 
       //Por causa do Timer dentro da Store
 
-      //await tester.pumpAndSettle(const Duration(seconds: 5));
+      // var a = await tester.pumpAndSettle(const Duration(milliseconds: 400));
+      // print(a);
       // print(DateTime.now());
       // await tester.runAsync(() => Future.delayed(Duration(seconds: 1)));
       // print(DateTime.now());

@@ -25,6 +25,7 @@ class BannerHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var result = data.length > 10 ? 10 : data.length;
+
     return Column(
       children: <Widget>[
         // Banner
