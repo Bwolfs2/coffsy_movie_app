@@ -4,7 +4,6 @@ class SharedPrefHelper {
   final SharedPreferences preferences;
   SharedPrefHelper({required this.preferences});
 
-
   Future<bool> storeCacheList(String key, List<String> listJson) async {
     return preferences.setStringList(key, listJson);
   }
