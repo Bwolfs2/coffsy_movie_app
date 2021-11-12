@@ -28,10 +28,11 @@ void main() {
   });
   group('Module Movie', () {
     testWidgets('banner widget', (tester) async {
+      //Arrange
       when(() => mockGetMovieNowPlaying.call()).thenAnswer((_) async {
         return right(<Movie>[]);
       });
-
+      //act
       await tester.pumpWidget(const MaterialApp(
         home: MovieBanner(),
       ));
@@ -39,6 +40,8 @@ void main() {
       //Por causa do Timer dentro da Store
       await tester.pump(const Duration(milliseconds: 50));
       var widget = find.byKey(ValueKey('NothingFound'));
+
+      //Assert
       expect(widget, findsOneWidget);
     });
 

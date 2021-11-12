@@ -21,7 +21,7 @@ void main() {
           home: Center(
             child: CustomButton(
               onPressed: () {},
-              text: 'Custom Button Test',
+              text: 'Custom Button Test 3',
             ),
           ),
         ),
@@ -45,7 +45,7 @@ void main() {
           home: Center(
             child: CustomButton(
               onPressed: () {},
-              text: 'Custom Button Test',
+              text: 'Custom Button Test New',
             ),
           ),
         ),

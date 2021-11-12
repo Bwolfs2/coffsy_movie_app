@@ -8,7 +8,7 @@ class CoffsyAnalytics {
 
   Future<void> logEvent(String name, Map<String, dynamic> parameters) async {
     await _analytics.logEvent(name: name, parameters: parameters);
-  }
+  } 
 
   Future<void> setUserId(String userId) async {
     await _analytics.setUserId(userId);
