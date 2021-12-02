@@ -8,6 +8,9 @@ on:
     tags:
       - "*"
 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "releases"
@@ -28,11 +31,11 @@ jobs:
 
       - uses: actions/setup-java@v1
         with:
-          java-version: $JAVA_VERSION
+          java-version: ${{ env.JAVA_VERSION }}
 
       - uses: subosito/flutter-action@v1
         with:
-          flutter-version: $FLUTTER_VERSION
+          flutter-version: ${{ env.FLUTTER_VERSION }}
 
       - run: flutter pub get
 
@@ -45,4 +48,3 @@ jobs:
       - uses: ncipollo/release-action@v1
         with:
           artifacts: "build/app/outputs/apk/release/*.apk"
-          token: $
