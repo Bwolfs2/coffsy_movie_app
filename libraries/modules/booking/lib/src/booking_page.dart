@@ -11,7 +11,7 @@ class BookingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var themeData = Theme.of(context);
-    var _isDarkTheme = themeData.appBarTheme.color == null;
+    var _isDarkTheme = themeData.appBarTheme.backgroundColor == null;
 
     return Scaffold(
       backgroundColor: !_isDarkTheme ? ColorPalettes.darkPrimary : ColorPalettes.white,
