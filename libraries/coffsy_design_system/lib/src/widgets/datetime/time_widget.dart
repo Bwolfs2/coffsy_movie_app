@@ -107,7 +107,7 @@ class _TimeItemWidgetState extends State<TimeItemWidget> {
 
   @override
   Widget build(BuildContext context) {
-    _isDarkTheme = Theme.of(context).appBarTheme.color == null;
+    _isDarkTheme = Theme.of(context).appBarTheme.backgroundColor == null;
     return Container(
       margin: EdgeInsets.symmetric(horizontal: Sizes.dp12(context)),
       padding: EdgeInsets.symmetric(horizontal: Sizes.dp16(context)),

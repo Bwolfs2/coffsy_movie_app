@@ -1,17 +1,14 @@
 import 'package:booking/booking.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:movie/movie.dart';
 
+import '../../../movie.dart';
 import 'domain/use_cases/get_movie_crew_by_id.dart';
-import 'domain/use_cases/get_movie_now_playing.dart';
 import 'domain/use_cases/get_movie_popular.dart';
 import 'domain/use_cases/get_movie_trailer_by_id.dart';
 import 'domain/use_cases/get_movie_up_coming.dart';
 import 'domain/use_cases/get_tv_show_crew_by_id.dart';
 import 'domain/use_cases/get_tv_show_trailer_by_id.dart';
-
 import 'presenter/pages/detail/detail_page.dart';
-import 'presenter/pages/movie/movie_page.dart';
 import 'presenter/pages/now_playing/now_playing_page.dart';
 import 'presenter/pages/now_playing/now_playing_store.dart';
 import 'presenter/pages/popular/movie_popular_page.dart';

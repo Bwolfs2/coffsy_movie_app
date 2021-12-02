@@ -47,7 +47,7 @@ class _CardTrailerState extends State<CardTrailer> with WidgetsBindingObserver {
 
   @override
   void didChangeMetrics() {
-    SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
     widget.onExitFullScreen();
     super.didChangeMetrics();
   }

@@ -23,7 +23,7 @@ void main() {
       when(
         () => dioInstance.get(any(), queryParameters: any(named: 'queryParameters')),
       ).thenAnswer(
-        (invocation) async => Response(data: responseJson, requestOptions: RequestOptions(path: '')),
+        (invocation) async => Response(data: _responseJson, requestOptions: RequestOptions(path: '')),
       );
 
       //Act - Ação
@@ -36,7 +36,7 @@ void main() {
   });
 }
 
-var responseJson = {
+var _responseJson = {
   'results': [
     {
       'id': 1,

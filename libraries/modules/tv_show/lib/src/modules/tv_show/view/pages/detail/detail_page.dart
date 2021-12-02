@@ -124,7 +124,7 @@ class _DetailPageState extends State<DetailPage> {
                 color: Colors.white.withOpacity(.3),
                 borderRadius: BorderRadius.circular(100),
                 child: IconButton(
-                  color: Theme.of(context).accentColor,
+                  color: Theme.of(context).colorScheme.secondary,
                   icon: Platform.isAndroid ? const Icon(Icons.arrow_back) : const Icon(Icons.arrow_back_ios),
                   onPressed: () => Modular.to.pop(),
                 ),

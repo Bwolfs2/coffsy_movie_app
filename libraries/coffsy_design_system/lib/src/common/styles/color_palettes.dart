@@ -28,7 +28,9 @@ class ColorPalettes {
     var r = ColorPalettes.red;
     if (s > 4.5 && s < 7) {
       r = ColorPalettes.yellow;
-    } else if (s >= 7) r = ColorPalettes.green;
+    } else if (s >= 7) {
+      r = ColorPalettes.green;
+    }
     return r;
   }
 }

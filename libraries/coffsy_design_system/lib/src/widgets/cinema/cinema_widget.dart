@@ -110,7 +110,7 @@ class _ChairListState extends State<ChairList> {
 
   @override
   Widget build(BuildContext context) {
-    _isDarkTheme = Theme.of(context).appBarTheme.color == null;
+    _isDarkTheme = Theme.of(context).appBarTheme.backgroundColor == null;
     return Column(
       children: <Widget>[
         for (int i = 0; i < 6; i++)

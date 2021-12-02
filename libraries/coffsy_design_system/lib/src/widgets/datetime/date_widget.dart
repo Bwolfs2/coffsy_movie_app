@@ -69,7 +69,7 @@ class _DateWidgetState extends State<DateWidget> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     var themeData = Theme.of(context);
-    _isDarkTheme = themeData.appBarTheme.color == null;
+    _isDarkTheme = themeData.appBarTheme.backgroundColor == null;
     return Container(
       height: Sizes.width(context) / 3.5,
       child: Stack(

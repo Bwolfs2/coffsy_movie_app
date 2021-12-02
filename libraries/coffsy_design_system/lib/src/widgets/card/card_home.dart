@@ -13,7 +13,7 @@ class CardHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
-    var isDarkTheme = theme.appBarTheme.color == null;
+    var isDarkTheme = theme.appBarTheme.backgroundColor == null;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 5),
       width: Sizes.width(context) / 2.5,

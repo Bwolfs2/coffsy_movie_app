@@ -39,7 +39,7 @@ void main() {
 
       //Por causa do Timer dentro da Store
       await tester.pump(const Duration(milliseconds: 50));
-      var widget = find.byKey(ValueKey('NothingFound'));
+      var widget = find.byKey(const ValueKey('NothingFound'));
 
       //Assert
       expect(widget, findsOneWidget);

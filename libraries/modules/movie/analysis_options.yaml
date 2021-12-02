@@ -7,3 +7,4 @@ linter:
     avoid_print: true
     one_member_abstracts: false
     prefer_const_constructors: true
+    avoid_classes_with_only_static_members: false

@@ -1,5 +1,6 @@
 import '../../domain/entities/trailer.dart';
 
+// ignore: avoid_classes_with_only_static_members
 class TrailerMapper {
   static List<Trailer> fromMapList(Map<String, dynamic> map) => List<Trailer>.from(
         (map['results'] as List).map(TrailerMapper.fromMap),

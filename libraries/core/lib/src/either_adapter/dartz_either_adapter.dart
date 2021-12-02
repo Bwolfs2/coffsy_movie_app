@@ -1,5 +1,5 @@
-import 'package:flutter_triple/flutter_triple.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter_triple/flutter_triple.dart';
 
 class DartzEitherAdapter<L, R> implements EitherAdapter<L, R> {
   // receive an usecase in constructor

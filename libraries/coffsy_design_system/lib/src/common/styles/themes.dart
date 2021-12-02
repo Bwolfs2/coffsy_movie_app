@@ -13,12 +13,10 @@ class Themes {
     dividerColor: ColorPalettes.darkBG,
     scaffoldBackgroundColor: ColorPalettes.lightBG,
     appBarTheme: AppBarTheme(
-      textTheme: TextTheme(
-        headline6: TextStyle(
-          color: ColorPalettes.darkBG,
-          fontSize: 18.0,
-          fontWeight: FontWeight.bold,
-        ),
+      toolbarTextStyle: TextStyle(
+        color: ColorPalettes.darkBG,
+        fontSize: 18.0,
+        fontWeight: FontWeight.bold,
       ),
     ),
   );
@@ -35,12 +33,10 @@ class Themes {
     ),
     appBarTheme: AppBarTheme(
       color: ColorPalettes.darkPrimary,
-      textTheme: TextTheme(
-        headline6: TextStyle(
-          color: ColorPalettes.lightBG,
-          fontSize: 18.0,
-          fontWeight: FontWeight.w700,
-        ),
+      toolbarTextStyle: TextStyle(
+        color: ColorPalettes.lightBG,
+        fontSize: 18.0,
+        fontWeight: FontWeight.w700,
       ),
     ),
   );

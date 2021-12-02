@@ -1,14 +1,14 @@
 import 'package:about/about.dart';
 import 'package:core/core.dart';
+import 'package:dio/dio.dart';
 import 'package:discover/discover.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:movie/movie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:dio/dio.dart';
+
 import 'modules/dashboard/dashboard_module.dart';
 import 'modules/setting/setting_module.dart';
 import 'modules/splash/splash_module.dart';
-
-import 'package:movie/movie.dart';
 
 class AppModule extends Module {
   @override

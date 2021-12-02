@@ -33,7 +33,7 @@ class DiscoverModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute('/', child: (_, args) => DiscoverPage()),
+    ChildRoute('/', child: (_, args) => const DiscoverPage()),
     ChildRoute('/detail_movies', child: (_, args) => DetailPage(arguments: args.data)),
     ModuleRoute('/booking', module: BookingModule()),
   ];
