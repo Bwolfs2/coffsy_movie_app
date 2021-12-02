@@ -32,11 +32,11 @@ jobs:
 
       - uses: actions/setup-java@v1
         with:
-          java-version: $JAVA_VERSION
+          java-version: ${{ env.JAVA_VERSION }}
 
       - uses: subosito/flutter-action@v1
         with:
-          flutter-version: $FLUTTER_VERSION
+          flutter-version: ${{ env.FLUTTER_VERSION }}
 
       - run: flutter pub get
 
