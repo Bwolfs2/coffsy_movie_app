@@ -1,3 +1,4 @@
+import 'package:coffsy_design_system/coffsy_design_system.dart';
 import 'package:dartz/dartz.dart' hide Bind;
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -8,7 +9,6 @@ import 'package:movie/movie.dart';
 import 'package:movie/src/modules/movie/domain/entities/movie.dart';
 import 'package:movie/src/modules/movie/domain/errors/movie_failures.dart';
 import 'package:movie/src/modules/movie/presenter/widgets/movie_banner/movie_banner.dart';
-import 'package:coffsy_design_system/coffsy_design_system.dart';
 
 class MockGetMovieNowPlaying extends Mock implements IGetMovieNowPlaying {}
 
