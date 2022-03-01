@@ -3,7 +3,6 @@ import 'dart:isolate';
 
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 
 class CrashalytcsService {
   static Future<void> initializeFlutterFire() async {

@@ -36,13 +36,15 @@ class _AppWidgetState extends State<AppWidget> {
       onLoading: (context) => const Center(
         child: CircularProgressIndicator.adaptive(),
       ),
-      onState: (context, state) => MaterialApp(
-        title: 'Coffsy Movie App',
-        theme: state ? Themes.darkTheme : Themes.lightTheme,
-        navigatorObservers: [
-          FirebaseAnalyticsObserver(analytics: FirebaseAnalytics()),
-        ],
-      ).modular(),
+      onState: (context, state) {
+        return MaterialApp(
+          title: 'Coffsy Movie App',
+          theme: state ? Themes.darkTheme : Themes.lightTheme,
+          navigatorObservers: [
+            FirebaseAnalyticsObserver(analytics: FirebaseAnalytics()),
+          ],
+        ).modular();
+      },
     );
   }
 }

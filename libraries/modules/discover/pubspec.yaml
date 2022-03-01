@@ -6,7 +6,6 @@ publish_to: none
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
-  flutter: ">=1.17.0"
 
 dependencies:
   dependencies:
@@ -14,7 +13,7 @@ dependencies:
   core:
     path: ../../core
   booking:
-    path: ../booking  
+    path: ../booking
 
   flutter:
     sdk: flutter

@@ -9,5 +9,13 @@
             "request": "launch",
             "type": "dart",
         },
+
+        {
+            "name": "PROFILE - coffsy_movie_app",
+            "request": "launch",
+            "type": "dart",
+            "args": ["--profile", "--cache-sksl"]
+        },
+        
     ]
 }
