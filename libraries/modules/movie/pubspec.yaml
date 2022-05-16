@@ -4,7 +4,7 @@ version: 0.0.1
 publish_to: none
 
 environment:
-  sdk: ">=2.12.0-0 <3.0.0"
+  sdk: ">=2.15.0 <4.0.0"
 
 dependencies:
   flutter:
@@ -20,7 +20,7 @@ dev_dependencies:
   mocktail: ^0.1.1
   network_image_mock: ^2.0.1
   golden_toolkit: ^0.11.0
-  modular_test: ^1.0.1+1
+  modular_test: ^2.0.0
   triple_test: ^0.0.8
   integration_test:
     sdk: flutter

@@ -13,6 +13,6 @@ class DartzEitherAdapter<L, R> implements EitherAdapter<L, R> {
 
   // Adapter Future Either(Dartz) to Future EitherAdapter(Triple)
   static Future<EitherAdapter<L, R>> adapter<L, R>(Future<Either<L, R>> usecase) {
-    return usecase.then((value) => DartzEitherAdapter(value));
+    return usecase.then(DartzEitherAdapter.new);
   }
 }

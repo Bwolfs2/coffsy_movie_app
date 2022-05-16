@@ -27,23 +27,30 @@ class _AppWidgetState extends State<AppWidget> {
         // ignore: avoid_catches_without_on_clauses
       } catch (e) {}
     });
+    setTripleResolver(tripleResolverCallback);
+  }
+
+  T tripleResolverCallback<T extends Object>() {
+    return Modular.get<T>();
   }
 
   @override
   Widget build(BuildContext context) {
+    Modular.setObservers([
+      FirebaseAnalyticsObserver(analytics: FirebaseAnalytics()),
+    ]);
     return ScopedBuilder<SettingStore, Failure, bool>.transition(
       store: SettingStore(),
       onLoading: (context) => const Center(
         child: CircularProgressIndicator.adaptive(),
       ),
       onState: (context, state) {
-        return MaterialApp(
+        return MaterialApp.router(
           title: 'Coffsy Movie App',
           theme: state ? Themes.darkTheme : Themes.lightTheme,
-          navigatorObservers: [
-            FirebaseAnalyticsObserver(analytics: FirebaseAnalytics()),
-          ],
-        ).modular();
+          routerDelegate: Modular.routerDelegate,
+          routeInformationParser: Modular.routeInformationParser,
+        );
       },
     );
   }

@@ -18,7 +18,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 13.0.2+4
 
 environment:
-  sdk: ">=2.15.0-0 <3.0.0"
+  sdk: ">=2.15.0 <4.0.0"
 
 dependencies:
   flutter:
@@ -46,7 +46,7 @@ dependencies:
 
 dev_dependencies:
   mocktail: ^0.1.1
-  modular_test: ^1.0.1+1
+  modular_test: ^2.0.0
   integration_test:
     sdk: flutter
   triple_test: ^0.0.8
