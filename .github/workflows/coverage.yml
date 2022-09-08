@@ -27,6 +27,6 @@ jobs:
       working-directory: flutter_modular
       
     - name: Codecov GitHub Action
-      uses: codecov/codecov-action@v2.0.3
+      uses: codecov/codecov-action@v3
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
