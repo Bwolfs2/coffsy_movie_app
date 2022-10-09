@@ -5,6 +5,6 @@ import 'about_page.dart';
 class AboutModule extends Module {
   @override
   final List<ModularRoute> routes = [
-    ChildRoute('/', child: (_, args) => AboutPage()),
+    ChildRoute('/', child: (_, args) => const AboutPage()),
   ];
 }

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 
 import '../crashalytics/crashalytics_services.dart';
 
-abstract class Failure {
+abstract class Failure implements Exception {
   final String errorMessage;
 
   Failure({
@@ -19,16 +19,15 @@ abstract class Failure {
 }
 
 class UnknownError extends Failure {
-  final String errorMessage;
   final dynamic exception;
   final StackTrace? stackTrace;
   final String? label;
 
   UnknownError({
-    this.errorMessage = 'Unknown Error',
     this.label,
     this.exception,
     this.stackTrace,
+    super.errorMessage = 'Unknown Error',
   }) : super(
           stackTrace: stackTrace,
           label: label,

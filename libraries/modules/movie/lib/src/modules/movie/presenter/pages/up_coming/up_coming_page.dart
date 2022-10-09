@@ -10,8 +10,10 @@ import '../../../domain/errors/movie_failures.dart';
 import 'up_coming_store.dart';
 
 class UpComingPage extends StatefulWidget {
+  const UpComingPage({super.key});
+
   @override
-  _UpComingPageState createState() => _UpComingPageState();
+  State<UpComingPage> createState() => _UpComingPageState();
 }
 
 class _UpComingPageState extends State<UpComingPage> {
@@ -42,7 +44,7 @@ class _UpComingPageState extends State<UpComingPage> {
               return Center(
                 child: NoInternetWidget(
                   message: AppConstant.noInternetConnection,
-                  onPressed: () async => await store.load(),
+                  onPressed: store.load,
                 ),
               );
             }
@@ -78,7 +80,6 @@ class _UpComingPageState extends State<UpComingPage> {
                         movies.tvRelease,
                       ),
                       isFromMovie: true,
-                      isFromBanner: false,
                     ),
                     forRoot: true,
                   );

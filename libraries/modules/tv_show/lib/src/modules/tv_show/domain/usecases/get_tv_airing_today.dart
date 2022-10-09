@@ -7,6 +7,6 @@ class GetTvAiringToday {
   GetTvAiringToday(this.repository);
 
   Future<List<TvShow>> call() async {
-    return await repository.getTvAiringToday();
+    return repository.getTvAiringToday();
   }
 }

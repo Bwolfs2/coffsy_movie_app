@@ -16,7 +16,7 @@ class TvShowRepositoryImpl implements ITvShowRepository {
   @override
   Future<List<TvShow>> getTvAiringToday() async {
     try {
-      var result = await datasource.getTvAiringToday();
+      final result = await datasource.getTvAiringToday();
 
       if (result.isEmpty) {
         return Future.error(NoDataFound());
@@ -33,7 +33,7 @@ class TvShowRepositoryImpl implements ITvShowRepository {
   @override
   Future<List<TvPopularShow>> getTvPopularShow() async {
     try {
-      var result = await datasource.getTvPopularShow();
+      final result = await datasource.getTvPopularShow();
 
       if (result.isEmpty) {
         return Future.error(NoDataFound());
@@ -50,7 +50,7 @@ class TvShowRepositoryImpl implements ITvShowRepository {
   @override
   Future<List<OnTheAir>> getOnTheAir() async {
     try {
-      var result = await datasource.getTvOnTheAir();
+      final result = await datasource.getTvOnTheAir();
 
       if (result.isEmpty) {
         return Future.error(NoDataFound());
@@ -67,7 +67,7 @@ class TvShowRepositoryImpl implements ITvShowRepository {
   @override
   Future<List<Crew>> getTvShowCrewById(int tvShowId) async {
     try {
-      var result = await datasource.getTvShowCrewById(tvShowId);
+      final result = await datasource.getTvShowCrewById(tvShowId);
       if (result.isEmpty) {
         return Future.error(NoDataFound());
       }
@@ -82,7 +82,7 @@ class TvShowRepositoryImpl implements ITvShowRepository {
   @override
   Future<List<Trailer>> getTvShowTrailerById(int tvShowId) async {
     try {
-      var result = await datasource.getTvShowTrailerById(tvShowId);
+      final result = await datasource.getTvShowTrailerById(tvShowId);
       if (result.isEmpty) {
         return Future.error(NoDataFound());
       }
@@ -97,7 +97,7 @@ class TvShowRepositoryImpl implements ITvShowRepository {
   @override
   Future<List<Crew>> getMovieCrew(int tvShowId) async {
     try {
-      var result = await datasource.getMovieCrew(tvShowId);
+      final result = await datasource.getMovieCrew(tvShowId);
       if (result.isEmpty) {
         return Future.error(NoDataFound());
       }
@@ -112,7 +112,7 @@ class TvShowRepositoryImpl implements ITvShowRepository {
   @override
   Future<List<Trailer>> getMovieTrailerById(int movieId) async {
     try {
-      var result = await datasource.getMovieTrailerById(movieId);
+      final result = await datasource.getMovieTrailerById(movieId);
       if (result.isEmpty) {
         return Future.error(NoDataFound());
       }

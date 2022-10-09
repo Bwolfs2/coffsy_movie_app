@@ -9,8 +9,8 @@ class RatingInformation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var theme = Theme.of(context);
-    var numericRating = Column(
+    final theme = Theme.of(context);
+    final numericRating = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -29,7 +29,7 @@ class RatingInformation extends StatelessWidget {
       ],
     );
 
-    var starRating = Column(
+    final starRating = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -62,7 +62,7 @@ class RatingBar extends StatefulWidget {
   const RatingBar(this.theme, this._context, this.rating, {Key? key}) : super(key: key);
 
   @override
-  _RatingBarState createState() => _RatingBarState();
+  State<RatingBar> createState() => _RatingBarState();
 }
 
 class _RatingBarState extends State<RatingBar> {
@@ -70,8 +70,8 @@ class _RatingBarState extends State<RatingBar> {
 
   void calculateStars() {
     for (var i = 1; i <= 5; i++) {
-      var color = i <= widget.rating / 2 ? widget.theme.colorScheme.secondary : ColorPalettes.grey;
-      var star = Icon(
+      final color = i <= widget.rating / 2 ? widget.theme.colorScheme.secondary : ColorPalettes.grey;
+      final star = Icon(
         Icons.star,
         color: color,
         size: Sizes.dp18(widget._context),

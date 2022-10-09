@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import '../../../coffsy_design_system.dart';
 
 class TimeWidget extends StatefulWidget {
+  const TimeWidget({Key? key}) : super(key: key);
+
   @override
-  _TimeWidgetState createState() => _TimeWidgetState();
+  State<TimeWidget> createState() => _TimeWidgetState();
 }
 
 class _TimeWidgetState extends State<TimeWidget> with TickerProviderStateMixin {
@@ -60,7 +62,7 @@ class _TimeWidgetState extends State<TimeWidget> with TickerProviderStateMixin {
               child: TimeItemWidget(
                 _time[index][0] as String,
                 _time[index][1] as int,
-                active: index == _timeIndexSelected ? true : false,
+                active: index == _timeIndexSelected,
               ),
             ),
           );
@@ -83,7 +85,7 @@ class TimeItemWidget extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _TimeItemWidgetState createState() => _TimeItemWidgetState();
+  State<TimeItemWidget> createState() => _TimeItemWidgetState();
 }
 
 class _TimeItemWidgetState extends State<TimeItemWidget> {
@@ -112,11 +114,10 @@ class _TimeItemWidgetState extends State<TimeItemWidget> {
       margin: EdgeInsets.symmetric(horizontal: Sizes.dp12(context)),
       padding: EdgeInsets.symmetric(horizontal: Sizes.dp16(context)),
       decoration: BoxDecoration(
-        border: Border.all(color: _textTimeColor(widget.active), width: 1),
+        border: Border.all(color: _textTimeColor(widget.active)),
         borderRadius: BorderRadius.circular(Sizes.dp12(context)),
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           RichText(

@@ -7,6 +7,6 @@ class GetOnTheAir {
   GetOnTheAir(this.repository);
 
   Future<List<OnTheAir>> call() async {
-    return await repository.getOnTheAir();
+    return repository.getOnTheAir();
   }
 }

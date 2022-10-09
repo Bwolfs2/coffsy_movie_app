@@ -25,7 +25,7 @@ class ErrorReport {
     StackTrace stackTrace,
     String tag,
   ) async {
-    if (!(Platform.environment.containsKey('FLUTTER_TEST')) && exception != null) {
+    if (!Platform.environment.containsKey('FLUTTER_TEST') && exception != null) {
       debugPrintStack(label: tag, stackTrace: stackTrace);
 
       await FirebaseCrashlytics.instance.setCustomKey(tag, exception.toString());
@@ -45,7 +45,7 @@ class ErrorReport {
       final List<dynamic> errorAndStacktrace = pair;
       final exception = errorAndStacktrace[0];
       final stackTrace = errorAndStacktrace[1];
-      _report(exception, stackTrace, 'ISOLATE');
+      await _report(exception, stackTrace, 'ISOLATE');
     }).sendPort;
   }
 }

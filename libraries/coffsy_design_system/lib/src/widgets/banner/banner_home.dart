@@ -24,21 +24,20 @@ class BannerHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var result = data.length > 10 ? 10 : data.length;
+    final result = data.length > 10 ? 10 : data.length;
 
     return Column(
       children: <Widget>[
         // Banner
-        Container(
+        SizedBox(
           height: Sizes.width(context) / 2,
           child: CarouselSlider(
             options: CarouselOptions(
               enlargeCenterPage: true,
               autoPlay: true,
-              autoPlayCurve: Curves.fastOutSlowIn,
               autoPlayAnimationDuration: const Duration(milliseconds: 1000),
-              viewportFraction: 1.0,
-              aspectRatio: 2.0,
+              viewportFraction: 1,
+              aspectRatio: 2,
               onPageChanged: onPageChanged,
             ),
             items: <Widget>[
@@ -58,13 +57,6 @@ class BannerHome extends StatelessWidget {
                       );
                     },
                     child: GridTile(
-                      child: CachedNetworkImage(
-                        imageUrl: data[i].backdropPath.imageOriginal,
-                        width: Sizes.width(context),
-                        fit: BoxFit.fill,
-                        placeholder: (context, url) => LoadingIndicator(),
-                        errorWidget: (context, url, error) => ErrorImage(),
-                      ),
                       footer: Container(
                         color: ColorPalettes.whiteSemiTransparent,
                         padding: EdgeInsets.all(Sizes.dp5(context)),
@@ -78,6 +70,13 @@ class BannerHome extends StatelessWidget {
                             fontSize: Sizes.dp16(context),
                           ),
                         ),
+                      ),
+                      child: CachedNetworkImage(
+                        imageUrl: data[i].backdropPath.imageOriginal,
+                        width: Sizes.width(context),
+                        fit: BoxFit.fill,
+                        placeholder: (context, url) => const LoadingIndicator(),
+                        errorWidget: (context, url, error) => const ErrorImage(),
                       ),
                     ),
                   ),
@@ -102,7 +101,7 @@ class BannerHome extends StatelessWidget {
                       height: Sizes.dp8(context),
                       margin: EdgeInsets.symmetric(
                         vertical: Sizes.dp10(context),
-                        horizontal: 2.0,
+                        horizontal: 2,
                       ),
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,

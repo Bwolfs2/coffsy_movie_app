@@ -17,9 +17,9 @@ class DiscoveryMovieRepositoryImpl implements IDiscoveryMovieRepository {
   @override
   Stream<List<Movie>> getDiscoverMovie() async* {
     try {
-      var localData = await _discoveryMovieLocalDatasource.getDiscoverMovie();
+      final localData = await _discoveryMovieLocalDatasource.getDiscoverMovie();
       yield localData;
-      var data = await _discoveryMovieDatasource.getDiscoverMovie();
+      final data = await _discoveryMovieDatasource.getDiscoverMovie();
       if (data.isNotEmpty) {
         _discoveryMovieLocalDatasource.setDiscoverMovie(data);
         yield data;
@@ -35,9 +35,9 @@ class DiscoveryMovieRepositoryImpl implements IDiscoveryMovieRepository {
   @override
   Stream<List<Trailer>> getMovieTrailerById(int id) async* {
     try {
-      var localData = await _discoveryMovieLocalDatasource.getMovieTrailerById(id);
+      final localData = await _discoveryMovieLocalDatasource.getMovieTrailerById(id);
       yield localData;
-      var data = await _discoveryMovieDatasource.getMovieTrailerById(id);
+      final data = await _discoveryMovieDatasource.getMovieTrailerById(id);
       if (data.isNotEmpty) {
         _discoveryMovieLocalDatasource.setMovieTrailerById(data);
         yield data;
@@ -53,10 +53,10 @@ class DiscoveryMovieRepositoryImpl implements IDiscoveryMovieRepository {
   @override
   Stream<List<Trailer>> getTvShowTrailerById(int movieId) async* {
     try {
-      var localData = await _discoveryMovieLocalDatasource.getTvShowTrailerById(movieId);
+      final localData = await _discoveryMovieLocalDatasource.getTvShowTrailerById(movieId);
       yield localData;
 
-      var data = await _discoveryMovieDatasource.getTvShowTrailerById(movieId);
+      final data = await _discoveryMovieDatasource.getTvShowTrailerById(movieId);
       if (data.isNotEmpty) {
         _discoveryMovieLocalDatasource.setTvShowTrailerById(data);
         yield data;
@@ -72,9 +72,9 @@ class DiscoveryMovieRepositoryImpl implements IDiscoveryMovieRepository {
   @override
   Stream<List<Crew>> getMovieCrew(int id) async* {
     try {
-      var localData = await _discoveryMovieLocalDatasource.getMovieCrew(id);
+      final localData = await _discoveryMovieLocalDatasource.getMovieCrew(id);
       yield localData;
-      var data = await _discoveryMovieDatasource.getMovieCrew(id);
+      final data = await _discoveryMovieDatasource.getMovieCrew(id);
       if (data.isNotEmpty) {
         _discoveryMovieLocalDatasource.setMovieCrew(data);
         yield data;
@@ -90,9 +90,9 @@ class DiscoveryMovieRepositoryImpl implements IDiscoveryMovieRepository {
   @override
   Stream<List<Crew>> getTvShowCrewById(int movieId) async* {
     try {
-      var localData = await _discoveryMovieLocalDatasource.getTvShowCrewById(movieId);
+      final localData = await _discoveryMovieLocalDatasource.getTvShowCrewById(movieId);
       yield localData;
-      var data = await _discoveryMovieDatasource.getTvShowCrewById(movieId);
+      final data = await _discoveryMovieDatasource.getTvShowCrewById(movieId);
       if (data.isNotEmpty) {
         _discoveryMovieLocalDatasource.setTvShowCrewById(data);
         yield data;

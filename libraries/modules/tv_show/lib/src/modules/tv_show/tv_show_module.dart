@@ -54,10 +54,10 @@ class TvShowModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute('/', child: (_, args) => TvShowPage()),
-    ChildRoute('/airing_today', child: (context, args) => AiringTodayPage()),
-    ChildRoute('/on_the_air', child: (context, args) => OnTheAirPage()),
-    ChildRoute('/tv_popular', child: (context, args) => TvPopularPage()),
+    ChildRoute('/', child: (_, args) => const TvShowPage()),
+    ChildRoute('/airing_today', child: (context, args) => const AiringTodayPage()),
+    ChildRoute('/on_the_air', child: (context, args) => const OnTheAirPage()),
+    ChildRoute('/tv_popular', child: (context, args) => const TvPopularPage()),
     ChildRoute('/detail_movies', child: (_, args) => DetailPage(arguments: args.data)),
     ModuleRoute('/booking', module: BookingModule()),
   ];

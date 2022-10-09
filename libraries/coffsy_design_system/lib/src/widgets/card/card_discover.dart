@@ -14,7 +14,7 @@ class CardDiscover extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var theme = Theme.of(context);
+    final theme = Theme.of(context);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
@@ -25,8 +25,8 @@ class CardDiscover extends StatelessWidget {
             child: CachedNetworkImage(
               imageUrl: image.imageOriginal,
               width: Sizes.width(context) / 2,
-              placeholder: (context, url) => ShimmerDiscover(),
-              errorWidget: (context, url, error) => ErrorImage(),
+              placeholder: (context, url) => const ShimmerDiscover(),
+              errorWidget: (context, url, error) => const ErrorImage(),
             ),
           ),
         ),

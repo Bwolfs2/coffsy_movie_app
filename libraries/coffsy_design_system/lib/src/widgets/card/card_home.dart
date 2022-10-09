@@ -12,8 +12,8 @@ class CardHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var theme = Theme.of(context);
-    var isDarkTheme = theme.appBarTheme.backgroundColor == null;
+    final theme = Theme.of(context);
+    final isDarkTheme = theme.appBarTheme.backgroundColor == null;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 5),
       width: Sizes.width(context) / 2.5,
@@ -25,19 +25,19 @@ class CardHome extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           // Image
-          Container(
-            child: ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(
+          ClipRRect(
+            borderRadius: BorderRadius.all(
+              Radius.circular(
                 Sizes.dp10(context),
-              )),
-              child: CachedNetworkImage(
-                imageUrl: image.imageOriginal,
-                height: Sizes.width(context) / 1.8,
-                width: Sizes.width(context) / 2.5,
-                fit: BoxFit.cover,
-                placeholder: (context, url) => LoadingIndicator(),
-                errorWidget: (context, url, error) => ErrorImage(),
               ),
+            ),
+            child: CachedNetworkImage(
+              imageUrl: image.imageOriginal,
+              height: Sizes.width(context) / 1.8,
+              width: Sizes.width(context) / 2.5,
+              fit: BoxFit.cover,
+              placeholder: (context, url) => const LoadingIndicator(),
+              errorWidget: (context, url, error) => const ErrorImage(),
             ),
           ),
 
@@ -46,16 +46,18 @@ class CardHome extends StatelessWidget {
             height: Sizes.width(context) / 1.8,
             width: Sizes.width(context) / 2.5,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(
-                Sizes.dp10(context),
-              )),
+              borderRadius: BorderRadius.all(
+                Radius.circular(
+                  Sizes.dp10(context),
+                ),
+              ),
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                stops: [0.1, 0.98],
+                stops: const [0.1, 0.98],
                 colors: [
                   ColorPalettes.transparent,
-                  !isDarkTheme ? ColorPalettes.white : ColorPalettes.darkBG,
+                  if (!isDarkTheme) ColorPalettes.white else ColorPalettes.darkBG,
                 ],
               ),
             ),
@@ -67,9 +69,11 @@ class CardHome extends StatelessWidget {
             bottom: 0,
             child: Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(
-                  Sizes.dp10(context),
-                )),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(
+                    Sizes.dp10(context),
+                  ),
+                ),
               ),
               padding: EdgeInsets.only(
                 left: Sizes.dp6(context),
@@ -84,9 +88,10 @@ class CardHome extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                     maxLines: 1,
                     style: TextStyle(
-                        fontSize: Sizes.dp14(context),
-                        fontWeight: FontWeight.bold,
-                        color: !isDarkTheme ? ColorPalettes.darkBG : ColorPalettes.white),
+                      fontSize: Sizes.dp14(context),
+                      fontWeight: FontWeight.bold,
+                      color: !isDarkTheme ? ColorPalettes.darkBG : ColorPalettes.white,
+                    ),
                   ),
                   SizedBox(
                     height: Sizes.dp4(context),

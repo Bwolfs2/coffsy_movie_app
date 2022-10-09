@@ -20,11 +20,14 @@ void main() {
 
     mockGetMovieNowPlaying = MockGetMovieNowPlaying();
 
-    initModules([
-      MovieModule(),
-    ], replaceBinds: [
-      Bind.lazySingleton<IGetMovieNowPlaying>((_) => mockGetMovieNowPlaying),
-    ]);
+    initModules(
+      [
+        MovieModule(),
+      ],
+      replaceBinds: [
+        Bind.lazySingleton<IGetMovieNowPlaying>((_) => mockGetMovieNowPlaying),
+      ],
+    );
   });
   group('Module Movie', () {
     testWidgets('banner widget', (tester) async {
@@ -33,13 +36,15 @@ void main() {
         return right(<Movie>[]);
       });
       //act
-      await tester.pumpWidget(const MaterialApp(
-        home: MovieBanner(),
-      ));
+      await tester.pumpWidget(
+        const MaterialApp(
+          home: MovieBanner(),
+        ),
+      );
 
       //Por causa do Timer dentro da Store
       await tester.pump(const Duration(milliseconds: 50));
-      var widget = find.byKey(const ValueKey('NothingFound'));
+      final widget = find.byKey(const ValueKey('NothingFound'));
 
       //Assert
       expect(widget, findsOneWidget);
@@ -48,7 +53,7 @@ void main() {
     testWidgets('banner widget can`t find a SizedBox', (tester) async {
       when(() => mockGetMovieNowPlaying.call()).thenAnswer((_) async {
         return right(<Movie>[
-          Movie(0, 'Title', '', '', [0], 0.0, 0.0, '', '', '', '')
+          Movie(0, 'Title', '', '', [0], 0, 0, '', '', '', '')
         ]);
       });
 
@@ -59,10 +64,11 @@ void main() {
       //    const Duration(milliseconds: 400));
 
       await tester.pumpFrames(
-          const MaterialApp(
-            home: MovieBanner(),
-          ),
-          const Duration(milliseconds: 400));
+        const MaterialApp(
+          home: MovieBanner(),
+        ),
+        const Duration(milliseconds: 400),
+      );
 
       //Por causa do Timer dentro da Store
 
@@ -72,7 +78,7 @@ void main() {
       // await tester.runAsync(() => Future.delayed(Duration(seconds: 1)));
       // print(DateTime.now());
 
-      var widget = find.byKey(const ValueKey('NothingFound'));
+      final widget = find.byKey(const ValueKey('NothingFound'));
 
       expect(widget, findsNothing);
 
@@ -85,12 +91,13 @@ void main() {
       });
 
       await tester.pumpFrames(
-          const MaterialApp(
-            home: MovieBanner(),
-          ),
-          const Duration(milliseconds: 400));
+        const MaterialApp(
+          home: MovieBanner(),
+        ),
+        const Duration(milliseconds: 400),
+      );
 
-      var widget = find.byKey(const ValueKey('NothingFound'));
+      final widget = find.byKey(const ValueKey('NothingFound'));
 
       expect(widget, findsNothing);
 

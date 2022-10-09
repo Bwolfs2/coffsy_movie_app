@@ -4,8 +4,8 @@ import '../../domain/entities/trailer.dart';
 
 abstract class DiscoveryMovieDatasource {
   Future<List<Movie>> getDiscoverMovie();
-  Future<List<Trailer>> getTvShowTrailerById(int movieId);
-  Future<List<Trailer>> getMovieTrailerById(int id);
-  Future<List<Crew>> getMovieCrew(int id);
-  Future<List<Crew>> getTvShowCrewById(int movieId);
+  Future<List<Trailer>> getTvShowTrailerById(int tvShowId);
+  Future<List<Trailer>> getMovieTrailerById(int movieId);
+  Future<List<Crew>> getMovieCrew(int movieId);
+  Future<List<Crew>> getTvShowCrewById(int tvShowId);
 }

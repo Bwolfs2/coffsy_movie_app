@@ -7,6 +7,6 @@ class GetMovieCrewById {
   GetMovieCrewById(this.repository);
 
   Future<List<Crew>> call(int id) async {
-    return await repository.getMovieCrew(id);
+    return repository.getMovieCrew(id);
   }
 }

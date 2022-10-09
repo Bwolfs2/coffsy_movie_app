@@ -12,7 +12,7 @@ class AiringTodayWidget extends StatefulWidget {
   const AiringTodayWidget({Key? key}) : super(key: key);
 
   @override
-  _AiringTodayWidgetState createState() => _AiringTodayWidgetState();
+  State<AiringTodayWidget> createState() => _AiringTodayWidgetState();
 }
 
 class _AiringTodayWidgetState extends State<AiringTodayWidget> {
@@ -52,7 +52,7 @@ class _AiringTodayWidgetState extends State<AiringTodayWidget> {
             ],
           ),
         ),
-        Container(
+        SizedBox(
           width: Sizes.width(context),
           height: Sizes.width(context) / 1.8,
           child: ScopedBuilder<AiringTodayWidgetStore, Failure, List<TvShow>>(
@@ -64,7 +64,7 @@ class _AiringTodayWidgetState extends State<AiringTodayWidget> {
               if (error is TvAiringTodayNoInternetConnection) {
                 return NoInternetWidget(
                   message: AppConstant.noInternetConnection,
-                  onPressed: () async => await store.load(),
+                  onPressed: store.load,
                 );
               }
               return CustomErrorWidget(message: error?.errorMessage);
@@ -85,21 +85,20 @@ class _AiringTodayWidgetState extends State<AiringTodayWidget> {
                     Modular.to.pushNamed(
                       './detail_movies',
                       arguments: ScreenArguments(
-                          screenData: ScreenData(
-                            movie.id,
-                            movie.title,
-                            movie.overview,
-                            movie.releaseDate,
-                            movie.genreIds,
-                            movie.voteAverage,
-                            movie.popularity,
-                            movie.posterPath,
-                            movie.backdropPath,
-                            movie.tvName,
-                            movie.tvRelease,
-                          ),
-                          isFromMovie: false,
-                          isFromBanner: false),
+                        screenData: ScreenData(
+                          movie.id,
+                          movie.title,
+                          movie.overview,
+                          movie.releaseDate,
+                          movie.genreIds,
+                          movie.voteAverage,
+                          movie.popularity,
+                          movie.posterPath,
+                          movie.backdropPath,
+                          movie.tvName,
+                          movie.tvRelease,
+                        ),
+                      ),
                       forRoot: true,
                     );
                   },

@@ -9,7 +9,7 @@ class CircleProgress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: Sizes.width(context) / 10,
       height: Sizes.width(context) / 10,
       child: Stack(
@@ -27,11 +27,11 @@ class CircleProgress extends StatelessWidget {
             ),
           ),
           Center(
-            child: Container(
+            child: SizedBox(
               width: Sizes.dp30(context),
               height: Sizes.dp30(context),
               child: CircularProgressIndicator(
-                strokeWidth: 3.0,
+                strokeWidth: 3,
                 valueColor: AlwaysStoppedAnimation<Color>(
                   ColorPalettes.getColorCircleProgress(
                     double.parse(vote),
@@ -43,7 +43,7 @@ class CircleProgress extends StatelessWidget {
             ),
           ),
           Center(
-            child: Container(
+            child: SizedBox(
               width: Sizes.dp30(context),
               height: Sizes.dp30(context),
               child: Center(

@@ -13,7 +13,7 @@ class DiscoverPage extends StatefulWidget {
   const DiscoverPage({Key? key}) : super(key: key);
 
   @override
-  _DiscoverPageState createState() => _DiscoverPageState();
+  State<DiscoverPage> createState() => _DiscoverPageState();
 }
 
 class _DiscoverPageState extends State<DiscoverPage> {
@@ -53,11 +53,10 @@ class _DiscoverPageState extends State<DiscoverPage> {
           return PageView.builder(
             physics: const ClampingScrollPhysics(),
             itemCount: state.length,
-            scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
-              var movie = state[index];
-              var position = index + 1;
-              return Container(
+              final movie = state[index];
+              final position = index + 1;
+              return SizedBox(
                 width: Sizes.width(context),
                 height: Sizes.height(context),
                 child: Stack(
@@ -68,8 +67,8 @@ class _DiscoverPageState extends State<DiscoverPage> {
                       width: Sizes.width(context),
                       height: Sizes.height(context),
                       fit: BoxFit.cover,
-                      placeholder: (context, url) => LoadingIndicator(),
-                      errorWidget: (context, url, error) => ErrorImage(),
+                      placeholder: (context, url) => const LoadingIndicator(),
+                      errorWidget: (context, url, error) => const ErrorImage(),
                     ),
                     Container(
                       color: ColorPalettes.grey.withOpacity(.6),
@@ -77,18 +76,18 @@ class _DiscoverPageState extends State<DiscoverPage> {
                     Container(
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
-                            colors: [
-                              ColorPalettes.black.withOpacity(.9),
-                              ColorPalettes.black.withOpacity(.3),
-                              ColorPalettes.black.withOpacity(.95)
-                            ],
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            stops: [0.1, 0.5, 0.9]),
+                          colors: [
+                            ColorPalettes.black.withOpacity(.9),
+                            ColorPalettes.black.withOpacity(.3),
+                            ColorPalettes.black.withOpacity(.95)
+                          ],
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          stops: const [0.1, 0.5, 0.9],
+                        ),
                       ),
                     ),
                     Align(
-                      alignment: Alignment.center,
                       child: CardDiscover(
                         image: movie.posterPath,
                         title: movie.title,
@@ -112,7 +111,6 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                 movie.tvRelease,
                               ),
                               isFromMovie: true,
-                              isFromBanner: false,
                             ),
                           );
                         },

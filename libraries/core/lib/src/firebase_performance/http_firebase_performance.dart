@@ -17,7 +17,7 @@ class DioFirebasePerformanceInterceptor extends Interceptor {
   Future onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
     try {
       final metric = FirebasePerformance.instance.newHttpMetric(options.uri.normalized(), options.method.asHttpMethod()!);
-      metric.putAttribute('path', options.uri.path);
+      await metric.putAttribute('path', options.uri.path);
 
       final requestKey = options.extra.hashCode;
       _map[requestKey] = metric;

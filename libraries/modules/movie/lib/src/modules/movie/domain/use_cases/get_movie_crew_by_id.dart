@@ -13,7 +13,8 @@ class GetMovieCrewById implements IGetMovieCrewById {
 
   GetMovieCrewById(this.repository);
 
+  @override
   Future<Either<Failure, List<Crew>>> call(int id) async {
-    return await repository.getMovieCrewById(id);
+    return repository.getMovieCrewById(id);
   }
 }

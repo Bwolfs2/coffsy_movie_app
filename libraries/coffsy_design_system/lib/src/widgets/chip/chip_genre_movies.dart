@@ -12,13 +12,13 @@ class GenreChip extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(right: 10),
       padding: const EdgeInsets.all(8),
-      child: Text(
-        Genres.genres[id] ?? 'No Gender',
-        style: const TextStyle(fontSize: 12),
-      ),
       decoration: BoxDecoration(
         border: Border.all(color: ColorPalettes.grey),
         borderRadius: BorderRadius.circular(20),
+      ),
+      child: Text(
+        Genres.genres[id] ?? 'No Gender',
+        style: const TextStyle(fontSize: 12),
       ),
     );
   }

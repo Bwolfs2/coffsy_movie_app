@@ -26,7 +26,7 @@ void main() {
       );
 
       //Act - Ação
-      var result = await movieDataSource.getMovieNowPlaying();
+      final result = await movieDataSource.getMovieNowPlaying();
 
       //Assert - Efeito esperado
       expect(result, isA<List<Movie>>());

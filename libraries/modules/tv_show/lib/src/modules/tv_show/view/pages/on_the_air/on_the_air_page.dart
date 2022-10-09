@@ -10,8 +10,10 @@ import '../../../domain/errors/tv_show_failures.dart';
 import 'on_the_air_store.dart';
 
 class OnTheAirPage extends StatefulWidget {
+  const OnTheAirPage({super.key});
+
   @override
-  _OnTheAirPageState createState() => _OnTheAirPageState();
+  State<OnTheAirPage> createState() => _OnTheAirPageState();
 }
 
 class _OnTheAirPageState extends State<OnTheAirPage> {
@@ -42,7 +44,7 @@ class _OnTheAirPageState extends State<OnTheAirPage> {
               return Center(
                 child: NoInternetWidget(
                   message: AppConstant.noInternetConnection,
-                  onPressed: () async => await store.load(),
+                  onPressed: store.load,
                 ),
               );
             }
@@ -77,7 +79,6 @@ class _OnTheAirPageState extends State<OnTheAirPage> {
                         onTheAir.tvName,
                         onTheAir.tvRelease,
                       ),
-                      isFromBanner: false,
                     ),
                     forRoot: true,
                   );

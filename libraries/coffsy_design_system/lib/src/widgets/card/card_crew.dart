@@ -10,21 +10,13 @@ class CardCrew extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: Sizes.width(context) / 4.4,
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(Sizes.dp10(context))),
         child: ClipRRect(
           borderRadius: BorderRadius.all(Radius.circular(Sizes.dp10(context))),
           child: GridTile(
-            child: CachedNetworkImage(
-              imageUrl: image.imageOriginal,
-              height: Sizes.width(context) / 3,
-              width: Sizes.width(context) / 4.4,
-              fit: BoxFit.cover,
-              placeholder: (context, url) => LoadingIndicator(),
-              errorWidget: (context, url, error) => ErrorImage(),
-            ),
             footer: Container(
               color: ColorPalettes.whiteSemiTransparent,
               padding: EdgeInsets.all(Sizes.dp5(context)),
@@ -38,6 +30,14 @@ class CardCrew extends StatelessWidget {
                   fontSize: Sizes.dp12(context),
                 ),
               ),
+            ),
+            child: CachedNetworkImage(
+              imageUrl: image.imageOriginal,
+              height: Sizes.width(context) / 3,
+              width: Sizes.width(context) / 4.4,
+              fit: BoxFit.cover,
+              placeholder: (context, url) => const LoadingIndicator(),
+              errorWidget: (context, url, error) => const ErrorImage(),
             ),
           ),
         ),

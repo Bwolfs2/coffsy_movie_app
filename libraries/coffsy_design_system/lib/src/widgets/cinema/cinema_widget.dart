@@ -10,7 +10,7 @@ class CinemaWidget extends StatefulWidget {
   const CinemaWidget({Key? key, required this.movieBackground}) : super(key: key);
 
   @override
-  _CinemaWidgetState createState() => _CinemaWidgetState();
+  State<CinemaWidget> createState() => _CinemaWidgetState();
 }
 
 class _CinemaWidgetState extends State<CinemaWidget> with TickerProviderStateMixin {
@@ -56,8 +56,8 @@ class _CinemaWidgetState extends State<CinemaWidget> with TickerProviderStateMix
               imageUrl: widget.movieBackground.imageOriginal,
               width: Sizes.width(context),
               fit: BoxFit.fill,
-              placeholder: (context, url) => LoadingIndicator(),
-              errorWidget: (context, url, error) => ErrorImage(),
+              placeholder: (context, url) => const LoadingIndicator(),
+              errorWidget: (context, url, error) => const ErrorImage(),
             ),
           ),
         ),
@@ -70,9 +70,9 @@ class _CinemaWidgetState extends State<CinemaWidget> with TickerProviderStateMix
               child: Opacity(opacity: _cinemaChairTween.value + 1, child: child),
             );
           },
-          child: Container(
+          child: SizedBox(
             width: Sizes.width(context),
-            child: ChairList(),
+            child: const ChairList(),
           ),
         ),
       ],
@@ -81,6 +81,8 @@ class _CinemaWidgetState extends State<CinemaWidget> with TickerProviderStateMix
 }
 
 class ChairList extends StatefulWidget {
+  const ChairList({Key? key}) : super(key: key);
+
   // 0 is null
   // 1 is free
   // 2 is reserved
@@ -164,9 +166,9 @@ class _ChairListState extends State<ChairList> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               ChairCategory(ColorPalettes.white, 'FREE', isWhite: true, isDarkTheme: _isDarkTheme),
-              ChairCategory(ColorPalettes.darkAccent, 'YOURS', isWhite: false, isDarkTheme: _isDarkTheme),
-              ChairCategory(Colors.grey[700] ?? Colors.grey, 'RESERVED', isWhite: false, isDarkTheme: _isDarkTheme),
-              ChairCategory(Colors.red[800] ?? Colors.red, 'NOT AVAILABLE', isWhite: false, isDarkTheme: _isDarkTheme),
+              ChairCategory(ColorPalettes.darkAccent, 'YOURS', isDarkTheme: _isDarkTheme),
+              ChairCategory(Colors.grey[700] ?? Colors.grey, 'RESERVED', isDarkTheme: _isDarkTheme),
+              ChairCategory(Colors.red[800] ?? Colors.red, 'NOT AVAILABLE', isDarkTheme: _isDarkTheme),
             ],
           ),
         ),

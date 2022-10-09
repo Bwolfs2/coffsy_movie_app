@@ -4,7 +4,7 @@ import 'package:shimmer/shimmer.dart';
 import '../../../coffsy_design_system.dart';
 
 class ShimmerList extends StatelessWidget {
-  const ShimmerList();
+  const ShimmerList({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,49 +31,44 @@ class ShimmerList extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Container(
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: <Widget>[
-                              // circle vote average
-                              Container(
-                                height: Sizes.width(context) / 10,
-                                width: Sizes.width(context) / 10,
-                                color: ColorPalettes.greyBg,
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            // circle vote average
+                            Container(
+                              height: Sizes.width(context) / 10,
+                              width: Sizes.width(context) / 10,
+                              color: ColorPalettes.greyBg,
+                            ),
+                            SizedBox(
+                              width: Sizes.dp10(context),
+                            ),
+                            Expanded(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: <Widget>[
+                                  Container(
+                                    width: double.infinity,
+                                    height: Sizes.dp16(context),
+                                    color: ColorPalettes.greyBg,
+                                  ),
+                                  SizedBox(
+                                    height: Sizes.dp12(context),
+                                  ),
+                                  Container(
+                                    width: double.infinity,
+                                    height: Sizes.dp12(context),
+                                    color: ColorPalettes.greyBg,
+                                  ),
+                                ],
                               ),
-                              SizedBox(
-                                width: Sizes.dp10(context),
-                              ),
-                              Expanded(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                  children: <Widget>[
-                                    Container(
-                                      width: double.infinity,
-                                      height: Sizes.dp16(context),
-                                      color: ColorPalettes.greyBg,
-                                    ),
-                                    SizedBox(
-                                      height: Sizes.dp12(context),
-                                    ),
-                                    Container(
-                                      width: double.infinity,
-                                      height: Sizes.dp12(context),
-                                      color: ColorPalettes.greyBg,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                         SizedBox(
                           height: Sizes.dp10(context),
                         ),
                         Row(
-                          mainAxisSize: MainAxisSize.max,
                           children: <Widget>[
                             Container(
                               height: Sizes.dp30(context),

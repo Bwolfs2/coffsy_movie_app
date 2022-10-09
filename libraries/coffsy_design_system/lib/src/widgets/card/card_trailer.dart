@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import '../../../coffsy_design_system.dart';
@@ -14,7 +13,7 @@ class CardTrailer extends StatefulWidget {
       : super(key: key);
 
   @override
-  _CardTrailerState createState() => _CardTrailerState();
+  State<CardTrailer> createState() => _CardTrailerState();
 }
 
 // ignore: prefer_mixin
@@ -22,13 +21,7 @@ class _CardTrailerState extends State<CardTrailer> with WidgetsBindingObserver {
   late final _controller = YoutubePlayerController(
     initialVideoId: widget.youtube,
     flags: const YoutubePlayerFlags(
-      mute: false,
       autoPlay: false,
-      disableDragSeek: false,
-      loop: false,
-      isLive: false,
-      forceHD: false,
-      enableCaption: true,
     ),
   );
 
@@ -54,7 +47,7 @@ class _CardTrailerState extends State<CardTrailer> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: Sizes.width(context) / 1.2,
       child: Column(
         children: [
@@ -93,13 +86,13 @@ class _CardTrailerState extends State<CardTrailer> with WidgetsBindingObserver {
             ),
           ),
           Visibility(
-            visible: widget.length > 1 ? true : false,
+            visible: widget.length > 1,
             child: SizedBox(
               height: Sizes.dp10(context),
             ),
           ),
           Visibility(
-            visible: widget.length > 1 ? true : false,
+            visible: widget.length > 1,
             child: Container(
               height: Sizes.dp30(context),
               width: Sizes.width(context),

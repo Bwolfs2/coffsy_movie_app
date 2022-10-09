@@ -19,7 +19,7 @@ class TrailerWidget extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _TrailerWidgetState createState() => _TrailerWidgetState();
+  State<TrailerWidget> createState() => _TrailerWidgetState();
 }
 
 class _TrailerWidgetState extends State<TrailerWidget> {
@@ -52,7 +52,7 @@ class _TrailerWidgetState extends State<TrailerWidget> {
           ),
         ),
         SizedBox(height: Sizes.dp8(context)),
-        Container(
+        SizedBox(
           width: Sizes.width(context),
           height: Sizes.width(context) / 1.7,
           child: ScopedBuilder<TrailerStore, Failure, List<Trailer>>.transition(

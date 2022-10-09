@@ -1,11 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
-
 import 'package:flutter/material.dart';
 
 import '../../../coffsy_design_system.dart';
 
 class ArcBannerImage extends StatelessWidget {
-  ArcBannerImage(this.imageUrl);
+  const ArcBannerImage(this.imageUrl, {Key? key}) : super(key: key);
 
   final String imageUrl;
 
@@ -13,14 +12,14 @@ class ArcBannerImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipPath(
       clipper: ArcClipper(),
-      child: Container(
+      child: SizedBox(
         width: Sizes.width(context),
         height: Sizes.width(context) / 1.8,
         child: CachedNetworkImage(
           fit: BoxFit.cover,
           imageUrl: imageUrl,
-          placeholder: (context, url) => LoadingIndicator(),
-          errorWidget: (context, url, error) => ErrorImage(),
+          placeholder: (context, url) => const LoadingIndicator(),
+          errorWidget: (context, url, error) => const ErrorImage(),
         ),
       ),
     );

@@ -9,8 +9,10 @@ import 'package:package_info/package_info.dart';
 import 'setting_store.dart';
 
 class SettingPage extends StatefulWidget {
+  const SettingPage({Key? key}) : super(key: key);
+
   @override
-  _SettingPageState createState() => _SettingPageState();
+  State<SettingPage> createState() => _SettingPageState();
 }
 
 class _SettingPageState extends State<SettingPage> {
@@ -40,8 +42,6 @@ class _SettingPageState extends State<SettingPage> {
       body: Padding(
         padding: EdgeInsets.all(Sizes.dp10(context)),
         child: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             ListTile(
               title: const Text('Developer'),

@@ -13,14 +13,17 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
-  runZonedGuarded(() {
-    runApp(
-      BetterFeedback(
-        child: ModularApp(
-          module: AppModule(),
-          child: AppWidget(),
+  runZonedGuarded(
+    () {
+      runApp(
+        BetterFeedback(
+          child: ModularApp(
+            module: AppModule(),
+            child: const AppWidget(),
+          ),
         ),
-      ),
-    );
-  }, FirebaseCrashlytics.instance.recordError);
+      );
+    },
+    FirebaseCrashlytics.instance.recordError,
+  );
 }

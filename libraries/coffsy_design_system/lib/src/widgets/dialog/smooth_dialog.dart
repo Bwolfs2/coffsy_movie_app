@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -12,10 +11,10 @@ class ButtonConfig {
   Color? buttonCancelColor, buttonDoneColor, labelCancelColor, labelDoneColor;
 
   ButtonConfig({this.dialogDone = 'Done', this.dialogCancel = 'Cancel', this.buttonCancelColor, this.buttonDoneColor}) {
-    if (buttonCancelColor == null) buttonCancelColor = ColorPalettes.white;
-    if (buttonDoneColor == null) buttonDoneColor = ColorPalettes.darkAccent;
-    if (labelCancelColor == null) labelCancelColor = ColorPalettes.black;
-    if (labelDoneColor == null) labelDoneColor = ColorPalettes.white;
+    buttonCancelColor ??= ColorPalettes.white;
+    buttonDoneColor ??= ColorPalettes.darkAccent;
+    labelCancelColor ??= ColorPalettes.black;
+    labelDoneColor ??= ColorPalettes.white;
   }
 }
 
@@ -33,7 +32,6 @@ class SmoothDialog {
   SmoothMode mode = SmoothMode.lottie;
 
   SmoothDialog({
-    Key? key,
     required this.context,
     required this.path,
     required this.title,
@@ -45,7 +43,7 @@ class SmoothDialog {
     this.imageWidth = 150,
     this.dialogHeight = 310,
   }) {
-    if (buttonConfig == null) buttonConfig = ButtonConfig();
+    buttonConfig ??= ButtonConfig();
 
     showDialog(
       context: context,
@@ -54,17 +52,17 @@ class SmoothDialog {
           builder: (context, setState) {
             return AlertDialog(
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(
-                  Sizes.dp16(context),
-                )),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(
+                    Sizes.dp16(context),
+                  ),
+                ),
               ),
               contentPadding: const EdgeInsets.fromLTRB(16, 24, 16, 8),
-              content: Container(
+              content: SizedBox(
                 width: double.maxFinite,
                 height: dialogHeight,
                 child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     SizedBox(
                       height: Sizes.dp16(context),
@@ -140,10 +138,11 @@ class SmoothDialog {
                                           horizontal: Sizes.dp22(context),
                                         ),
                                         decoration: BoxDecoration(
-                                            color: buttonConfig?.buttonCancelColor,
-                                            borderRadius: BorderRadius.circular(
-                                              Sizes.dp16(context),
-                                            )),
+                                          color: buttonConfig?.buttonCancelColor,
+                                          borderRadius: BorderRadius.circular(
+                                            Sizes.dp16(context),
+                                          ),
+                                        ),
                                         child: Text(
                                           '${buttonConfig?.dialogCancel}',
                                           textAlign: TextAlign.center,
@@ -169,10 +168,11 @@ class SmoothDialog {
                                           horizontal: Sizes.dp26(context),
                                         ),
                                         decoration: BoxDecoration(
-                                            color: buttonConfig?.buttonDoneColor,
-                                            borderRadius: BorderRadius.circular(
-                                              Sizes.dp16(context),
-                                            )),
+                                          color: buttonConfig?.buttonDoneColor,
+                                          borderRadius: BorderRadius.circular(
+                                            Sizes.dp16(context),
+                                          ),
+                                        ),
                                         child: Text(
                                           '${buttonConfig?.dialogDone}',
                                           textAlign: TextAlign.center,

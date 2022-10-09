@@ -12,7 +12,7 @@ class MovieBanner extends StatefulWidget {
   const MovieBanner({Key? key}) : super(key: key);
 
   @override
-  _MovieBannerState createState() => _MovieBannerState();
+  State<MovieBanner> createState() => _MovieBannerState();
 }
 
 class _MovieBannerState extends State<MovieBanner> {
@@ -33,7 +33,7 @@ class _MovieBannerState extends State<MovieBanner> {
         if (error is MovieNowPlayingNoInternetConnection) {
           return NoInternetWidget(
             message: AppConstant.noInternetConnection,
-            onPressed: () async => await store.load(),
+            onPressed: store.load,
           );
         }
 

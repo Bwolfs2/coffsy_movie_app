@@ -12,7 +12,7 @@ class TvShowPopularWidget extends StatefulWidget {
   const TvShowPopularWidget({Key? key}) : super(key: key);
 
   @override
-  _TvShowPopularWidgetState createState() => _TvShowPopularWidgetState();
+  State<TvShowPopularWidget> createState() => _TvShowPopularWidgetState();
 }
 
 class _TvShowPopularWidgetState extends State<TvShowPopularWidget> {
@@ -52,7 +52,7 @@ class _TvShowPopularWidgetState extends State<TvShowPopularWidget> {
             ],
           ),
         ),
-        Container(
+        SizedBox(
           width: Sizes.width(context),
           height: Sizes.width(context) / 1.8,
           child: ScopedBuilder<TvShowPopularStore, Failure, List<TvPopularShow>>.transition(
@@ -100,8 +100,6 @@ class _TvShowPopularWidgetState extends State<TvShowPopularWidget> {
                           tvPopularShow.tvName,
                           tvPopularShow.tvRelease,
                         ),
-                        isFromMovie: false,
-                        isFromBanner: false,
                       ),
                       forRoot: true,
                     );

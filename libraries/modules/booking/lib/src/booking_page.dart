@@ -10,8 +10,8 @@ class BookingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var themeData = Theme.of(context);
-    var _isDarkTheme = themeData.appBarTheme.backgroundColor == null;
+    final themeData = Theme.of(context);
+    final _isDarkTheme = themeData.appBarTheme.backgroundColor == null;
 
     return Scaffold(
       backgroundColor: !_isDarkTheme ? ColorPalettes.darkPrimary : ColorPalettes.white,
@@ -29,28 +29,29 @@ class BookingPage extends StatelessWidget {
           ),
           child: Column(
             children: <Widget>[
-              DateWidget(),
-              TimeWidget(),
+              const DateWidget(),
+              const TimeWidget(),
               CinemaWidget(movieBackground: arguments.screenData.backdropPath),
               Padding(
                 padding: EdgeInsets.only(
                   top: Sizes.dp20(context),
                 ),
                 child: CustomButton(
-                    text: 'Pay',
-                    onPressed: () {
-                      SmoothDialog(
-                        context: context,
-                        path: ImagesAssets.successful,
-                        mode: SmoothMode.lottie,
-                        content: 'Thanks for your movie ticket order',
-                        title: 'Payment Successful!',
-                        submit: logEventOnClick(
-                          'payment_success',
-                          () => Modular.to.navigate('/dashboard/movie_module/'),
-                        ),
-                      );
-                    }),
+                  text: 'Pay',
+                  onPressed: () {
+                    SmoothDialog(
+                      context: context,
+                      path: ImagesAssets.successful,
+                      mode: SmoothMode.lottie,
+                      content: 'Thanks for your movie ticket order',
+                      title: 'Payment Successful!',
+                      submit: logEventOnClick(
+                        'payment_success',
+                        () => Modular.to.navigate('/dashboard/movie_module/'),
+                      ),
+                    );
+                  },
+                ),
               ),
             ],
           ),

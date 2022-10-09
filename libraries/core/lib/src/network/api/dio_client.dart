@@ -11,8 +11,8 @@ class DioClient {
   Dio get dio => _getDio();
 
   Dio _getDio() {
-    var options = BaseOptions(baseUrl: configurations.baseUrlProd, connectTimeout: 50000, receiveTimeout: 30000);
-    var dio = Dio(options);
+    final options = BaseOptions(baseUrl: configurations.baseUrlProd, connectTimeout: 50000, receiveTimeout: 30000);
+    final dio = Dio(options);
     dio.interceptors.addAll([DioFirebasePerformanceInterceptor(), AuthInterceptor(configurations)]);
     return dio;
   }

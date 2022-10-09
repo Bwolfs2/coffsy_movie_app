@@ -10,16 +10,16 @@ import '../../widgets/trailer/trailer_widget.dart';
 class DetailPage extends StatefulWidget {
   final ScreenArguments arguments;
 
-  const DetailPage({Key? key, required this.arguments});
+  const DetailPage({super.key, required this.arguments});
 
   @override
-  _DetailPageState createState() => _DetailPageState();
+  State<DetailPage> createState() => _DetailPageState();
 }
 
 class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
-    var theme = Theme.of(context);
+    final theme = Theme.of(context);
     return Scaffold(
       body: SingleChildScrollView(
         physics: const ClampingScrollPhysics(),
@@ -96,7 +96,6 @@ class _DetailPageState extends State<DetailPage> {
                         arguments: ScreenArguments(
                           screenData: widget.arguments.screenData,
                           isFromMovie: true,
-                          isFromBanner: false,
                         ),
                         forRoot: true,
                       );

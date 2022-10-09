@@ -24,7 +24,7 @@ class CardMoviesHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var movieInformation = Column(
+    final movieInformation = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
@@ -58,7 +58,7 @@ class CardMoviesHeader extends StatelessWidget {
           child: ArcBannerImage(imageBanner),
         ),
         Positioned(
-          bottom: 0.0,
+          bottom: 0,
           left: Sizes.dp16(context),
           right: Sizes.dp16(context),
           child: Row(
