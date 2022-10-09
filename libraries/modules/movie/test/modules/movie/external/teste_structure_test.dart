@@ -1,4 +1,3 @@
-import 'package:core/core.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -13,7 +12,7 @@ void main() {
 
   setUpAll(() {
     dioInstance = MockDio();
-    movieDataSource = MovieDataSourceImpl(dioInstance, ApiConfigurations());
+    movieDataSource = MovieDataSourceImpl(dioInstance);
     registerFallbackValue(RequestOptions(path: ''));
   });
 

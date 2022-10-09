@@ -47,7 +47,7 @@ class MovieModule extends Module {
     Bind.lazySingleton<IGetMovieNowPlaying>((i) => GetMovieNowPlaying(i())),
 
     //Datasources
-    Bind.lazySingleton<MovieDataSource>((i) => MovieDataSourceImpl(i(), i())),
+    Bind.lazySingleton<MovieDataSource>((i) => MovieDataSourceImpl(i())),
     //repositories
     Bind.lazySingleton<MoviesRepository>((i) => MoviesRepositoryImpl(i())),
   ];

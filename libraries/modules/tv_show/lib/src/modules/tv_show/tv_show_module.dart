@@ -38,7 +38,7 @@ class TvShowModule extends Module {
     Bind.lazySingleton((i) => TrailerStore(i(), i())),
 
     //Datasource
-    Bind.lazySingleton((i) => TvShowDatasourceImpl(i(), i())),
+    Bind.lazySingleton((i) => TvShowDatasourceImpl(i())),
 
     //Repositories
     Bind.lazySingleton((i) => TvShowRepositoryImpl(i())),

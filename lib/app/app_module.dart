@@ -17,10 +17,8 @@ class AppModule extends Module {
 
   @override
   final List<Bind> binds = [
-    Bind.lazySingleton<DioClient>((i) => DioClient(apiBaseUrl: ApiConstant.baseUrlDebug)),
+    Bind.lazySingleton<DioClient>((i) => DioClient(configurations: ApiConfigurations())),
     Bind.lazySingleton<Dio>((i) => i<DioClient>().dio),
-    //
-    Bind.lazySingleton<ApiConfigurations>((i) => ApiConfigurations()),
     //
     Bind.lazySingleton<CoffsyAnalytics>((i) => CoffsyAnalytics()),
     //

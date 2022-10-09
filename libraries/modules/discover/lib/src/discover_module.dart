@@ -21,7 +21,7 @@ class DiscoverModule extends Module {
     Bind.lazySingleton((i) => DiscoverStore(i())),
     Bind.lazySingleton((i) => TrailerStore(i(), i())),
     Bind.lazySingleton((i) => CrewStore(i(), i())),
-    Bind.lazySingleton((i) => DiscoveryMovieDatasourceImpl(i(), i())),
+    Bind.lazySingleton((i) => DiscoveryMovieDatasourceImpl(i())),
     Bind.lazySingleton((i) => DiscoveryMovieLocalDatasourceImpl(i())),
     Bind.lazySingleton((i) => DiscoveryMovieRepositoryImpl(i(), i())),
     Bind.lazySingleton((i) => GetDiscoverMovie(i())),

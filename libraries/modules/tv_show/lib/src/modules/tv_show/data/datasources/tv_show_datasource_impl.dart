@@ -1,4 +1,3 @@
-import 'package:core/core.dart';
 import 'package:dio/dio.dart';
 
 import '../../domain/entities/crew.dart';
@@ -16,19 +15,12 @@ import '../mapper/tv_popular_show_mapper.dart';
 
 class TvShowDatasourceImpl implements ITvShowDatasource {
   final Dio dio;
-  final ApiConfigurations configurations;
 
-  TvShowDatasourceImpl(this.dio, this.configurations);
+  TvShowDatasourceImpl(this.dio);
   @override
   Future<List<TvShow>> getTvAiringToday() async {
     try {
-      final response = await dio.get(
-        'tv/airing_today',
-        queryParameters: {
-          'api_key': configurations.apiKey,
-          'language': configurations.language,
-        },
-      );
+      final response = await dio.get('tv/airing_today');
 
       return MovieMapper.fromMapList(response.data);
     } on DioError catch (e, stackTrace) {
@@ -45,13 +37,7 @@ class TvShowDatasourceImpl implements ITvShowDatasource {
   @override
   Future<List<TvPopularShow>> getTvPopularShow() async {
     try {
-      final response = await dio.get(
-        'tv/popular',
-        queryParameters: {
-          'api_key': configurations.apiKey,
-          'language': configurations.language,
-        },
-      );
+      final response = await dio.get('tv/popular');
 
       return TvPopularShowMapper.fromMapList(response.data);
     } on DioError catch (e, stackTrace) {
@@ -68,13 +54,7 @@ class TvShowDatasourceImpl implements ITvShowDatasource {
   @override
   Future<List<OnTheAir>> getTvOnTheAir() async {
     try {
-      final response = await dio.get(
-        'tv/on_the_air',
-        queryParameters: {
-          'api_key': configurations.apiKey,
-          'language': configurations.language,
-        },
-      );
+      final response = await dio.get('tv/on_the_air');
 
       return TvOnTheAirMapper.fromMapList(response.data);
     } on DioError catch (e, stackTrace) {
@@ -91,7 +71,7 @@ class TvShowDatasourceImpl implements ITvShowDatasource {
   @override
   Future<List<Crew>> getTvShowCrewById(int tvShowId) async {
     try {
-      final response = await dio.get('tv/$tvShowId/credits?api_key=${configurations.apiKey}&language=${configurations.language}');
+      final response = await dio.get('tv/$tvShowId/credits');
 
       return CrewMapper.fromMapList(response.data);
     } on DioError catch (e, stackTrace) {
@@ -108,7 +88,7 @@ class TvShowDatasourceImpl implements ITvShowDatasource {
   @override
   Future<List<Trailer>> getTvShowTrailerById(int tvShowId) async {
     try {
-      final response = await dio.get('tv/$tvShowId/videos?api_key=${configurations.apiKey}&language=${configurations.language}');
+      final response = await dio.get('tv/$tvShowId/videos');
       return TrailerMapper.fromMapList(response.data);
     } on DioError catch (e, stackTrace) {
       if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
@@ -124,7 +104,7 @@ class TvShowDatasourceImpl implements ITvShowDatasource {
   @override
   Future<List<Crew>> getMovieCrew(int tvShowId) async {
     try {
-      final response = await dio.get('tv/$tvShowId/credits?api_key=${configurations.apiKey}&language=${configurations.language}');
+      final response = await dio.get('tv/$tvShowId/credits');
 
       return CrewMapper.fromMapList(response.data);
     } on DioError catch (e, stackTrace) {
@@ -141,7 +121,7 @@ class TvShowDatasourceImpl implements ITvShowDatasource {
   @override
   Future<List<Trailer>> getMovieTrailerById(int movieId) async {
     try {
-      final response = await dio.get('movie/$movieId/videos?api_key=${configurations.apiKey}&language=${configurations.language}');
+      final response = await dio.get('movie/$movieId/videos');
       return TrailerMapper.fromMapList(response.data);
     } on DioError catch (e, stackTrace) {
       if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {

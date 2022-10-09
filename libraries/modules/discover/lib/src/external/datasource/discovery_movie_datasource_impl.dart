@@ -1,4 +1,3 @@
-import 'package:core/core.dart';
 import 'package:dio/dio.dart';
 
 import '../../domain/entities/crew.dart';
@@ -12,16 +11,13 @@ import '../mapper/trailer_mapper.dart';
 
 class DiscoveryMovieDatasourceImpl extends DiscoveryMovieDatasource {
   final Dio dio;
-  final ApiConfigurations configurations;
-
-  DiscoveryMovieDatasourceImpl(this.dio, this.configurations);
+  DiscoveryMovieDatasourceImpl(this.dio);
 
   @override
   Future<List<Movie>> getDiscoverMovie() async {
     try {
       final response = await dio.get(
         'discover/movie',
-        queryParameters: {'api_key': configurations.apiKey, 'language': configurations.language},
       );
 
       return MovieMapper.fromMapList(response.data);
@@ -37,7 +33,7 @@ class DiscoveryMovieDatasourceImpl extends DiscoveryMovieDatasource {
   @override
   Future<List<Trailer>> getMovieTrailerById(int movieId) async {
     try {
-      final response = await dio.get('movie/$movieId/videos?api_key=${configurations.apiKey}&language=${configurations.language}');
+      final response = await dio.get('movie/$movieId/videos');
       return TrailerMapper.fromMapList(response.data);
     } on DioError catch (e, stackTrace) {
       if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout || e.type == DioErrorType.other) {
@@ -51,7 +47,7 @@ class DiscoveryMovieDatasourceImpl extends DiscoveryMovieDatasource {
   @override
   Future<List<Trailer>> getTvShowTrailerById(int tvShowId) async {
     try {
-      final response = await dio.get('tv/$tvShowId/videos?api_key=${configurations.apiKey}&language=${configurations.language}');
+      final response = await dio.get('tv/$tvShowId/videos');
       return TrailerMapper.fromMapList(response.data);
     } on DioError catch (e, stackTrace) {
       if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout || e.type == DioErrorType.other) {
@@ -65,7 +61,7 @@ class DiscoveryMovieDatasourceImpl extends DiscoveryMovieDatasource {
   @override
   Future<List<Crew>> getMovieCrew(int movieId) async {
     try {
-      final response = await dio.get('movie/$movieId/credits?api_key=${configurations.apiKey}&language=${configurations.language}');
+      final response = await dio.get('movie/$movieId/credits');
 
       return CrewMapper.fromMapList(response.data);
     } on DioError catch (e, stackTrace) {
@@ -80,7 +76,7 @@ class DiscoveryMovieDatasourceImpl extends DiscoveryMovieDatasource {
   @override
   Future<List<Crew>> getTvShowCrewById(int tvShowId) async {
     try {
-      final response = await dio.get('tv/$tvShowId/credits?api_key=${configurations.apiKey}&language=${configurations.language}');
+      final response = await dio.get('tv/$tvShowId/credits');
 
       return CrewMapper.fromMapList(response.data);
     } on DioError catch (e, stackTrace) {
