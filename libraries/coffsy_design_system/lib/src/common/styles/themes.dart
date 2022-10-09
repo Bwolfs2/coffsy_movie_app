@@ -4,6 +4,9 @@ import '../../../coffsy_design_system.dart';
 
 class Themes {
   static ThemeData lightTheme = ThemeData(
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: Colors.deepOrange,
+    ),
     fontFamily: 'IBMPlexSans',
     backgroundColor: ColorPalettes.lightBG,
     primaryColor: ColorPalettes.lightPrimary,
