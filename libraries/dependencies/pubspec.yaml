@@ -26,6 +26,12 @@ dependencies:
   # Structure
   flutter_triple: ^1.2.7+2
   flutter_modular: ^5.0.2
+  # flutter_modular:
+  #   git:
+  #     url: https://github.com/Flutterando/modular
+  #     path: flutter_modular
+  #     ref: ade72425962fdcdc30044b6e95e13527e4b4e367
+
   dartz: ^0.10.0-nullsafety.2
 
   # Others

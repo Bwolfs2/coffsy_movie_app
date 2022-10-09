@@ -3,5 +3,5 @@
   "[dart]": {
     "editor.rulers": [140]
   },
-  "dart.flutterSdkPath": "D:\\fvm\\images\\versions\\3.0.0"
+  "dart.flutterSdkPath": "D:\\fvm\\images\\versions\\stable"
 }

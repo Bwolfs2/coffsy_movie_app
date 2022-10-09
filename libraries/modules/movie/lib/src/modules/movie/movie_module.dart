@@ -35,21 +35,21 @@ class MovieModule extends Module {
 
     //useCases
 
-    Bind.lazySingleton((i) => GetMoviePopular(i()), export: true),
-    Bind.lazySingleton((i) => GetMovieUpComming(i()), export: true),
-    Bind.lazySingleton((i) => GetMovieTrailerById(i()), export: true),
-    Bind.lazySingleton((i) => GetTvShowTrailer(i()), export: true),
-    Bind.lazySingleton((i) => GetTvShowCrewById(i()), export: true),
-    Bind.lazySingleton((i) => GetMovieCrewById(i()), export: true),
+    Bind.lazySingleton((i) => GetMoviePopular(i())),
+    Bind.lazySingleton((i) => GetMovieUpComming(i())),
+    Bind.lazySingleton((i) => GetMovieTrailerById(i())),
+    Bind.lazySingleton((i) => GetTvShowTrailer(i())),
+    Bind.lazySingleton((i) => GetTvShowCrewById(i())),
+    Bind.lazySingleton((i) => GetMovieCrewById(i())),
 
     ///
-    Bind.lazySingleton<MovieBannerStore>((i) => MovieBannerStore(i()), export: true),
-    Bind.lazySingleton<IGetMovieNowPlaying>((i) => GetMovieNowPlaying(i()), export: true),
+    Bind.lazySingleton<MovieBannerStore>((i) => MovieBannerStore(i())),
+    Bind.lazySingleton<IGetMovieNowPlaying>((i) => GetMovieNowPlaying(i())),
 
     //Datasources
-    Bind.lazySingleton<MovieDataSource>((i) => MovieDataSourceImpl(i(), i()), export: true),
+    Bind.lazySingleton<MovieDataSource>((i) => MovieDataSourceImpl(i(), i())),
     //repositories
-    Bind.lazySingleton<MoviesRepository>((i) => MoviesRepositoryImpl(i()), export: true),
+    Bind.lazySingleton<MoviesRepository>((i) => MoviesRepositoryImpl(i())),
   ];
 
   @override

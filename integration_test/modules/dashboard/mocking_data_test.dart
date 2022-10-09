@@ -1,4 +1,3 @@
-import 'package:coffsy_movie_app/app/app_module.dart';
 import 'package:coffsy_movie_app/main.dart' as app;
 import 'package:dartz/dartz.dart' hide Bind;
 import 'package:flutter_modular/flutter_modular.dart';
@@ -19,7 +18,7 @@ void main() {
   setUpAll(() {
     mockGetMovieNowPlaying = MockGetMovieNowPlaying();
 
-    initModule(AppModule(), replaceBinds: [
+    initModule(MovieModule(), replaceBinds: [
       Bind.lazySingleton<IGetMovieNowPlaying>((_) => mockGetMovieNowPlaying),
     ]);
 

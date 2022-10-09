@@ -46,7 +46,7 @@ dependencies:
 
 dev_dependencies:
   mocktail: ^0.1.1
-  modular_test: ^2.0.0
+  modular_test:
   integration_test:
     sdk: flutter
   triple_test: ^0.0.8
