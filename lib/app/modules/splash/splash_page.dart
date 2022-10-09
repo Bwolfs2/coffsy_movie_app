@@ -12,7 +12,7 @@ import '../../app_module.dart';
 /// SplashPage
 /// <img src="https://raw.githubusercontent.com/rrifafauzikomara/MovieApp/master/screenshot/ios1.png" width="300">
 class SplashPage extends StatefulWidget {
-  const SplashPage({Key? key}) : super(key: key);
+  const SplashPage({super.key});
 
   @override
   State<SplashPage> createState() => _SplashPageState();

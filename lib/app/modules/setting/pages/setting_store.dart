@@ -5,9 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class SettingStore extends StreamStore<Failure, bool> {
   static SettingStore? _instance;
 
-  static SettingStore get getInstance => _instance ??= SettingStore._();
-
-  factory SettingStore() => getInstance;
+  factory SettingStore() => _instance ??= SettingStore._();
 
   SettingStore._() : super(false) {
     loadTheme();

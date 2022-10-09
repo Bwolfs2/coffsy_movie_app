@@ -28,7 +28,7 @@ class _SettingPageState extends State<SettingPage> {
     super.initState();
 
     _remoteConfig.addListener(() {
-      //   setState(() {});
+      setState(() {});
     });
   }
 

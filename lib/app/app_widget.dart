@@ -14,13 +14,14 @@ import 'modules/setting/pages/setting_store.dart';
 CoffsyAnalytics analytics = CoffsyAnalytics();
 
 class AppWidget extends StatefulWidget {
-  const AppWidget({Key? key}) : super(key: key);
+  const AppWidget({super.key});
 
   @override
   State<AppWidget> createState() => _AppWidgetState();
 }
 
 class _AppWidgetState extends State<AppWidget> {
+  final store = SettingStore();
   @override
   void initState() {
     super.initState();
@@ -45,11 +46,8 @@ class _AppWidgetState extends State<AppWidget> {
     Modular.setObservers([
       FirebaseAnalyticsObserver(analytics: FirebaseAnalytics()),
     ]);
-    return ScopedBuilder<SettingStore, Failure, bool>.transition(
-      store: SettingStore(),
-      onLoading: (context) => const Center(
-        child: CircularProgressIndicator.adaptive(),
-      ),
+    return ScopedBuilder<SettingStore, Failure, bool>(
+      store: store,
       onState: (context, state) {
         return MaterialApp.router(
           title: 'Coffsy Movie App',
