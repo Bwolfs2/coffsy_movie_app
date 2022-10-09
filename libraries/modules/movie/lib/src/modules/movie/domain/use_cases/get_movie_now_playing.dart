@@ -13,7 +13,8 @@ class GetMovieNowPlaying implements IGetMovieNowPlaying {
 
   GetMovieNowPlaying(this.repository);
 
+  @override
   Future<Either<Failure, List<Movie>>> call() async {
-    return await repository.getMovieNowPlaying();
+    return repository.getMovieNowPlaying();
   }
 }

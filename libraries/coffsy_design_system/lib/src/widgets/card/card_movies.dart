@@ -34,13 +34,13 @@ class CardMovies extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               // image
-              Container(
+              SizedBox(
                 width: Sizes.width(context) / 3,
                 height: Sizes.width(context) / 2,
                 child: CachedNetworkImage(
                   imageUrl: image.imageOriginal,
-                  placeholder: (context, url) => LoadingIndicator(),
-                  errorWidget: (context, url, error) => ErrorImage(),
+                  placeholder: (context, url) => const LoadingIndicator(),
+                  errorWidget: (context, url, error) => const ErrorImage(),
                 ),
               ),
               Expanded(
@@ -49,43 +49,38 @@ class CardMovies extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Container(
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: <Widget>[
-                            // circle vote average
-                            CircleProgress(
-                              vote: vote,
-                            ),
-                            SizedBox(
-                              width: Sizes.dp10(context),
-                            ),
-                            Expanded(
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Text(
-                                    title,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: Sizes.dp16(context),
-                                    ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          // circle vote average
+                          CircleProgress(
+                            vote: vote,
+                          ),
+                          SizedBox(
+                            width: Sizes.dp10(context),
+                          ),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  title,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: Sizes.dp16(context),
                                   ),
-                                  Text(
-                                    releaseDate,
-                                    style: TextStyle(
-                                      fontSize: Sizes.dp12(context),
-                                    ),
+                                ),
+                                Text(
+                                  releaseDate,
+                                  style: TextStyle(
+                                    fontSize: Sizes.dp12(context),
                                   ),
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
                       ),
                       SizedBox(
                         height: Sizes.dp10(context),

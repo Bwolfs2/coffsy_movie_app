@@ -18,7 +18,7 @@ class Themes {
     appBarTheme: AppBarTheme(
       toolbarTextStyle: TextStyle(
         color: ColorPalettes.darkBG,
-        fontSize: 18.0,
+        fontSize: 18,
         fontWeight: FontWeight.bold,
       ),
     ),
@@ -38,7 +38,7 @@ class Themes {
       color: ColorPalettes.darkPrimary,
       toolbarTextStyle: TextStyle(
         color: ColorPalettes.lightBG,
-        fontSize: 18.0,
+        fontSize: 18,
         fontWeight: FontWeight.w700,
       ),
     ),

@@ -16,13 +16,15 @@ import '../../widgets/up_coming/up_coming_widget.dart';
 import '../../widgets/up_coming/up_coming_widget_store.dart';
 
 class MoviePage extends StatefulWidget {
+  const MoviePage({super.key});
+
   @override
-  _MoviePageState createState() => _MoviePageState();
+  State<MoviePage> createState() => _MoviePageState();
 }
 
 class _MoviePageState extends State<MoviePage> {
   Future<void> _refresh() async {
-    Future.wait([
+    await Future.wait([
       Modular.get<MovieBannerStore>().load(),
       Modular.get<UpComingWidgetStore>().load(),
       Modular.get<PopularStore>().load(),

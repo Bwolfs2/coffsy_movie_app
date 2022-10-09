@@ -10,8 +10,10 @@ import '../../../domain/errors/movie_failures.dart';
 import 'movie_popular_store.dart';
 
 class MoviePopularPage extends StatefulWidget {
+  const MoviePopularPage({super.key});
+
   @override
-  _MoviePopularPageState createState() => _MoviePopularPageState();
+  State<MoviePopularPage> createState() => _MoviePopularPageState();
 }
 
 class _MoviePopularPageState extends State<MoviePopularPage> {
@@ -43,7 +45,7 @@ class _MoviePopularPageState extends State<MoviePopularPage> {
               return Center(
                 child: NoInternetWidget(
                   message: AppConstant.noInternetConnection,
-                  onPressed: () async => await store.load(),
+                  onPressed: store.load,
                 ),
               );
             }
@@ -81,7 +83,6 @@ class _MoviePopularPageState extends State<MoviePopularPage> {
                         movies.tvRelease,
                       ),
                       isFromMovie: true,
-                      isFromBanner: false,
                     ),
                     forRoot: true,
                   );

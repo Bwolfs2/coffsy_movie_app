@@ -12,8 +12,10 @@ import '../../app_module.dart';
 /// SplashPage
 /// <img src="https://raw.githubusercontent.com/rrifafauzikomara/MovieApp/master/screenshot/ios1.png" width="300">
 class SplashPage extends StatefulWidget {
+  const SplashPage({Key? key}) : super(key: key);
+
   @override
-  _SplashPageState createState() => _SplashPageState();
+  State<SplashPage> createState() => _SplashPageState();
 }
 
 class _SplashPageState extends State<SplashPage> {
@@ -23,7 +25,7 @@ class _SplashPageState extends State<SplashPage> {
     return info.version;
   }
 
-  _startSplashPage() async {
+  Future<void> _startSplashPage() async {
     await Future.wait([
       CrashalytcsService.initializeFlutterFire(),
       _remoteConfig.ensureInitialized(),
@@ -50,7 +52,9 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    _startSplashPage();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _startSplashPage();
+    });
   }
 
   @override

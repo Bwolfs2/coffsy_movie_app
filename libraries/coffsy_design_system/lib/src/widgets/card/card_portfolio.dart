@@ -15,7 +15,7 @@ class CardPortfolio extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(Sizes.dp5(context)),
       child: InkWell(
-        onTap: () async => await launch(url),
+        onTap: () => launch(url),
         child: Card(
           child: Padding(
             padding: EdgeInsets.all(Sizes.dp10(context)),
@@ -35,7 +35,6 @@ class CardPortfolio extends StatelessWidget {
                 ),
                 Expanded(
                   child: Column(
-                    mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(

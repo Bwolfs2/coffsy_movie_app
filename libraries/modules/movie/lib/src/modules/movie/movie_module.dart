@@ -54,10 +54,10 @@ class MovieModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute('/', child: (_, args) => MoviePage()),
-    ChildRoute('/now_playing', child: (_, __) => NowPlayingPage()),
-    ChildRoute('/movie_popular', child: (_, __) => MoviePopularPage()),
-    ChildRoute('/up_coming', child: (_, __) => UpComingPage()),
+    ChildRoute('/', child: (_, args) => const MoviePage()),
+    ChildRoute('/now_playing', child: (_, __) => const NowPlayingPage()),
+    ChildRoute('/movie_popular', child: (_, __) => const MoviePopularPage()),
+    ChildRoute('/up_coming', child: (_, __) => const UpComingPage()),
     ChildRoute('/detail_movies', child: (_, args) => DetailPage(arguments: args.data)),
     ModuleRoute('/booking', module: BookingModule()),
   ];

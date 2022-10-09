@@ -17,7 +17,7 @@ class DiscoveryMovieLocalDatasourceImpl extends DiscoveryMovieLocalDatasource {
 
   @override
   Future<List<Movie>> getDiscoverMovie() async {
-    var discoverMovie = shared.getCacheList('getDiscoverMovie');
+    final discoverMovie = shared.getCacheList('getDiscoverMovie');
     if (discoverMovie.isEmpty) {
       return discoverMovie.map((e) => MovieMapper.fromMap(json.decode(e))).toList();
     }
@@ -27,7 +27,7 @@ class DiscoveryMovieLocalDatasourceImpl extends DiscoveryMovieLocalDatasource {
 
   @override
   Future<List<Trailer>> getMovieTrailerById(int movieId) async {
-    var movieTrailer = await shared.getCacheList('getMovieTrailerById');
+    final movieTrailer = shared.getCacheList('getMovieTrailerById');
     if (movieTrailer.isEmpty) {
       return movieTrailer.map((e) => TrailerMapper.fromMap(json.decode(e))).toList();
     }
@@ -37,7 +37,7 @@ class DiscoveryMovieLocalDatasourceImpl extends DiscoveryMovieLocalDatasource {
 
   @override
   Future<List<Trailer>> getTvShowTrailerById(int tvShowId) async {
-    var tvShowTrailer = shared.getCacheList('getTvShowTrailerById');
+    final tvShowTrailer = shared.getCacheList('getTvShowTrailerById');
     if (tvShowTrailer.isEmpty) {
       return tvShowTrailer.map((e) => TrailerMapper.fromMap(json.decode(e))).toList();
     }
@@ -47,7 +47,7 @@ class DiscoveryMovieLocalDatasourceImpl extends DiscoveryMovieLocalDatasource {
 
   @override
   Future<List<Crew>> getMovieCrew(int movieId) async {
-    var movieCrew = shared.getCacheList('getMovieCrew');
+    final movieCrew = shared.getCacheList('getMovieCrew');
     if (movieCrew.isEmpty) {
       return movieCrew.map((e) => CrewMapper.fromMap(json.decode(e))).toList();
     }
@@ -57,7 +57,7 @@ class DiscoveryMovieLocalDatasourceImpl extends DiscoveryMovieLocalDatasource {
 
   @override
   Future<List<Crew>> getTvShowCrewById(int tvShowId) async {
-    var tvShowCrew = shared.getCacheList('getTvShowCrewById');
+    final tvShowCrew = shared.getCacheList('getTvShowCrewById');
     if (tvShowCrew.isEmpty) {
       return tvShowCrew.map((e) => CrewMapper.fromMap(json.decode(e))).toList();
     }

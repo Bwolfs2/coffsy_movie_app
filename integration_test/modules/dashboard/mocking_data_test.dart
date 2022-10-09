@@ -18,16 +18,19 @@ void main() {
   setUpAll(() {
     mockGetMovieNowPlaying = MockGetMovieNowPlaying();
 
-    initModule(MovieModule(), replaceBinds: [
-      Bind.lazySingleton<IGetMovieNowPlaying>((_) => mockGetMovieNowPlaying),
-    ]);
+    initModule(
+      MovieModule(),
+      replaceBinds: [
+        Bind.lazySingleton<IGetMovieNowPlaying>((_) => mockGetMovieNowPlaying),
+      ],
+    );
 
     when(() => mockGetMovieNowPlaying.call()).thenAnswer((_) async => right(<Movie>[]));
   });
 
   group('Widget Test', () {
     testWidgets('should navigate between tabs', (tester) async {
-      app.main();
+      await app.main();
 
       await tester.pumpAndSettle();
 

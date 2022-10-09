@@ -12,7 +12,7 @@ class UpComingWidget extends StatefulWidget {
   const UpComingWidget({Key? key}) : super(key: key);
 
   @override
-  _UpComingWidgetState createState() => _UpComingWidgetState();
+  State<UpComingWidget> createState() => _UpComingWidgetState();
 }
 
 class _UpComingWidgetState extends State<UpComingWidget> {
@@ -52,7 +52,7 @@ class _UpComingWidgetState extends State<UpComingWidget> {
             ],
           ),
         ),
-        Container(
+        SizedBox(
           width: Sizes.width(context),
           height: Sizes.width(context) / 1.8,
           child: ScopedBuilder<UpComingWidgetStore, Failure, List<Movie>>.transition(
@@ -61,7 +61,7 @@ class _UpComingWidgetState extends State<UpComingWidget> {
               if (error is MovieNowPlayingNoInternetConnection) {
                 return NoInternetWidget(
                   message: AppConstant.noInternetConnection,
-                  onPressed: () async => await store.load(),
+                  onPressed: store.load,
                 );
               }
               return CustomErrorWidget(message: error?.errorMessage);
@@ -100,13 +100,13 @@ class _UpComingWidgetState extends State<UpComingWidget> {
                                 movies.tvRelease,
                               ),
                               isFromMovie: true,
-                              isFromBanner: false,
                             ),
                             forRoot: true,
                           );
                         },
                       );
-                    }),
+                    },
+                  ),
           ),
         ),
       ],

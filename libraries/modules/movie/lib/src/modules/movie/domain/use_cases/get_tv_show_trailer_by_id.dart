@@ -13,6 +13,7 @@ class GetTvShowTrailer implements IGetTvShowTrailer {
 
   GetTvShowTrailer(this.repository);
 
+  @override
   Future<Either<Failure, List<Trailer>>> call(int id) {
     return repository.getTvShowTrailerById(id);
   }

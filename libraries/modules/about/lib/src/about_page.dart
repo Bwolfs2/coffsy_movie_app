@@ -5,10 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AboutPage extends StatelessWidget {
+  const AboutPage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    var _themeData = Theme.of(context);
-    var _isDarkTheme = _themeData.appBarTheme.backgroundColor == null;
+    final _themeData = Theme.of(context);
+    final _isDarkTheme = _themeData.appBarTheme.backgroundColor == null;
     return Scaffold(
       body: Stack(
         clipBehavior: Clip.none,
@@ -44,7 +46,7 @@ class AboutPage extends StatelessWidget {
                             ),
                             SizedBox(height: Sizes.dp5(context)),
                             GestureDetector(
-                              onTap: () async => await launch(UrlConstant.urlInstagram),
+                              onTap: () => launch(UrlConstant.urlInstagram),
                               child: Row(
                                 children: <Widget>[
                                   Image.asset(

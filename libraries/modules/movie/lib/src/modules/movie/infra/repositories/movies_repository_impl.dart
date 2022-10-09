@@ -16,7 +16,7 @@ class MoviesRepositoryImpl implements MoviesRepository {
   @override
   Future<Either<Failure, List<Movie>>> getMovieNowPlaying() async {
     try {
-      var result = await _dataSource.getMovieNowPlaying();
+      final result = await _dataSource.getMovieNowPlaying();
 
       if (result.isEmpty) {
         return Left(NoDataFound());
@@ -30,7 +30,7 @@ class MoviesRepositoryImpl implements MoviesRepository {
   @override
   Future<Either<Failure, List<Movie>>> getMoviePopular() async {
     try {
-      var result = await _dataSource.getMoviePopular();
+      final result = await _dataSource.getMoviePopular();
 
       if (result.isEmpty) {
         return Left(NoDataFound());
@@ -48,7 +48,7 @@ class MoviesRepositoryImpl implements MoviesRepository {
   @override
   Future<Either<Failure, List<Movie>>> getMovieUpComming() async {
     try {
-      var result = await _dataSource.getMovieUpComming();
+      final result = await _dataSource.getMovieUpComming();
 
       if (result.isEmpty) {
         return Left(NoDataFound());
@@ -65,7 +65,7 @@ class MoviesRepositoryImpl implements MoviesRepository {
   @override
   Future<Either<Failure, List<Trailer>>> getMovieTrailerById(int id) async {
     try {
-      var result = await _dataSource.getMovieTrailerById(id);
+      final result = await _dataSource.getMovieTrailerById(id);
 
       if (result.isEmpty) {
         return Left(NoDataFound());
@@ -82,7 +82,7 @@ class MoviesRepositoryImpl implements MoviesRepository {
   @override
   Future<Either<Failure, List<Trailer>>> getTvShowTrailerById(int id) async {
     try {
-      var result = await _dataSource.getTvShowTrailerById(id);
+      final result = await _dataSource.getTvShowTrailerById(id);
 
       if (result.isEmpty) {
         return Left(NoDataFound());
@@ -99,7 +99,7 @@ class MoviesRepositoryImpl implements MoviesRepository {
   @override
   Future<Either<Failure, List<Crew>>> getMovieCrewById(int id) async {
     try {
-      var result = await _dataSource.getMovieCrewById(id);
+      final result = await _dataSource.getMovieCrewById(id);
 
       if (result.isEmpty) {
         return Left(NoDataFound());
@@ -116,7 +116,7 @@ class MoviesRepositoryImpl implements MoviesRepository {
   @override
   Future<Either<Failure, List<Crew>>> getTvShowCrewById(int id) async {
     try {
-      var result = await _dataSource.getTvShowCrewById(id);
+      final result = await _dataSource.getTvShowCrewById(id);
 
       if (result.isEmpty) {
         return Left(NoDataFound());

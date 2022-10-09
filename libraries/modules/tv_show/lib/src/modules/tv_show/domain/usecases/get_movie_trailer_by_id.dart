@@ -7,6 +7,6 @@ class GetMovieTrailerById {
   GetMovieTrailerById(this.repository);
 
   Future<List<Trailer>> call(int id) async {
-    return await repository.getMovieTrailerById(id);
+    return repository.getMovieTrailerById(id);
   }
 }

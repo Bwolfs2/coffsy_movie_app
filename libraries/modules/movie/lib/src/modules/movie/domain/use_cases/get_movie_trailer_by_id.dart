@@ -13,6 +13,7 @@ class GetMovieTrailerById implements IGetMovieTrailerById {
 
   GetMovieTrailerById(this.repository);
 
+  @override
   Future<Either<Failure, List<Trailer>>> call(int id) {
     return repository.getMovieTrailerById(id);
   }

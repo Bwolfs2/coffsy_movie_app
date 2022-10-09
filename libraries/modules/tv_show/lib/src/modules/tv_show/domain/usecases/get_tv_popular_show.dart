@@ -7,6 +7,6 @@ class GetTvPopularShow {
   GetTvPopularShow(this.repository);
 
   Future<List<TvPopularShow>> call() async {
-    return await repository.getTvPopularShow();
+    return repository.getTvPopularShow();
   }
 }

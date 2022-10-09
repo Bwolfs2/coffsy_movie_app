@@ -4,6 +4,8 @@ import 'package:shimmer/shimmer.dart';
 import '../../../coffsy_design_system.dart';
 
 class ShimmerDiscover extends StatelessWidget {
+  const ShimmerDiscover({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(

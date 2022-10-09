@@ -10,8 +10,10 @@ import '../../../domain/errors/tv_show_failures.dart';
 import 'airing_today_store.dart';
 
 class AiringTodayPage extends StatefulWidget {
+  const AiringTodayPage({super.key});
+
   @override
-  _AiringTodayPageState createState() => _AiringTodayPageState();
+  State<AiringTodayPage> createState() => _AiringTodayPageState();
 }
 
 class _AiringTodayPageState extends State<AiringTodayPage> {
@@ -41,7 +43,7 @@ class _AiringTodayPageState extends State<AiringTodayPage> {
               return Center(
                 child: NoInternetWidget(
                   message: AppConstant.noInternetConnection,
-                  onPressed: () async => await store.load(),
+                  onPressed: store.load,
                 ),
               );
             }
@@ -76,7 +78,6 @@ class _AiringTodayPageState extends State<AiringTodayPage> {
                         movie.tvName,
                         movie.tvRelease,
                       ),
-                      isFromBanner: false,
                     ),
                     forRoot: true,
                   );

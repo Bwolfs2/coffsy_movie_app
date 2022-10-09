@@ -10,8 +10,10 @@ import '../../../domain/errors/tv_show_failures.dart';
 import 'tv_popular_store.dart';
 
 class TvPopularPage extends StatefulWidget {
+  const TvPopularPage({super.key});
+
   @override
-  _TvPopularPageState createState() => _TvPopularPageState();
+  State<TvPopularPage> createState() => _TvPopularPageState();
 }
 
 class _TvPopularPageState extends State<TvPopularPage> {
@@ -43,7 +45,7 @@ class _TvPopularPageState extends State<TvPopularPage> {
               return Center(
                 child: NoInternetWidget(
                   message: AppConstant.noInternetConnection,
-                  onPressed: () async => await store.load(),
+                  onPressed: store.load,
                 ),
               );
             }
@@ -79,7 +81,6 @@ class _TvPopularPageState extends State<TvPopularPage> {
                         tvPopularShow.tvName,
                         tvPopularShow.tvRelease,
                       ),
-                      isFromBanner: false,
                     ),
                     forRoot: true,
                   );

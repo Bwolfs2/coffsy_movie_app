@@ -16,7 +16,6 @@ class CustomDialog extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(left: Sizes.dp10(context)),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Radio<bool>(
                 value: true,
@@ -33,7 +32,6 @@ class CustomDialog extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(left: Sizes.dp10(context)),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Radio<bool>(
                 value: false,

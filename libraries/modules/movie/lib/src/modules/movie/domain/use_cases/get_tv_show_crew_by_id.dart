@@ -13,7 +13,8 @@ class GetTvShowCrewById implements IGetTvShowCrewById {
 
   GetTvShowCrewById(this.repository);
 
+  @override
   Future<Either<Failure, List<Crew>>> call(int id) async {
-    return await repository.getTvShowCrewById(id);
+    return repository.getTvShowCrewById(id);
   }
 }

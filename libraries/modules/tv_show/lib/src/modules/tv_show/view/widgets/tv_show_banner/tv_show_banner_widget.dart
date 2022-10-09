@@ -12,7 +12,7 @@ class TvShowBanner extends StatefulWidget {
   const TvShowBanner({Key? key}) : super(key: key);
 
   @override
-  _TvShowBannerState createState() => _TvShowBannerState();
+  State<TvShowBanner> createState() => _TvShowBannerState();
 }
 
 class _TvShowBannerState extends State<TvShowBanner> {
@@ -31,14 +31,13 @@ class _TvShowBannerState extends State<TvShowBanner> {
         return error is TvAiringTodayNoInternetConnection
             ? NoInternetWidget(
                 message: AppConstant.noInternetConnection,
-                onPressed: () async => await store.load(),
+                onPressed: store.load,
               )
             : CustomErrorWidget(message: error?.errorMessage);
       },
       onLoading: (context) => const ShimmerBanner(),
       onState: (context, state) => StatefulBuilder(
         builder: (context, setState) => BannerHome(
-          isFromMovie: false,
           onPageChanged: (index, reason) {
             setState(() {
               _current = index;

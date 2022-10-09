@@ -10,8 +10,10 @@ import '../../../domain/errors/movie_failures.dart';
 import 'now_playing_store.dart';
 
 class NowPlayingPage extends StatefulWidget {
+  const NowPlayingPage({super.key});
+
   @override
-  _NowPlayingPageState createState() => _NowPlayingPageState();
+  State<NowPlayingPage> createState() => _NowPlayingPageState();
 }
 
 class _NowPlayingPageState extends State<NowPlayingPage> {
@@ -43,7 +45,7 @@ class _NowPlayingPageState extends State<NowPlayingPage> {
               return Center(
                 child: NoInternetWidget(
                   message: AppConstant.noInternetConnection,
-                  onPressed: () async => await store.load(),
+                  onPressed: store.load,
                 ),
               );
             }
@@ -79,7 +81,6 @@ class _NowPlayingPageState extends State<NowPlayingPage> {
                         movies.tvRelease,
                       ),
                       isFromMovie: true,
-                      isFromBanner: false,
                     ),
                     forRoot: true,
                   );

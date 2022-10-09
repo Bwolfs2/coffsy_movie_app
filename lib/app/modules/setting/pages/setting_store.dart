@@ -7,15 +7,15 @@ class SettingStore extends StreamStore<Failure, bool> {
 
   static SettingStore get getInstance => _instance ??= SettingStore._();
 
+  factory SettingStore() => getInstance;
+
   SettingStore._() : super(false) {
     loadTheme();
   }
 
-  factory SettingStore() => getInstance;
-
   Future<void> changeTheme({bool isDark = false}) async {
     setLoading(true);
-    saveValueDarkTheme(isDark: isDark);
+    await saveValueDarkTheme(isDark: isDark);
     update(isDark, force: true);
     setLoading(false);
   }
@@ -30,12 +30,12 @@ class SettingStore extends StreamStore<Failure, bool> {
   final String _theme = 'theme';
 
   Future saveValueDarkTheme({bool isDark = false}) async {
-    var shared = await SharedPreferences.getInstance();
-    shared.setBool(_theme, isDark);
+    final shared = await SharedPreferences.getInstance();
+    await shared.setBool(_theme, isDark);
   }
 
   Future<bool> getValueDarkTheme() async {
-    var shared = await SharedPreferences.getInstance();
+    final shared = await SharedPreferences.getInstance();
     return shared.getBool(_theme) ?? false;
   }
 }

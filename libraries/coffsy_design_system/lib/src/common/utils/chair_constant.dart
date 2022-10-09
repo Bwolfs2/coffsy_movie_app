@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 import '../../../coffsy_design_system.dart';
 
 class ChairConstant {
   static Widget grey = const GreyChair();
   static Widget red = const RedChair();
   static Widget orange = const OrangeChair();
-  static final _whiteDark = const WhiteChairDark();
-  static final _whiteLight = const WhiteChairLight();
+  static const _whiteDark = WhiteChairDark();
+  static const _whiteLight = WhiteChairLight();
   static Widget white({bool isDarkTheme = false}) => isDarkTheme ? _whiteLight : _whiteDark;
 }
 

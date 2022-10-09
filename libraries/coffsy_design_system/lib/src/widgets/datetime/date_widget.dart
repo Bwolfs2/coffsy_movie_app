@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import '../../../coffsy_design_system.dart';
 
 class DateWidget extends StatefulWidget {
+  const DateWidget({Key? key}) : super(key: key);
+
   @override
-  _DateWidgetState createState() => _DateWidgetState();
+  State<DateWidget> createState() => _DateWidgetState();
 }
 
 class _DateWidgetState extends State<DateWidget> with TickerProviderStateMixin {
@@ -68,9 +70,9 @@ class _DateWidgetState extends State<DateWidget> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    var themeData = Theme.of(context);
+    final themeData = Theme.of(context);
     _isDarkTheme = themeData.appBarTheme.backgroundColor == null;
-    return Container(
+    return SizedBox(
       height: Sizes.width(context) / 3.5,
       child: Stack(
         alignment: Alignment.centerLeft,
@@ -95,7 +97,7 @@ class _DateWidgetState extends State<DateWidget> with TickerProviderStateMixin {
             itemCount: 7,
             scrollDirection: Axis.horizontal,
             itemBuilder: (ctx, index) {
-              var date = _currentDate.add(Duration(days: index));
+              final date = _currentDate.add(Duration(days: index));
               return AnimatedBuilder(
                 animation: _dateSelectorAcList[index],
                 builder: (ctx, child) {

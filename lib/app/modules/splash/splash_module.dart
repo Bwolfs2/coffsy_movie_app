@@ -4,5 +4,5 @@ import 'splash_page.dart';
 
 class SplashModule extends Module {
   @override
-  final List<ModularRoute> routes = [ChildRoute('/', child: (_, __) => SplashPage())];
+  final List<ModularRoute> routes = [ChildRoute('/', child: (_, __) => const SplashPage())];
 }

@@ -13,8 +13,10 @@ import '../../widgets/tv_show_popular/tv_show_popular_store.dart';
 import '../../widgets/tv_show_popular/tv_show_popular_widget.dart';
 
 class TvShowPage extends StatefulWidget {
+  const TvShowPage({super.key});
+
   @override
-  _TvShowPageState createState() => _TvShowPageState();
+  State<TvShowPage> createState() => _TvShowPageState();
 }
 
 class _TvShowPageState extends State<TvShowPage> {
@@ -23,9 +25,9 @@ class _TvShowPageState extends State<TvShowPage> {
   final tvShowPopularStore = Modular.get<TvShowPopularStore>();
 
   Future<void> _refresh() async {
-    tvShowBannerStore.load();
-    airingTodayWidgetStore.load();
-    tvShowPopularStore.load();
+    await tvShowBannerStore.load();
+    await airingTodayWidgetStore.load();
+    await tvShowPopularStore.load();
   }
 
   @override

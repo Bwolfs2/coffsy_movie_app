@@ -13,7 +13,8 @@ class GetMoviePopular implements IGetMoviePopular {
 
   GetMoviePopular(this.repository);
 
+  @override
   Future<Either<Failure, List<Movie>>> call() async {
-    return await repository.getMoviePopular();
+    return repository.getMoviePopular();
   }
 }

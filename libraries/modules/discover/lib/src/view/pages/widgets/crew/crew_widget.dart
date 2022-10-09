@@ -14,7 +14,7 @@ class CrewWidget extends StatefulWidget {
   const CrewWidget({Key? key, required this.movieId, required this.isFromMovie}) : super(key: key);
 
   @override
-  _CrewWidgetState createState() => _CrewWidgetState();
+  State<CrewWidget> createState() => _CrewWidgetState();
 }
 
 class _CrewWidgetState extends State<CrewWidget> {
@@ -47,7 +47,7 @@ class _CrewWidgetState extends State<CrewWidget> {
           ),
         ),
         SizedBox(height: Sizes.dp8(context)),
-        Container(
+        SizedBox(
           width: Sizes.width(context),
           height: Sizes.width(context) / 3,
           child: ScopedBuilder<CrewStore, Failure, List<Crew>>.transition(

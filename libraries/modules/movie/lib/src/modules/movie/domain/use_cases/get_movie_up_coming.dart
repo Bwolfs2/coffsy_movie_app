@@ -13,7 +13,8 @@ class GetMovieUpComming implements IGetMovieUpComming {
 
   GetMovieUpComming(this.repository);
 
+  @override
   Future<Either<Failure, List<Movie>>> call() async {
-    return await repository.getMovieUpComming();
+    return repository.getMovieUpComming();
   }
 }

@@ -9,7 +9,7 @@ class CustomButton extends StatefulWidget {
   const CustomButton({Key? key, required this.onPressed, required this.text}) : super(key: key);
 
   @override
-  _CustomButtonState createState() => _CustomButtonState();
+  State<CustomButton> createState() => _CustomButtonState();
 }
 
 class _CustomButtonState extends State<CustomButton> with TickerProviderStateMixin {
@@ -47,12 +47,12 @@ class _CustomButtonState extends State<CustomButton> with TickerProviderStateMix
           child: Opacity(opacity: opacity(), child: child),
         );
       },
-      child: Container(
+      child: SizedBox(
         width: Sizes.width(context) * .9,
         height: Sizes.width(context) / 7,
         child: TextButton(
           style: TextButton.styleFrom(
-            primary: ColorPalettes.darkAccent,
+            foregroundColor: ColorPalettes.darkAccent,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(
                 Sizes.dp10(context),
