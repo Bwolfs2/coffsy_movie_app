@@ -129,7 +129,7 @@ class TvShowDatasourceImpl implements ITvShowDatasource {
       } else if (e.type == DioErrorType.other) {
         throw CrewNoInternetConnection();
       } else {
-        throw CrewError(stackTrace, 'TvShowDatasourceImpl-getMovieTrailerById', e, e.toString());
+        throw CrewError(stackTrace, 'TvShowDatasourceImpl-getMovieTrailerById', e, e.message);
       }
     }
   }

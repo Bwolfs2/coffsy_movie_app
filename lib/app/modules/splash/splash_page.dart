@@ -19,7 +19,7 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-  final _remoteConfig = RemoteConfig.instance;
+  final _remoteConfig = FirebaseRemoteConfig.instance;
   Future<String> _getVersion() async {
     final info = await PackageInfo.fromPlatform();
     return info.version;

@@ -16,7 +16,7 @@ class SettingPage extends StatefulWidget {
 }
 
 class _SettingPageState extends State<SettingPage> {
-  final _remoteConfig = RemoteConfig.instance;
+  final _remoteConfig = FirebaseRemoteConfig.instance;
 
   Future<String> _getVersion() async {
     final info = await PackageInfo.fromPlatform();
