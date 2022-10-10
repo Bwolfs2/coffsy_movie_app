@@ -970,7 +970,7 @@ packages:
       name: triple_test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.8"
+    version: "1.0.0+1"
   typed_data:
     dependency: transitive
     description:

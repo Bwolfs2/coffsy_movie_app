@@ -19,7 +19,7 @@ dev_dependencies:
   network_image_mock: ^2.0.1
   golden_toolkit: ^0.11.0
   modular_test: 
-  triple_test: ^0.0.8
+  triple_test: ^1.0.0+1
   flutter_test:
     sdk: flutter
 

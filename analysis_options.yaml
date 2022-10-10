@@ -7,3 +7,19 @@ linter:
     avoid_print: true
     one_member_abstracts: true
     prefer_const_constructors: true
+
+dart_code_metrics:
+  anti-patterns:
+    - long-method
+    - long-parameter-list
+  metrics:
+    cyclomatic-complexity: 20
+    maximum-nesting-level: 5
+    number-of-parameters: 4
+    source-lines-of-code: 50
+  metrics-exclude:
+    - test/**
+  rules:    
+    - no-boolean-literal-compare        
+    - prefer-conditional-expressions
+    - no-equal-then-else
