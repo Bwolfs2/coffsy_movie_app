@@ -18,7 +18,7 @@ dependencies:
   youtube_player_flutter: ^8.0.0
   flutter_svg: ^0.22.0
   liquid_pull_to_refresh: ^3.0.0
-  carousel_slider: ^4.0.0-nullsafety.0
+  carousel_slider: ^4.1.1
   lottie: ^1.0.1
   fluttertoast: ^8.0.7
   animated_card: ^2.0.0
@@ -46,8 +46,7 @@ dependencies:
   firebase_storage: ^10.0.2
 
   # Core
-  shared_preferences: ^2.0.6
-  equatable: ^2.0.2
+  shared_preferences: ^2.0.6  
   dio: ^4.0.0
   flutterando_analysis: ^0.0.1+2
 
