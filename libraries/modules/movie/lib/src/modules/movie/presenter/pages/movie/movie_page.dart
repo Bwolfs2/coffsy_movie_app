@@ -71,7 +71,7 @@ class _MoviePageState extends State<MoviePage> {
         showChildOpacityTransition: false,
         springAnimationDurationInMilliseconds: 500,
         child: ListView(
-          physics: const ClampingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           padding: EdgeInsets.all(
             Sizes.dp10(context),
           ),

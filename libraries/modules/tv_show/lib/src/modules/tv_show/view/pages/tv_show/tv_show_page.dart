@@ -1,9 +1,12 @@
 import 'dart:async';
 
 import 'package:coffsy_design_system/coffsy_design_system.dart';
+import 'package:feedback/feedback.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
+import 'package:uuid/uuid.dart';
 
 import '../../widgets/airing_today/airing_today_widget.dart';
 import '../../widgets/airing_today/airing_today_widget_store.dart';
@@ -42,8 +45,16 @@ class _TvShowPageState extends State<TvShowPage> {
           PopupMenuButton<Menu>(
             icon: const Icon(Icons.more_vert),
             onSelected: (menu) {
-              // Causes the app to rebuild with the new _selectedChoice.
-              Modular.to.pushNamed(menu.route);
+              if (menu.isFeedBack) {
+                BetterFeedback.of(context).show((feedback) {
+                  FirebaseStorage.instance.ref().child('feedbacks+${const Uuid().v4()}').putData(
+                        feedback.screenshot,
+                        SettableMetadata(customMetadata: {'message': feedback.text}),
+                      );
+                });
+              } else {
+                Modular.to.pushNamed(menu.route);
+              }
             },
             itemBuilder: (context) {
               return menus.map((menu) {
@@ -60,7 +71,7 @@ class _TvShowPageState extends State<TvShowPage> {
         onRefresh: _refresh,
         showChildOpacityTransition: false,
         child: SingleChildScrollView(
-          physics: const ClampingScrollPhysics(), //kill bounce iOS
+          physics: const BouncingScrollPhysics(), //kill bounce iOS
           child: Container(
             margin: EdgeInsets.all(Sizes.dp10(context)),
             child: Column(

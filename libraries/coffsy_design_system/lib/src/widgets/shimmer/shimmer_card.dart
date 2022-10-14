@@ -11,7 +11,7 @@ class ShimmerCard extends StatelessWidget {
       baseColor: ColorPalettes.greyBg,
       highlightColor: ColorPalettes.white,
       child: SingleChildScrollView(
-        physics: const ClampingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,

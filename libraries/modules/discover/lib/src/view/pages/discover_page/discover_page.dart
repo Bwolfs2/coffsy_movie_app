@@ -51,7 +51,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
         ),
         onState: (context, state) {
           return PageView.builder(
-            physics: const ClampingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             itemCount: state.length,
             itemBuilder: (context, index) {
               final movie = state[index];

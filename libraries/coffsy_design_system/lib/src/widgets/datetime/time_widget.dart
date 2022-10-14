@@ -41,7 +41,7 @@ class _TimeWidgetState extends State<TimeWidget> with TickerProviderStateMixin {
       height: Sizes.width(context) / 5,
       margin: EdgeInsets.symmetric(vertical: Sizes.dp20(context)),
       child: ListView.builder(
-        physics: const ClampingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: 3,
         itemBuilder: (ctx, index) {

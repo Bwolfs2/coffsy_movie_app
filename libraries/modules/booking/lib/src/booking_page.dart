@@ -22,7 +22,7 @@ class BookingPage extends StatelessWidget {
         title: Text(arguments.screenData.title),
       ),
       body: SingleChildScrollView(
-        physics: const ClampingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: EdgeInsets.all(
             Sizes.dp20(context),

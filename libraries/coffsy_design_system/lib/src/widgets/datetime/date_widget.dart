@@ -93,7 +93,7 @@ class _DateWidgetState extends State<DateWidget> with TickerProviderStateMixin {
             ),
           ),
           ListView.builder(
-            physics: const ClampingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             itemCount: 7,
             scrollDirection: Axis.horizontal,
             itemBuilder: (ctx, index) {

@@ -39,11 +39,11 @@ dependencies:
   feedback: ^2.0.0
 
   # Firebase
-  firebase_performance: ^0.7.0
-  firebase_remote_config: 0.10.0+3
-  firebase_crashlytics: ^2.0.7
-  firebase_analytics: ^8.1.2
-  firebase_storage: ^10.0.2
+  firebase_performance: ^0.8.3+3
+  firebase_remote_config: ^2.0.20
+  firebase_crashlytics: ^2.9.0
+  firebase_analytics: ^9.3.8
+  firebase_storage: ^10.3.11
 
   # Core
   shared_preferences: ^2.0.6  

@@ -72,7 +72,7 @@ class _UpComingWidgetState extends State<UpComingWidget> {
                 : ListView.builder(
                     key: UniqueKey(),
                     shrinkWrap: true,
-                    physics: const ClampingScrollPhysics(),
+                    physics: const BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
                     itemCount: state.length > 5 ? 5 : state.length,
                     itemBuilder: (context, index) {

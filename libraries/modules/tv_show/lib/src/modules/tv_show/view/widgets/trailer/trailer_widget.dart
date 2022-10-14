@@ -67,7 +67,7 @@ class _TrailerWidgetState extends State<TrailerWidget> {
             ),
             onState: (context, state) => ListView.builder(
               shrinkWrap: true,
-              physics: const ClampingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: state.length,
               itemBuilder: (context, index) {

@@ -72,7 +72,7 @@ class _AiringTodayWidgetState extends State<AiringTodayWidget> {
             onLoading: (context) => const ShimmerCard(),
             onState: (context, state) => ListView.builder(
               shrinkWrap: true,
-              physics: const ClampingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: state.length > 5 ? 5 : state.length,
               itemBuilder: (context, index) {
