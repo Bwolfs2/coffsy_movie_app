@@ -30,7 +30,6 @@ class _DetailPageState extends State<DetailPage> {
                 CardMoviesHeader(
                   isFromBanner: widget.arguments.isFromBanner,
                   idMovie: widget.arguments.screenData.id,
-                  //  title: widget.arguments.movies.title ?? widget.arguments.movies.tvName,
                   title: widget.arguments.screenData.title,
                   imageBanner: widget.arguments.screenData.backdropPath.imageOriginal,
                   imagePoster: widget.arguments.screenData.posterPath.imageOriginal,

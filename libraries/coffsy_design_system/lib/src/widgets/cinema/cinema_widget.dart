@@ -7,7 +7,10 @@ import '../../common/utils/chair_constant.dart';
 class CinemaWidget extends StatefulWidget {
   final String movieBackground;
 
-  const CinemaWidget({Key? key, required this.movieBackground}) : super(key: key);
+  const CinemaWidget({
+    Key? key,
+    required this.movieBackground,
+  }) : super(key: key);
 
   @override
   State<CinemaWidget> createState() => _CinemaWidgetState();

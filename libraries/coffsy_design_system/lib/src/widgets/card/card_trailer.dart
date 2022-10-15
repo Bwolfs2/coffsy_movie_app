@@ -9,8 +9,13 @@ class CardTrailer extends StatefulWidget {
   final VoidCallback onExitFullScreen;
   final int length;
 
-  const CardTrailer({Key? key, required this.title, required this.youtube, required this.onExitFullScreen, required this.length})
-      : super(key: key);
+  const CardTrailer({
+    Key? key,
+    required this.title,
+    required this.youtube,
+    required this.onExitFullScreen,
+    required this.length,
+  }) : super(key: key);
 
   @override
   State<CardTrailer> createState() => _CardTrailerState();

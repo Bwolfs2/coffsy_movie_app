@@ -45,8 +45,9 @@ class _SplashPageState extends State<SplashPage> {
       } on FormatException {
         await _remoteConfig.setDefaults({'can_change_theme': true});
       }
-      Modular.to.navigate('/dashboard/movie_module/');
-    });
+    }).then(
+      (value) => Modular.to.navigate('/dashboard/movie_module/'),
+    );
   }
 
   @override

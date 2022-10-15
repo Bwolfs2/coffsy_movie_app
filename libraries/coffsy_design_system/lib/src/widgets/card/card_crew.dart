@@ -6,7 +6,11 @@ import '../../../coffsy_design_system.dart';
 class CardCrew extends StatelessWidget {
   final String image, name;
 
-  const CardCrew({Key? key, required this.image, required this.name}) : super(key: key);
+  const CardCrew({
+    Key? key,
+    required this.image,
+    required this.name,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

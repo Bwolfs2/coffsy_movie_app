@@ -18,7 +18,6 @@ class BookingPage extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
-        // title: Text(args.movies.title ?? args.movies.tvName),
         title: Text(arguments.screenData.title),
       ),
       body: SingleChildScrollView(

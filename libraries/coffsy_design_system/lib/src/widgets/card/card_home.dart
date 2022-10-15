@@ -8,7 +8,13 @@ class CardHome extends StatelessWidget {
   final VoidCallback onTap;
   final double rating;
 
-  const CardHome({Key? key, required this.image, required this.title, required this.onTap, required this.rating}) : super(key: key);
+  const CardHome({
+    Key? key,
+    required this.image,
+    required this.title,
+    required this.onTap,
+    required this.rating,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

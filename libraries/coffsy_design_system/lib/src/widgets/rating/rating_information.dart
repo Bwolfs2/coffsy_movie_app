@@ -5,7 +5,10 @@ import '../../../coffsy_design_system.dart';
 class RatingInformation extends StatelessWidget {
   final double rating;
 
-  const RatingInformation({Key? key, required this.rating}) : super(key: key);
+  const RatingInformation({
+    Key? key,
+    required this.rating,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

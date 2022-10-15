@@ -40,48 +40,48 @@ class BannerHome extends StatelessWidget {
               aspectRatio: 2,
               onPageChanged: onPageChanged,
             ),
-            items: <Widget>[
-              for (var i = 0; i < result; i++)
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(Sizes.dp10(context)),
-                  child: GestureDetector(
-                    onTap: () {
-                      Modular.to.pushNamed(
-                        routeNameDetail,
-                        arguments: ScreenArguments(
-                          screenData: data[i],
-                          isFromMovie: true,
-                          isFromBanner: true,
-                        ),
-                        forRoot: true,
-                      );
-                    },
-                    child: GridTile(
-                      footer: Container(
-                        color: ColorPalettes.whiteSemiTransparent,
-                        padding: EdgeInsets.all(Sizes.dp5(context)),
-                        child: Text(
-                          isFromMovie ? data[i].title : data[i].tvName ?? 'No Tv Name',
-                          textAlign: TextAlign.center,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            color: ColorPalettes.darkBG,
-                            fontWeight: FontWeight.bold,
-                            fontSize: Sizes.dp16(context),
-                          ),
+            items: List.generate(
+              result,
+              (index) => ClipRRect(
+                borderRadius: BorderRadius.circular(Sizes.dp10(context)),
+                child: GestureDetector(
+                  onTap: () {
+                    Modular.to.pushNamed(
+                      routeNameDetail,
+                      arguments: ScreenArguments(
+                        screenData: data[index],
+                        isFromMovie: true,
+                        isFromBanner: true,
+                      ),
+                      forRoot: true,
+                    );
+                  },
+                  child: GridTile(
+                    footer: Container(
+                      color: ColorPalettes.whiteSemiTransparent,
+                      padding: EdgeInsets.all(Sizes.dp5(context)),
+                      child: Text(
+                        isFromMovie ? data[index].title : data[index].tvName ?? 'No Tv Name',
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          color: ColorPalettes.darkBG,
+                          fontWeight: FontWeight.bold,
+                          fontSize: Sizes.dp16(context),
                         ),
                       ),
-                      child: CachedNetworkImage(
-                        imageUrl: data[i].backdropPath.imageOriginal,
-                        width: Sizes.width(context),
-                        fit: BoxFit.fill,
-                        placeholder: (context, url) => const LoadingIndicator(),
-                        errorWidget: (context, url, error) => const ErrorImage(),
-                      ),
+                    ),
+                    child: CachedNetworkImage(
+                      imageUrl: data[index].backdropPath.imageOriginal,
+                      width: Sizes.width(context),
+                      fit: BoxFit.fill,
+                      placeholder: (context, url) => const LoadingIndicator(),
+                      errorWidget: (context, url, error) => const ErrorImage(),
                     ),
                   ),
                 ),
-            ],
+              ),
+            ),
           ),
         ),
         const SizedBox(

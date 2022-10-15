@@ -9,8 +9,14 @@ class CardDiscover extends StatelessWidget {
   final List<int> genre;
   final VoidCallback onTap;
 
-  const CardDiscover({Key? key, required this.image, required this.title, required this.rating, required this.genre, required this.onTap})
-      : super(key: key);
+  const CardDiscover({
+    Key? key,
+    required this.image,
+    required this.title,
+    required this.rating,
+    required this.genre,
+    required this.onTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

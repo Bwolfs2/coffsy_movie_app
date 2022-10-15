@@ -5,7 +5,10 @@ import '../../../coffsy_design_system.dart';
 
 class GenreChip extends StatelessWidget {
   final int id;
-  const GenreChip({Key? key, required this.id}) : super(key: key);
+  const GenreChip({
+    Key? key,
+    required this.id,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -5,7 +5,10 @@ import '../../../coffsy_design_system.dart';
 class CircleProgress extends StatelessWidget {
   final String vote;
 
-  const CircleProgress({Key? key, required this.vote}) : super(key: key);
+  const CircleProgress({
+    Key? key,
+    required this.vote,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
