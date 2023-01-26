@@ -20,7 +20,7 @@ class AppModule extends Module {
     Bind.lazySingleton<DioClient>((i) => DioClient(configurations: ApiConfigurations())),
     Bind.lazySingleton<Dio>((i) => i<DioClient>().dio),
     //
-    Bind.lazySingleton<CoffsyAnalytics>((i) => CoffsyAnalytics()),
+    Bind.lazySingleton<CoffsyFirebaseAnalytics>((i) => CoffsyFirebaseAnalytics()),
     //
     Bind.lazySingleton<SharedPrefHelper>((i) => SharedPrefHelper(preferences: i())),
     AsyncBind<SharedPreferences>((i) => SharedPreferences.getInstance()),

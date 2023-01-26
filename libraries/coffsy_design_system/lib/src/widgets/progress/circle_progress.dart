@@ -51,7 +51,7 @@ class CircleProgress extends StatelessWidget {
               height: Sizes.dp30(context),
               child: Center(
                 child: Text(
-                  '${(double.parse(vote) * 10.0).floor().toString()}%',
+                  '${(double.parse(vote) * 10.0).floor()}%',
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: Sizes.dp10(context),

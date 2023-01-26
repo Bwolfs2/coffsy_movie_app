@@ -24,8 +24,8 @@ dependencies:
   animated_card: ^2.0.0
 
   # Structure
-  flutter_triple: ^1.2.7+2
-  flutter_modular: ^5.0.2
+  flutter_triple: ^1.2.7+4
+  flutter_modular: ^5.0.3
   # flutter_modular:
   #   git:
   #     url: https://github.com/Flutterando/modular
@@ -35,20 +35,20 @@ dependencies:
   dartz: ^0.10.0-nullsafety.2
 
   # Others
-  package_info: ^2.0.2
-  feedback: ^2.0.0
+  package_info_plus: ^3.0.2
+  feedback: ^2.5.0
 
   # Firebase
-  firebase_performance: ^0.8.3+3
-  firebase_remote_config: ^2.0.20
-  firebase_crashlytics: ^2.9.0
-  firebase_analytics: ^9.3.8
-  firebase_storage: ^10.3.11
+  firebase_performance: ^0.9.0+10
+  firebase_remote_config: ^3.0.9
+  firebase_crashlytics: ^3.0.11
+  firebase_analytics: ^10.1.0
+  firebase_storage: ^11.0.10
 
   # Core
-  shared_preferences: ^2.0.6  
-  dio: ^4.0.0
-  flutterando_analysis: ^0.0.1+2
+  shared_preferences: ^2.0.17
+  dio: ^4.0.6
+  flutterando_analysis: ^0.0.2
 
 dev_dependencies:
   flutter_test:
