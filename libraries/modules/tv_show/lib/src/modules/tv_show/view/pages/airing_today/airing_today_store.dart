@@ -1,13 +1,21 @@
 import 'package:core/core.dart';
-import 'package:flutter_triple/flutter_triple.dart';
+import 'package:flutter/foundation.dart';
 
-import '../../../domain/entities/tv_show.dart';
 import '../../../domain/usecases/get_tv_airing_today.dart';
+import 'airing_today_states.dart';
 
-class AiringTodayStore extends StreamStore<Failure, List<TvShow>> {
+class AiringTodayStore extends ValueNotifier<AiringTodayState> {
   final GetTvAiringToday _getTvAiringToday;
 
-  AiringTodayStore(this._getTvAiringToday) : super([]);
+  AiringTodayStore(this._getTvAiringToday) : super(AiringTodayLoading());
 
-  Future<void> load() => execute(_getTvAiringToday);
+  void load() {
+    _getTvAiringToday() //
+        .then((data) {
+      value = AiringTodayValued(data);
+    }) //
+        .onError<Failure>((error, _) {
+      value = AiringTodayFailure(error);
+    });
+  }
 }
