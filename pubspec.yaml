@@ -67,6 +67,7 @@ flutter:
   assets:
     - assets/images/
     - assets/json/
+    - shorebird.yaml
 
   fonts:
     - family: IBMPlexSans
