@@ -4,7 +4,7 @@ version: 0.0.1
 publish_to: "none"
 
 environment:
-  sdk: ">=2.18.0 <4.0.0"
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
   flutter:
@@ -35,11 +35,11 @@ dependencies:
   dartz: ^0.10.0-nullsafety.2
 
   # Others
-  package_info_plus: ^3.0.2
+  package_info_plus: ^4.0.0
   feedback: ^2.5.0
 
   # Firebase
-  firebase_performance: ^0.9.0+10
+  firebase_performance: ^0.9.1+2
   firebase_remote_config: ^3.0.9
   firebase_crashlytics: ^3.0.11
   firebase_analytics: ^10.1.0

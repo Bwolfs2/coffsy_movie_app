@@ -1,5 +1,5 @@
 class ImagesAssets {
-  static String profile = 'assets/images/rifa.jpeg';
+  static String profile = 'assets/images/rifa.png';
   static String instagram = 'assets/images/insta.png';
   static String github = 'assets/images/github.png';
   static String linkedIn = 'assets/images/linkedin.png';

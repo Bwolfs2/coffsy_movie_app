@@ -1,19 +1,18 @@
-import 'package:dio/dio.dart';
+import 'package:core/core.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:movie/movie.dart';
 import 'package:movie/src/modules/movie/domain/entities/movie.dart';
 
-class MockDio extends Mock implements Dio {}
+class MockHttpClient extends Mock implements IHttpClient {}
 
 void main() {
-  late Dio dioInstance;
+  late IHttpClient dioInstance;
   late MovieDataSource movieDataSource;
 
   setUpAll(() {
-    dioInstance = MockDio();
+    dioInstance = MockHttpClient();
     movieDataSource = MovieDataSourceImpl(dioInstance);
-    registerFallbackValue(RequestOptions(path: ''));
   });
 
   group('Movie DataSource - getMovieNowPlaying', () {
@@ -22,7 +21,7 @@ void main() {
       when(
         () => dioInstance.get(any(), queryParameters: any(named: 'queryParameters')),
       ).thenAnswer(
-        (invocation) async => Response(data: _responseJson, requestOptions: RequestOptions(path: '')),
+        (invocation) async => HttpClientResponse(data: _responseJson, statusCode: 200),
       );
 
       //Act - Ação

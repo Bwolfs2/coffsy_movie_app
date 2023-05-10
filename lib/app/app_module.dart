@@ -1,6 +1,5 @@
 import 'package:about/about.dart';
 import 'package:core/core.dart';
-import 'package:dio/dio.dart';
 import 'package:discover/discover.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:movie/movie.dart';
@@ -17,12 +16,17 @@ class AppModule extends Module {
 
   @override
   final List<Bind> binds = [
-    Bind.lazySingleton<DioClient>((i) => DioClient(configurations: ApiConfigurations())),
-    Bind.lazySingleton<Dio>((i) => i<DioClient>().dio),
-    //
     Bind.lazySingleton<CoffsyFirebaseAnalytics>((i) => CoffsyFirebaseAnalytics()),
     //
     Bind.lazySingleton<SharedPrefHelper>((i) => SharedPrefHelper(preferences: i())),
+    //
+    Bind<IHttpClient>(
+      (i) => DioHttpClient(
+        baseApiUrl: ApiConfigurations().baseUrlProd,
+        interceptors: [AuthInterceptor(ApiConfigurations())],
+      ),
+    ),
+    //
     AsyncBind<SharedPreferences>((i) => SharedPreferences.getInstance()),
   ];
 
