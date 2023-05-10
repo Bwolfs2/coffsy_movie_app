@@ -48,4 +48,3 @@ app.*.map.json
 google-services.json
 upload-keystore.jks
 key.properties
-shorebird.yaml
