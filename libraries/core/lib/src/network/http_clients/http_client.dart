@@ -1,6 +1,5 @@
-import 'package:core/src/network/params/http_client_response.dart';
-
-import 'params/http_client_request_params.dart';
+import '../model/http_client_request_params.dart';
+import '../model/http_client_response.dart';
 
 typedef ProgressCallback = void Function(int count, int total);
 

@@ -2,8 +2,8 @@ import 'package:core/core.dart';
 import 'package:dio/dio.dart' hide ProgressCallback;
 
 import '../../firebase_performance/http_firebase_performance.dart';
-import '../params/http_client_request_params.dart';
-import '../params/http_request_methods_enum.dart';
+import '../model/http_client_request_params.dart';
+import '../model/http_request_methods_enum.dart';
 
 class DioHttpClient extends IHttpClient {
   final String baseApiUrl;
