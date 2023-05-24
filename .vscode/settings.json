@@ -1,7 +1,13 @@
 {
   "dart.lineLength": 140,
   "[dart]": {
-    "editor.rulers": [140]
+    "editor.rulers": [140],
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true,
+      "source.organizeImports": true 
+    }
   },
-  "dart.flutterSdkPath": "D:\\fvm\\images\\versions\\stable"
+  "dart.flutterSdkPath": "D:\\fvm\\images\\versions\\stable",
 }
