@@ -41,12 +41,12 @@ class AboutPage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              'R Rifa Fauzi Komara',
+                              'Vilson Dauinheimer (Bwolf)',
                               style: TextStyle(fontSize: Sizes.dp28(context), color: ColorPalettes.lightBG, fontWeight: FontWeight.bold),
                             ),
                             SizedBox(height: Sizes.dp5(context)),
                             GestureDetector(
-                              onTap: () => launch(UrlConstant.urlInstagram),
+                              onTap: () => launchUrl(Uri.parse(UrlConstant.urlInstagram)),
                               child: Row(
                                 children: <Widget>[
                                   Image.asset(
@@ -56,7 +56,7 @@ class AboutPage extends StatelessWidget {
                                   ),
                                   SizedBox(width: Sizes.dp10(context)),
                                   Text(
-                                    'rifafauzi6',
+                                    '@bwolf.dev',
                                     style: TextStyle(
                                       color: ColorPalettes.lightBG,
                                       fontSize: Sizes.dp14(context),
@@ -77,7 +77,7 @@ class AboutPage extends StatelessWidget {
                       Column(
                         children: <Widget>[
                           Text(
-                            '25.3K',
+                            '3K',
                             style: TextStyle(
                               fontSize: Sizes.dp26(context),
                               color: ColorPalettes.lightBG,
@@ -96,7 +96,7 @@ class AboutPage extends StatelessWidget {
                       Column(
                         children: <Widget>[
                           Text(
-                            '232',
+                            '2.2k',
                             style: TextStyle(
                               fontSize: Sizes.dp26(context),
                               color: ColorPalettes.lightBG,

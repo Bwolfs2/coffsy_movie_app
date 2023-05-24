@@ -12,7 +12,7 @@ class DashBoardPage extends StatefulWidget {
 
 class _DashBoardPageState extends State<DashBoardPage> {
   ValueNotifier<int> selectedPageValueNotifier = ValueNotifier<int>(0);
-  final analytics = Modular.get<CoffsyAnalytics>();
+  final analytics = Modular.get<CoffsyFirebaseAnalytics>();
 
   @override
   void initState() {
@@ -55,7 +55,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
         data: Theme.of(context).copyWith(
           canvasColor: Theme.of(context).primaryColor,
           primaryColor: Theme.of(context).colorScheme.secondary,
-          textTheme: Theme.of(context).textTheme.copyWith(caption: TextStyle(color: ColorPalettes.setActive)),
+          textTheme: Theme.of(context).textTheme.copyWith(bodySmall: TextStyle(color: ColorPalettes.setActive)),
         ),
         child: StatefulBuilder(
           builder: (context, setState) => BottomAppBar(

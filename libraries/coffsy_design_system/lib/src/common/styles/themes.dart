@@ -4,11 +4,7 @@ import '../../../coffsy_design_system.dart';
 
 class Themes {
   static ThemeData lightTheme = ThemeData(
-    colorScheme: ColorScheme.fromSeed(
-      seedColor: Colors.deepOrange,
-    ),
     fontFamily: 'IBMPlexSans',
-    backgroundColor: ColorPalettes.lightBG,
     primaryColor: ColorPalettes.lightPrimary,
     textSelectionTheme: TextSelectionThemeData(
       cursorColor: ColorPalettes.lightAccent,
@@ -22,12 +18,14 @@ class Themes {
         fontWeight: FontWeight.bold,
       ),
     ),
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: Colors.deepOrange,
+    ).copyWith(background: ColorPalettes.lightBG),
   );
 
   static ThemeData darkTheme = ThemeData(
     fontFamily: 'IBMPlexSans',
     brightness: Brightness.dark,
-    backgroundColor: ColorPalettes.darkBG,
     primaryColor: ColorPalettes.darkPrimary,
     dividerColor: ColorPalettes.lightPrimary,
     scaffoldBackgroundColor: ColorPalettes.darkBG,
@@ -42,5 +40,6 @@ class Themes {
         fontWeight: FontWeight.w700,
       ),
     ),
+    colorScheme: ColorScheme.dark(background: ColorPalettes.darkBG),
   );
 }

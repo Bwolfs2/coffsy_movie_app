@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:coffsy_design_system/coffsy_design_system.dart';
 import 'package:core/core.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
-import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
@@ -11,7 +10,7 @@ import 'package:flutter_triple/flutter_triple.dart';
 import 'modules/setting/pages/setting_store.dart';
 
 // Firebase Analytics
-CoffsyAnalytics analytics = CoffsyAnalytics();
+CoffsyFirebaseAnalytics analytics = CoffsyFirebaseAnalytics();
 
 class AppWidget extends StatefulWidget {
   const AppWidget({super.key});
@@ -44,7 +43,7 @@ class _AppWidgetState extends State<AppWidget> {
   @override
   Widget build(BuildContext context) {
     Modular.setObservers([
-      FirebaseAnalyticsObserver(analytics: FirebaseAnalytics()),
+      FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance),
     ]);
     return ScopedBuilder<SettingStore, Failure, bool>(
       store: store,
