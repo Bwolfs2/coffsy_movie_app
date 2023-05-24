@@ -19,7 +19,7 @@ class Themes {
       ),
     ),
     colorScheme: ColorScheme.fromSeed(
-      seedColor: Colors.deepOrange,
+      seedColor: Colors.indigo,
     ).copyWith(background: ColorPalettes.lightBG),
   );
 

@@ -1,4 +1,4 @@
-import 'package:dio/dio.dart';
+import 'package:core/core.dart';
 
 import '../../domain/entities/crew.dart';
 import '../../domain/entities/movie.dart';
@@ -10,22 +10,20 @@ import '../mapper/movie_mapper.dart';
 import '../mapper/trailer_mapper.dart';
 
 class MovieDataSourceImpl implements MovieDataSource {
-  final Dio dio;
+  final IHttpClient _httpClient;
 
-  MovieDataSourceImpl(this.dio);
+  MovieDataSourceImpl(this._httpClient);
 
   @override
   Future<List<Movie>> getMovieNowPlaying() async {
     try {
-      final response = await dio.get(
+      final response = await _httpClient.get(
         'movie/now_playing',
       );
 
       return MovieMapper.fromMapList(response.data);
-    } on DioError catch (e, stackTrace) {
-      if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
-        throw MovieNowPlayingNoInternetConnection();
-      } else if (e.type == DioErrorType.other) {
+    } on Failure catch (e, stackTrace) {
+      if (e is TimeOutError) {
         throw MovieNowPlayingNoInternetConnection();
       } else {
         throw MovieNowPlayingError(stackTrace, 'MovieDataSourceImpl-getMovieNowPlaying', e, e.toString());
@@ -36,96 +34,72 @@ class MovieDataSourceImpl implements MovieDataSource {
   @override
   Future<List<Movie>> getMoviePopular() async {
     try {
-      final response = await dio.get('movie/popular');
+      final response = await _httpClient.get('movie/popular');
       return MovieMapper.fromMapList(response.data);
-    } on DioError catch (e, stackTrace) {
-      if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
-        throw MoviePopularNoInternetConnection();
-      } else if (e.type == DioErrorType.other) {
-        throw MoviePopularNoInternetConnection();
-      } else {
-        throw MoviePopularError(stackTrace, 'MovieDataSourceImpl-getMoviePopular', e, e.toString());
-      }
+    } on TimeOutError {
+      throw MovieUpComingNoInternetConnection();
+    } catch (e, stackTrace) {
+      throw MoviePopularError(stackTrace, 'MovieDataSourceImpl-getMoviePopular', e, e.toString());
     }
   }
 
   @override
   Future<List<Movie>> getMovieUpComming() async {
     try {
-      final response = await dio.get('movie/upcoming');
+      final response = await _httpClient.get('movie/upcoming');
       return MovieMapper.fromMapList(response.data);
-    } on DioError catch (e, stackTrace) {
-      if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
-        throw MovieUpComingNoInternetConnection();
-      } else if (e.type == DioErrorType.other) {
-        throw MovieUpComingNoInternetConnection();
-      } else {
-        throw MovieUpComingError(stackTrace, 'MovieDataSourceImpl-getMovieUpComming', e, e.toString());
-      }
+    } on TimeOutError {
+      throw MovieUpComingNoInternetConnection();
+    } catch (e, stackTrace) {
+      throw MovieUpComingError(stackTrace, 'MovieDataSourceImpl-getMovieUpComming', e, e.toString());
     }
   }
 
   @override
   Future<List<Trailer>> getMovieTrailerById(int movieId) async {
     try {
-      final response = await dio.get('movie/$movieId/videos');
+      final response = await _httpClient.get('movie/$movieId/videos');
       return TrailerMapper.fromMapList(response.data);
-    } on DioError catch (e, stackTrace) {
-      if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
-        throw TrailerNoInternetConnection();
-      } else if (e.type == DioErrorType.other) {
-        throw TrailerNoInternetConnection();
-      } else {
-        throw TrailerError(stackTrace, 'MovieDataSourceImpl-getMovieTrailerById', e, e.toString());
-      }
+    } on TimeOutError {
+      throw MovieUpComingNoInternetConnection();
+    } catch (e, stackTrace) {
+      throw TrailerError(stackTrace, 'MovieDataSourceImpl-getMovieTrailerById', e, e.toString());
     }
   }
 
   @override
   Future<List<Trailer>> getTvShowTrailerById(int tvId) async {
     try {
-      final response = await dio.get('tv/$tvId/videos');
+      final response = await _httpClient.get('tv/$tvId/videos');
       return TrailerMapper.fromMapList(response.data);
-    } on DioError catch (e, stackTrace) {
-      if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
-        throw TrailerNoInternetConnection();
-      } else if (e.type == DioErrorType.other) {
-        throw TrailerNoInternetConnection();
-      } else {
-        throw TrailerError(stackTrace, 'MovieDataSourceImpl-getTvShowTrailerById', e, e.toString());
-      }
+    } on TimeOutError {
+      throw MovieUpComingNoInternetConnection();
+    } catch (e, stackTrace) {
+      throw TrailerError(stackTrace, 'MovieDataSourceImpl-getTvShowTrailerById', e, e.toString());
     }
   }
 
   @override
   Future<List<Crew>> getMovieCrewById(int movieId) async {
     try {
-      final response = await dio.get('movie/$movieId/credits');
+      final response = await _httpClient.get('movie/$movieId/credits');
       return CrewMapper.fromMapList(response.data);
-    } on DioError catch (e, stackTrace) {
-      if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
-        throw CrewNoInternetConnection();
-      } else if (e.type == DioErrorType.other) {
-        throw CrewNoInternetConnection();
-      } else {
-        throw CrewError(stackTrace, 'MovieDataSourceImpl-getMovieCrewById', e, e.toString());
-      }
+    } on TimeOutError {
+      throw MovieUpComingNoInternetConnection();
+    } catch (e, stackTrace) {
+      throw CrewError(stackTrace, 'MovieDataSourceImpl-getMovieCrewById', e, e.toString());
     }
   }
 
   @override
   Future<List<Crew>> getTvShowCrewById(int tvId) async {
     try {
-      final response = await dio.get('tv/$tvId/credits');
+      final response = await _httpClient.get('tv/$tvId/credits');
       return CrewMapper.fromMapList(response.data);
-    } on DioError catch (e, stackTrace) {
-      if (e.type == DioErrorType.connectTimeout || e.type == DioErrorType.receiveTimeout) {
-        throw CrewNoInternetConnection();
-      } else if (e.type == DioErrorType.other) {
-        throw CrewNoInternetConnection();
-      } else {
-        throw CrewError(stackTrace, 'MovieDataSourceImpl-getTvShowCrewById', e, e.toString());
-      }
+    } on TimeOutError {
+      throw MovieUpComingNoInternetConnection();
+    } catch (e, stackTrace) {
+      throw CrewError(stackTrace, 'MovieDataSourceImpl-getTvShowCrewById', e, e.toString());
     }
   }
 }
