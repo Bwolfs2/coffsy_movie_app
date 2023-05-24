@@ -64,6 +64,7 @@ class _UpComingWidgetState extends State<UpComingWidget> {
                   onPressed: store.load,
                 );
               }
+
               return CustomErrorWidget(message: error?.errorMessage);
             },
             onLoading: (context) => const ShimmerCard(),

@@ -45,6 +45,7 @@ class _CinemaWidgetState extends State<CinemaWidget> with TickerProviderStateMix
           animation: _cinemaScreenAc,
           builder: (ctx, child) {
             final perspective = 0.004 * _cinemaScreenTween.value;
+
             return Transform(
               alignment: Alignment.topCenter,
               transform: Matrix4.identity()
@@ -105,7 +106,7 @@ class _ChairListState extends State<ChairList> {
     [1, 1, 2, 2, 2, 2, 2],
     [0, 2, 1, 1, 1, 2, 0],
     [2, 2, 2, 2, 2, 2, 2],
-    [0, 3, 3, 2, 1, 1, 0]
+    [0, 3, 3, 2, 1, 1, 0],
   ];
 
   @override
@@ -116,6 +117,7 @@ class _ChairListState extends State<ChairList> {
   @override
   Widget build(BuildContext context) {
     _isDarkTheme = Theme.of(context).appBarTheme.backgroundColor == null;
+
     return Column(
       children: <Widget>[
         for (int i = 0; i < 6; i++)
@@ -194,17 +196,11 @@ class ChairCategory extends StatelessWidget {
     this.isWhite = false,
   }) : super(key: key);
 
-  Color _borderColor(bool isWhite) {
-    if (!isDarkTheme) {
-      return ColorPalettes.transparent;
-    } else {
-      if (isWhite) {
-        return ColorPalettes.grey;
-      } else {
-        return ColorPalettes.transparent;
-      }
-    }
-  }
+  Color _borderColor(bool isWhite) => !isDarkTheme
+      ? ColorPalettes.transparent
+      : isWhite
+          ? ColorPalettes.grey
+          : ColorPalettes.transparent;
 
   @override
   Widget build(BuildContext context) {

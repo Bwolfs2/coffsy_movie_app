@@ -53,7 +53,19 @@ void main() {
     testWidgets('banner widget can`t find a SizedBox', (tester) async {
       when(() => mockGetMovieNowPlaying.call()).thenAnswer((_) async {
         return right(<Movie>[
-          Movie(0, 'Title', '', '', [0], 0, 0, '', '', '', '')
+          Movie(
+            0,
+            'Title',
+            '',
+            '',
+            [0],
+            0,
+            0,
+            '',
+            '',
+            '',
+            '',
+          ),
         ]);
       });
 

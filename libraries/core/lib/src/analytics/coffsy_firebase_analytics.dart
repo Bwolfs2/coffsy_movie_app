@@ -24,5 +24,6 @@ VoidCallback logEventOnClick(
 }) =>
     () {
       FirebaseAnalytics.instance.logEvent(name: 'click_$action', parameters: parameters);
+
       return onTap();
     };

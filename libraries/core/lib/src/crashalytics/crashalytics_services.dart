@@ -42,7 +42,7 @@ class ErrorReport {
 
   static SendPort get isolateErrorListener {
     return RawReceivePort((pair) async {
-      final List<dynamic> errorAndStacktrace = pair;
+      final List errorAndStacktrace = pair;
       final exception = errorAndStacktrace[0];
       final stackTrace = errorAndStacktrace[1];
       await _report(exception, stackTrace, 'ISOLATE');

@@ -67,6 +67,7 @@ class _CrewWidgetState extends State<CrewWidget> {
               itemCount: state.length,
               itemBuilder: (context, index) {
                 final crew = state[index];
+
                 return CardCrew(
                   image: crew.profile!,
                   name: crew.characterName,

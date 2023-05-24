@@ -16,6 +16,7 @@ dependencies:
     path: ../booking    
 
 dev_dependencies:  
+  dart_code_metrics: ^5.7.4
   flutter_test:
     sdk: flutter
 

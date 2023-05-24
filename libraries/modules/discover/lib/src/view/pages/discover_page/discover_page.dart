@@ -56,6 +56,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
             itemBuilder: (context, index) {
               final movie = state[index];
               final position = index + 1;
+
               return SizedBox(
                 width: Sizes.width(context),
                 height: Sizes.height(context),
@@ -79,7 +80,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                           colors: [
                             ColorPalettes.black.withOpacity(.9),
                             ColorPalettes.black.withOpacity(.3),
-                            ColorPalettes.black.withOpacity(.95)
+                            ColorPalettes.black.withOpacity(.95),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
@@ -144,7 +145,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                 fontSize: Sizes.dp16(context),
                                 fontWeight: FontWeight.bold,
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),

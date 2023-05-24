@@ -8,5 +8,5 @@ class MoviePlayingStore extends StreamStore<Failure, List<Movie>> {
   final IGetMovieNowPlaying _getMovieNowPlaying;
   MoviePlayingStore(this._getMovieNowPlaying) : super([]);
 
-  Future<void> load() async => executeEither(() => DartzEitherAdapter.adapter(_getMovieNowPlaying()));
+  Future<void> load() => executeEither(() => DartzEitherAdapter.adapter(_getMovieNowPlaying()));
 }

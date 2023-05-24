@@ -79,6 +79,7 @@ class _TvShowPopularWidgetState extends State<TvShowPopularWidget> {
               itemCount: state.length > 5 ? 5 : state.length,
               itemBuilder: (context, index) {
                 final tvPopularShow = state[index];
+
                 return CardHome(
                   image: tvPopularShow.posterPath,
                   title: tvPopularShow.tvName ?? 'No TV Name',

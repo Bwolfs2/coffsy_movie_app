@@ -30,6 +30,7 @@ class DioFirebasePerformanceInterceptor extends Interceptor {
     } catch (_, stackTrace) {
       debugPrintStack(stackTrace: stackTrace, label: _.toString());
     }
+
     return super.onRequest(options, handler);
   }
 
@@ -45,6 +46,7 @@ class DioFirebasePerformanceInterceptor extends Interceptor {
     } catch (_, stackTrace) {
       debugPrintStack(stackTrace: stackTrace, label: _.toString());
     }
+
     return super.onResponse(response, handler);
   }
 
@@ -60,6 +62,7 @@ class DioFirebasePerformanceInterceptor extends Interceptor {
     } catch (_, stackTrace) {
       debugPrintStack(stackTrace: stackTrace, label: _.toString());
     }
+
     return super.onError(err, handler);
   }
 }
@@ -75,19 +78,16 @@ int? defaultRequestContentLength(RequestOptions options) {
     // ignore: avoid_returning_null
     return null;
   }
+
   // ignore: avoid_returning_null
   return null;
 }
 
 typedef ResponseContentLengthMethod = int? Function(Response options);
-int? defaultResponseContentLength(Response response) {
-  if (response.data is String) {
-    return (response.headers.toString().length) + response.data.length as int?;
-  } else {
-    // ignore: avoid_returning_null
-    return null;
-  }
-}
+int? defaultResponseContentLength(Response response) => response.data is String
+    ? (response.headers.toString().length) + response.data.length as int?
+    : // ignore: avoid_returning_null
+    null;
 
 extension _ResponseHttpMetric on HttpMetric {
   void setResponse(Response? value, ResponseContentLengthMethod responseContentLengthMethod) {

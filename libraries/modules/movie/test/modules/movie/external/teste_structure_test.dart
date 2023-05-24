@@ -46,6 +46,6 @@ var _responseJson = {
       'backdrop_path': 'backdrop_path',
       'tv_name': 'tv_name',
       'tv_release': 'tv_release',
-    }
-  ]
+    },
+  ],
 };

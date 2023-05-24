@@ -12,7 +12,6 @@ class RatingInformation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final numericRating = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -21,7 +20,7 @@ class RatingInformation extends StatelessWidget {
           rating.toString(),
           style: TextStyle(
             fontWeight: FontWeight.w600,
-            color: theme.colorScheme.secondary,
+            color: Theme.of(context).colorScheme.secondary,
             fontSize: Sizes.dp16(context),
           ),
         ),
@@ -36,7 +35,7 @@ class RatingInformation extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        RatingBar(theme, context, rating),
+        RatingBar(rating),
         Padding(
           padding: EdgeInsets.only(top: Sizes.dp4(context), left: Sizes.dp4(context)),
           child: const Text(
@@ -57,41 +56,26 @@ class RatingInformation extends StatelessWidget {
   }
 }
 
-class RatingBar extends StatefulWidget {
-  final ThemeData theme;
-  final BuildContext _context;
+class RatingBar extends StatelessWidget {
   final double rating;
 
-  const RatingBar(this.theme, this._context, this.rating, {Key? key}) : super(key: key);
-
-  @override
-  State<RatingBar> createState() => _RatingBarState();
-}
-
-class _RatingBarState extends State<RatingBar> {
-  final stars = <Widget>[];
-
-  void calculateStars() {
-    for (var i = 1; i <= 5; i++) {
-      final color = i <= widget.rating / 2 ? widget.theme.colorScheme.secondary : ColorPalettes.grey;
-      final star = Icon(
-        Icons.star,
-        color: color,
-        size: Sizes.dp18(widget._context),
-      );
-      stars.add(star);
-    }
-    setState(() {});
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    calculateStars();
-  }
+  const RatingBar(this.rating, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Row(mainAxisSize: MainAxisSize.min, children: stars);
+    final _colorScheme = Theme.of(context).colorScheme;
+
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: List<Widget>.generate(5, (i) {
+        final color = i < rating ? _colorScheme.secondary : _colorScheme.onSurface;
+
+        return Icon(
+          Icons.star,
+          color: color,
+          size: 18,
+        );
+      }),
+    );
   }
 }

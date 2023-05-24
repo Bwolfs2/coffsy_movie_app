@@ -54,7 +54,7 @@ class _CrewWidgetState extends State<CrewWidget> {
             onError: (context, error) => error is CrewNoInternetConnection
                 ? NoInternetWidget(
                     message: AppConstant.noInternetConnection,
-                    onPressed: () async => reload(),
+                    onPressed: reload,
                   )
                 : CustomErrorWidget(message: error?.errorMessage),
             onLoading: (context) => const Center(
@@ -67,6 +67,7 @@ class _CrewWidgetState extends State<CrewWidget> {
               itemCount: state.length,
               itemBuilder: (context, index) {
                 final crew = state[index];
+
                 return CardCrew(
                   image: crew.profile!,
                   name: crew.characterName,

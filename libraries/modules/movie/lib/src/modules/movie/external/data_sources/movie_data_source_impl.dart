@@ -35,6 +35,7 @@ class MovieDataSourceImpl implements MovieDataSource {
   Future<List<Movie>> getMoviePopular() async {
     try {
       final response = await _httpClient.get('movie/popular');
+
       return MovieMapper.fromMapList(response.data);
     } on TimeOutError {
       throw MovieUpComingNoInternetConnection();
@@ -47,6 +48,7 @@ class MovieDataSourceImpl implements MovieDataSource {
   Future<List<Movie>> getMovieUpComming() async {
     try {
       final response = await _httpClient.get('movie/upcoming');
+
       return MovieMapper.fromMapList(response.data);
     } on TimeOutError {
       throw MovieUpComingNoInternetConnection();
@@ -59,6 +61,7 @@ class MovieDataSourceImpl implements MovieDataSource {
   Future<List<Trailer>> getMovieTrailerById(int movieId) async {
     try {
       final response = await _httpClient.get('movie/$movieId/videos');
+
       return TrailerMapper.fromMapList(response.data);
     } on TimeOutError {
       throw MovieUpComingNoInternetConnection();
@@ -71,6 +74,7 @@ class MovieDataSourceImpl implements MovieDataSource {
   Future<List<Trailer>> getTvShowTrailerById(int tvId) async {
     try {
       final response = await _httpClient.get('tv/$tvId/videos');
+
       return TrailerMapper.fromMapList(response.data);
     } on TimeOutError {
       throw MovieUpComingNoInternetConnection();
@@ -83,6 +87,7 @@ class MovieDataSourceImpl implements MovieDataSource {
   Future<List<Crew>> getMovieCrewById(int movieId) async {
     try {
       final response = await _httpClient.get('movie/$movieId/credits');
+
       return CrewMapper.fromMapList(response.data);
     } on TimeOutError {
       throw MovieUpComingNoInternetConnection();
@@ -95,6 +100,7 @@ class MovieDataSourceImpl implements MovieDataSource {
   Future<List<Crew>> getTvShowCrewById(int tvId) async {
     try {
       final response = await _httpClient.get('tv/$tvId/credits');
+
       return CrewMapper.fromMapList(response.data);
     } on TimeOutError {
       throw MovieUpComingNoInternetConnection();

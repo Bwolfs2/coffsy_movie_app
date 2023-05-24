@@ -45,6 +45,7 @@ dependencies:
   dartz: ^0.10.0
 
 dev_dependencies:
+  dart_code_metrics: ^5.7.4
   mocktail: ^0.1.1
   modular_test:
   integration_test:

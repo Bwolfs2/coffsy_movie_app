@@ -6,7 +6,7 @@ class GetTvShowCrewById {
 
   GetTvShowCrewById(this.repository);
 
-  Future<List<Crew>> call(int movieId) async {
+  Future<List<Crew>> call(int movieId) {
     return repository.getTvShowCrewById(movieId);
   }
 }

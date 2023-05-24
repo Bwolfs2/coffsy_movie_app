@@ -16,7 +16,7 @@ class _TimeWidgetState extends State<TimeWidget> with TickerProviderStateMixin {
   final _time = [
     ['01:30', 45],
     ['06:30', 45],
-    ['10:30', 45]
+    ['10:30', 45],
   ];
   var _timeIndexSelected = 1;
 
@@ -91,30 +91,24 @@ class TimeItemWidget extends StatefulWidget {
 class _TimeItemWidgetState extends State<TimeItemWidget> {
   bool _isDarkTheme = false;
 
-  Color _textTimeColor(bool active) {
-    if (!_isDarkTheme) {
-      if (active) {
-        return ColorPalettes.darkAccent;
-      } else {
-        return ColorPalettes.white;
-      }
-    } else {
-      if (active) {
-        return ColorPalettes.darkAccent;
-      } else {
-        return ColorPalettes.darkBG;
-      }
-    }
-  }
+  Color _textTimeColor(bool active) => !_isDarkTheme
+      ? active
+          ? ColorPalettes.darkAccent
+          : ColorPalettes.white
+      : active
+          ? ColorPalettes.darkAccent
+          : ColorPalettes.darkBG;
 
   @override
   Widget build(BuildContext context) {
     _isDarkTheme = Theme.of(context).appBarTheme.backgroundColor == null;
+    final activeColor = _textTimeColor(widget.active);
+
     return Container(
       margin: EdgeInsets.symmetric(horizontal: Sizes.dp12(context)),
       padding: EdgeInsets.symmetric(horizontal: Sizes.dp16(context)),
       decoration: BoxDecoration(
-        border: Border.all(color: _textTimeColor(widget.active)),
+        border: Border.all(color: activeColor),
         borderRadius: BorderRadius.circular(Sizes.dp12(context)),
       ),
       child: Column(
@@ -126,7 +120,7 @@ class _TimeItemWidgetState extends State<TimeItemWidget> {
               style: TextStyle(
                 fontSize: Sizes.dp20(context),
                 fontWeight: FontWeight.w600,
-                color: _textTimeColor(widget.active),
+                color: activeColor,
               ),
               children: <TextSpan>[
                 TextSpan(
@@ -134,9 +128,9 @@ class _TimeItemWidgetState extends State<TimeItemWidget> {
                   style: TextStyle(
                     fontSize: Sizes.dp14(context),
                     fontWeight: FontWeight.w600,
-                    color: _textTimeColor(widget.active),
+                    color: activeColor,
                   ),
-                )
+                ),
               ],
             ),
           ),

@@ -131,7 +131,7 @@ class ShimmerList extends StatelessWidget {
                       ],
                     ),
                   ),
-                )
+                ),
               ],
             ),
           ),

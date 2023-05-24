@@ -10,5 +10,5 @@ class MoviePopularStore extends StreamStore<Failure, List<Movie>> {
     load();
   }
 
-  Future<void> load() async => executeEither(() => DartzEitherAdapter.adapter(_getMoviePopular()));
+  Future<void> load() => executeEither(() => DartzEitherAdapter.adapter(_getMoviePopular()));
 }

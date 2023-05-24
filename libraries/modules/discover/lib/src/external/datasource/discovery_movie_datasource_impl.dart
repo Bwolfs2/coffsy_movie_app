@@ -32,6 +32,7 @@ class DiscoveryMovieDatasourceImpl extends DiscoveryMovieDatasource {
   Future<List<Trailer>> getMovieTrailerById(int movieId) async {
     try {
       final response = await _httpClient.get('movie/$movieId/videos');
+
       return TrailerMapper.fromMapList(response.data);
     } on TimeOutError {
       return [];
@@ -44,6 +45,7 @@ class DiscoveryMovieDatasourceImpl extends DiscoveryMovieDatasource {
   Future<List<Trailer>> getTvShowTrailerById(int tvShowId) async {
     try {
       final response = await _httpClient.get('tv/$tvShowId/videos');
+
       return TrailerMapper.fromMapList(response.data);
     } on TimeOutError {
       return [];
@@ -69,6 +71,7 @@ class DiscoveryMovieDatasourceImpl extends DiscoveryMovieDatasource {
   Future<List<Crew>> getTvShowCrewById(int tvShowId) async {
     try {
       final response = await _httpClient.get('tv/$tvShowId/credits');
+
       return CrewMapper.fromMapList(response.data);
     } on TimeOutError {
       return [];

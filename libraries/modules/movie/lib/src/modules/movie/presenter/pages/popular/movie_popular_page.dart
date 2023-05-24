@@ -49,6 +49,7 @@ class _MoviePopularPageState extends State<MoviePopularPage> {
                 ),
               );
             }
+
             return CustomErrorWidget(message: error?.errorMessage);
           },
           onLoading: (context) => const Center(
@@ -58,6 +59,7 @@ class _MoviePopularPageState extends State<MoviePopularPage> {
             itemCount: state.length,
             itemBuilder: (context, index) {
               final movies = state[index];
+
               return CardMovies(
                 image: movies.posterPath,
                 title: movies.title,

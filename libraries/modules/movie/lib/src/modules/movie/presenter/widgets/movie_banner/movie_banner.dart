@@ -46,6 +46,7 @@ class _MovieBannerState extends State<MovieBanner> {
             key: ValueKey('NothingFound'),
           );
         }
+
         return StatefulBuilder(
           key: const ValueKey('NothingFound2'),
           builder: (context, setState) => BannerHome(

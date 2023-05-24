@@ -72,6 +72,7 @@ class TvShowDatasourceImpl implements ITvShowDatasource {
   Future<List<Trailer>> getTvShowTrailerById(int tvShowId) async {
     try {
       final response = await _httpClient.get('tv/$tvShowId/videos');
+
       return TrailerMapper.fromMapList(response.data);
     } on TimeOutError {
       throw CrewNoInternetConnection();
@@ -97,6 +98,7 @@ class TvShowDatasourceImpl implements ITvShowDatasource {
   Future<List<Trailer>> getMovieTrailerById(int movieId) async {
     try {
       final response = await _httpClient.get('movie/$movieId/videos');
+
       return TrailerMapper.fromMapList(response.data);
     } on TimeOutError {
       throw CrewNoInternetConnection();

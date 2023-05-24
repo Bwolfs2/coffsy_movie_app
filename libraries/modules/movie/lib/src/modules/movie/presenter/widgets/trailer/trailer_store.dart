@@ -10,6 +10,6 @@ class TrailerStore extends StreamStore<Failure, List<Trailer>> {
   final IGetTvShowTrailer _getTvShowTrailer;
   TrailerStore(this._getMovieTrailerById, this._getTvShowTrailer) : super([]);
 
-  Future<void> loadMovieTrailer(int movieId) async => executeEither(() => DartzEitherAdapter.adapter(_getMovieTrailerById(movieId)));
-  Future<void> loadTvShowTrailer(int movieId) async => executeEither(() => DartzEitherAdapter.adapter(_getTvShowTrailer(movieId)));
+  Future<void> loadMovieTrailer(int movieId) => executeEither(() => DartzEitherAdapter.adapter(_getMovieTrailerById(movieId)));
+  Future<void> loadTvShowTrailer(int movieId) => executeEither(() => DartzEitherAdapter.adapter(_getTvShowTrailer(movieId)));
 }

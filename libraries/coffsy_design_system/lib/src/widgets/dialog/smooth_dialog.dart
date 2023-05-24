@@ -93,7 +93,7 @@ class SmoothDialog {
                               CircularProgressIndicator(value: downloadProgress.progress),
                           errorWidget: (context, url, error) => const Icon(Icons.error),
                         ),
-                      )
+                      ),
                     ],
                     SizedBox(
                       height: Sizes.dp8(context),
@@ -186,7 +186,7 @@ class SmoothDialog {
                                     ),
                                   ],
                                 ),
-                              )
+                              ),
                             ],
                           ),
                         ),

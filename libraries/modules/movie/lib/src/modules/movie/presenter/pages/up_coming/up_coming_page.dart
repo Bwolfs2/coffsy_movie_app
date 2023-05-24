@@ -48,6 +48,7 @@ class _UpComingPageState extends State<UpComingPage> {
                 ),
               );
             }
+
             return CustomErrorWidget(message: error?.errorMessage);
           },
           onLoading: (context) => const ShimmerList(),
@@ -55,6 +56,7 @@ class _UpComingPageState extends State<UpComingPage> {
             itemCount: state.length,
             itemBuilder: (context, index) {
               final movies = state[index];
+
               return CardMovies(
                 image: movies.posterPath,
                 title: movies.title,

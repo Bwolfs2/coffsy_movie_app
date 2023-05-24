@@ -24,10 +24,10 @@ class _AppWidgetState extends State<AppWidget> {
   @override
   void initState() {
     super.initState();
-    Modular.to.addListener(() async {
+    Modular.to.addListener(() {
       try {
         final page = Modular.to.path.split('/').lastWhere((element) => element != '');
-        await analytics.setCurrentScreen(screenName: page);
+        analytics.setCurrentScreen(screenName: page);
         // ignore: avoid_catches_without_on_clauses
       } catch (e) {
         log(e.toString());
@@ -45,6 +45,7 @@ class _AppWidgetState extends State<AppWidget> {
     Modular.setObservers([
       FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance),
     ]);
+
     return ScopedBuilder<SettingStore, Failure, bool>(
       store: store,
       onState: (context, state) {

@@ -34,6 +34,7 @@ class SettingStore extends StreamStore<Failure, bool> {
 
   Future<bool> getValueDarkTheme() async {
     final shared = await SharedPreferences.getInstance();
+
     return shared.getBool(_theme) ?? false;
   }
 }

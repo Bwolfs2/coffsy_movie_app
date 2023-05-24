@@ -48,6 +48,7 @@ class _OnTheAirPageState extends State<OnTheAirPage> {
                 ),
               );
             }
+
             return CustomErrorWidget(message: error?.errorMessage);
           },
           onLoading: (context) => const ShimmerList(),
@@ -55,6 +56,7 @@ class _OnTheAirPageState extends State<OnTheAirPage> {
             itemCount: state.length,
             itemBuilder: (context, index) {
               final onTheAir = state[index];
+
               return CardMovies(
                 image: onTheAir.posterPath,
                 title: onTheAir.tvName ?? 'No TV Name',

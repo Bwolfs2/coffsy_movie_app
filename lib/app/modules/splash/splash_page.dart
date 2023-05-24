@@ -22,6 +22,7 @@ class _SplashPageState extends State<SplashPage> {
   final _remoteConfig = FirebaseRemoteConfig.instance;
   Future<String> _getVersion() async {
     final info = await PackageInfo.fromPlatform();
+
     return info.version;
   }
 
@@ -79,7 +80,7 @@ class _SplashPageState extends State<SplashPage> {
                   const SizedBox(height: 20),
                   const Center(
                     child: CircularProgressIndicator.adaptive(),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -92,6 +93,7 @@ class _SplashPageState extends State<SplashPage> {
                   if (snapshot.hasData) {
                     verInfo = 'v ${snapshot.data}';
                   }
+
                   return Container(
                     margin: EdgeInsets.only(bottom: Sizes.dp30(context)),
                     child: Text(

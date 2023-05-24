@@ -39,6 +39,7 @@ class _CustomButtonState extends State<CustomButton> with TickerProviderStateMix
           if (_animationTween.value + 1 < 0.2) {
             return (_animationTween.value + 1) * 5;
           }
+
           return 1;
         }
 

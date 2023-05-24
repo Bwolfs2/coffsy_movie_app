@@ -1,1 +1,1 @@
-export 'chip_genre_movies.dart';
+export 'genre_chip.dart';

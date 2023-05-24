@@ -11,6 +11,7 @@ class AboutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final _themeData = Theme.of(context);
     final _isDarkTheme = _themeData.appBarTheme.backgroundColor == null;
+
     return Scaffold(
       body: Stack(
         clipBehavior: Clip.none,
@@ -67,7 +68,7 @@ class AboutPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                      )
+                      ),
                     ],
                   ),
                   SizedBox(height: Sizes.dp30(context)),

@@ -4,11 +4,11 @@ class SharedPrefHelper {
   final SharedPreferences preferences;
   SharedPrefHelper({required this.preferences});
 
-  Future<bool> storeCacheList(String key, List<String> listJson) async {
+  Future<bool> storeCacheList(String key, List<String> listJson) {
     return preferences.setStringList(key, listJson);
   }
 
   List<String> getCacheList(String s) {
-    return preferences.getStringList('getMovieTrailerById') ?? [];
+    return preferences.getStringList(s) ?? [];
   }
 }

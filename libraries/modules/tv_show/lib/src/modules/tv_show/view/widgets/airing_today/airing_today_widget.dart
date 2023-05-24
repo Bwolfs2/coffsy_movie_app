@@ -67,6 +67,7 @@ class _AiringTodayWidgetState extends State<AiringTodayWidget> {
                   onPressed: store.load,
                 );
               }
+
               return CustomErrorWidget(message: error?.errorMessage);
             },
             onLoading: (context) => const ShimmerCard(),
@@ -77,6 +78,7 @@ class _AiringTodayWidgetState extends State<AiringTodayWidget> {
               itemCount: state.length > 5 ? 5 : state.length,
               itemBuilder: (context, index) {
                 final movie = state[index];
+
                 return CardHome(
                   image: movie.posterPath,
                   title: movie.tvName ?? 'No TV Name',

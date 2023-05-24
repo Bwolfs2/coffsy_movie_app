@@ -67,7 +67,7 @@ class CardMoviesHeader extends StatelessWidget {
             children: [
               Hero(
                 tag: isFromBanner ? idMovie : imagePoster,
-                child: Poster(
+                child: MoviesPoster(
                   imagePoster,
                   Sizes.width(context) / 2,
                 ),

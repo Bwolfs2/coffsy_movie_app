@@ -47,6 +47,7 @@ class _AiringTodayPageState extends State<AiringTodayPage> {
                 ),
               );
             }
+
             return CustomErrorWidget(message: error?.errorMessage);
           },
           onLoading: (context) => const ShimmerList(),
@@ -54,6 +55,7 @@ class _AiringTodayPageState extends State<AiringTodayPage> {
             itemCount: state.length,
             itemBuilder: (context, index) {
               final movie = state[index];
+
               return CardMovies(
                 image: movie.posterPath,
                 title: movie.tvName ?? 'No TV Name',

@@ -38,29 +38,15 @@ class _DateWidgetState extends State<DateWidget> with TickerProviderStateMixin {
     Future.delayed(const Duration(milliseconds: 150), () => _dateBackgroundAc.forward);
   }
 
-  Color _textDateColor(int index) {
-    if (!_isDarkTheme) {
-      if (index == _dateIndexSelected) {
-        return ColorPalettes.black;
-      } else {
-        return ColorPalettes.white;
-      }
-    } else {
-      if (index == _dateIndexSelected) {
-        return ColorPalettes.white;
-      } else {
-        return ColorPalettes.black;
-      }
-    }
-  }
+  Color _textDateColor(int index) => !_isDarkTheme
+      ? index == _dateIndexSelected
+          ? ColorPalettes.black
+          : ColorPalettes.white
+      : index == _dateIndexSelected
+          ? ColorPalettes.white
+          : ColorPalettes.black;
 
-  Color _backgroundColor() {
-    if (!_isDarkTheme) {
-      return ColorPalettes.white.withOpacity(.1);
-    } else {
-      return ColorPalettes.black.withOpacity(.1);
-    }
-  }
+  Color _backgroundColor() => !_isDarkTheme ? ColorPalettes.white.withOpacity(.1) : ColorPalettes.black.withOpacity(.1);
 
   @override
   void dispose() {
@@ -72,6 +58,7 @@ class _DateWidgetState extends State<DateWidget> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
     _isDarkTheme = themeData.appBarTheme.backgroundColor == null;
+
     return SizedBox(
       height: Sizes.width(context) / 3.5,
       child: Stack(
@@ -98,6 +85,7 @@ class _DateWidgetState extends State<DateWidget> with TickerProviderStateMixin {
             scrollDirection: Axis.horizontal,
             itemBuilder: (ctx, index) {
               final date = _currentDate.add(Duration(days: index));
+
               return AnimatedBuilder(
                 animation: _dateSelectorAcList[index],
                 builder: (ctx, child) {
@@ -145,7 +133,7 @@ class _DateWidgetState extends State<DateWidget> with TickerProviderStateMixin {
                             height: 1,
                             color: _textDateColor(index),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),

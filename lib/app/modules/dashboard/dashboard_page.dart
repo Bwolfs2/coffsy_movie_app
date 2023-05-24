@@ -21,11 +21,12 @@ class _DashBoardPageState extends State<DashBoardPage> {
   }
 
   void onChangeRoute() {
-    if (Modular.to.path.contains('movie_module')) {
+    final path = Modular.to.path;
+    if (path.contains('movie_module')) {
       selectedPageValueNotifier.value = 0;
     }
 
-    if (Modular.to.path.contains('tv_show')) {
+    if (path.contains('tv_show')) {
       selectedPageValueNotifier.value = 1;
     }
   }
@@ -43,8 +44,8 @@ class _DashBoardPageState extends State<DashBoardPage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         tooltip: 'floatActionButton',
-        onPressed: () async {
-          await Modular.to.pushNamed('/discover_movie', forRoot: true);
+        onPressed: () {
+          Modular.to.pushNamed('/discover_movie', forRoot: true);
         },
         child: Icon(
           Icons.location_searching,

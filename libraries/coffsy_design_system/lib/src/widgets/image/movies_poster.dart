@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 import '../../../coffsy_design_system.dart';
 
-class Poster extends StatelessWidget {
+class MoviesPoster extends StatelessWidget {
   static const posterRatio = 0.7;
 
-  const Poster(this.posterUrl, this.height, {Key? key}) : super(key: key);
+  const MoviesPoster(this.posterUrl, this.height, {Key? key}) : super(key: key);
 
   final String posterUrl;
   final double height;
@@ -14,6 +14,7 @@ class Poster extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = posterRatio * height;
+
     return Material(
       borderRadius: BorderRadius.circular(Sizes.dp4(context)),
       elevation: 2,

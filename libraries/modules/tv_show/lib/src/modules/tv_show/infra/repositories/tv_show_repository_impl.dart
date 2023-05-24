@@ -71,6 +71,7 @@ class TvShowRepositoryImpl implements ITvShowRepository {
       if (result.isEmpty) {
         return Future.error(NoDataFound());
       }
+
       return result;
     } on Failure catch (e) {
       return Future.error(e);
@@ -86,6 +87,7 @@ class TvShowRepositoryImpl implements ITvShowRepository {
       if (result.isEmpty) {
         return Future.error(NoDataFound());
       }
+
       return result;
     } on Failure catch (e) {
       return Future.error(e);
@@ -101,6 +103,7 @@ class TvShowRepositoryImpl implements ITvShowRepository {
       if (result.isEmpty) {
         return Future.error(NoDataFound());
       }
+
       return result;
     } on Failure catch (e) {
       return Future.error(e);
@@ -116,6 +119,7 @@ class TvShowRepositoryImpl implements ITvShowRepository {
       if (result.isEmpty) {
         return Future.error(NoDataFound());
       }
+
       return result;
     } on Failure catch (e) {
       return Future.error(e);

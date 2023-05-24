@@ -31,6 +31,7 @@ class ColorPalettes {
     } else if (s >= 7) {
       r = ColorPalettes.green;
     }
+
     return r;
   }
 }

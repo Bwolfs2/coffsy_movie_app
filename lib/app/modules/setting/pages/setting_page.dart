@@ -20,6 +20,7 @@ class _SettingPageState extends State<SettingPage> {
 
   Future<String> _getVersion() async {
     final info = await PackageInfo.fromPlatform();
+
     return info.version;
   }
 
@@ -87,6 +88,7 @@ class _SettingPageState extends State<SettingPage> {
                 if (snapshot.hasData) {
                   verInfo = 'v ${snapshot.data}';
                 }
+
                 return Container(
                   margin: EdgeInsets.only(bottom: Sizes.dp30(context)),
                   child: Text(

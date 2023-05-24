@@ -57,6 +57,7 @@ class _TvPopularPageState extends State<TvPopularPage> {
             itemCount: state.length,
             itemBuilder: (context, index) {
               final tvPopularShow = state[index];
+
               return CardMovies(
                 image: tvPopularShow.posterPath,
                 title: tvPopularShow.tvName ?? 'No TV Name',

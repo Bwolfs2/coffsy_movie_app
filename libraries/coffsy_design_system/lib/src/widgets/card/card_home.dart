@@ -20,6 +20,7 @@ class CardHome extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final isDarkTheme = theme.appBarTheme.backgroundColor == null;
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 5),
       width: Sizes.width(context) / 2.5,
@@ -104,7 +105,7 @@ class CardHome extends StatelessWidget {
                   ),
 
                   // Rating
-                  RatingBar(theme, context, rating),
+                  RatingBar(rating),
                   SizedBox(
                     height: Sizes.dp10(context),
                   ),
@@ -125,7 +126,7 @@ class CardHome extends StatelessWidget {
                 onTap: onTap,
               ),
             ),
-          )
+          ),
         ],
       ),
     );

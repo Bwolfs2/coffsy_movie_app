@@ -21,6 +21,7 @@ class MoviesRepositoryImpl implements MoviesRepository {
       if (result.isEmpty) {
         return Left(NoDataFound());
       }
+
       return Right(result);
     } on Failure catch (e) {
       return Left(e);

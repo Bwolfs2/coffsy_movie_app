@@ -128,7 +128,7 @@ class BannerHome extends StatelessWidget {
               ),
             ),
           ],
-        )
+        ),
       ],
     );
   }

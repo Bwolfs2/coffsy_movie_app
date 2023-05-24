@@ -73,6 +73,7 @@ class _TrailerWidgetState extends State<TrailerWidget> {
               itemCount: state.length,
               itemBuilder: (context, index) {
                 final trailer = state[index];
+
                 return CardTrailer(
                   title: trailer.title,
                   youtube: trailer.youtubeId,

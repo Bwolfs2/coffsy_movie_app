@@ -79,7 +79,7 @@ class CardMovies extends StatelessWidget {
                                 ),
                               ],
                             ),
-                          )
+                          ),
                         ],
                       ),
                       SizedBox(
@@ -103,7 +103,7 @@ class CardMovies extends StatelessWidget {
                     ],
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

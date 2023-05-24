@@ -64,6 +64,7 @@ class _PopularWidgetState extends State<PopularWidget> {
                   onPressed: store.load,
                 );
               }
+
               return CustomErrorWidget(message: error?.errorMessage);
             },
             onLoading: (context) => const ShimmerCard(),
@@ -76,6 +77,7 @@ class _PopularWidgetState extends State<PopularWidget> {
                     itemCount: state.length > 5 ? 5 : state.length,
                     itemBuilder: (context, index) {
                       final movies = state[index];
+
                       return CardHome(
                         image: movies.posterPath,
                         title: movies.title,

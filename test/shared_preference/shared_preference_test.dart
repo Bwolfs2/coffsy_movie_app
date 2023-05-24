@@ -11,7 +11,7 @@ void main() {
     shared = await SharedPreferences.getInstance();
   });
   group('get data from SharedPreference', () {
-    test('show get all', () async {
+    test('show get all', () {
       final result = shared.getString('Teste');
 
       expect(result, 'TEste');

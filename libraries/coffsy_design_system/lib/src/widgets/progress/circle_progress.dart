@@ -12,6 +12,8 @@ class CircleProgress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _vote = double.parse(vote);
+
     return SizedBox(
       width: Sizes.width(context) / 10,
       height: Sizes.width(context) / 10,
@@ -41,7 +43,7 @@ class CircleProgress extends StatelessWidget {
                   ),
                 ),
                 backgroundColor: ColorPalettes.grey,
-                value: double.parse(vote) / 10.0,
+                value: _vote / 10.0,
               ),
             ),
           ),
@@ -51,7 +53,7 @@ class CircleProgress extends StatelessWidget {
               height: Sizes.dp30(context),
               child: Center(
                 child: Text(
-                  '${(double.parse(vote) * 10.0).floor()}%',
+                  '${(_vote * 10.0).floor()}%',
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: Sizes.dp10(context),
@@ -60,7 +62,7 @@ class CircleProgress extends StatelessWidget {
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

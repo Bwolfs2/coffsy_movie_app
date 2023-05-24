@@ -20,7 +20,6 @@ class CardDiscover extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
@@ -66,7 +65,7 @@ class CardDiscover extends StatelessWidget {
         SizedBox(
           height: Sizes.height(context) * .005,
         ),
-        RatingBar(theme, context, rating),
+        RatingBar(rating),
       ],
     );
   }

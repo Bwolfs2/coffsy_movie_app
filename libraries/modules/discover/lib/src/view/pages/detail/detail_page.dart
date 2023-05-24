@@ -19,6 +19,11 @@ class DetailPage extends StatefulWidget {
 class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
+    final _arguments = widget.arguments;
+    final _data = _arguments.screenData;
+
+    final _secondary = Theme.of(context).colorScheme.secondary;
+
     return Scaffold(
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
@@ -29,12 +34,12 @@ class _DetailPageState extends State<DetailPage> {
               children: [
                 CardMoviesHeader(
                   isFromBanner: widget.arguments.isFromBanner,
-                  idMovie: widget.arguments.screenData.id,
-                  title: widget.arguments.screenData.title,
-                  imageBanner: widget.arguments.screenData.backdropPath.imageOriginal,
-                  imagePoster: widget.arguments.screenData.posterPath.imageOriginal,
-                  rating: widget.arguments.screenData.voteAverage,
-                  genre: widget.arguments.screenData.genreIds.take(3).map((id) => GenreChip(id: id)).toList(),
+                  idMovie: _data.id,
+                  title: _data.title,
+                  imageBanner: _data.backdropPath.imageOriginal,
+                  imagePoster: _data.posterPath.imageOriginal,
+                  rating: _data.voteAverage,
+                  genre: _data.genreIds.take(3).map((id) => GenreChip(id: id)).toList(),
                 ),
                 Padding(
                   padding: EdgeInsets.all(
@@ -54,7 +59,7 @@ class _DetailPageState extends State<DetailPage> {
                         height: Sizes.dp8(context),
                       ),
                       Text(
-                        widget.arguments.screenData.overview,
+                        _data.overview,
                       ),
                     ],
                   ),
@@ -65,9 +70,9 @@ class _DetailPageState extends State<DetailPage> {
                     right: Sizes.dp20(context),
                   ),
                   child: TrailerWidget(
-                    key: ValueKey('${widget.arguments.isFromMovie}${widget.arguments.screenData.id}'),
-                    movieId: widget.arguments.screenData.id,
-                    isFromMovie: widget.arguments.isFromMovie,
+                    key: ValueKey('${_arguments.isFromMovie}${_data.id}'),
+                    movieId: _data.id,
+                    isFromMovie: _arguments.isFromMovie,
                   ),
                 ),
                 Padding(
@@ -76,9 +81,9 @@ class _DetailPageState extends State<DetailPage> {
                     right: Sizes.dp20(context),
                   ),
                   child: CrewWidget(
-                    key: ValueKey('${widget.arguments.isFromMovie}${widget.arguments.screenData.id}'),
-                    isFromMovie: widget.arguments.isFromMovie,
-                    movieId: widget.arguments.screenData.id,
+                    key: ValueKey('${_arguments.isFromMovie}${_data.id}'),
+                    isFromMovie: _arguments.isFromMovie,
+                    movieId: _arguments.screenData.id,
                   ),
                 ),
                 Padding(
@@ -107,7 +112,7 @@ class _DetailPageState extends State<DetailPage> {
               right: Sizes.dp5(context),
               child: IconButton(
                 iconSize: Sizes.dp30(context),
-                color: Theme.of(context).colorScheme.secondary,
+                color: _secondary,
                 icon: const Icon(Icons.favorite_border),
                 onPressed: () {
                   PopUp.showSuccess('Add to Favorite');
@@ -121,7 +126,7 @@ class _DetailPageState extends State<DetailPage> {
                 color: Colors.white.withOpacity(.3),
                 borderRadius: BorderRadius.circular(100),
                 child: IconButton(
-                  color: Theme.of(context).colorScheme.secondary,
+                  color: _secondary,
                   icon: Platform.isAndroid ? const Icon(Icons.arrow_back) : const Icon(Icons.arrow_back_ios),
                   onPressed: () => Modular.to.pop(),
                 ),

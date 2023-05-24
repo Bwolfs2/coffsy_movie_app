@@ -49,6 +49,7 @@ class _NowPlayingPageState extends State<NowPlayingPage> {
                 ),
               );
             }
+
             return CustomErrorWidget(message: error?.errorMessage);
           },
           onLoading: (context) => const ShimmerList(),
@@ -56,6 +57,7 @@ class _NowPlayingPageState extends State<NowPlayingPage> {
             itemCount: state.length,
             itemBuilder: (context, index) {
               final movies = state[index];
+
               return CardMovies(
                 image: movies.posterPath,
                 title: movies.title,

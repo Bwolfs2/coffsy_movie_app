@@ -20,6 +20,10 @@ class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+
+    final _arguments = widget.arguments;
+    final _screenData = _arguments.screenData;
+
     return Scaffold(
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
@@ -30,13 +34,13 @@ class _DetailPageState extends State<DetailPage> {
               children: [
                 CardMoviesHeader(
                   isFromBanner: widget.arguments.isFromBanner,
-                  idMovie: widget.arguments.screenData.id,
+                  idMovie: _screenData.id,
                   //  title: widget.arguments.movies.title ?? widget.arguments.movies.tvName,
-                  title: widget.arguments.screenData.title,
-                  imageBanner: widget.arguments.screenData.backdropPath.imageOriginal,
-                  imagePoster: widget.arguments.screenData.posterPath.imageOriginal,
-                  rating: widget.arguments.screenData.voteAverage,
-                  genre: widget.arguments.screenData.genreIds.take(3).map((id) => GenreChip(id: id)).toList(),
+                  title: _screenData.title,
+                  imageBanner: _screenData.backdropPath.imageOriginal,
+                  imagePoster: _screenData.posterPath.imageOriginal,
+                  rating: _screenData.voteAverage,
+                  genre: _screenData.genreIds.take(3).map((id) => GenreChip(id: id)).toList(),
                 ),
                 Padding(
                   padding: EdgeInsets.all(
@@ -56,7 +60,7 @@ class _DetailPageState extends State<DetailPage> {
                         height: Sizes.dp8(context),
                       ),
                       Text(
-                        widget.arguments.screenData.overview,
+                        _screenData.overview,
                       ),
                     ],
                   ),
@@ -67,9 +71,9 @@ class _DetailPageState extends State<DetailPage> {
                     right: Sizes.dp20(context),
                   ),
                   child: TrailerWidget(
-                    key: ValueKey('${widget.arguments.isFromMovie}${widget.arguments.screenData.id}'),
-                    movieId: widget.arguments.screenData.id,
-                    isFromMovie: widget.arguments.isFromMovie,
+                    key: ValueKey('${_arguments.isFromMovie}${_screenData.id}'),
+                    movieId: _screenData.id,
+                    isFromMovie: _arguments.isFromMovie,
                   ),
                 ),
                 Padding(
@@ -78,9 +82,9 @@ class _DetailPageState extends State<DetailPage> {
                     right: Sizes.dp20(context),
                   ),
                   child: CrewWidget(
-                    key: ValueKey('${widget.arguments.isFromMovie}${widget.arguments.screenData.id}'),
-                    isFromMovie: widget.arguments.isFromMovie,
-                    movieId: widget.arguments.screenData.id,
+                    key: ValueKey('${_arguments.isFromMovie}${_screenData.id}'),
+                    isFromMovie: _arguments.isFromMovie,
+                    movieId: _screenData.id,
                   ),
                 ),
                 Padding(
