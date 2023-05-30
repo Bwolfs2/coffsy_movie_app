@@ -51,7 +51,9 @@ class _AppWidgetState extends State<AppWidget> {
       onState: (context, state) {
         return MaterialApp.router(
           title: 'Coffsy Movie App',
-          theme: state ? Themes.darkTheme : Themes.lightTheme,
+          theme: Themes.lightTheme,
+          darkTheme: Themes.darkTheme,
+          themeMode: state ? ThemeMode.dark : ThemeMode.light,
           routerDelegate: Modular.routerDelegate,
           routeInformationParser: Modular.routeInformationParser,
         );
