@@ -10,11 +10,11 @@ import 'app/app_module.dart';
 import 'app/app_widget.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await runZonedGuarded(
+    () async {
+      WidgetsFlutterBinding.ensureInitialized();
+      await Firebase.initializeApp();
 
-  runZonedGuarded(
-    () {
       runApp(
         BetterFeedback(
           child: ModularApp(
@@ -24,6 +24,9 @@ Future<void> main() async {
         ),
       );
     },
-    FirebaseCrashlytics.instance.recordError,
+    (object, stacktrace) async {
+      await Firebase.initializeApp();
+      await FirebaseCrashlytics.instance.recordError(object, stacktrace);
+    },
   );
 }
