@@ -1,5 +1,6 @@
 library core;
 
+export 'analysis_options.yaml' hide test;
 export 'src/analytics/coffsy_firebase_analytics.dart';
 export 'src/cache/shared_pref_helper.dart';
 export 'src/crashalytics/crashalytics_services.dart';
