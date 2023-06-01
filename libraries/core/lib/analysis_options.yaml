@@ -32,4 +32,17 @@ dart_code_metrics:
     - no-equal-then-else
     - prefer-moving-to-variable
     - avoid-expanded-as-spacer
+    - avoid-returning-widgets
+    - avoid-banned-types
+    - avoid-returning-widgets
+    - avoid-similar-names
+    - prefer-correct-identifier-length
+    - avoid-collapsible-if    
+    - avoid-explicit-type-declaration
+    - avoid-non-null-assertion
+    - avoid-shadowing
+    - avoid-unsafe-collection-methods
+    - avoid-iterable-of
+    - prefer-trailing-comma
+    - unnecessary-trailing-comma
     
