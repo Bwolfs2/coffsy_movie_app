@@ -13,6 +13,7 @@ dependencies:
 
   coffsy_design_system:
     path: ../coffsy_design_system
+  flutterando_analysis: ^0.0.2
   #Packages dependencies
   dependencies:
     path: ../dependencies
