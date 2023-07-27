@@ -25,13 +25,13 @@ class ColorPalettes {
   static Color transparent = const Color(0x00000000);
 
   static Color getColorCircleProgress(double s) {
-    var r = ColorPalettes.red;
+    var color = ColorPalettes.red;
     if (s > 4.5 && s < 7) {
-      r = ColorPalettes.yellow;
+      color = ColorPalettes.yellow;
     } else if (s >= 7) {
-      r = ColorPalettes.green;
+      color = ColorPalettes.green;
     }
 
-    return r;
+    return color;
   }
 }

@@ -14,7 +14,7 @@ class MovieMapper {
   }
 
   static Movie fromMap(Map<String, dynamic> map) {
-    final int id = map['id'] ?? 0;
+    final int movieId = map['id'] ?? 0;
     final String title = map['title'] ?? map['name'] ?? '';
     final String overview = map['overview'] ?? '';
     final String releaseDate = map['release_date'] ?? 'No Release Date';
@@ -27,7 +27,7 @@ class MovieMapper {
     final String tvRelease = map['tv_release'] ?? '';
 
     return Movie(
-      id,
+      movieId,
       title,
       overview,
       releaseDate,

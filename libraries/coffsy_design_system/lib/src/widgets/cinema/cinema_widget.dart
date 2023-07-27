@@ -120,43 +120,43 @@ class _ChairListState extends State<ChairList> {
 
     return Column(
       children: <Widget>[
-        for (int i = 0; i < 6; i++)
+        for (int index = 0; index < 6; index++)
           Container(
-            margin: EdgeInsets.only(top: i == 3 ? Sizes.dp20(context) : 0),
+            margin: EdgeInsets.only(top: index == 3 ? Sizes.dp20(context) : 0),
             child: Row(
               children: <Widget>[
-                for (int x = 0; x < 9; x++)
+                for (int indexx = 0; indexx < 9; indexx++)
                   Expanded(
-                    flex: x == 0 || x == 8 ? 2 : 1,
-                    child: x == 0 ||
-                            x == 8 ||
-                            (i == 0 && x == 1) ||
-                            (i == 0 && x == 7) ||
-                            (i == 3 && x == 1) ||
-                            (i == 3 && x == 7) ||
-                            (i == 5 && x == 1) ||
-                            (i == 5 && x == 7)
+                    flex: indexx == 0 || indexx == 8 ? 2 : 1,
+                    child: indexx == 0 ||
+                            indexx == 8 ||
+                            (index == 0 && indexx == 1) ||
+                            (index == 0 && indexx == 7) ||
+                            (index == 3 && indexx == 1) ||
+                            (index == 3 && indexx == 7) ||
+                            (index == 5 && indexx == 1) ||
+                            (index == 5 && indexx == 7)
                         ? Container()
                         : GestureDetector(
                             onTap: () {
-                              if (_chairStatus[i][x - 1] == 1) {
+                              if (_chairStatus[index][indexx - 1] == 1) {
                                 setState(() {
-                                  _chairStatus[i][x - 1] = 4;
+                                  _chairStatus[index][indexx - 1] = 4;
                                 });
-                              } else if (_chairStatus[i][x - 1] == 4) {
+                              } else if (_chairStatus[index][indexx - 1] == 4) {
                                 setState(() {
-                                  _chairStatus[i][x - 1] = 1;
+                                  _chairStatus[index][indexx - 1] = 1;
                                 });
                               }
                             },
                             child: Container(
                               height: Sizes.width(context) / 11 - 10,
                               margin: EdgeInsets.all(Sizes.dp5(context)),
-                              child: _chairStatus[i][x - 1] == 1
+                              child: _chairStatus[index][indexx - 1] == 1
                                   ? ChairConstant.white(isDarkTheme: _isDarkTheme)
-                                  : _chairStatus[i][x - 1] == 2
+                                  : _chairStatus[index][indexx - 1] == 2
                                       ? ChairConstant.grey
-                                      : _chairStatus[i][x - 1] == 3
+                                      : _chairStatus[index][indexx - 1] == 3
                                           ? ChairConstant.red
                                           : ChairConstant.orange,
                             ),

@@ -1,5 +1,5 @@
 class TvShow {
-  final int id;
+  final int tvShowId;
   final String title;
   final String overview;
   final String releaseDate;
@@ -12,7 +12,7 @@ class TvShow {
   final String? tvRelease;
 
   TvShow(
-    this.id,
+    this.tvShowId,
     this.title,
     this.overview,
     this.releaseDate,

@@ -88,7 +88,7 @@ class _AiringTodayWidgetState extends State<AiringTodayWidget> {
                       './detail_movies',
                       arguments: ScreenArguments(
                         screenData: ScreenData(
-                          movie.id,
+                          movie.tvShowId,
                           movie.title,
                           movie.overview,
                           movie.releaseDate,

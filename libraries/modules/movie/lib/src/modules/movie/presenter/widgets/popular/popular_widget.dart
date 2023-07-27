@@ -87,7 +87,7 @@ class _PopularWidgetState extends State<PopularWidget> {
                             './detail_movies',
                             arguments: ScreenArguments(
                               screenData: ScreenData(
-                                movies.id,
+                                movies.movieId,
                                 movies.title,
                                 movies.overview,
                                 movies.releaseDate,

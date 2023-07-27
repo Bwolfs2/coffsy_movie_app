@@ -7,7 +7,7 @@ class ScreenArguments {
 }
 
 class ScreenData {
-  final int id;
+  final int screenId;
 
   final String title;
 
@@ -30,7 +30,7 @@ class ScreenData {
   final String? tvRelease;
 
   ScreenData(
-    this.id,
+    this.screenId,
     this.title,
     this.overview,
     this.releaseDate,

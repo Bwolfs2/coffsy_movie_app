@@ -99,7 +99,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                             './detail_movies',
                             arguments: ScreenArguments(
                               screenData: ScreenData(
-                                movie.id,
+                                movie.movieId,
                                 movie.title,
                                 movie.overview,
                                 movie.releaseDate,

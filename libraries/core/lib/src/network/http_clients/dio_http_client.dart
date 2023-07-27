@@ -43,7 +43,7 @@ class DioHttpClient extends IHttpClient {
 
       return HttpClientResponse(
         data: response.data,
-        statusCode: response.statusCode!,
+        statusCode: response.statusCode ?? 0,
       );
     } on DioError catch (error) {
       if (error.type == DioErrorType.connectionError || error.type == DioErrorType.receiveTimeout) {

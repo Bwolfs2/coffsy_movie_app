@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class GenreChip extends StatelessWidget {
-  final int id;
+  final int genreId;
   const GenreChip({
     Key? key,
-    required this.id,
+    required this.genreId,
   }) : super(key: key);
 
   @override
@@ -12,7 +12,7 @@ class GenreChip extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 4),
       child: Chip(
-        label: Text(Genres.genres[id] ?? 'No Gender'),
+        label: Text(Genres.genres[genreId] ?? 'No Gender'),
       ),
     );
   }

@@ -14,7 +14,7 @@ class TvOnTheAirMapper {
   }
 
   static OnTheAir fromMap(Map<String, dynamic> map) {
-    final int id = map['id'] ?? 0;
+    final int onTheAirId = map['id'] ?? 0;
     final String title = map['title'] ?? map['name'];
     final String overview = map['overview'];
     final String releaseDate = map['release_date'] ?? 'No Release Date';
@@ -27,7 +27,7 @@ class TvOnTheAirMapper {
     final String tvRelease = map['tv_release'] ?? '';
 
     return OnTheAir(
-      id,
+      onTheAirId,
       title,
       overview,
       releaseDate,

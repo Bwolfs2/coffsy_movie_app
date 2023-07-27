@@ -63,13 +63,13 @@ class _UpComingPageState extends State<UpComingPage> {
                 vote: movies.voteAverage.toString(),
                 releaseDate: movies.releaseDate,
                 overview: movies.overview,
-                genre: movies.genreIds.take(3).map((id) => GenreChip(id: id)).toList(),
+                genre: movies.genreIds.take(3).map((id) => GenreChip(genreId: id)).toList(),
                 onTap: () {
                   Modular.to.pushNamed(
                     './detail_movies',
                     arguments: ScreenArguments(
                       screenData: ScreenData(
-                        movies.id,
+                        movies.movieId,
                         movies.title,
                         movies.overview,
                         movies.releaseDate,

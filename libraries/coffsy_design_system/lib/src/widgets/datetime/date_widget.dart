@@ -24,12 +24,12 @@ class _DateWidgetState extends State<DateWidget> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    for (var i = 0; i < 7; i++) {
+    for (var index = 0; index < 7; index++) {
       _dateSelectorAcList.add(AnimationController(vsync: this, duration: const Duration(milliseconds: 500)));
       _dateSelectorTweenList
-          .add(Tween<double>(begin: 1000, end: 0).chain(CurveTween(curve: Curves.easeOutCubic)).animate(_dateSelectorAcList[i]));
-      Future.delayed(Duration(milliseconds: i * 50 + 170), () {
-        _dateSelectorAcList[i].forward();
+          .add(Tween<double>(begin: 1000, end: 0).chain(CurveTween(curve: Curves.easeOutCubic)).animate(_dateSelectorAcList[index]));
+      Future.delayed(Duration(milliseconds: index * 50 + 170), () {
+        _dateSelectorAcList[index].forward();
       });
     }
 

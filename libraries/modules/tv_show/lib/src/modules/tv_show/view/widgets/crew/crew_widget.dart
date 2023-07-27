@@ -69,7 +69,7 @@ class _CrewWidgetState extends State<CrewWidget> {
                 final crew = state[index];
 
                 return CardCrew(
-                  image: crew.profile!,
+                  image: crew.profile ?? '',
                   name: crew.characterName,
                 );
               },

@@ -34,12 +34,12 @@ class _DetailPageState extends State<DetailPage> {
               children: [
                 CardMoviesHeader(
                   isFromBanner: widget.arguments.isFromBanner,
-                  idMovie: _data.id,
+                  idMovie: _data.screenId,
                   title: _data.title,
                   imageBanner: _data.backdropPath.imageOriginal,
                   imagePoster: _data.posterPath.imageOriginal,
                   rating: _data.voteAverage,
-                  genre: _data.genreIds.take(3).map((id) => GenreChip(id: id)).toList(),
+                  genre: _data.genreIds.take(3).map((id) => GenreChip(genreId: id)).toList(),
                 ),
                 Padding(
                   padding: EdgeInsets.all(
@@ -70,8 +70,8 @@ class _DetailPageState extends State<DetailPage> {
                     right: Sizes.dp20(context),
                   ),
                   child: TrailerWidget(
-                    key: ValueKey('${_arguments.isFromMovie}${_data.id}'),
-                    movieId: _data.id,
+                    key: ValueKey('${_arguments.isFromMovie}${_data.screenId}'),
+                    movieId: _data.screenId,
                     isFromMovie: _arguments.isFromMovie,
                   ),
                 ),
@@ -81,9 +81,9 @@ class _DetailPageState extends State<DetailPage> {
                     right: Sizes.dp20(context),
                   ),
                   child: CrewWidget(
-                    key: ValueKey('${_arguments.isFromMovie}${_data.id}'),
+                    key: ValueKey('${_arguments.isFromMovie}${_data.screenId}'),
                     isFromMovie: _arguments.isFromMovie,
-                    movieId: _arguments.screenData.id,
+                    movieId: _arguments.screenData.screenId,
                   ),
                 ),
                 Padding(

@@ -89,7 +89,7 @@ class _TvShowPopularWidgetState extends State<TvShowPopularWidget> {
                       './detail_movies',
                       arguments: ScreenArguments(
                         screenData: ScreenData(
-                          tvPopularShow.id,
+                          tvPopularShow.tvShowId,
                           tvPopularShow.title,
                           tvPopularShow.overview,
                           tvPopularShow.releaseDate,

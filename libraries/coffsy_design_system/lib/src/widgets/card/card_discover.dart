@@ -49,7 +49,7 @@ class CardDiscover extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: genre.take(3).map((id) => GenreChip(id: id)).toList(),
+            children: genre.take(3).map((id) => GenreChip(genreId: id)).toList(),
           ),
         ),
         SizedBox(

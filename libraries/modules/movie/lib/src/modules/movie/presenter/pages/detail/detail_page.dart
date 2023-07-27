@@ -33,13 +33,13 @@ class _DetailPageState extends State<DetailPage> {
               children: [
                 CardMoviesHeader(
                   isFromBanner: widget.arguments.isFromBanner,
-                  idMovie: _screenData.id,
+                  idMovie: _screenData.screenId,
                   //  title: widget.arguments.movies.title ?? widget.arguments.movies.tvName,
                   title: _screenData.title,
                   imageBanner: _screenData.backdropPath.imageOriginal,
                   imagePoster: _screenData.posterPath.imageOriginal,
                   rating: _screenData.voteAverage,
-                  genre: _screenData.genreIds.take(3).map((id) => GenreChip(id: id)).toList(),
+                  genre: _screenData.genreIds.take(3).map((id) => GenreChip(genreId: id)).toList(),
                 ),
                 Padding(
                   padding: EdgeInsets.all(
@@ -70,8 +70,8 @@ class _DetailPageState extends State<DetailPage> {
                     right: Sizes.dp20(context),
                   ),
                   child: TrailerWidget(
-                    key: ValueKey('${_arguments.isFromMovie}${_screenData.id}'),
-                    movieId: _screenData.id,
+                    key: ValueKey('${_arguments.isFromMovie}${_screenData.screenId}'),
+                    movieId: _screenData.screenId,
                     isFromMovie: _arguments.isFromMovie,
                   ),
                 ),
@@ -81,9 +81,9 @@ class _DetailPageState extends State<DetailPage> {
                     right: Sizes.dp20(context),
                   ),
                   child: CrewWidget(
-                    key: ValueKey('${_arguments.isFromMovie}${_screenData.id}'),
+                    key: ValueKey('${_arguments.isFromMovie}${_screenData.screenId}'),
                     isFromMovie: _arguments.isFromMovie,
-                    movieId: _arguments.screenData.id,
+                    movieId: _arguments.screenData.screenId,
                   ),
                 ),
                 Padding(

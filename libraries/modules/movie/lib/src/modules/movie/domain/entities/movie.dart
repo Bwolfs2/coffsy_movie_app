@@ -1,5 +1,5 @@
 class Movie {
-  final int id;
+  final int movieId;
   final String title;
   final String overview;
   final String releaseDate;
@@ -12,7 +12,7 @@ class Movie {
   final String? tvRelease;
 
   Movie(
-    this.id,
+    this.movieId,
     this.title,
     this.overview,
     this.releaseDate,

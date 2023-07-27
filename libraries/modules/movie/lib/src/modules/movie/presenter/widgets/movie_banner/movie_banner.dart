@@ -59,7 +59,7 @@ class _MovieBannerState extends State<MovieBanner> {
             data: List.from(
               state.map(
                 (e) => ScreenData(
-                  e.id,
+                  e.movieId,
                   e.title,
                   e.overview,
                   e.releaseDate,

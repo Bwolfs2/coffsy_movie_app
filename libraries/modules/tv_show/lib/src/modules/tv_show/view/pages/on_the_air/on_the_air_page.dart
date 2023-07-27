@@ -63,13 +63,13 @@ class _OnTheAirPageState extends State<OnTheAirPage> {
                 vote: onTheAir.voteAverage.toString(),
                 releaseDate: onTheAir.tvRelease ?? 'No TV Release',
                 overview: onTheAir.overview,
-                genre: onTheAir.genreIds.take(3).map((id) => GenreChip(id: id)).toList(),
+                genre: onTheAir.genreIds.take(3).map((id) => GenreChip(genreId: id)).toList(),
                 onTap: () {
                   Modular.to.pushNamed(
                     './detail_movies',
                     arguments: ScreenArguments(
                       screenData: ScreenData(
-                        onTheAir.id,
+                        onTheAir.tvShowId,
                         onTheAir.title,
                         onTheAir.overview,
                         onTheAir.releaseDate,

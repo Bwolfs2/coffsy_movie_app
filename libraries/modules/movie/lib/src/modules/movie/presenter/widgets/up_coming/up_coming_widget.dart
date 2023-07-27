@@ -88,7 +88,7 @@ class _UpComingWidgetState extends State<UpComingWidget> {
                             './detail_movies',
                             arguments: ScreenArguments(
                               screenData: ScreenData(
-                                movies.id,
+                                movies.movieId,
                                 movies.title,
                                 movies.overview,
                                 movies.releaseDate,

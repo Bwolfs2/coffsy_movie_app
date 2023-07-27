@@ -62,13 +62,13 @@ class _AiringTodayPageState extends State<AiringTodayPage> {
                 vote: movie.voteAverage.toString(),
                 releaseDate: movie.tvRelease ?? 'No TV Release',
                 overview: movie.overview,
-                genre: movie.genreIds.take(3).map((id) => GenreChip(id: id)).toList(),
+                genre: movie.genreIds.take(3).map((id) => GenreChip(genreId: id)).toList(),
                 onTap: () {
                   Modular.to.pushNamed(
                     './detail_movies',
                     arguments: ScreenArguments(
                       screenData: ScreenData(
-                        movie.id,
+                        movie.tvShowId,
                         movie.title,
                         movie.overview,
                         movie.releaseDate,
