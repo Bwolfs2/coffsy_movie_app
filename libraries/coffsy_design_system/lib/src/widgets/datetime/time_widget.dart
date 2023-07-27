@@ -24,12 +24,12 @@ class _TimeWidgetState extends State<TimeWidget> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     // initialize timeSelector List
-    for (var i = 0; i < 3; i++) {
+    for (var index = 0; index < 3; index++) {
       _timeSelectorAcList.add(AnimationController(vsync: this, duration: const Duration(milliseconds: 500)));
       _timeSelectorTweenList
-          .add(Tween<double>(begin: 1000, end: 0).chain(CurveTween(curve: Curves.easeOutCubic)).animate(_timeSelectorAcList[i]));
-      Future.delayed(Duration(milliseconds: i * 25 + 100), () {
-        _timeSelectorAcList[i].forward();
+          .add(Tween<double>(begin: 1000, end: 0).chain(CurveTween(curve: Curves.easeOutCubic)).animate(_timeSelectorAcList[index]));
+      Future.delayed(Duration(milliseconds: index * 25 + 100), () {
+        _timeSelectorAcList[index].forward();
       });
     }
   }

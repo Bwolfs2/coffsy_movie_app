@@ -14,10 +14,10 @@ class TrailerMapper {
   }
 
   static Trailer fromMap(Map<String, dynamic> map) {
-    final String id = map['id'] ?? '';
+    final String trailerId = map['id'] ?? '';
     final String key = map['key'] ?? '';
     final String name = map['name'] ?? 'No Name';
 
-    return Trailer(id, key, name);
+    return Trailer(trailerId, key, name);
   }
 }
