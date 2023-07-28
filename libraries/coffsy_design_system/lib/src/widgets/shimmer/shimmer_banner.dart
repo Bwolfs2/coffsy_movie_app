@@ -7,6 +7,8 @@ class ShimmerBanner extends StatelessWidget {
   const ShimmerBanner({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+
     return SizedBox(
       width: double.infinity,
       child: Shimmer.fromColors(
@@ -15,28 +17,28 @@ class ShimmerBanner extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              height: Sizes.width(context) / 2,
-              width: Sizes.width(context),
+              height: width / 2,
+              width: width,
               decoration: BoxDecoration(
                 color: ColorPalettes.greyBg,
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: const BorderRadius.all(Radius.circular(8)),
               ),
             ),
             Row(
               children: [
                 Container(
-                  width: Sizes.width(context) / 3,
-                  height: Sizes.dp8(context),
-                  margin: EdgeInsets.symmetric(
-                    vertical: Sizes.dp10(context),
+                  width: width / 3,
+                  height: 8,
+                  margin: const EdgeInsets.symmetric(
+                    vertical: 10,
                     horizontal: 2,
                   ),
                   color: ColorPalettes.greyBg,
                 ),
                 const Spacer(),
                 Container(
-                  height: Sizes.dp8(context),
-                  width: Sizes.width(context) / 8,
+                  height: 8,
+                  width: width / 8,
                   color: ColorPalettes.greyBg,
                 ),
               ],

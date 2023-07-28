@@ -30,7 +30,7 @@ class BannerHome extends StatelessWidget {
       children: <Widget>[
         // Banner
         SizedBox(
-          height: Sizes.width(context) / 2,
+          height: MediaQuery.sizeOf(context).width / 2,
           child: CarouselSlider(
             options: CarouselOptions(
               enlargeCenterPage: true,
@@ -43,7 +43,7 @@ class BannerHome extends StatelessWidget {
             items: List.generate(
               result,
               (index) => ClipRRect(
-                borderRadius: BorderRadius.circular(Sizes.dp10(context)),
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
                 child: GestureDetector(
                   onTap: () {
                     Modular.to.pushNamed(
@@ -59,7 +59,7 @@ class BannerHome extends StatelessWidget {
                   child: GridTile(
                     footer: Container(
                       color: ColorPalettes.whiteSemiTransparent,
-                      padding: EdgeInsets.all(Sizes.dp5(context)),
+                      padding: const EdgeInsets.all(5),
                       child: Text(
                         isFromMovie ? data[index].title : data[index].tvName ?? 'No Tv Name',
                         textAlign: TextAlign.center,
@@ -67,15 +67,14 @@ class BannerHome extends StatelessWidget {
                         style: TextStyle(
                           color: ColorPalettes.darkBG,
                           fontWeight: FontWeight.bold,
-                          fontSize: Sizes.dp16(context),
+                          fontSize: 16,
                         ),
                       ),
                     ),
                     child: CachedNetworkImage(
                       imageUrl: data[index].backdropPath.imageOriginal,
-                      width: Sizes.width(context),
+                      width: MediaQuery.sizeOf(context).width,
                       fit: BoxFit.fill,
-                      placeholder: (context, url) => const LoadingIndicator(),
                       errorWidget: (context, url, error) => const ErrorImage(),
                     ),
                   ),
@@ -97,10 +96,10 @@ class BannerHome extends StatelessWidget {
                   children: List.generate(
                     result,
                     (index) => Container(
-                      width: Sizes.dp8(context),
-                      height: Sizes.dp8(context),
-                      margin: EdgeInsets.symmetric(
-                        vertical: Sizes.dp10(context),
+                      width: 8,
+                      height: 8,
+                      margin: const EdgeInsets.symmetric(
+                        vertical: 10,
                         horizontal: 2,
                       ),
                       decoration: BoxDecoration(
@@ -119,10 +118,10 @@ class BannerHome extends StatelessWidget {
                   forRoot: true,
                 );
               },
-              child: Text(
+              child: const Text(
                 'See all',
                 style: TextStyle(
-                  fontSize: Sizes.dp15(context),
+                  fontSize: 15,
                   fontWeight: FontWeight.bold,
                 ),
               ),

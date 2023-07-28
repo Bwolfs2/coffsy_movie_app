@@ -118,7 +118,7 @@ Widget build(BuildContext context) {
       centerTitle: true,
     ),
     body: Padding(
-      padding: EdgeInsets.all(Sizes.dp10(context)),
+      padding: EdgeInsets.all(10),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -128,7 +128,7 @@ Widget build(BuildContext context) {
             leading: const Icon(Icons.person),
             trailing: Icon(
               Icons.arrow_forward_ios,
-              size: Sizes.dp16(context),
+              size: 16,
             ),
             onTap: () =&gt; Modular.to.pushNamed(&#39;&#47;about&#39;),
           ),
@@ -137,7 +137,7 @@ Widget build(BuildContext context) {
             leading: const Icon(Icons.theater_comedy),
             trailing: Icon(
               Icons.arrow_forward_ios,
-              size: Sizes.dp16(context),
+              size: 16,
             ),
             onTap: () =&gt; showDialog(
               context: context,
@@ -167,7 +167,7 @@ Widget build(BuildContext context) {
                 verInfo = &#39;v ${snapshot.data}&#39;;
               }
               return Container(
-                margin: EdgeInsets.only(bottom: Sizes.dp30(context)),
+                margin: EdgeInsets.only(bottom: 30),
                 child: Text(
                   verInfo,
                   style: const TextStyle(fontWeight: FontWeight.bold),

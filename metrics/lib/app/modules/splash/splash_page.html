@@ -70,8 +70,8 @@ class _SplashPageState extends State&lt;SplashPage&gt; {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   SizedBox(
-                    height: Sizes.width(context) / 3,
-                    width: Sizes.width(context) / 3,
+                    height: MediaQuery.sizeOf(context).width / 3,
+                    width: MediaQuery.sizeOf(context).width / 3,
                     child: Image.asset(
                       ImagesAssets.movieIcon,
                       fit: BoxFit.contain,
@@ -95,7 +95,7 @@ class _SplashPageState extends State&lt;SplashPage&gt; {
                   }
 
                   return Container(
-                    margin: EdgeInsets.only(bottom: Sizes.dp30(context)),
+                    margin: EdgeInsets.only(bottom: 30),
                     child: Text(
                       verInfo,
                       style: const TextStyle(fontWeight: FontWeight.bold),

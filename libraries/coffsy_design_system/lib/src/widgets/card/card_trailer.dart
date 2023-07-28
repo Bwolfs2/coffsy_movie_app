@@ -52,26 +52,30 @@ class _CardTrailerState extends State<CardTrailer> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+
     return SizedBox(
-      width: Sizes.width(context) / 1.2,
+      width: width / 1.2,
       child: Column(
         children: [
           Card(
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(Sizes.dp10(context))),
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+            ),
             child: ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(Sizes.dp10(context))),
+              borderRadius: const BorderRadius.all(Radius.circular(10)),
               child: YoutubePlayer(
                 controller: _controller,
                 showVideoProgressIndicator: true,
                 progressIndicatorColor: ColorPalettes.darkAccent,
                 topActions: <Widget>[
-                  SizedBox(width: Sizes.dp8(context)),
+                  const SizedBox(width: 8),
                   Expanded(
                     child: Text(
                       _controller.metadata.title,
                       style: TextStyle(
                         color: ColorPalettes.white,
-                        fontSize: Sizes.dp18(context),
+                        fontSize: 18,
                       ),
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
@@ -80,9 +84,9 @@ class _CardTrailerState extends State<CardTrailer> with WidgetsBindingObserver {
                 ],
                 // This for hide the full screen button
                 bottomActions: [
-                  SizedBox(width: Sizes.dp14(context)),
+                  const SizedBox(width: 14),
                   CurrentPosition(),
-                  SizedBox(width: Sizes.dp8(context)),
+                  const SizedBox(width: 8),
                   ProgressBar(isExpanded: true),
                   RemainingDuration(),
                   const PlaybackSpeedButton(),
@@ -92,15 +96,15 @@ class _CardTrailerState extends State<CardTrailer> with WidgetsBindingObserver {
           ),
           Visibility(
             visible: widget.length > 1,
-            child: SizedBox(
-              height: Sizes.dp10(context),
+            child: const SizedBox(
+              height: 10,
             ),
           ),
           Visibility(
             visible: widget.length > 1,
             child: Container(
-              height: Sizes.dp30(context),
-              width: Sizes.width(context),
+              height: 30,
+              width: width,
               color: ColorPalettes.lightAccent,
               child: Center(
                 child: Text(
@@ -109,7 +113,7 @@ class _CardTrailerState extends State<CardTrailer> with WidgetsBindingObserver {
                   style: TextStyle(
                     color: ColorPalettes.white,
                     fontWeight: FontWeight.w600,
-                    fontSize: Sizes.dp16(context),
+                    fontSize: 16,
                   ),
                 ),
               ),

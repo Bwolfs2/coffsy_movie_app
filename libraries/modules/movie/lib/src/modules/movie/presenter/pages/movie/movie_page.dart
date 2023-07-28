@@ -72,21 +72,21 @@ class _MoviePageState extends State<MoviePage> {
         springAnimationDurationInMilliseconds: 500,
         child: ListView(
           physics: const BouncingScrollPhysics(),
-          padding: EdgeInsets.all(
-            Sizes.dp10(context),
+          padding: const EdgeInsets.all(
+            10,
           ),
-          children: <Widget>[
-            const MovieBanner(),
+          children: const <Widget>[
+            MovieBanner(),
             SizedBox(
-              height: Sizes.dp12(context),
+              height: 12,
             ),
-            const UpComingWidget(),
+            UpComingWidget(),
             SizedBox(
-              height: Sizes.dp12(context),
+              height: 12,
             ),
-            const PopularWidget(),
+            PopularWidget(),
             SizedBox(
-              height: Sizes.dp12(context),
+              height: 12,
             ),
           ],
         ),

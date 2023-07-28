@@ -41,20 +41,22 @@ class _TrailerWidgetState extends State<TrailerWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        const Text(
           'Trailer',
           style: TextStyle(
             fontWeight: FontWeight.w600,
-            fontSize: Sizes.dp16(context),
+            fontSize: 16,
           ),
         ),
-        SizedBox(height: Sizes.dp8(context)),
+        const SizedBox(height: 8),
         SizedBox(
-          width: Sizes.width(context),
-          height: Sizes.width(context) / 1.7,
+          width: width,
+          height: width / 1.7,
           child: ScopedBuilder<TrailerStore, Failure, List<Trailer>>.transition(
             store: store,
             onError: (context, error) => error is TrailerNoInternetConnection

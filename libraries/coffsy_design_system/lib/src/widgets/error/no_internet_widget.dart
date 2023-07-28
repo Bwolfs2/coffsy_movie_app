@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../coffsy_design_system.dart';
-
 class NoInternetWidget extends StatelessWidget {
   final String message;
   final VoidCallback onPressed;
@@ -20,16 +18,16 @@ class NoInternetWidget extends StatelessWidget {
       children: [
         Text(
           message,
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: Sizes.dp12(context),
+            fontSize: 12,
           ),
         ),
-        SizedBox(height: Sizes.dp10(context)),
+        const SizedBox(height: 10),
         ElevatedButton.icon(
           style: ElevatedButton.styleFrom(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(Sizes.dp10(context)),
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
           ),
           icon: const Icon(Icons.wifi),

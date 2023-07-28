@@ -7,12 +7,12 @@ class AboutHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        left: Sizes.dp20(context),
-        right: Sizes.dp20(context),
+    final width = MediaQuery.sizeOf(context).width;
 
-        ///top: Sizes.width(context) / 4,
+    return Padding(
+      padding: const EdgeInsets.only(
+        left: 20,
+        right: 20,
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -20,8 +20,8 @@ class AboutHeader extends StatelessWidget {
           Row(
             children: <Widget>[
               Container(
-                height: Sizes.width(context) / 4.5,
-                width: Sizes.width(context) / 4.5,
+                height: width / 4.5,
+                width: width / 4.5,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
@@ -30,33 +30,33 @@ class AboutHeader extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(width: Sizes.dp20(context)),
+              const SizedBox(width: 20),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(
+                    const Text(
                       'Vilson Dauinheimer (Bwolf)',
                       style: TextStyle(
-                        fontSize: Sizes.dp28(context),
+                        fontSize: 28,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: Sizes.dp5(context)),
+                    const SizedBox(height: 5),
                     GestureDetector(
                       onTap: () => launchUrl(Uri.parse(UrlConstant.urlInstagram)),
                       child: Row(
                         children: <Widget>[
                           Image.asset(
                             ImagesAssets.instagram,
-                            height: Sizes.dp13(context),
-                            width: Sizes.dp13(context),
+                            height: 13,
+                            width: 13,
                           ),
-                          SizedBox(width: Sizes.dp10(context)),
-                          Text(
+                          const SizedBox(width: 10),
+                          const Text(
                             '@bwolf.dev',
                             style: TextStyle(
-                              fontSize: Sizes.dp14(context),
+                              fontSize: 14,
                             ),
                           ),
                         ],
@@ -67,8 +67,8 @@ class AboutHeader extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: Sizes.dp30(context)),
-          Row(
+          const SizedBox(height: 30),
+          const Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Column(
@@ -76,14 +76,14 @@ class AboutHeader extends StatelessWidget {
                   Text(
                     '3K',
                     style: TextStyle(
-                      fontSize: Sizes.dp26(context),
+                      fontSize: 26,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
                     'Follower',
                     style: TextStyle(
-                      fontSize: Sizes.dp16(context),
+                      fontSize: 16,
                     ),
                   ),
                 ],
@@ -93,14 +93,14 @@ class AboutHeader extends StatelessWidget {
                   Text(
                     '2.2k',
                     style: TextStyle(
-                      fontSize: Sizes.dp26(context),
+                      fontSize: 26,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
                     'Following',
                     style: TextStyle(
-                      fontSize: Sizes.dp16(context),
+                      fontSize: 16,
                     ),
                   ),
                 ],

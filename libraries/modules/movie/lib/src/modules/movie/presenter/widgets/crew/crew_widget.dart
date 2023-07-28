@@ -36,20 +36,22 @@ class _CrewWidgetState extends State<CrewWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        const Text(
           'Crew',
           style: TextStyle(
             fontWeight: FontWeight.w600,
-            fontSize: Sizes.dp16(context),
+            fontSize: 16,
           ),
         ),
-        SizedBox(height: Sizes.dp8(context)),
+        const SizedBox(height: 8),
         SizedBox(
-          width: Sizes.width(context),
-          height: Sizes.width(context) / 3,
+          width: width,
+          height: width / 3,
           child: ScopedBuilder<CrewStore, Failure, List<Crew>>.transition(
             store: store,
             onError: (context, error) => error is CrewNoInternetConnection

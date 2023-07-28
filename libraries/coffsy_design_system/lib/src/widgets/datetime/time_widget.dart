@@ -36,10 +36,12 @@ class _TimeWidgetState extends State<TimeWidget> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+
     return Container(
-      width: Sizes.width(context),
-      height: Sizes.width(context) / 5,
-      margin: EdgeInsets.symmetric(vertical: Sizes.dp20(context)),
+      width: width,
+      height: width / 5,
+      margin: const EdgeInsets.symmetric(vertical: 20),
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
@@ -105,11 +107,11 @@ class _TimeItemWidgetState extends State<TimeItemWidget> {
     final activeColor = _textTimeColor(widget.active);
 
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: Sizes.dp12(context)),
-      padding: EdgeInsets.symmetric(horizontal: Sizes.dp16(context)),
+      margin: const EdgeInsets.symmetric(horizontal: 12),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
         border: Border.all(color: activeColor),
-        borderRadius: BorderRadius.circular(Sizes.dp12(context)),
+        borderRadius: const BorderRadius.all(Radius.circular(12)),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -118,7 +120,7 @@ class _TimeItemWidgetState extends State<TimeItemWidget> {
             text: TextSpan(
               text: widget.time,
               style: TextStyle(
-                fontSize: Sizes.dp20(context),
+                fontSize: 20,
                 fontWeight: FontWeight.w600,
                 color: activeColor,
               ),
@@ -126,7 +128,7 @@ class _TimeItemWidgetState extends State<TimeItemWidget> {
                 TextSpan(
                   text: ' PM',
                   style: TextStyle(
-                    fontSize: Sizes.dp14(context),
+                    fontSize: 14,
                     fontWeight: FontWeight.w600,
                     color: activeColor,
                   ),
@@ -137,7 +139,7 @@ class _TimeItemWidgetState extends State<TimeItemWidget> {
           Text(
             'IDR ${widget.price}K',
             style: TextStyle(
-              fontSize: Sizes.dp14(context),
+              fontSize: 14,
               fontWeight: FontWeight.w600,
               color: ColorPalettes.grey,
             ),

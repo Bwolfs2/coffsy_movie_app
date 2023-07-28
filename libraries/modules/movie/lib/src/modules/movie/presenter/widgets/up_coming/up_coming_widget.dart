@@ -25,6 +25,8 @@ class _UpComingWidgetState extends State<UpComingWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -33,17 +35,17 @@ class _UpComingWidgetState extends State<UpComingWidget> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text(
+              const Text(
                 'Up Coming',
                 style: TextStyle(
-                  fontSize: Sizes.dp14(context),
+                  fontSize: 14,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_forward_ios,
-                  size: Sizes.dp16(context),
+                  size: 16,
                 ),
                 onPressed: () {
                   Modular.to.pushNamed('./up_coming', forRoot: true);
@@ -53,8 +55,8 @@ class _UpComingWidgetState extends State<UpComingWidget> {
           ),
         ),
         SizedBox(
-          width: Sizes.width(context),
-          height: Sizes.width(context) / 1.8,
+          width: width,
+          height: width / 1.8,
           child: ScopedBuilder<UpComingWidgetStore, Failure, List<Movie>>.transition(
             store: store,
             onError: (context, error) {

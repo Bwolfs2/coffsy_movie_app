@@ -73,15 +73,15 @@ class _TvShowPageState extends State<TvShowPage> {
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(), //kill bounce iOS
           child: Container(
-            margin: EdgeInsets.all(Sizes.dp10(context)),
-            child: Column(
+            margin: const EdgeInsets.all(10),
+            child: const Column(
               children: <Widget>[
-                const TvShowBanner(),
-                SizedBox(height: Sizes.dp12(context)),
-                const AiringTodayWidget(),
-                SizedBox(height: Sizes.dp12(context)),
-                const TvShowPopularWidget(),
-                SizedBox(height: Sizes.dp12(context)),
+                TvShowBanner(),
+                SizedBox(height: 12),
+                AiringTodayWidget(),
+                SizedBox(height: 12),
+                TvShowPopularWidget(),
+                SizedBox(height: 12),
               ],
             ),
           ),

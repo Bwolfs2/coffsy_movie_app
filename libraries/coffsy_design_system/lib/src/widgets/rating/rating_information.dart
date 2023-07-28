@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../coffsy_design_system.dart';
-
 class RatingInformation extends StatelessWidget {
   final double rating;
 
@@ -21,10 +19,10 @@ class RatingInformation extends StatelessWidget {
           style: TextStyle(
             fontWeight: FontWeight.w600,
             color: Theme.of(context).colorScheme.secondary,
-            fontSize: Sizes.dp16(context),
+            fontSize: 16,
           ),
         ),
-        SizedBox(height: Sizes.dp4(context)),
+        const SizedBox(height: 4),
         const Text(
           'Ratings',
         ),
@@ -36,9 +34,9 @@ class RatingInformation extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         RatingBar(rating),
-        Padding(
-          padding: EdgeInsets.only(top: Sizes.dp4(context), left: Sizes.dp4(context)),
-          child: const Text(
+        const Padding(
+          padding: EdgeInsets.only(top: 4, left: 4),
+          child: Text(
             'Grade now',
           ),
         ),
@@ -49,7 +47,7 @@ class RatingInformation extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         numericRating,
-        SizedBox(width: Sizes.dp16(context)),
+        const SizedBox(width: 16),
         starRating,
       ],
     );

@@ -7,27 +7,29 @@ class ShimmerList extends StatelessWidget {
   const ShimmerList({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: Sizes.dp16(context), vertical: Sizes.dp16(context)),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       child: Shimmer.fromColors(
         baseColor: ColorPalettes.greyBg,
         highlightColor: ColorPalettes.white,
         child: ListView.builder(
           itemBuilder: (_, __) => Padding(
-            padding: EdgeInsets.only(bottom: Sizes.dp8(context)),
+            padding: const EdgeInsets.only(bottom: 8),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 // image
                 Container(
-                  width: Sizes.width(context) / 3,
-                  height: Sizes.width(context) / 2,
+                  width: width / 3,
+                  height: width / 2,
                   color: ColorPalettes.greyBg,
                 ),
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsets.all(Sizes.dp10(context)),
+                    padding: const EdgeInsets.all(10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -36,12 +38,12 @@ class ShimmerList extends StatelessWidget {
                           children: <Widget>[
                             // circle vote average
                             Container(
-                              height: Sizes.width(context) / 10,
-                              width: Sizes.width(context) / 10,
+                              height: width / 10,
+                              width: width / 10,
                               color: ColorPalettes.greyBg,
                             ),
-                            SizedBox(
-                              width: Sizes.dp10(context),
+                            const SizedBox(
+                              width: 10,
                             ),
                             Expanded(
                               child: Column(
@@ -49,15 +51,15 @@ class ShimmerList extends StatelessWidget {
                                 children: <Widget>[
                                   Container(
                                     width: double.infinity,
-                                    height: Sizes.dp16(context),
+                                    height: 16,
                                     color: ColorPalettes.greyBg,
                                   ),
-                                  SizedBox(
-                                    height: Sizes.dp12(context),
+                                  const SizedBox(
+                                    height: 12,
                                   ),
                                   Container(
                                     width: double.infinity,
-                                    height: Sizes.dp12(context),
+                                    height: 12,
                                     color: ColorPalettes.greyBg,
                                   ),
                                 ],
@@ -65,68 +67,68 @@ class ShimmerList extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: Sizes.dp10(context),
+                        const SizedBox(
+                          height: 10,
                         ),
                         Row(
                           children: <Widget>[
                             Container(
-                              height: Sizes.dp30(context),
-                              width: Sizes.width(context) / 7,
+                              height: 30,
+                              width: width / 7,
                               color: ColorPalettes.greyBg,
                             ),
-                            SizedBox(
-                              width: Sizes.dp10(context),
+                            const SizedBox(
+                              width: 10,
                             ),
                             Container(
-                              height: Sizes.dp30(context),
-                              width: Sizes.width(context) / 7,
+                              height: 30,
+                              width: width / 7,
                               color: ColorPalettes.white,
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: Sizes.dp10(context),
+                        const SizedBox(
+                          height: 10,
                         ),
                         Container(
                           width: double.infinity,
-                          height: Sizes.dp12(context),
+                          height: 12,
                           color: ColorPalettes.greyBg,
                         ),
-                        SizedBox(
-                          height: Sizes.dp10(context),
+                        const SizedBox(
+                          height: 10,
                         ),
                         Container(
                           width: double.infinity,
-                          height: Sizes.dp12(context),
+                          height: 12,
                           color: ColorPalettes.greyBg,
                         ),
-                        SizedBox(
-                          height: Sizes.dp10(context),
+                        const SizedBox(
+                          height: 10,
                         ),
                         Container(
                           width: double.infinity,
-                          height: Sizes.dp12(context),
+                          height: 12,
                           color: ColorPalettes.greyBg,
                         ),
-                        SizedBox(
-                          height: Sizes.dp10(context),
+                        const SizedBox(
+                          height: 10,
                         ),
                         Container(
                           width: double.infinity,
-                          height: Sizes.dp12(context),
+                          height: 12,
                           color: ColorPalettes.greyBg,
                         ),
-                        SizedBox(
-                          height: Sizes.dp10(context),
+                        const SizedBox(
+                          height: 10,
                         ),
                         Container(
                           width: double.infinity,
-                          height: Sizes.dp12(context),
+                          height: 12,
                           color: ColorPalettes.greyBg,
                         ),
-                        SizedBox(
-                          height: Sizes.dp10(context),
+                        const SizedBox(
+                          height: 10,
                         ),
                       ],
                     ),

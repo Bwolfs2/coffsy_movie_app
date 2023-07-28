@@ -16,14 +16,13 @@ class MoviesPoster extends StatelessWidget {
     final width = posterRatio * height;
 
     return Material(
-      borderRadius: BorderRadius.circular(Sizes.dp4(context)),
+      borderRadius: const BorderRadius.all(Radius.circular(4)),
       elevation: 2,
       child: CachedNetworkImage(
         height: height,
         width: width,
         fit: BoxFit.cover,
         imageUrl: posterUrl,
-        placeholder: (context, url) => const LoadingIndicator(),
         errorWidget: (context, url, error) => const ErrorImage(),
       ),
     );

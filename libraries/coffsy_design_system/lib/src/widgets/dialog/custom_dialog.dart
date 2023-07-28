@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../coffsy_design_system.dart';
-
 class CustomDialog extends StatelessWidget {
   final bool isDark, groupValue;
   final ValueChanged<bool> onChanged;
@@ -14,7 +12,7 @@ class CustomDialog extends StatelessWidget {
       title: const Text('Switch Theme'),
       children: <Widget>[
         Padding(
-          padding: EdgeInsets.only(left: Sizes.dp10(context)),
+          padding: const EdgeInsets.only(left: 10),
           child: Row(
             children: <Widget>[
               Radio<bool>(
@@ -26,11 +24,11 @@ class CustomDialog extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(
-          height: Sizes.dp10(context),
+        const SizedBox(
+          height: 10,
         ),
         Padding(
-          padding: EdgeInsets.only(left: Sizes.dp10(context)),
+          padding: const EdgeInsets.only(left: 10),
           child: Row(
             children: <Widget>[
               Radio<bool>(

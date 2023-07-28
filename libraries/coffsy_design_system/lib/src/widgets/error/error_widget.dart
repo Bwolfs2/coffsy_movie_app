@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../coffsy_design_system.dart';
-
 class CustomErrorWidget extends StatelessWidget {
   final String? message;
 
@@ -12,9 +10,9 @@ class CustomErrorWidget extends StatelessWidget {
     return Center(
       child: Text(
         message ?? 'Unknown Error',
-        style: TextStyle(
+        style: const TextStyle(
           fontWeight: FontWeight.bold,
-          fontSize: Sizes.dp12(context),
+          fontSize: 12,
         ),
       ),
     );

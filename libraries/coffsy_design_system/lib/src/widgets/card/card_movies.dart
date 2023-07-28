@@ -25,8 +25,10 @@ class CardMovies extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+
     return Container(
-      margin: EdgeInsets.all(Sizes.dp5(context)),
+      margin: const EdgeInsets.all(5),
       child: InkWell(
         onTap: onTap,
         child: Card(
@@ -35,17 +37,16 @@ class CardMovies extends StatelessWidget {
             children: <Widget>[
               // image
               SizedBox(
-                width: Sizes.width(context) / 3,
-                height: Sizes.width(context) / 2,
+                width: width / 3,
+                height: width / 2,
                 child: CachedNetworkImage(
                   imageUrl: image.imageOriginal,
-                  placeholder: (context, url) => const LoadingIndicator(),
                   errorWidget: (context, url, error) => const ErrorImage(),
                 ),
               ),
               Expanded(
                 child: Padding(
-                  padding: EdgeInsets.all(Sizes.dp10(context)),
+                  padding: const EdgeInsets.all(10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
@@ -56,8 +57,8 @@ class CardMovies extends StatelessWidget {
                           CircleProgress(
                             vote: vote,
                           ),
-                          SizedBox(
-                            width: Sizes.dp10(context),
+                          const SizedBox(
+                            width: 10,
                           ),
                           Expanded(
                             child: Column(
@@ -66,15 +67,15 @@ class CardMovies extends StatelessWidget {
                                 Text(
                                   title,
                                   overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontWeight: FontWeight.w600,
-                                    fontSize: Sizes.dp16(context),
+                                    fontSize: 16,
                                   ),
                                 ),
                                 Text(
                                   releaseDate,
-                                  style: TextStyle(
-                                    fontSize: Sizes.dp12(context),
+                                  style: const TextStyle(
+                                    fontSize: 12,
                                   ),
                                 ),
                               ],
@@ -82,8 +83,8 @@ class CardMovies extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(
-                        height: Sizes.dp10(context),
+                      const SizedBox(
+                        height: 10,
                       ),
                       SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
@@ -91,8 +92,8 @@ class CardMovies extends StatelessWidget {
                           children: genre,
                         ),
                       ),
-                      SizedBox(
-                        height: Sizes.dp10(context),
+                      const SizedBox(
+                        height: 10,
                       ),
                       Text(
                         overview,

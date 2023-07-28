@@ -25,6 +25,8 @@ class _TvShowPopularWidgetState extends State<TvShowPopularWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -32,18 +34,18 @@ class _TvShowPopularWidgetState extends State<TvShowPopularWidget> {
           alignment: Alignment.centerLeft,
           child: Row(
             children: <Widget>[
-              Text(
+              const Text(
                 'Popular',
                 style: TextStyle(
-                  fontSize: Sizes.dp14(context),
+                  fontSize: 14,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               const Spacer(),
               IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_forward_ios,
-                  size: Sizes.dp16(context),
+                  size: 16,
                 ),
                 onPressed: () {
                   Modular.to.pushNamed('./tv_popular', forRoot: true);
@@ -53,8 +55,8 @@ class _TvShowPopularWidgetState extends State<TvShowPopularWidget> {
           ),
         ),
         SizedBox(
-          width: Sizes.width(context),
-          height: Sizes.width(context) / 1.8,
+          width: width,
+          height: width / 1.8,
           child: ScopedBuilder<TvShowPopularStore, Failure, List<TvPopularShow>>.transition(
             onError: (context, error) {
               if (error is NoDataFound) {

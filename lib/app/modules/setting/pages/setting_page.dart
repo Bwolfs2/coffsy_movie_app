@@ -43,15 +43,15 @@ class _SettingPageState extends State<SettingPage> {
         centerTitle: true,
       ),
       body: Padding(
-        padding: EdgeInsets.all(Sizes.dp10(context)),
+        padding: const EdgeInsets.all(10),
         child: Column(
           children: <Widget>[
             ListTile(
               title: const Text('Developer'),
               leading: const Icon(Icons.person),
-              trailing: Icon(
+              trailing: const Icon(
                 Icons.arrow_forward_ios,
-                size: Sizes.dp16(context),
+                size: 16,
               ),
               onTap: () => Modular.to.pushNamed('/about'),
             ),
@@ -59,9 +59,9 @@ class _SettingPageState extends State<SettingPage> {
               ListTile(
                 title: const Text('Theme'),
                 leading: const Icon(Icons.theater_comedy),
-                trailing: Icon(
+                trailing: const Icon(
                   Icons.arrow_forward_ios,
-                  size: Sizes.dp16(context),
+                  size: 16,
                 ),
                 onTap: () => showDialog(
                   context: context,
@@ -92,7 +92,7 @@ class _SettingPageState extends State<SettingPage> {
                 }
 
                 return Container(
-                  margin: EdgeInsets.only(bottom: Sizes.dp30(context)),
+                  margin: const EdgeInsets.only(bottom: 30),
                   child: Text(
                     verInfo,
                     style: const TextStyle(fontWeight: FontWeight.bold),

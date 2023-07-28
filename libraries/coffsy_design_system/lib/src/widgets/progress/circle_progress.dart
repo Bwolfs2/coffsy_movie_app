@@ -14,27 +14,31 @@ class CircleProgress extends StatelessWidget {
   Widget build(BuildContext context) {
     final _vote = double.parse(vote);
 
+    final width = MediaQuery.sizeOf(context).width;
+
     return SizedBox(
-      width: Sizes.width(context) / 10,
-      height: Sizes.width(context) / 10,
+      width: width / 10,
+      height: width / 10,
       child: Stack(
         children: <Widget>[
           Center(
             child: Container(
-              width: Sizes.width(context) / 10,
-              height: Sizes.width(context) / 10,
+              width: width / 10,
+              height: width / 10,
               decoration: BoxDecoration(
                 color: ColorPalettes.blueGrey,
-                borderRadius: BorderRadius.circular(
-                  Sizes.dp20(context),
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(
+                    20,
+                  ),
                 ),
               ),
             ),
           ),
           Center(
             child: SizedBox(
-              width: Sizes.dp30(context),
-              height: Sizes.dp30(context),
+              width: 30,
+              height: 30,
               child: CircularProgressIndicator(
                 strokeWidth: 3,
                 valueColor: AlwaysStoppedAnimation<Color>(
@@ -49,14 +53,14 @@ class CircleProgress extends StatelessWidget {
           ),
           Center(
             child: SizedBox(
-              width: Sizes.dp30(context),
-              height: Sizes.dp30(context),
+              width: 30,
+              height: 30,
               child: Center(
                 child: Text(
                   '${(_vote * 10.0).floor()}%',
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
-                    fontSize: Sizes.dp10(context),
+                    fontSize: 10,
                     color: ColorPalettes.white,
                   ),
                 ),

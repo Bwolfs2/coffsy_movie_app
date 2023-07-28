@@ -23,8 +23,8 @@ class BookingPage extends StatelessWidget {
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Padding(
-          padding: EdgeInsets.all(
-            Sizes.dp20(context),
+          padding: const EdgeInsets.all(
+            20,
           ),
           child: Column(
             children: <Widget>[
@@ -32,8 +32,8 @@ class BookingPage extends StatelessWidget {
               const TimeWidget(),
               CinemaWidget(movieBackground: arguments.screenData.backdropPath),
               Padding(
-                padding: EdgeInsets.only(
-                  top: Sizes.dp20(context),
+                padding: const EdgeInsets.only(
+                  top: 20,
                 ),
                 child: CustomButton(
                   text: 'Pay',

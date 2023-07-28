@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../../coffsy_design_system.dart';
+import '../shimmer/shimmer_discover.dart';
 
 class CardDiscover extends StatelessWidget {
   final String image, title;
@@ -20,50 +21,49 @@ class CardDiscover extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         ClipRRect(
-          borderRadius: BorderRadius.circular(Sizes.dp20(context)),
-          child: GestureDetector(
-            onTap: onTap,
-            child: CachedNetworkImage(
-              imageUrl: image.imageOriginal,
-              width: Sizes.width(context) / 2,
-              placeholder: (context, url) => const ShimmerDiscover(),
-              errorWidget: (context, url, error) => const ErrorImage(),
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
+          child: SizedBox(
+            width: width / 2,
+            child: AspectRatio(
+              aspectRatio: 10 / 16,
+              child: GestureDetector(
+                onTap: onTap,
+                child: CachedNetworkImage(
+                  imageUrl: image.imageOriginal,
+                  fit: BoxFit.cover,
+                  placeholder: (context, url) => const ShimmerDiscover(),
+                  errorWidget: (context, url, error) => const ErrorImage(),
+                ),
+              ),
             ),
           ),
         ),
-        SizedBox(
-          height: Sizes.height(context) * .02,
-        ),
+        const SizedBox(height: 16),
         Text(
           title,
           textAlign: TextAlign.center,
-          style: TextStyle(color: Colors.white, fontSize: Sizes.width(context) / 14, fontWeight: FontWeight.w600),
+          style: const TextStyle(color: Colors.white, fontSize: 26, fontWeight: FontWeight.w600),
         ),
-        SizedBox(
-          height: Sizes.height(context) * .01,
-        ),
+        const SizedBox(height: 8),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
             children: genre.take(3).map((id) => GenreChip(genreId: id)).toList(),
           ),
         ),
-        SizedBox(
-          height: Sizes.height(context) * .01,
-        ),
+        const SizedBox(height: 8),
         Text(
           rating.toString(),
           style: TextStyle(
             color: Colors.white,
-            fontSize: Sizes.width(context) / 16,
+            fontSize: width / 16,
           ),
-        ),
-        SizedBox(
-          height: Sizes.height(context) * .005,
         ),
         RatingBar(rating),
       ],

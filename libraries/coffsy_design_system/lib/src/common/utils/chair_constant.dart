@@ -18,7 +18,7 @@ class WhiteChairDark extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(Sizes.dp6(context)),
+      borderRadius: const BorderRadius.all(Radius.circular(6)),
       child: Container(
         decoration: BoxDecoration(
           color: ColorPalettes.white,
@@ -38,7 +38,7 @@ class WhiteChairLight extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(Sizes.dp6(context)),
+      borderRadius: const BorderRadius.all(Radius.circular(6)),
       child: Container(
         decoration: BoxDecoration(
           color: ColorPalettes.white,
@@ -58,7 +58,7 @@ class GreyChair extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(Sizes.dp6(context)),
+      borderRadius: const BorderRadius.all(Radius.circular(6)),
       child: Container(
         decoration: BoxDecoration(color: Colors.grey[800]),
         child: SvgPicture.asset(ImagesAssets.chairLight),
@@ -73,7 +73,7 @@ class RedChair extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(Sizes.dp6(context)),
+      borderRadius: const BorderRadius.all(Radius.circular(6)),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.red[900],
@@ -90,7 +90,7 @@ class OrangeChair extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(Sizes.dp6(context)),
+      borderRadius: const BorderRadius.all(Radius.circular(6)),
       child: Container(
         decoration: BoxDecoration(color: ColorPalettes.darkAccent),
         child: SvgPicture.asset(ImagesAssets.chairDark),

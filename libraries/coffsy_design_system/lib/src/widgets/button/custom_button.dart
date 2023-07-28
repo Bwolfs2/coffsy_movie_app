@@ -32,6 +32,8 @@ class _CustomButtonState extends State<CustomButton> with TickerProviderStateMix
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+
     return AnimatedBuilder(
       animation: _animationController,
       builder: (ctx, child) {
@@ -49,14 +51,16 @@ class _CustomButtonState extends State<CustomButton> with TickerProviderStateMix
         );
       },
       child: SizedBox(
-        width: Sizes.width(context) * .9,
-        height: Sizes.width(context) / 7,
+        width: width * .9,
+        height: width / 7,
         child: TextButton(
           style: TextButton.styleFrom(
             foregroundColor: ColorPalettes.darkAccent,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(
-                Sizes.dp10(context),
+              borderRadius: const BorderRadius.all(
+                Radius.circular(
+                  10,
+                ),
               ),
               side: BorderSide(
                 color: ColorPalettes.darkAccent,
@@ -68,9 +72,9 @@ class _CustomButtonState extends State<CustomButton> with TickerProviderStateMix
           },
           child: Text(
             widget.text,
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: Sizes.dp18(context),
+              fontSize: 18,
             ),
           ),
         ),

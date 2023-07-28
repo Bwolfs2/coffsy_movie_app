@@ -27,6 +27,10 @@ class _DiscoverPageState extends State<DiscoverPage> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+
+    final height = MediaQuery.sizeOf(context).height;
+
     return Scaffold(
       backgroundColor: ColorPalettes.black,
       floatingActionButton: FloatingActionButton(
@@ -58,17 +62,16 @@ class _DiscoverPageState extends State<DiscoverPage> {
               final position = index + 1;
 
               return SizedBox(
-                width: Sizes.width(context),
-                height: Sizes.height(context),
+                width: width,
+                height: height,
                 child: Stack(
                   alignment: Alignment.topCenter,
                   children: <Widget>[
                     CachedNetworkImage(
                       imageUrl: movie.backdropPath.imageOriginal,
-                      width: Sizes.width(context),
-                      height: Sizes.height(context),
+                      width: width,
+                      height: MediaQuery.sizeOf(context).height,
                       fit: BoxFit.cover,
-                      placeholder: (context, url) => const LoadingIndicator(),
                       errorWidget: (context, url, error) => const ErrorImage(),
                     ),
                     Container(
@@ -122,8 +125,8 @@ class _DiscoverPageState extends State<DiscoverPage> {
                       right: 0,
                       child: Container(
                         margin: EdgeInsets.only(
-                          top: Sizes.width(context) / 7,
-                          right: Sizes.dp30(context),
+                          top: MediaQuery.sizeOf(context).width / 7,
+                          right: 30,
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -134,7 +137,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                               '$position',
                               style: TextStyle(
                                 color: ColorPalettes.white,
-                                fontSize: Sizes.dp25(context),
+                                fontSize: 25,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -142,7 +145,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                               '/${state.length}',
                               style: TextStyle(
                                 color: ColorPalettes.white,
-                                fontSize: Sizes.dp16(context),
+                                fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),

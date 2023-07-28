@@ -20,22 +20,22 @@ class AboutPage extends StatelessWidget {
             child: PhysicalModel(
               elevation: 8,
               color: Theme.of(context).colorScheme.background,
-              borderRadius: BorderRadius.only(
-                topRight: Radius.circular(Sizes.dp30(context)),
-                topLeft: Radius.circular(Sizes.dp30(context)),
+              borderRadius: const BorderRadius.only(
+                topRight: Radius.circular(30),
+                topLeft: Radius.circular(30),
               ),
               child: Column(
                 children: <Widget>[
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(
-                      top: Sizes.dp30(context),
-                      bottom: Sizes.dp20(context),
+                      top: 30,
+                      bottom: 20,
                     ),
                     child: Text(
                       'My Portfolio',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: Sizes.dp22(context),
+                        fontSize: 22,
                       ),
                     ),
                   ),

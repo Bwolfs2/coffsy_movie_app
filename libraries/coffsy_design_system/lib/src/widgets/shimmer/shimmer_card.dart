@@ -7,6 +7,8 @@ class ShimmerCard extends StatelessWidget {
   const ShimmerCard({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+
     return Shimmer.fromColors(
       baseColor: ColorPalettes.greyBg,
       highlightColor: ColorPalettes.white,
@@ -16,40 +18,41 @@ class ShimmerCard extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              height: Sizes.width(context) / 1.8,
-              width: Sizes.width(context) / 2.5,
-              decoration: BoxDecoration(
-                color: ColorPalettes.greyBg,
-                borderRadius: BorderRadius.all(
-                  Radius.circular(
-                    Sizes.dp10(context),
+            AspectRatio(
+              aspectRatio: 10 / 16,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: ColorPalettes.greyBg,
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(
+                      10,
+                    ),
                   ),
                 ),
               ),
             ),
-            SizedBox(width: Sizes.dp10(context)),
+            const SizedBox(width: 10),
             Container(
-              height: Sizes.width(context) / 1.8,
-              width: Sizes.width(context) / 2.5,
+              height: width / 1.8,
+              width: width / 2.5,
               decoration: BoxDecoration(
                 color: ColorPalettes.greyBg,
-                borderRadius: BorderRadius.all(
+                borderRadius: const BorderRadius.all(
                   Radius.circular(
-                    Sizes.dp10(context),
+                    10,
                   ),
                 ),
               ),
             ),
-            SizedBox(width: Sizes.dp10(context)),
+            const SizedBox(width: 10),
             Container(
-              height: Sizes.width(context) / 1.8,
-              width: Sizes.width(context) / 2.5,
+              height: width / 1.8,
+              width: width / 2.5,
               decoration: BoxDecoration(
                 color: ColorPalettes.greyBg,
-                borderRadius: BorderRadius.all(
+                borderRadius: const BorderRadius.all(
                   Radius.circular(
-                    Sizes.dp10(context),
+                    10,
                   ),
                 ),
               ),

@@ -61,6 +61,8 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+
     return Scaffold(
       body: SafeArea(
         child: Stack(
@@ -70,8 +72,8 @@ class _SplashPageState extends State<SplashPage> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   SizedBox(
-                    height: Sizes.width(context) / 3,
-                    width: Sizes.width(context) / 3,
+                    height: width / 3,
+                    width: width / 3,
                     child: Image.asset(
                       ImagesAssets.movieIcon,
                       fit: BoxFit.contain,
@@ -95,7 +97,7 @@ class _SplashPageState extends State<SplashPage> {
                   }
 
                   return Container(
-                    margin: EdgeInsets.only(bottom: Sizes.dp30(context)),
+                    margin: const EdgeInsets.only(bottom: 30),
                     child: Text(
                       verInfo,
                       style: const TextStyle(fontWeight: FontWeight.bold),

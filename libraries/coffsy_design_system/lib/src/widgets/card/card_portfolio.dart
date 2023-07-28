@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../coffsy_design_system.dart';
-
 class CardPortfolio extends StatelessWidget {
   final String imageAsset;
   final String title;
@@ -17,26 +15,28 @@ class CardPortfolio extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+
     return Container(
-      margin: EdgeInsets.all(Sizes.dp5(context)),
+      margin: const EdgeInsets.all(5),
       child: InkWell(
         onTap: () => launchUrl(Uri.parse(url)),
         child: Card(
           child: Padding(
-            padding: EdgeInsets.all(Sizes.dp10(context)),
+            padding: const EdgeInsets.all(10),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 SizedBox(
-                  height: Sizes.width(context) / 7,
-                  width: Sizes.width(context) / 7,
+                  height: width / 7,
+                  width: width / 7,
                   child: Image.asset(
                     imageAsset,
                     fit: BoxFit.contain,
                   ),
                 ),
-                SizedBox(
-                  width: Sizes.dp10(context),
+                const SizedBox(
+                  width: 10,
                 ),
                 Expanded(
                   child: Column(
@@ -45,20 +45,20 @@ class CardPortfolio extends StatelessWidget {
                       Text(
                         title,
                         overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontWeight: FontWeight.w600,
-                          fontSize: Sizes.dp18(context),
+                          fontSize: 18,
                         ),
                       ),
-                      SizedBox(
-                        height: Sizes.dp18(context),
+                      const SizedBox(
+                        height: 18,
                       ),
                       Text(
                         url,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontSize: Sizes.dp14(context),
+                        style: const TextStyle(
+                          fontSize: 14,
                         ),
                       ),
                     ],

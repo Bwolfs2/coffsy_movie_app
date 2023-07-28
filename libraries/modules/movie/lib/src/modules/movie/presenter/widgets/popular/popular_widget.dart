@@ -25,6 +25,8 @@ class _PopularWidgetState extends State<PopularWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -33,17 +35,17 @@ class _PopularWidgetState extends State<PopularWidget> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text(
+              const Text(
                 'Popular',
                 style: TextStyle(
-                  fontSize: Sizes.dp14(context),
+                  fontSize: 14,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_forward_ios,
-                  size: Sizes.dp16(context),
+                  size: 16,
                 ),
                 onPressed: () {
                   Modular.to.pushNamed('/dashboard/movie_module/movie_popular', forRoot: true);
@@ -53,8 +55,8 @@ class _PopularWidgetState extends State<PopularWidget> {
           ),
         ),
         SizedBox(
-          width: Sizes.width(context),
-          height: Sizes.width(context) / 1.8,
+          width: width,
+          height: width / 1.8,
           child: ScopedBuilder<PopularStore, Failure, List<Movie>>.transition(
             store: store,
             onError: (context, error) {

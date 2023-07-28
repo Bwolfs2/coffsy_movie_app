@@ -39,6 +39,8 @@ class _CinemaWidgetState extends State<CinemaWidget> with TickerProviderStateMix
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+
     return Column(
       children: <Widget>[
         AnimatedBuilder(
@@ -55,17 +57,16 @@ class _CinemaWidgetState extends State<CinemaWidget> with TickerProviderStateMix
             );
           },
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(Sizes.dp10(context)),
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
             child: CachedNetworkImage(
               imageUrl: widget.movieBackground.imageOriginal,
-              width: Sizes.width(context),
+              width: width,
               fit: BoxFit.fill,
-              placeholder: (context, url) => const LoadingIndicator(),
               errorWidget: (context, url, error) => const ErrorImage(),
             ),
           ),
         ),
-        SizedBox(height: Sizes.dp20(context)),
+        const SizedBox(height: 20),
         AnimatedBuilder(
           animation: _cinemaChairAc,
           builder: (ctx, child) {
@@ -75,7 +76,7 @@ class _CinemaWidgetState extends State<CinemaWidget> with TickerProviderStateMix
             );
           },
           child: SizedBox(
-            width: Sizes.width(context),
+            width: width,
             child: const ChairList(),
           ),
         ),
@@ -122,7 +123,7 @@ class _ChairListState extends State<ChairList> {
       children: <Widget>[
         for (int index = 0; index < 6; index++)
           Container(
-            margin: EdgeInsets.only(top: index == 3 ? Sizes.dp20(context) : 0),
+            margin: EdgeInsets.only(top: index == 3 ? 20 : 0),
             child: Row(
               children: <Widget>[
                 for (int indexx = 0; indexx < 9; indexx++)
@@ -150,8 +151,8 @@ class _ChairListState extends State<ChairList> {
                               }
                             },
                             child: Container(
-                              height: Sizes.width(context) / 11 - 10,
-                              margin: EdgeInsets.all(Sizes.dp5(context)),
+                              height: MediaQuery.sizeOf(context).width / 11 - 10,
+                              margin: const EdgeInsets.all(5),
                               child: _chairStatus[index][indexx - 1] == 1
                                   ? ChairConstant.white(isDarkTheme: _isDarkTheme)
                                   : _chairStatus[index][indexx - 1] == 2
@@ -166,7 +167,7 @@ class _ChairListState extends State<ChairList> {
             ),
           ),
         Container(
-          margin: EdgeInsets.only(top: Sizes.dp20(context)),
+          margin: const EdgeInsets.only(top: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
@@ -212,7 +213,7 @@ class ChairCategory extends StatelessWidget {
           margin: const EdgeInsets.only(right: 8),
           decoration: BoxDecoration(
             border: Border.all(color: _borderColor(isWhite)),
-            borderRadius: BorderRadius.circular(2),
+            borderRadius: const BorderRadius.all(Radius.circular(2)),
             color: color,
           ),
         ),

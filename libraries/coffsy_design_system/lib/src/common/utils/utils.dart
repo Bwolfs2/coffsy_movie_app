@@ -5,5 +5,4 @@ export 'images_assets.dart';
 export 'menu.dart';
 export 'movies_key.dart';
 export 'pop_up.dart';
-export 'sizes.dart';
 export 'url_constant.dart';

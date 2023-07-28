@@ -60,7 +60,7 @@ class _DateWidgetState extends State<DateWidget> with TickerProviderStateMixin {
     _isDarkTheme = themeData.appBarTheme.backgroundColor == null;
 
     return SizedBox(
-      height: Sizes.width(context) / 3.5,
+      height: MediaQuery.sizeOf(context).width / 3.5,
       child: Stack(
         alignment: Alignment.centerLeft,
         children: <Widget>[
@@ -75,7 +75,7 @@ class _DateWidgetState extends State<DateWidget> with TickerProviderStateMixin {
             child: Container(
               decoration: BoxDecoration(
                 color: _backgroundColor(),
-                borderRadius: BorderRadius.all(Radius.circular(Sizes.dp10(context))),
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
               ),
             ),
           ),
@@ -101,17 +101,17 @@ class _DateWidgetState extends State<DateWidget> with TickerProviderStateMixin {
                     });
                   },
                   child: Container(
-                    margin: EdgeInsets.only(
-                      top: Sizes.dp25(context),
-                      left: Sizes.dp10(context),
-                      right: Sizes.dp10(context),
-                      bottom: Sizes.dp25(context),
+                    margin: const EdgeInsets.only(
+                      top: 25,
+                      left: 10,
+                      right: 10,
+                      bottom: 25,
                     ),
-                    width: Sizes.width(context) / 10,
+                    width: MediaQuery.sizeOf(context).width / 10,
                     decoration: BoxDecoration(
                       color: _dateIndexSelected == index ? ColorPalettes.darkAccent : Colors.transparent,
-                      borderRadius: BorderRadius.circular(
-                        Sizes.dp5(context),
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(5),
                       ),
                     ),
                     child: Column(
@@ -120,7 +120,7 @@ class _DateWidgetState extends State<DateWidget> with TickerProviderStateMixin {
                         Text(
                           DateTimeFormat.day(date.weekday),
                           style: TextStyle(
-                            fontSize: Sizes.dp12(context),
+                            fontSize: 12,
                             fontWeight: FontWeight.w600,
                             color: _textDateColor(index),
                           ),
@@ -128,7 +128,7 @@ class _DateWidgetState extends State<DateWidget> with TickerProviderStateMixin {
                         Text(
                           date.day.toString(),
                           style: TextStyle(
-                            fontSize: Sizes.dp22(context),
+                            fontSize: 22,
                             fontWeight: FontWeight.w600,
                             height: 1,
                             color: _textDateColor(index),

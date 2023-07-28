@@ -24,23 +24,25 @@ class CardMoviesHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+
     final movieInformation = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           title,
-          style: TextStyle(
-            fontSize: Sizes.dp20(context),
+          style: const TextStyle(
+            fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(height: Sizes.dp8(context)),
+        const SizedBox(height: 8),
         RatingInformation(
           rating: rating,
         ),
-        SizedBox(height: Sizes.dp12(context)),
+        const SizedBox(height: 12),
         Padding(
-          padding: EdgeInsets.only(right: Sizes.dp8(context)),
+          padding: const EdgeInsets.only(right: 8),
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
@@ -54,13 +56,13 @@ class CardMoviesHeader extends StatelessWidget {
     return Stack(
       children: [
         Padding(
-          padding: EdgeInsets.only(bottom: Sizes.width(context) / 3),
+          padding: EdgeInsets.only(bottom: width / 3),
           child: ArcBannerImage(imageBanner),
         ),
         Positioned(
           bottom: 0,
-          left: Sizes.dp16(context),
-          right: Sizes.dp16(context),
+          left: 16,
+          right: 16,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.end,
@@ -69,10 +71,10 @@ class CardMoviesHeader extends StatelessWidget {
                 tag: isFromBanner ? idMovie : imagePoster,
                 child: MoviesPoster(
                   imagePoster,
-                  Sizes.width(context) / 2,
+                  width / 2,
                 ),
               ),
-              SizedBox(width: Sizes.dp16(context)),
+              const SizedBox(width: 16),
               Expanded(child: movieInformation),
             ],
           ),

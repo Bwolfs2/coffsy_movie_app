@@ -22,6 +22,7 @@ class _DetailPageState extends State<DetailPage> {
     final _arguments = widget.arguments;
     final _screenData = _arguments.screenData;
     final _secondary = Theme.of(context).colorScheme.secondary;
+    final width = MediaQuery.sizeOf(context).width;
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -42,21 +43,21 @@ class _DetailPageState extends State<DetailPage> {
                   genre: _screenData.genreIds.take(3).map((id) => GenreChip(genreId: id)).toList(),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(
-                    Sizes.dp20(context),
+                  padding: const EdgeInsets.all(
+                    20,
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         'Story line',
                         style: TextStyle(
                           fontWeight: FontWeight.w600,
-                          fontSize: Sizes.dp16(context),
+                          fontSize: 16,
                         ),
                       ),
-                      SizedBox(
-                        height: Sizes.dp8(context),
+                      const SizedBox(
+                        height: 8,
                       ),
                       Text(
                         _screenData.overview,
@@ -65,9 +66,9 @@ class _DetailPageState extends State<DetailPage> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(
-                    left: Sizes.dp20(context),
-                    right: Sizes.dp20(context),
+                  padding: const EdgeInsets.only(
+                    left: 20,
+                    right: 20,
                   ),
                   child: TrailerWidget(
                     key: ValueKey('${_arguments.isFromMovie}${_screenData.screenId}'),
@@ -76,9 +77,9 @@ class _DetailPageState extends State<DetailPage> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(
-                    left: Sizes.dp20(context),
-                    right: Sizes.dp20(context),
+                  padding: const EdgeInsets.only(
+                    left: 20,
+                    right: 20,
                   ),
                   child: CrewWidget(
                     key: ValueKey('${_arguments.isFromMovie}${_screenData.screenId}'),
@@ -87,9 +88,9 @@ class _DetailPageState extends State<DetailPage> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(
-                    top: Sizes.dp20(context),
-                    bottom: Sizes.dp20(context),
+                  padding: const EdgeInsets.only(
+                    top: 20,
+                    bottom: 20,
                   ),
                   child: CustomButton(
                     text: 'Booking Ticket',
@@ -108,10 +109,10 @@ class _DetailPageState extends State<DetailPage> {
               ],
             ),
             Positioned(
-              top: Sizes.width(context) / 9,
-              right: Sizes.dp5(context),
+              top: width / 9,
+              right: 5,
               child: IconButton(
-                iconSize: Sizes.dp30(context),
+                iconSize: 30,
                 color: _secondary,
                 icon: const Icon(Icons.favorite_border),
                 onPressed: () {
@@ -120,11 +121,11 @@ class _DetailPageState extends State<DetailPage> {
               ),
             ),
             Positioned(
-              top: Sizes.width(context) / 9,
-              left: Sizes.dp5(context),
+              top: width / 9,
+              left: 5,
               child: PhysicalModel(
                 color: Colors.white.withOpacity(.3),
-                borderRadius: BorderRadius.circular(100),
+                borderRadius: const BorderRadius.all(Radius.circular(100)),
                 child: IconButton(
                   color: _secondary,
                   icon: Platform.isAndroid ? const Icon(Icons.arrow_back) : const Icon(Icons.arrow_back_ios),

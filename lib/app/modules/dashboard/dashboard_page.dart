@@ -69,17 +69,17 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
   Widget build(BuildContext context) {
     return StatefulBuilder(
       builder: (context, setState) => BottomAppBar(
-        shape: AutomaticNotchedShape(
-          const RoundedRectangleBorder(
+        shape: const AutomaticNotchedShape(
+          RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
               top: Radius.circular(16),
             ),
           ),
           RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.all(Radius.circular(16)),
           ),
         ),
-        notchMargin: Sizes.dp8(context),
+        notchMargin: 8,
         clipBehavior: Clip.antiAliasWithSaveLayer,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
