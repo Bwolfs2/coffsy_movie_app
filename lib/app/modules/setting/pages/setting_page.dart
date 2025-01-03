@@ -28,7 +28,7 @@ class _SettingPageState extends State<SettingPage> {
   void initState() {
     super.initState();
 
-    _remoteConfig.addListener(() {
+    _remoteConfig.onConfigUpdated.listen((event) {
       setState(() {
         updated = true;
       });

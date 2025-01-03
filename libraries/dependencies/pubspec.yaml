@@ -12,15 +12,14 @@ dependencies:
 
   # UI
   shimmer: ^2.0.0
-  cached_network_image: ^3.0.0
+  cached_network_image: ^3.4.1
   url_launcher: ^6.0.6
-  flutter_launcher_icons: ^0.9.0
-  youtube_player_flutter: ^8.0.0
-  flutter_svg: ^0.22.0
+  youtube_player_flutter: ^9.1.1
+  flutter_svg: ^2.0.16
   liquid_pull_to_refresh: ^3.0.0
-  carousel_slider: ^4.1.1
-  lottie: ^1.0.1
-  fluttertoast: ^8.0.7
+  carousel_slider: ^5.0.0
+  lottie: ^3.3.0
+  fluttertoast: ^8.2.10
   animated_card: ^2.0.0
 
   # Structure
@@ -38,21 +37,21 @@ dependencies:
   package_info_plus: ^4.0.0
   feedback: ^2.5.0
 
-  # Firebase
-  firebase_performance: ^0.9.1+2
-  firebase_remote_config: ^3.0.9
-  firebase_crashlytics: ^3.0.11
-  firebase_analytics: ^10.1.0
-  firebase_storage: ^11.0.10
+  # Firebase  
+  firebase_performance: ^0.10.0+11
+  firebase_remote_config: ^5.2.0
+  firebase_crashlytics: ^4.2.0
+  firebase_analytics: ^11.3.6
+  firebase_storage: ^12.3.7
 
   # Core
   shared_preferences: ^2.0.17
   dio: 5.1.2
   flutterando_analysis: ^0.0.2
 
-dev_dependencies:
-  dart_code_metrics: ^5.7.4
+dev_dependencies:  
   flutter_test:
     sdk: flutter
 
 flutter:
+  uses-material-design: true

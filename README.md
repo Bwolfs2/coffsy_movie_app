@@ -29,16 +29,16 @@ Commom libraries beetween MainApp, External and Internal Modules
 ### UI
 
 - shimmer: ^2.0.0
-- cached_network_image: ^3.0.0
+- cached_network_image: ^3.4.1
 - url_launcher: ^6.0.6
 - flutter_launcher_icons: ^0.9.0
 - package_info: ^2.0.2
-- youtube_player_flutter: ^8.0.0
-- flutter_svg: ^0.22.0
+- youtube_player_flutter: ^9.1.1
+- flutter_svg: ^2.0.16
 - liquid_pull_to_refresh: ^3.0.0
-- carousel_slider: ^4.1.1
-- lottie: ^1.0.1
-- fluttertoast: ^8.0.7
+- carousel_slider: ^5.0.0
+- lottie: ^3.3.0
+- fluttertoast: ^8.2.10
 - dartz: ^0.10.0
 - flutter_modular: ^5.0.2
 - flutter_triple: ^1.2.7+2

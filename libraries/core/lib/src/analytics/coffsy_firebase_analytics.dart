@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 class CoffsyFirebaseAnalytics {
   CoffsyFirebaseAnalytics();
 
-  Future<void> logEvent(String name, Map<String, dynamic> parameters) async {
+  Future<void> logEvent(String name, Map<String, Object>? parameters) async {
     await FirebaseAnalytics.instance.logEvent(name: name, parameters: parameters);
   }
 
@@ -20,7 +20,7 @@ class CoffsyFirebaseAnalytics {
 VoidCallback logEventOnClick(
   String action,
   VoidCallback onTap, {
-  Map<String, dynamic>? parameters,
+  Map<String, Object>? parameters,
 }) =>
     () {
       FirebaseAnalytics.instance.logEvent(name: 'click_$action', parameters: parameters);

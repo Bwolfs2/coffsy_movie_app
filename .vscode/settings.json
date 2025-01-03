@@ -5,8 +5,8 @@
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.codeActionsOnSave": {
-      "source.fixAll": true,
-      "source.organizeImports": true 
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit"
     }
   },
   "dart.flutterSdkPath": "D:\\fvm\\images\\versions\\stable",

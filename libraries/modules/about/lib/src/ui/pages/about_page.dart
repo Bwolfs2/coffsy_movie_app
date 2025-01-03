@@ -19,7 +19,7 @@ class AboutPage extends StatelessWidget {
           Expanded(
             child: PhysicalModel(
               elevation: 8,
-              color: Theme.of(context).colorScheme.background,
+              color: Theme.of(context).colorScheme.surface,
               borderRadius: const BorderRadius.only(
                 topRight: Radius.circular(30),
                 topLeft: Radius.circular(30),

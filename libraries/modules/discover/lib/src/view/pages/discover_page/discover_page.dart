@@ -75,15 +75,15 @@ class _DiscoverPageState extends State<DiscoverPage> {
                       errorWidget: (context, url, error) => const ErrorImage(),
                     ),
                     Container(
-                      color: ColorPalettes.grey.withOpacity(.6),
+                      color: ColorPalettes.grey.withAlpha(153),
                     ),
                     Container(
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
                           colors: [
-                            ColorPalettes.black.withOpacity(.9),
-                            ColorPalettes.black.withOpacity(.3),
-                            ColorPalettes.black.withOpacity(.95),
+                            ColorPalettes.black.withAlpha(230),
+                            ColorPalettes.black.withAlpha(77),
+                            ColorPalettes.black.withAlpha(242),
                           ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,

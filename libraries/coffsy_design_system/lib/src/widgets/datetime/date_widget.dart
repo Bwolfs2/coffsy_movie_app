@@ -46,7 +46,7 @@ class _DateWidgetState extends State<DateWidget> with TickerProviderStateMixin {
           ? ColorPalettes.white
           : ColorPalettes.black;
 
-  Color _backgroundColor() => !_isDarkTheme ? ColorPalettes.white.withOpacity(.1) : ColorPalettes.black.withOpacity(.1);
+  Color _backgroundColor() => !_isDarkTheme ? ColorPalettes.white.withAlpha(25) : ColorPalettes.black.withAlpha(25);
 
   @override
   void dispose() {

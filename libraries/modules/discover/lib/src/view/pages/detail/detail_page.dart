@@ -125,7 +125,7 @@ class _DetailPageState extends State<DetailPage> {
               top: width / 9,
               left: 5,
               child: PhysicalModel(
-                color: Colors.white.withOpacity(.3),
+                color: Colors.white.withAlpha(76),
                 borderRadius: const BorderRadius.all(Radius.circular(100)),
                 child: IconButton(
                   color: _secondary,

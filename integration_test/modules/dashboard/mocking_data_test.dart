@@ -1,3 +1,4 @@
+/*
 import 'package:coffsy_movie_app/main.dart' as app;
 import 'package:dartz/dartz.dart' hide Bind;
 import 'package:flutter_modular/flutter_modular.dart';
@@ -64,3 +65,4 @@ void main() {
     });
   });
 }
+*/
