@@ -8,12 +8,15 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import 'app/app_module.dart';
 import 'app/app_widget.dart';
+import 'firebase_options.dart';
 
 Future<void> main() async {
   await runZonedGuarded(
     () async {
       WidgetsFlutterBinding.ensureInitialized();
-      await Firebase.initializeApp();
+      await Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform,
+      );
 
       runApp(
         BetterFeedback(
@@ -25,7 +28,9 @@ Future<void> main() async {
       );
     },
     (object, stacktrace) async {
-      await Firebase.initializeApp();
+      await Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform,
+      );
       await FirebaseCrashlytics.instance.recordError(object, stacktrace);
     },
   );
