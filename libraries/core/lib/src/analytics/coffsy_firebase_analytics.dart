@@ -13,7 +13,10 @@ class CoffsyFirebaseAnalytics {
   }
 
   Future<void> setCurrentScreen({required String screenName, String screenClassOverride = 'Flutter'}) async {
-    await FirebaseAnalytics.instance.setCurrentScreen(screenName: screenName, screenClassOverride: screenClassOverride);
+    await FirebaseAnalytics.instance.logScreenView(
+      screenName: screenName,
+      screenClass: screenClassOverride,
+    );
   }
 }
 

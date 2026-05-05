@@ -633,10 +633,10 @@ packages:
     dependency: "direct main"
     description:
       name: pulsar
-      sha256: "576d73eed1131a2b11d94abd8acf6c3a0872aceec7624457e30500c3774b1237"
+      sha256: "4c940ce6b822e26e6ecb2e80d44e90778a186a7e5ba31821c6a2cbf35487abbb"
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.0"
+    version: "0.1.1"
   rx_notifier:
     dependency: transitive
     description:

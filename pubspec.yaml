@@ -43,7 +43,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   dartz: ^0.10.0
-
+  
 dev_dependencies:
   mocktail: ^1.0.4
   integration_test:

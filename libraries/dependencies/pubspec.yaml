@@ -24,7 +24,7 @@ dependencies:
 
   # Structure
   flutter_triple: ^1.2.7+4
-  pulsar: ^0.1.0
+  pulsar: 0.1.1
 
   dartz: ^0.10.0-nullsafety.2
 
