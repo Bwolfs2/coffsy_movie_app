@@ -1,4 +1,4 @@
-# Global minimum iOS version (required by Firebase and Flutter tooling).
+# Global platform (required for consistent Firebase / FlutterFire resolution)
 platform :ios, '13.0'
 
 # CocoaPods analytics sends network stats synchronously affecting flutter build latency.
