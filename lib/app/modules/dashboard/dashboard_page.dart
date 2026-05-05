@@ -1,7 +1,7 @@
 import 'package:coffsy_design_system/coffsy_design_system.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:pulsar/pulsar.dart';
 
 class DashBoardPage extends StatefulWidget {
   const DashBoardPage({Key? key}) : super(key: key);
@@ -20,7 +20,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
       floatingActionButton: FloatingActionButton(
         tooltip: 'floatActionButton',
         onPressed: () {
-          Modular.to.pushNamed('/discover_movie', forRoot: true);
+          Pulsar.to.pushNamed('/discover_movie', forRoot: true);
         },
         child: Icon(
           Icons.location_searching,
@@ -40,18 +40,18 @@ class CustomBottomBar extends StatefulWidget {
 }
 
 class _CustomBottomBarState extends State<CustomBottomBar> {
-  final analytics = Modular.get<CoffsyFirebaseAnalytics>();
+  final analytics = Pulsar.get<CoffsyFirebaseAnalytics>();
 
   int selectedPage = 0;
 
   @override
   void initState() {
     super.initState();
-    Modular.to.addListener(onChangeRoute);
+    Pulsar.to.addListener(onChangeRoute);
   }
 
   void onChangeRoute() {
-    final path = Modular.to.path;
+    final path = Pulsar.to.path;
     if (path.contains('movie_module')) {
       setState(() {
         selectedPage = 0;
@@ -89,7 +89,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
               color: selectedPage == 0 ? Theme.of(context).primaryColorLight : Theme.of(context).primaryColor,
               icon: const Icon(Icons.movie_creation),
               onPressed: () {
-                Modular.to.navigate('/dashboard/movie_module/');
+                Pulsar.to.navigate('/dashboard/movie_module/');
               },
             ),
             IconButton(
@@ -97,7 +97,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
               color: selectedPage == 1 ? ColorPalettes.darkAccent : ColorPalettes.grey,
               icon: const Icon(Icons.live_tv),
               onPressed: () {
-                Modular.to.navigate('/dashboard/tv_show/');
+                Pulsar.to.navigate('/dashboard/tv_show/');
               },
             ),
           ],
@@ -115,18 +115,18 @@ class CustomNavigatorBar extends StatefulWidget {
 }
 
 class _CustomNavigatorBarState extends State<CustomNavigatorBar> {
-  final analytics = Modular.get<CoffsyFirebaseAnalytics>();
+  final analytics = Pulsar.get<CoffsyFirebaseAnalytics>();
 
   int selectedPage = 0;
 
   @override
   void initState() {
     super.initState();
-    Modular.to.addListener(onChangeRoute);
+    Pulsar.to.addListener(onChangeRoute);
   }
 
   void onChangeRoute() {
-    final path = Modular.to.path;
+    final path = Pulsar.to.path;
     if (path.contains('movie_module')) {
       setState(() {
         selectedPage = 0;
@@ -151,11 +151,11 @@ class _CustomNavigatorBarState extends State<CustomNavigatorBar> {
         selectedIndex: selectedPage,
         onDestinationSelected: (value) {
           if (value == 0) {
-            Modular.to.navigate('/dashboard/movie_module/');
+            Pulsar.to.navigate('/dashboard/movie_module/');
           }
 
           if (value == 1) {
-            Modular.to.navigate('/dashboard/tv_show/');
+            Pulsar.to.navigate('/dashboard/tv_show/');
           }
         },
       ),

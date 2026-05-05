@@ -1,7 +1,7 @@
 import 'package:coffsy_design_system/coffsy_design_system.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:pulsar/pulsar.dart';
 
 class BookingPage extends StatelessWidget {
   final ScreenArguments arguments;
@@ -46,7 +46,7 @@ class BookingPage extends StatelessWidget {
                       title: 'Payment Successful!',
                       submit: logEventOnClick(
                         'payment_success',
-                        () => Modular.to.navigate('/dashboard/movie_module/'),
+                        () => Pulsar.to.navigate('/dashboard/movie_module/'),
                       ),
                     );
                   },

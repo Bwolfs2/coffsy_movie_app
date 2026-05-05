@@ -1,10 +1,10 @@
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:pulsar/pulsar.dart';
 
 import 'booking_page.dart';
 
 class BookingModule extends Module {
   @override
-  final List<ModularRoute> routes = [
+  final List<PulsarRoute> routes = [
     ChildRoute('/', child: (_, args) => BookingPage(arguments: args.data)),
   ];
 }

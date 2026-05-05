@@ -1,8 +1,8 @@
 import 'package:coffsy_design_system/coffsy_design_system.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
+import 'package:pulsar/pulsar.dart';
 
 import '../../../domain/entities/movie.dart';
 import '../../../domain/errors/movie_failures.dart';
@@ -16,7 +16,7 @@ class UpComingWidget extends StatefulWidget {
 }
 
 class _UpComingWidgetState extends State<UpComingWidget> {
-  final store = Modular.get<UpComingWidgetStore>();
+  final store = Pulsar.get<UpComingWidgetStore>();
   @override
   void initState() {
     super.initState();
@@ -48,7 +48,7 @@ class _UpComingWidgetState extends State<UpComingWidget> {
                   size: 16,
                 ),
                 onPressed: () {
-                  Modular.to.pushNamed('./up_coming', forRoot: true);
+                  Pulsar.to.pushNamed('./up_coming', forRoot: true);
                 },
               ),
             ],
@@ -86,7 +86,7 @@ class _UpComingWidgetState extends State<UpComingWidget> {
                         title: movies.title,
                         rating: movies.voteAverage,
                         onTap: () {
-                          Modular.to.pushNamed(
+                          Pulsar.to.pushNamed(
                             './detail_movies',
                             arguments: ScreenArguments(
                               screenData: ScreenData(

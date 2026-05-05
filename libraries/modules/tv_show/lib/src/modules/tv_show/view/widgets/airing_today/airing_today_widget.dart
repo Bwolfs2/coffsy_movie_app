@@ -1,8 +1,8 @@
 import 'package:coffsy_design_system/coffsy_design_system.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
+import 'package:pulsar/pulsar.dart';
 
 import '../../../domain/entities/tv_show.dart';
 import '../../../domain/errors/tv_show_failures.dart';
@@ -16,7 +16,7 @@ class AiringTodayWidget extends StatefulWidget {
 }
 
 class _AiringTodayWidgetState extends State<AiringTodayWidget> {
-  final store = Modular.get<AiringTodayWidgetStore>();
+  final store = Pulsar.get<AiringTodayWidgetStore>();
   @override
   void initState() {
     super.initState();
@@ -48,7 +48,7 @@ class _AiringTodayWidgetState extends State<AiringTodayWidget> {
                   size: 16,
                 ),
                 onPressed: () {
-                  Modular.to.pushNamed('./airing_today', forRoot: true);
+                  Pulsar.to.pushNamed('./airing_today', forRoot: true);
                 },
               ),
             ],
@@ -86,7 +86,7 @@ class _AiringTodayWidgetState extends State<AiringTodayWidget> {
                   title: movie.tvName ?? 'No TV Name',
                   rating: movie.voteAverage,
                   onTap: () {
-                    Modular.to.pushNamed(
+                    Pulsar.to.pushNamed(
                       './detail_movies',
                       arguments: ScreenArguments(
                         screenData: ScreenData(

@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:coffsy_design_system/coffsy_design_system.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:pulsar/pulsar.dart';
 
 import '../widgets/crew/crew_widget.dart';
 import '../widgets/trailer/trailer_widget.dart';
@@ -96,7 +96,7 @@ class _DetailPageState extends State<DetailPage> {
                   child: CustomButton(
                     text: 'Booking Ticket',
                     onPressed: () {
-                      Modular.to.pushNamed(
+                      Pulsar.to.pushNamed(
                         './booking',
                         arguments: ScreenArguments(
                           screenData: widget.arguments.screenData,
@@ -130,7 +130,7 @@ class _DetailPageState extends State<DetailPage> {
                 child: IconButton(
                   color: _secondary,
                   icon: Platform.isAndroid ? const Icon(Icons.arrow_back) : const Icon(Icons.arrow_back_ios),
-                  onPressed: () => Modular.to.pop(),
+                  onPressed: () => Pulsar.to.pop(),
                 ),
               ),
             ),

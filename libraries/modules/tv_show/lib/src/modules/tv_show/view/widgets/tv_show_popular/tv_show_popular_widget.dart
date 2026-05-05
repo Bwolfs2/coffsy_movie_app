@@ -1,8 +1,8 @@
 import 'package:coffsy_design_system/coffsy_design_system.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
+import 'package:pulsar/pulsar.dart';
 
 import '../../../domain/entities/tv_popular_show.dart';
 import '../../../domain/errors/tv_show_failures.dart';
@@ -16,7 +16,7 @@ class TvShowPopularWidget extends StatefulWidget {
 }
 
 class _TvShowPopularWidgetState extends State<TvShowPopularWidget> {
-  final store = Modular.get<TvShowPopularStore>();
+  final store = Pulsar.get<TvShowPopularStore>();
   @override
   void initState() {
     super.initState();
@@ -48,7 +48,7 @@ class _TvShowPopularWidgetState extends State<TvShowPopularWidget> {
                   size: 16,
                 ),
                 onPressed: () {
-                  Modular.to.pushNamed('./tv_popular', forRoot: true);
+                  Pulsar.to.pushNamed('./tv_popular', forRoot: true);
                 },
               ),
             ],
@@ -87,7 +87,7 @@ class _TvShowPopularWidgetState extends State<TvShowPopularWidget> {
                   title: tvPopularShow.tvName ?? 'No TV Name',
                   rating: tvPopularShow.voteAverage,
                   onTap: () {
-                    Modular.to.pushNamed(
+                    Pulsar.to.pushNamed(
                       './detail_movies',
                       arguments: ScreenArguments(
                         screenData: ScreenData(

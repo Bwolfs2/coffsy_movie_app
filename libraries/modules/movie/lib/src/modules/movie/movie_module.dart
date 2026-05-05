@@ -1,5 +1,5 @@
 import 'package:booking/booking.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:pulsar/pulsar.dart';
 
 import '../../../movie.dart';
 import 'domain/use_cases/get_movie_popular.dart';
@@ -53,7 +53,7 @@ class MovieModule extends Module {
   ];
 
   @override
-  final List<ModularRoute> routes = [
+  final List<PulsarRoute> routes = [
     ChildRoute('/', child: (_, args) => const MoviePage()),
     ChildRoute('/now_playing', child: (_, __) => const NowPlayingPage()),
     ChildRoute('/movie_popular', child: (_, __) => const MoviePopularPage()),

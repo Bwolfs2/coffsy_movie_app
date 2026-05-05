@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:pulsar/pulsar.dart';
 
 import '../../../coffsy_design_system.dart';
 
@@ -46,7 +46,7 @@ class BannerHome extends StatelessWidget {
                 borderRadius: const BorderRadius.all(Radius.circular(10)),
                 child: GestureDetector(
                   onTap: () {
-                    Modular.to.pushNamed(
+                    Pulsar.to.pushNamed(
                       routeNameDetail,
                       arguments: ScreenArguments(
                         screenData: data[index],
@@ -113,7 +113,7 @@ class BannerHome extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                Modular.to.pushNamed(
+                Pulsar.to.pushNamed(
                   routeNameAll,
                   forRoot: true,
                 );

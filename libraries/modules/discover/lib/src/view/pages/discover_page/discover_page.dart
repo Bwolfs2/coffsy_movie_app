@@ -2,8 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:coffsy_design_system/coffsy_design_system.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
+import 'package:pulsar/pulsar.dart';
 
 import '../../../domain/entities/movie.dart';
 import '../../../domain/errors/discover_failures.dart';
@@ -17,7 +17,7 @@ class DiscoverPage extends StatefulWidget {
 }
 
 class _DiscoverPageState extends State<DiscoverPage> {
-  final store = Modular.get<DiscoverStore>();
+  final store = Pulsar.get<DiscoverStore>();
 
   @override
   void initState() {
@@ -98,7 +98,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                         rating: movie.voteAverage,
                         genre: movie.genreIds,
                         onTap: () {
-                          Modular.to.pushNamed(
+                          Pulsar.to.pushNamed(
                             './detail_movies',
                             arguments: ScreenArguments(
                               screenData: ScreenData(

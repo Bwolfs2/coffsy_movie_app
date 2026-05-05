@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>585464944769-ni7pslhu8jgjd9fm45388nqminpd0reh.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.585464944769-ni7pslhu8jgjd9fm45388nqminpd0reh</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>585464944769-j8oq41q73f2k4lumab5icihe5578vu03.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB6apozJPK9JJOrqx3Kq_qpP6HueGCAmzw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>585464944769</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.coffsyMovieApp</string>
+	<key>PROJECT_ID</key>
+	<string>movie-app-eeb10</string>
+	<key>STORAGE_BUCKET</key>
+	<string>movie-app-eeb10.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:585464944769:ios:46c74d6220b5a77d981580</string>
+</dict>
+</plist>

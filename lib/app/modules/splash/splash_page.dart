@@ -4,8 +4,8 @@ import 'package:coffsy_design_system/coffsy_design_system.dart';
 import 'package:core/core.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:pulsar/pulsar.dart';
 
 import '../../app_module.dart';
 
@@ -38,7 +38,7 @@ class _SplashPageState extends State<SplashPage> {
           ),
         ),
       ),
-      Modular.isModuleReady<AppModule>(),
+      Pulsar.isModuleReady<AppModule>(),
       Future.delayed(const Duration(seconds: 2)),
     ]).then((value) async {
       try {
@@ -47,7 +47,7 @@ class _SplashPageState extends State<SplashPage> {
         await _remoteConfig.setDefaults({'can_change_theme': true});
       }
     }).then(
-      (value) => Modular.to.navigate('/dashboard/movie_module/'),
+      (value) => Pulsar.to.navigate('/dashboard/movie_module/'),
     );
   }
 

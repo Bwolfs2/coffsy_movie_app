@@ -1,8 +1,8 @@
 import 'package:coffsy_design_system/coffsy_design_system.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
+import 'package:pulsar/pulsar.dart';
 
 import '../../../domain/entities/movie.dart';
 import '../../../domain/errors/movie_failures.dart';
@@ -16,7 +16,7 @@ class PopularWidget extends StatefulWidget {
 }
 
 class _PopularWidgetState extends State<PopularWidget> {
-  final store = Modular.get<PopularStore>();
+  final store = Pulsar.get<PopularStore>();
   @override
   void initState() {
     super.initState();
@@ -48,7 +48,7 @@ class _PopularWidgetState extends State<PopularWidget> {
                   size: 16,
                 ),
                 onPressed: () {
-                  Modular.to.pushNamed('/dashboard/movie_module/movie_popular', forRoot: true);
+                  Pulsar.to.pushNamed('/dashboard/movie_module/movie_popular', forRoot: true);
                 },
               ),
             ],
@@ -85,7 +85,7 @@ class _PopularWidgetState extends State<PopularWidget> {
                         title: movies.title,
                         rating: movies.voteAverage,
                         onTap: () {
-                          Modular.to.pushNamed(
+                          Pulsar.to.pushNamed(
                             './detail_movies',
                             arguments: ScreenArguments(
                               screenData: ScreenData(

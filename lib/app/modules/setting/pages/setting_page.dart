@@ -2,9 +2,9 @@ import 'package:coffsy_design_system/coffsy_design_system.dart';
 import 'package:core/core.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:pulsar/pulsar.dart';
 
 import 'setting_store.dart';
 
@@ -53,7 +53,7 @@ class _SettingPageState extends State<SettingPage> {
                 Icons.arrow_forward_ios,
                 size: 16,
               ),
-              onTap: () => Modular.to.pushNamed('/about'),
+              onTap: () => Pulsar.to.pushNamed('/about'),
             ),
             if (_remoteConfig.getBool('can_change_theme'))
               ListTile(

@@ -4,8 +4,8 @@ import 'package:coffsy_design_system/coffsy_design_system.dart';
 import 'package:feedback/feedback.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
+import 'package:pulsar/pulsar.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../widgets/airing_today/airing_today_widget.dart';
@@ -23,9 +23,9 @@ class TvShowPage extends StatefulWidget {
 }
 
 class _TvShowPageState extends State<TvShowPage> {
-  final tvShowBannerStore = Modular.get<TvShowBannerStore>();
-  final airingTodayWidgetStore = Modular.get<AiringTodayWidgetStore>();
-  final tvShowPopularStore = Modular.get<TvShowPopularStore>();
+  final tvShowBannerStore = Pulsar.get<TvShowBannerStore>();
+  final airingTodayWidgetStore = Pulsar.get<AiringTodayWidgetStore>();
+  final tvShowPopularStore = Pulsar.get<TvShowPopularStore>();
 
   Future<void> _refresh() async {
     await tvShowBannerStore.load();
@@ -53,7 +53,7 @@ class _TvShowPageState extends State<TvShowPage> {
                       );
                 });
               } else {
-                Modular.to.pushNamed(menu.route);
+                Pulsar.to.pushNamed(menu.route);
               }
             },
             itemBuilder: (context) {

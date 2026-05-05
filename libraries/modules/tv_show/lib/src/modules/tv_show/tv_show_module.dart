@@ -1,5 +1,5 @@
 import 'package:booking/booking.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:pulsar/pulsar.dart';
 
 import 'data/datasources/tv_show_datasource_impl.dart';
 import 'domain/usecases/get_movie_crew_by_id.dart';
@@ -53,7 +53,7 @@ class TvShowModule extends Module {
   ];
 
   @override
-  final List<ModularRoute> routes = [
+  final List<PulsarRoute> routes = [
     ChildRoute('/', child: (_, args) => const TvShowPage()),
     ChildRoute('/airing_today', child: (context, args) => const AiringTodayPage()),
     ChildRoute('/on_the_air', child: (context, args) => const OnTheAirPage()),

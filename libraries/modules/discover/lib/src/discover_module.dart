@@ -1,5 +1,5 @@
 import 'package:booking/booking.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:pulsar/pulsar.dart';
 
 import 'domain/use_cases/get_discover_movie.dart';
 import 'domain/use_cases/get_movie_crew_by_id.dart';
@@ -32,7 +32,7 @@ class DiscoverModule extends Module {
   ];
 
   @override
-  final List<ModularRoute> routes = [
+  final List<PulsarRoute> routes = [
     ChildRoute('/', child: (_, args) => const DiscoverPage()),
     ChildRoute('/detail_movies', child: (_, args) => DetailPage(arguments: args.data)),
     ModuleRoute('/booking', module: BookingModule()),
