@@ -1,8 +1,8 @@
 import 'package:coffsy_design_system/coffsy_design_system.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
+import 'package:pulsar/pulsar.dart';
 
 import '../../../domain/entities/tv_show.dart';
 import '../../../domain/errors/tv_show_failures.dart';
@@ -16,7 +16,7 @@ class TvShowBanner extends StatefulWidget {
 }
 
 class _TvShowBannerState extends State<TvShowBanner> {
-  final store = Modular.get<TvShowBannerStore>();
+  final store = Pulsar.get<TvShowBannerStore>();
   int _current = 0;
   @override
   void initState() {

@@ -1,9 +1,9 @@
 import 'package:coffsy_design_system/coffsy_design_system.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
+import 'package:pulsar/pulsar.dart';
 
 import '../../../domain/entities/tv_popular_show.dart';
 import '../../../domain/errors/tv_show_failures.dart';
@@ -17,7 +17,7 @@ class TvPopularPage extends StatefulWidget {
 }
 
 class _TvPopularPageState extends State<TvPopularPage> {
-  final store = Modular.get<TvPopularStore>();
+  final store = Pulsar.get<TvPopularStore>();
 
   @override
   void initState() {
@@ -66,7 +66,7 @@ class _TvPopularPageState extends State<TvPopularPage> {
                 overview: tvPopularShow.overview,
                 genre: tvPopularShow.genreIds.take(3).map((id) => GenreChip(genreId: id)).toList(),
                 onTap: () {
-                  Modular.to.pushNamed(
+                  Pulsar.to.pushNamed(
                     './detail_movies',
                     arguments: ScreenArguments(
                       screenData: ScreenData(

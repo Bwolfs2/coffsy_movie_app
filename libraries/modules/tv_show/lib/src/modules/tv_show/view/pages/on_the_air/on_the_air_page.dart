@@ -1,9 +1,9 @@
 import 'package:coffsy_design_system/coffsy_design_system.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
+import 'package:pulsar/pulsar.dart';
 
 import '../../../domain/entities/on_the_air.dart';
 import '../../../domain/errors/tv_show_failures.dart';
@@ -17,7 +17,7 @@ class OnTheAirPage extends StatefulWidget {
 }
 
 class _OnTheAirPageState extends State<OnTheAirPage> {
-  final store = Modular.get<OnTheAirStore>();
+  final store = Pulsar.get<OnTheAirStore>();
   @override
   void initState() {
     super.initState();
@@ -65,7 +65,7 @@ class _OnTheAirPageState extends State<OnTheAirPage> {
                 overview: onTheAir.overview,
                 genre: onTheAir.genreIds.take(3).map((id) => GenreChip(genreId: id)).toList(),
                 onTap: () {
-                  Modular.to.pushNamed(
+                  Pulsar.to.pushNamed(
                     './detail_movies',
                     arguments: ScreenArguments(
                       screenData: ScreenData(

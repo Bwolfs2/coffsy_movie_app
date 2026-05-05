@@ -2,8 +2,8 @@ import 'package:coffsy_design_system/coffsy_design_system.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
+import 'package:pulsar/pulsar.dart';
 
 import '../../../domain/entities/trailer.dart';
 import '../../../domain/errors/movie_failures.dart';
@@ -23,7 +23,7 @@ class TrailerWidget extends StatefulWidget {
 }
 
 class _TrailerWidgetState extends State<TrailerWidget> {
-  final store = Modular.get<TrailerStore>();
+  final store = Pulsar.get<TrailerStore>();
 
   void reload() {
     if (widget.isFromMovie) {

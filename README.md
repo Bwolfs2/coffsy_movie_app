@@ -1,6 +1,6 @@
 # Coffsy Movie App
 
-This project aims to present an approach on how to implement a Package-oriented project as Mono-Repo but leaving the possibility of placing the External Modules in another separate Github or Pub, thus being able to use the same as Multi-Repo. Flutter_modular was used to separate the dependency injections into each module so that when you no longer use the dependency, it is removed or removed from memory when exiting the Module.
+This project aims to present an approach on how to implement a Package-oriented project as Mono-Repo but leaving the possibility of placing the External Modules in another separate Github or Pub, thus being able to use the same as Multi-Repo. [Pulsar](https://pub.dev/packages/pulsar) (a fork-style evolution of the flutter_modular 5.x API) is used to separate dependency injection per module so that dependencies can be scoped to the active route tree.
 Flutter_triple was used to simplify Store/Controllers actions and link screen actions with UseCases that link to the Movie API.
 
 This project is not just for standing still, whenever I learn something new or someone asks for more than a resource, I will try to update it here so I can have an example of a "Big" project using the technologies I use in my everyday life.
@@ -40,7 +40,7 @@ Commom libraries beetween MainApp, External and Internal Modules
 - lottie: ^3.3.0
 - fluttertoast: ^8.2.10
 - dartz: ^0.10.0
-- flutter_modular: ^5.0.2
+- pulsar: ^0.1.0
 - flutter_triple: ^1.2.7+2
 - animated_card: ^2.0.0
 

@@ -4,8 +4,8 @@ import 'package:coffsy_design_system/coffsy_design_system.dart';
 import 'package:core/core.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
+import 'package:pulsar/pulsar.dart';
 
 import 'modules/setting/pages/setting_store.dart';
 
@@ -24,9 +24,9 @@ class _AppWidgetState extends State<AppWidget> {
   @override
   void initState() {
     super.initState();
-    Modular.to.addListener(() {
+    Pulsar.to.addListener(() {
       try {
-        final page = Modular.to.path.split('/').lastWhere((element) => element != '');
+        final page = Pulsar.to.path.split('/').lastWhere((element) => element != '');
         analytics.setCurrentScreen(screenName: page);
         // ignore: avoid_catches_without_on_clauses
       } catch (e) {
@@ -37,12 +37,12 @@ class _AppWidgetState extends State<AppWidget> {
   }
 
   T tripleResolverCallback<T extends Object>() {
-    return Modular.get<T>();
+    return Pulsar.get<T>();
   }
 
   @override
   Widget build(BuildContext context) {
-    Modular.setObservers([
+    Pulsar.setObservers([
       FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance),
     ]);
 
@@ -54,8 +54,8 @@ class _AppWidgetState extends State<AppWidget> {
           theme: Themes.lightTheme,
           darkTheme: Themes.darkTheme,
           themeMode: state ? ThemeMode.dark : ThemeMode.light,
-          routerDelegate: Modular.routerDelegate,
-          routeInformationParser: Modular.routeInformationParser,
+          routerDelegate: Pulsar.routerDelegate,
+          routeInformationParser: Pulsar.routeInformationParser,
         );
       },
     );

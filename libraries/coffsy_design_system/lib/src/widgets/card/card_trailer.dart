@@ -83,13 +83,13 @@ class _CardTrailerState extends State<CardTrailer> with WidgetsBindingObserver {
                   ),
                 ],
                 // This for hide the full screen button
-                bottomActions: [
-                  const SizedBox(width: 14),
+                bottomActions: const [
+                  SizedBox(width: 14),
                   CurrentPosition(),
-                  const SizedBox(width: 8),
+                  SizedBox(width: 8),
                   ProgressBar(isExpanded: true),
                   RemainingDuration(),
-                  const PlaybackSpeedButton(),
+                  PlaybackSpeedButton(),
                 ],
               ),
             ),

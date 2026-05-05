@@ -1,8 +1,8 @@
 import 'package:about/about.dart';
 import 'package:core/core.dart';
 import 'package:discover/discover.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:movie/movie.dart';
+import 'package:pulsar/pulsar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tv_show/tv_show.dart';
 
@@ -31,7 +31,7 @@ class AppModule extends Module {
   ];
 
   @override
-  final List<ModularRoute> routes = [
+  final List<PulsarRoute> routes = [
     ModuleRoute('/', module: SplashModule()),
     ModuleRoute('/dashboard', module: DashboardModule()),
     ModuleRoute('/discover_movie', module: DiscoverModule()),

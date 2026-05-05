@@ -1,8 +1,8 @@
 import 'package:coffsy_design_system/coffsy_design_system.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
+import 'package:pulsar/pulsar.dart';
 
 import '../../../domain/entities/crew.dart';
 import '../../../domain/errors/movie_failures.dart';
@@ -18,7 +18,7 @@ class CrewWidget extends StatefulWidget {
 }
 
 class _CrewWidgetState extends State<CrewWidget> {
-  final store = Modular.get<CrewStore>();
+  final store = Pulsar.get<CrewStore>();
 
   Future<void> reload() async {
     if (widget.isFromMovie) {

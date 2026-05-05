@@ -415,22 +415,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_modular:
-    dependency: transitive
-    description:
-      name: flutter_modular
-      sha256: "061f0bcc8f8c438d4c82f4ff70a9e61f109961c92b4e1eaf1bbfab75f577fe0e"
-      url: "https://pub.dev"
-    source: hosted
-    version: "5.0.3"
-  flutter_modular_annotations:
-    dependency: transitive
-    description:
-      name: flutter_modular_annotations
-      sha256: "65971655bdd30816a6a66651c801f4ceba6c8ba265f0866cc51ad038332c9a71"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.2"
   flutter_svg:
     dependency: transitive
     description:
@@ -561,22 +545,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.17.0"
-  modular_core:
-    dependency: transitive
-    description:
-      name: modular_core
-      sha256: "84cfe65d2ab15b0265a5bdb07a7a0408b06f8d92fee6fb94a3c85e97cbc2d6af"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.3+1"
-  modular_interfaces:
-    dependency: transitive
-    description:
-      name: modular_interfaces
-      sha256: "89db18038048d63de80871189ddc52363814e8181615459e5d88ed0a921acc1f"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.2"
   octo_image:
     dependency: transitive
     description:
@@ -697,6 +665,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.5.0"
+  pulsar:
+    dependency: transitive
+    description:
+      name: pulsar
+      sha256: "576d73eed1131a2b11d94abd8acf6c3a0872aceec7624457e30500c3774b1237"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.0"
   rx_notifier:
     dependency: transitive
     description:

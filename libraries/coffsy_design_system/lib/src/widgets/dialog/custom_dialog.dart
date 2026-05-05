@@ -11,32 +11,35 @@ class CustomDialog extends StatelessWidget {
     return SimpleDialog(
       title: const Text('Switch Theme'),
       children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.only(left: 10),
-          child: Row(
+        RadioGroup<bool>(
+          groupValue: groupValue,
+          onChanged: (bool? value) {
+            if (value != null) {
+              onChanged(value);
+            }
+          },
+          child: const Column(
+            mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              Radio<bool>(
-                value: true,
-                groupValue: groupValue,
-                onChanged: (value) => onChanged(value ?? false),
+              Padding(
+                padding: EdgeInsets.only(left: 10),
+                child: Row(
+                  children: <Widget>[
+                    Radio<bool>(value: true),
+                    Text('Dark'),
+                  ],
+                ),
               ),
-              const Text('Dark'),
-            ],
-          ),
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 10),
-          child: Row(
-            children: <Widget>[
-              Radio<bool>(
-                value: false,
-                groupValue: groupValue,
-                onChanged: (value) => onChanged(value ?? false),
+              SizedBox(height: 10),
+              Padding(
+                padding: EdgeInsets.only(left: 10),
+                child: Row(
+                  children: <Widget>[
+                    Radio<bool>(value: false),
+                    Text('Light'),
+                  ],
+                ),
               ),
-              const Text('Light'),
             ],
           ),
         ),

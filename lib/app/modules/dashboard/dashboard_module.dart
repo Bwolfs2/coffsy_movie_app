@@ -1,12 +1,12 @@
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:movie/movie.dart';
+import 'package:pulsar/pulsar.dart';
 import 'package:tv_show/tv_show.dart';
 
 import 'dashboard_page.dart';
 
 class DashboardModule extends Module {
   @override
-  final List<ModularRoute> routes = [
+  final List<PulsarRoute> routes = [
     ChildRoute(
       '/',
       child: (_, args) => const DashBoardPage(),

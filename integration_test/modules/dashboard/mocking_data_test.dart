@@ -1,7 +1,7 @@
 /*
 import 'package:coffsy_movie_app/main.dart' as app;
 import 'package:dartz/dartz.dart' hide Bind;
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:pulsar/pulsar.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:mocktail/mocktail.dart';

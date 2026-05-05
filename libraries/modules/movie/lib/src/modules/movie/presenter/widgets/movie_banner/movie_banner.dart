@@ -1,8 +1,8 @@
 import 'package:coffsy_design_system/coffsy_design_system.dart';
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
+import 'package:pulsar/pulsar.dart';
 
 import '../../../domain/entities/movie.dart';
 import '../../../domain/errors/movie_failures.dart';
@@ -16,7 +16,7 @@ class MovieBanner extends StatefulWidget {
 }
 
 class _MovieBannerState extends State<MovieBanner> {
-  final store = Modular.get<MovieBannerStore>();
+  final store = Pulsar.get<MovieBannerStore>();
   int _current = 0;
 
   @override

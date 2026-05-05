@@ -1,10 +1,10 @@
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:pulsar/pulsar.dart';
 
 import 'ui/pages/about_page.dart';
 
 class AboutModule extends Module {
   @override
-  final List<ModularRoute> routes = [
+  final List<PulsarRoute> routes = [
     ChildRoute('/', child: (_, args) => const AboutPage()),
   ];
 }
